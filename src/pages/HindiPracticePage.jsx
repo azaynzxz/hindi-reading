@@ -2,14 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { RotateCw, ChevronLeft, ChevronRight, BookOpen, Languages, Type, CheckCircle, XCircle, Filter, RefreshCw, Menu, X, Globe, Loader2 } from 'lucide-react';
 
-const getDefaultApiBaseUrl = () => {
-    if (typeof window !== 'undefined' && window.location) {
-        return `${window.location.origin}/api`;
-    }
-    return 'http://localhost:3001/api';
-};
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? getDefaultApiBaseUrl();
+import { API_BASE_URL } from '../utils/api';
 
 const normalizeText = (text) => text.toLowerCase().trim().replace(/[^a-z0-9]/g, '');
 

@@ -1,12 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Globe, Download, Monitor, ChevronLeft, ChevronRight, Volume2, Square, ChevronDown, Mic, Copy, Check, BookOpen, X, Share2, Eye, EyeOff, CheckCircle, RefreshCw } from 'lucide-react';
 
-const getDefaultApiBaseUrl = () => {
-    // Always use port 3001 for the API server
-    return 'http://localhost:3001/api';
-};
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? getDefaultApiBaseUrl();
+import { API_BASE_URL } from '../utils/api';
 import { isDifficultWord, getWordDifficulty } from '../utils/vocabulary';
 import { getStorage, setStorage, StorageKeys } from '../utils/storage';
 import { shareToSocial, generateShareImage, generateShareLink } from '../utils/socialShare';
@@ -407,7 +402,7 @@ const ReadingCard = ({
             setTimeout(() => {
                 setSelectedWord(cleanWord);
                 setIsDefinitionClosing(false);
-                fetchWordDefinition(word).then(def => {
+                fetchWordTransliteration(word).then(def => {
                     setWordDefinition(def);
                 });
             }, 300);

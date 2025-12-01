@@ -4,14 +4,7 @@ import { BookOpen, Type, ChevronLeft, RefreshCw, CheckCircle, Languages, XCircle
 import WordPoster from '../components/WordPoster';
 import { getStorage, setStorage, StorageKeys } from '../utils/storage';
 
-const getDefaultApiBaseUrl = () => {
-    if (typeof window !== 'undefined' && window.location) {
-        return `${window.location.origin}/api`;
-    }
-    return 'http://localhost:3001/api';
-};
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? getDefaultApiBaseUrl();
+import { API_BASE_URL } from '../utils/api';
 
 const TypeToRevealPage = () => {
     const navigate = useNavigate();
