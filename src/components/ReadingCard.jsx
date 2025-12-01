@@ -1,5 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Globe, Download, Monitor, ChevronLeft, ChevronRight, Volume2, Square, ChevronDown, Mic, Copy, Check, BookOpen, X, Share2 } from 'lucide-react';
+import { Globe, Download, Monitor, ChevronLeft, ChevronRight, Volume2, Square, ChevronDown, Mic, Copy, Check, BookOpen, X, Share2, Eye, EyeOff } from 'lucide-react';
+
+const getDefaultApiBaseUrl = () => {
+    if (typeof window !== 'undefined' && window.location) {
+        return `${window.location.origin}/api`;
+    }
+    return 'http://localhost:3001/api';
+};
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? getDefaultApiBaseUrl();
 import { isDifficultWord, getWordDifficulty } from '../utils/vocabulary';
 import { getStorage, setStorage, StorageKeys } from '../utils/storage';
 import { shareToSocial, generateShareImage, generateShareLink } from '../utils/socialShare';
@@ -36,6 +45,8 @@ const ReadingCard = ({
     const [showShareModal, setShowShareModal] = useState(false);
     const [isDownloadingPoster, setIsDownloadingPoster] = useState(false);
     const [isShareModalClosing, setIsShareModalClosing] = useState(false);
+    const [showTransliteration, setShowTransliteration] = useState(false);
+    const [transliterationCache, setTransliterationCache] = useState({});
     const practiceButtonRef = useRef(null);
     const posterCanvasRef = useRef(null);
 
@@ -159,36 +170,67 @@ const ReadingCard = ({
         return () => stopSpeech();
     }, [activeData]);
 
-    // Fetch word definition (using a simple dictionary API or fallback)
-    const fetchWordDefinition = async (word) => {
-        const cleanWord = word.toLowerCase().replace(/[.,!?;:()"'-]/g, '');
+    // Pre-fetch transliterations when toggle is enabled
+    useEffect(() => {
+        if (showTransliteration && activeData?.text) {
+            const words = activeData.text.split(' ').map(w => w.trim()).filter(w => w.length > 0);
+
+            // Batch fetch transliterations for words not in cache
+            const uncachedWords = words.filter(w => !transliterationCache[w]);
+
+            if (uncachedWords.length > 0) {
+                // Fetch in batches to avoid overwhelming the API
+                uncachedWords.forEach(word => {
+                    fetchWordTransliteration(word);
+                });
+            }
+        }
+    }, [showTransliteration, activeData]);
+
+    // Fetch Hindi word transliteration using API
+    const fetchWordTransliteration = async (word) => {
+        const cleanWord = word.trim();
+
+        // Check cache first
+        if (transliterationCache[cleanWord]) {
+            return transliterationCache[cleanWord];
+        }
+
         try {
-            // Using Free Dictionary API
-            const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${cleanWord}`);
+            const response = await fetch(`${API_BASE_URL}/transliterate`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text: cleanWord })
+            });
+
             if (response.ok) {
                 const data = await response.json();
-                if (data && data[0]) {
-                    return {
+                if (data.success && data.transliterations && data.transliterations.length > 0) {
+                    const result = {
                         word: cleanWord,
-                        phonetic: data[0].phonetic || '',
-                        meanings: data[0].meanings || [],
-                        source: 'dictionary'
+                        transliterations: data.transliterations,
+                        primary: data.transliterations[0],
+                        source: 'api'
                     };
+
+                    // Cache the result
+                    setTransliterationCache(prev => ({
+                        ...prev,
+                        [cleanWord]: result
+                    }));
+
+                    return result;
                 }
             }
         } catch (error) {
-            console.error('Error fetching definition:', error);
+            console.error('Error fetching transliteration:', error);
         }
-        // Fallback definition
+
+        // Fallback
         return {
             word: cleanWord,
-            phonetic: '',
-            meanings: [{
-                partOfSpeech: 'noun',
-                definitions: [{
-                    definition: `A word meaning "${cleanWord}". Click to save to your vocabulary.`
-                }]
-            }],
+            transliterations: [cleanWord],
+            primary: cleanWord,
             source: 'fallback'
         };
     };
@@ -251,8 +293,8 @@ const ReadingCard = ({
         } else {
             setIsDefinitionClosing(false);
             setSelectedWord(cleanWord);
-            const definition = await fetchWordDefinition(word);
-            setWordDefinition(definition);
+            const transliteration = await fetchWordTransliteration(word);
+            setWordDefinition(transliteration);
         }
     };
 
@@ -729,6 +771,16 @@ ${shareLink}`;
                             {isSpeaking ? <Square size={12} className="md:w-3.5 md:h-3.5" fill="currentColor" /> : <Volume2 size={12} className="md:w-3.5 md:h-3.5" />}
                             <span className="hidden sm:inline">{isSpeaking ? 'Stop' : 'Listen'}</span>
                         </button>
+
+                        {/* Transliteration Toggle Button */}
+                        <button
+                            onClick={() => setShowTransliteration(!showTransliteration)}
+                            className={`flex items-center justify-center gap-1 md:gap-1.5 px-2 md:px-3 py-1 md:py-1.5 rounded-md font-semibold text-[10px] md:text-xs transition-all whitespace-nowrap flex-1 ${showTransliteration ? 'bg-[#880000]/10 text-[#880000]' : 'text-slate-700 hover:text-[#880000] hover:bg-slate-50'}`}
+                            title={showTransliteration ? "Hide transliteration" : "Show transliteration"}
+                        >
+                            {showTransliteration ? <EyeOff size={12} className="md:w-3.5 md:h-3.5" /> : <Eye size={12} className="md:w-3.5 md:h-3.5" />}
+                            <span className="hidden sm:inline">{showTransliteration ? 'Hide' : 'Show'}</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -740,28 +792,32 @@ ${shareLink}`;
                     <p className="text-lg md:text-2xl leading-relaxed text-slate-700 font-medium">
                         {displayedText.split(' ').map((word, index) => {
                             const isHighlighted = index === highlightIndex && !isTyping;
-                            const cleanWord = word.toLowerCase().replace(/[.,!?;:()"'-]/g, '');
-                            const isDifficult = isDifficultWord(cleanWord);
-                            const isSaved = savedWords.find(w => w.word === cleanWord);
+                            const cleanWord = word.trim();
                             const isSelected = selectedWord === cleanWord;
 
                             return (
                                 <React.Fragment key={index}>
-                                    <span
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            e.stopPropagation();
-                                            handleWordClick(word, e);
-                                        }}
-                                        className={`transition-all duration-200 rounded px-1 cursor-pointer ${isHighlighted ? 'bg-yellow-300 text-slate-900 shadow-sm' :
-                                            isSelected ? 'bg-blue-200 text-blue-900 shadow-sm' :
-                                                isSaved ? 'bg-green-100 text-green-800' :
-                                                    isDifficult ? 'text-[#4a1a1a] hover:text-[#5a2a2a]' :
-                                                        'hover:bg-slate-100'
-                                            }`}
-                                        title={isSaved ? 'Saved to vocabulary - Click to view' : isDifficult ? 'Difficult word - Click for definition' : 'Click for definition'}
-                                    >
-                                        {word}
+                                    <span className="inline-flex flex-col items-center group relative">
+                                        <span
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                e.stopPropagation();
+                                                handleWordClick(word, e);
+                                            }}
+                                            className={`transition-all duration-200 rounded px-1 cursor-pointer ${isHighlighted ? 'bg-yellow-300 text-slate-900 shadow-sm' :
+                                                isSelected ? 'bg-blue-200 text-blue-900 shadow-sm' :
+                                                    'hover:bg-slate-100'
+                                                }`}
+                                            title="Click for transliteration"
+                                        >
+                                            {word}
+                                        </span>
+                                        {/* Show transliteration below word when toggle is on */}
+                                        {showTransliteration && transliterationCache[cleanWord] && (
+                                            <span className="text-[10px] text-slate-400 mt-0.5 font-normal">
+                                                {transliterationCache[cleanWord].primary}
+                                            </span>
+                                        )}
                                     </span>
                                     {' '}
                                 </React.Fragment>
@@ -790,7 +846,7 @@ ${shareLink}`;
                             <div className="flex items-start justify-between mb-2">
                                 <div className="flex-1">
                                     <div className="flex items-center gap-2 mb-1">
-                                        <h3 className="font-bold text-lg text-slate-800 capitalize">{wordDefinition.word}</h3>
+                                        <h3 className="font-bold text-lg text-slate-800">{wordDefinition.word}</h3>
                                         <button
                                             onClick={() => {
                                                 const textToSpeak = wordDefinition.word;
@@ -811,8 +867,24 @@ ${shareLink}`;
                                             <Volume2 size={16} />
                                         </button>
                                     </div>
-                                    {wordDefinition.phonetic && (
-                                        <p className="text-sm text-slate-500 italic">{wordDefinition.phonetic}</p>
+                                    {/* Show transliterations */}
+                                    {wordDefinition.transliterations && wordDefinition.transliterations.length > 0 && (
+                                        <div className="space-y-2 mt-2">
+                                            <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Transliteration:</p>
+                                            <div className="flex flex-wrap gap-1.5">
+                                                {wordDefinition.transliterations.map((trans, idx) => (
+                                                    <span
+                                                        key={idx}
+                                                        className={`px-2 py-1 rounded-md text-sm ${idx === 0
+                                                            ? 'bg-[#880000]/10 text-[#880000] font-semibold border border-[#880000]/20'
+                                                            : 'bg-slate-100 text-slate-700'
+                                                            }`}
+                                                    >
+                                                        {trans}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
                                     )}
                                 </div>
                                 <button
@@ -911,8 +983,83 @@ ${shareLink}`;
                     <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
                         <div className={`bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 pointer-events-auto ${isShareModalClosing ? 'animate-modal-out' : 'animate-modal-in'}`}>
                             <div className="p-6">
-                            {/* Close Button */}
-                            <div className="flex justify-end mb-2">
+                                {/* Close Button */}
+                                <div className="flex justify-end mb-2">
+                                    <button
+                                        onClick={() => {
+                                            setIsShareModalClosing(true);
+                                            setTimeout(() => {
+                                                setShowShareModal(false);
+                                                setIsShareModalClosing(false);
+                                            }, 300);
+                                        }}
+                                        className="text-slate-400 hover:text-slate-600 transition-colors"
+                                    >
+                                        <X size={24} />
+                                    </button>
+                                </div>
+
+                                {/* Modal Content */}
+                                <div className="text-center mb-6">
+                                    <div className="w-16 h-16 bg-[#880000]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <Share2 size={32} className="text-[#880000]" />
+                                    </div>
+                                    <h2 className="text-2xl font-bold text-slate-800 mb-2">
+                                        Share Your Progress?
+                                    </h2>
+                                    <p className="text-slate-600">
+                                        Do you want to share your learning progress with others?
+                                    </p>
+                                </div>
+
+                                {/* Download Button */}
+                                <button
+                                    onClick={async () => {
+                                        if (!posterCanvasRef.current) return;
+
+                                        setIsDownloadingPoster(true);
+
+                                        try {
+                                            // Download the poster
+                                            const link = document.createElement('a');
+                                            link.download = `reading-progress-m${currentMonth}-d${currentDay}.jpg`;
+                                            link.href = posterCanvasRef.current.toDataURL('image/jpeg', 0.95);
+                                            link.click();
+
+                                            // Wait a moment for download to start
+                                            await new Promise(resolve => setTimeout(resolve, 500));
+
+                                            // Trigger Web Share API
+                                            await shareToSocial(currentMonth, currentDay, statistics, progress, activeData);
+
+                                            // Close modal
+                                            setIsShareModalClosing(true);
+                                            setTimeout(() => {
+                                                setShowShareModal(false);
+                                                setIsShareModalClosing(false);
+                                                setIsDownloadingPoster(false);
+                                            }, 300);
+                                        } catch (error) {
+                                            console.error('Error sharing:', error);
+                                            setIsDownloadingPoster(false);
+                                        }
+                                    }}
+                                    disabled={isDownloadingPoster || !posterCanvasRef.current}
+                                    className="w-full bg-[#880000] hover:bg-[#770000] text-white font-bold py-3 px-6 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                                >
+                                    {isDownloadingPoster ? (
+                                        <>
+                                            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                            <span>Downloading...</span>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <Download size={20} />
+                                            <span>Download Poster</span>
+                                        </>
+                                    )}
+                                </button>
+
                                 <button
                                     onClick={() => {
                                         setIsShareModalClosing(true);
@@ -921,85 +1068,10 @@ ${shareLink}`;
                                             setIsShareModalClosing(false);
                                         }, 300);
                                     }}
-                                    className="text-slate-400 hover:text-slate-600 transition-colors"
+                                    className="w-full mt-3 text-slate-600 hover:text-slate-800 font-semibold py-2 px-6 rounded-lg transition-colors"
                                 >
-                                    <X size={24} />
+                                    Cancel
                                 </button>
-                            </div>
-
-                            {/* Modal Content */}
-                            <div className="text-center mb-6">
-                                <div className="w-16 h-16 bg-[#880000]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <Share2 size={32} className="text-[#880000]" />
-                                </div>
-                                <h2 className="text-2xl font-bold text-slate-800 mb-2">
-                                    Share Your Progress?
-                                </h2>
-                                <p className="text-slate-600">
-                                    Do you want to share your learning progress with others?
-                                </p>
-                            </div>
-
-                            {/* Download Button */}
-                            <button
-                                onClick={async () => {
-                                    if (!posterCanvasRef.current) return;
-
-                                    setIsDownloadingPoster(true);
-
-                                    try {
-                                        // Download the poster
-                                        const link = document.createElement('a');
-                                        link.download = `reading-progress-m${currentMonth}-d${currentDay}.jpg`;
-                                        link.href = posterCanvasRef.current.toDataURL('image/jpeg', 0.95);
-                                        link.click();
-
-                                        // Wait a moment for download to start
-                                        await new Promise(resolve => setTimeout(resolve, 500));
-
-                                        // Trigger Web Share API
-                                        await shareToSocial(currentMonth, currentDay, statistics, progress, activeData);
-
-                                        // Close modal
-                                        setIsShareModalClosing(true);
-                                        setTimeout(() => {
-                                            setShowShareModal(false);
-                                            setIsShareModalClosing(false);
-                                            setIsDownloadingPoster(false);
-                                        }, 300);
-                                    } catch (error) {
-                                        console.error('Error sharing:', error);
-                                        setIsDownloadingPoster(false);
-                                    }
-                                }}
-                                disabled={isDownloadingPoster || !posterCanvasRef.current}
-                                className="w-full bg-[#880000] hover:bg-[#770000] text-white font-bold py-3 px-6 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                            >
-                                {isDownloadingPoster ? (
-                                    <>
-                                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                                        <span>Downloading...</span>
-                                    </>
-                                ) : (
-                                    <>
-                                        <Download size={20} />
-                                        <span>Download Poster</span>
-                                    </>
-                                )}
-                            </button>
-
-                            <button
-                                onClick={() => {
-                                    setIsShareModalClosing(true);
-                                    setTimeout(() => {
-                                        setShowShareModal(false);
-                                        setIsShareModalClosing(false);
-                                    }, 300);
-                                }}
-                                className="w-full mt-3 text-slate-600 hover:text-slate-800 font-semibold py-2 px-6 rounded-lg transition-colors"
-                            >
-                                Cancel
-                            </button>
                             </div>
                         </div>
                     </div>
