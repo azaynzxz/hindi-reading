@@ -181,6 +181,18 @@ const HindiPracticePage = () => {
         return null;
     };
 
+    const fuzzyNormalize = (text) => {
+        return text.toLowerCase().trim()
+            // Handle vowel length variations (common beginner mistake)
+            .replace(/aa/g, 'a')
+            .replace(/ii/g, 'i')
+            .replace(/uu/g, 'u')
+            .replace(/ee/g, 'e')
+            .replace(/oo/g, 'o')
+            // Remove non-alphanumeric
+            .replace(/[^a-z0-9]/g, '');
+    };
+
     const handleCheckAnswer = async () => {
         if (!currentWord) return;
 
@@ -192,24 +204,35 @@ const HindiPracticePage = () => {
             const targetWords = currentWord.transliteration.split(/\s+/);
             const hindiWords = currentWord.hindi.split(/\s+/);
 
-            // We need to check all words asynchronously
+            // We need to check all words asynchronously using API ONLY
             const results = await Promise.all(wordInputs.map(async (input, idx) => {
                 if (!targetWords[idx]) return false;
 
                 const normalizedInput = normalizeText(input || '');
-                const normalizedTarget = normalizeText(targetWords[idx]);
 
-                // 1. Check against CSV transliteration
-                if (normalizedInput === normalizedTarget) return true;
-
-                // 2. If API is running, check against API transliterations
+                // Use API for validation if available
                 if (apiServerRunning && hindiWords[idx]) {
                     const transliterations = await validateWordWithApi(hindiWords[idx]);
-                    if (transliterations) {
-                        return transliterations.some(t => normalizeText(t) === normalizedInput);
+                    if (transliterations && transliterations.length > 0) {
+                        // Check if user's input matches any API transliteration
+                        const matched = transliterations.some(t => {
+                            const normalizedApi = normalizeText(t);
+                            return normalizedApi === normalizedInput;
+                        });
+
+                        console.log('API Validation:', {
+                            hindi: hindiWords[idx],
+                            input,
+                            apiTransliterations: transliterations,
+                            matched
+                        });
+
+                        return matched;
                     }
                 }
 
+                // If API is not running or failed, validation fails
+                console.warn('⚠ API not available for validation. Please start the API server with: npm run server');
                 return false;
             }));
 
