@@ -6,7 +6,7 @@ import Flashcards from './components/Flashcards';
 import month1Data from './data/month1.json';
 import month2Data from './data/month2.json';
 import month3Data from './data/month3.json';
-import { ChevronRight, ChevronLeft, BookOpen, Globe, Square, Play, Pause, X, Type, Settings, Minus, Plus, Monitor, ExternalLink, Calendar, Download, Menu, ChevronDown, ChevronUp, Trophy, TrendingUp, Clock, MapPin, Share2, BarChart3, RotateCw, Languages } from 'lucide-react';
+import { ChevronRight, ChevronLeft, BookOpen, Globe, Square, Play, Pause, X, Type, Settings, Minus, Plus, Monitor, ExternalLink, Calendar, Download, Menu, ChevronDown, ChevronUp, Trophy, TrendingUp, Clock, MapPin, Share2, BarChart3, RotateCw, Languages, CheckCircle } from 'lucide-react';
 import { getStorage, setStorage, StorageKeys } from './utils/storage';
 
 const ReadingChallenge = () => {
@@ -30,6 +30,7 @@ const ReadingChallenge = () => {
     const [showFlashcards, setShowFlashcards] = useState(false);
     const [practicedDays, setPracticedDays] = useState({});
     const [triggerPracticeTooltip, setTriggerPracticeTooltip] = useState(false);
+    const [challengeStats, setChallengeStats] = useState(null);
     const scrollContainerRef = useRef(null);
     const animationFrameRef = useRef(null);
     const practiceStartTimeRef = useRef(null);
@@ -1068,6 +1069,35 @@ const ReadingChallenge = () => {
                                     <button onClick={() => changeMonth(2)} className={`flex-1 py-2 text-sm font-bold rounded-md transition-all ${currentMonth === 2 ? 'bg-white text-[#880000] shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>Month 2</button>
                                     <button onClick={() => changeMonth(3)} className={`flex-1 py-2 text-sm font-bold rounded-md transition-all ${currentMonth === 3 ? 'bg-white text-[#880000] shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>Month 3</button>
                                 </div>
+
+                                {/* Challenge Stats Display */}
+                                {challengeStats && (
+                                    <div className="mb-4 p-3 bg-purple-50 border border-purple-100 rounded-lg animate-in fade-in slide-in-from-top-2">
+                                        <h4 className="text-xs font-bold text-purple-800 uppercase tracking-wider mb-2 flex items-center gap-1">
+                                            <CheckCircle size={12} /> Challenge Stats
+                                        </h4>
+                                        <div className="grid grid-cols-2 gap-2 text-sm">
+                                            <div className="flex flex-col">
+                                                <span className="text-slate-500 text-[10px] uppercase tracking-wider">Time</span>
+                                                <span className="font-mono font-bold text-purple-700">
+                                                    {Math.floor(challengeStats.time / 60)}:{String(challengeStats.time % 60).padStart(2, '0')}
+                                                </span>
+                                            </div>
+                                            <div className="flex flex-col">
+                                                <span className="text-slate-500 text-[10px] uppercase tracking-wider">Accuracy</span>
+                                                <span className="font-mono font-bold text-purple-700">{challengeStats.accuracy}%</span>
+                                            </div>
+                                            <div className="flex flex-col">
+                                                <span className="text-slate-500 text-[10px] uppercase tracking-wider">Correct</span>
+                                                <span className="font-mono font-bold text-green-600">{challengeStats.correct}</span>
+                                            </div>
+                                            <div className="flex flex-col">
+                                                <span className="text-slate-500 text-[10px] uppercase tracking-wider">Wrong</span>
+                                                <span className="font-mono font-bold text-red-600">{challengeStats.wrong}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
                                 <h3 className="font-bold text-slate-700 mb-3 flex items-center gap-2 text-sm">
                                     <Square size={16} className="text-[#880000]" /> Day Selector
                                 </h3>
@@ -1114,6 +1144,7 @@ const ReadingChallenge = () => {
                                     statistics={statistics}
                                     progress={progress}
                                     triggerPracticeTooltip={triggerPracticeTooltip}
+                                    onChallengeStatsUpdate={setChallengeStats}
                                 />
                                 <div className="mt-4 md:mt-6 text-center flex flex-col items-center pb-4">
                                     <p className="text-sm md:text-base lg:text-lg text-slate-500 italic max-w-2xl">"This is my practice today about <span className="text-[#880000] font-semibold">{activeData.title}</span>, cannot wait to improve my English with the next training."</p>

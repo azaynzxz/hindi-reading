@@ -9,30 +9,6 @@ const PORT = 3001;
 app.use(cors());
 app.use(express.json());
 
-// Helper to handle Nukta characters (dots below letters) common in Urdu loanwords
-// Sanscript sometimes struggles with these, so we handle them manually or map them
-const handleNuktas = (text) => {
-    return text
-        // Pre-composed characters
-        .replace(/क़/g, 'q')
-        .replace(/ख़/g, 'kh')
-        .replace(/ग़/g, 'g')
-        .replace(/ज़/g, 'z')
-        .replace(/झ़/g, 'zh')
-        .replace(/ड़/g, 'r')
-        .replace(/ढ़/g, 'rh')
-        .replace(/फ़/g, 'f')
-        // Decomposed characters (Letter + Nukta \u093C)
-        .replace(/क\u093C/g, 'q')
-        .replace(/ख\u093C/g, 'kh')
-        .replace(/ग\u093C/g, 'g')
-        .replace(/ज\u093C/g, 'z')
-        .replace(/झ\u093C/g, 'zh')
-        .replace(/ड\u093C/g, 'r')
-        .replace(/ढ\u093C/g, 'rh')
-        .replace(/फ\u093C/g, 'f');
-};
-
 // Transliteration endpoint
 app.post('/api/transliterate', (req, res) => {
     const { text } = req.body;

@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Globe, Download, Monitor, ChevronLeft, ChevronRight, Volume2, Square, ChevronDown, Mic, Copy, Check, BookOpen, X, Share2, Eye, EyeOff } from 'lucide-react';
+import { Globe, Download, Monitor, ChevronLeft, ChevronRight, Volume2, Square, ChevronDown, Mic, Copy, Check, BookOpen, X, Share2, Eye, EyeOff, CheckCircle, RefreshCw } from 'lucide-react';
 
 const getDefaultApiBaseUrl = () => {
-    if (typeof window !== 'undefined' && window.location) {
-        return `${window.location.origin}/api`;
-    }
+    // Always use port 3001 for the API server
     return 'http://localhost:3001/api';
 };
 
@@ -27,7 +25,8 @@ const ReadingCard = ({
     progress,
     isDayPracticed,
     practicedDays,
-    triggerPracticeTooltip
+    triggerPracticeTooltip,
+    onChallengeStatsUpdate
 }) => {
     const [isSpeaking, setIsSpeaking] = useState(false);
     const [highlightIndex, setHighlightIndex] = useState(-1);
@@ -47,6 +46,13 @@ const ReadingCard = ({
     const [isShareModalClosing, setIsShareModalClosing] = useState(false);
     const [showTransliteration, setShowTransliteration] = useState(false);
     const [transliterationCache, setTransliterationCache] = useState({});
+    const [isChallengeMode, setIsChallengeMode] = useState(false);
+    const [challengeWords, setChallengeWords] = useState([]);
+    const [challengeInputs, setChallengeInputs] = useState({});
+    const [challengeStartTime, setChallengeStartTime] = useState(null);
+    const [challengeElapsedTime, setChallengeElapsedTime] = useState(0);
+    const [challengeCorrectCount, setChallengeCorrectCount] = useState(0);
+    const [challengeWrongCount, setChallengeWrongCount] = useState(0);
     const practiceButtonRef = useRef(null);
     const posterCanvasRef = useRef(null);
 
@@ -82,8 +88,8 @@ const ReadingCard = ({
     // To get more voices in Chrome: Install additional Windows voices via Settings > Time & Language > Speech
     useEffect(() => {
         const loadVoices = () => {
-            // Get all English voices
-            const availableVoices = window.speechSynthesis.getVoices().filter(v => v.lang.startsWith('en'));
+            // Get all Hindi voices (language code 'hi' or 'hi-IN')
+            const availableVoices = window.speechSynthesis.getVoices().filter(v => v.lang.startsWith('hi'));
             setVoices(availableVoices);
 
             if (availableVoices.length > 0) {
@@ -101,10 +107,10 @@ const ReadingCard = ({
                 }
                 // Only set default if we don't have a selected voice name yet
                 if (!selectedVoiceNameRef.current) {
-                    // Prefer voices in this order: Google US English, Microsoft Zira, Microsoft David, or first available
-                    const preferred = availableVoices.find(v => v.name.includes('Google US English')) ||
-                        availableVoices.find(v => v.name.includes('Zira')) ||
-                        availableVoices.find(v => v.name.includes('David')) ||
+                    // Prefer voices in this order: Google Hindi, Microsoft Hindi, or first available
+                    const preferred = availableVoices.find(v => v.name.includes('Google') && v.name.includes('Hindi')) ||
+                        availableVoices.find(v => v.name.includes('Microsoft') && v.name.includes('Hindi')) ||
+                        availableVoices.find(v => v.name.includes('Hindi')) ||
                         availableVoices[0];
                     setSelectedVoice(preferred);
                     selectedVoiceNameRef.current = preferred?.name || null;
@@ -175,8 +181,14 @@ const ReadingCard = ({
         if (showTransliteration && activeData?.text) {
             const words = activeData.text.split(' ').map(w => w.trim()).filter(w => w.length > 0);
 
+            // Also add the title to fetch list
+            const allTextToTransliterate = [...words];
+            if (activeData.title && !transliterationCache[activeData.title]) {
+                allTextToTransliterate.push(activeData.title);
+            }
+
             // Batch fetch transliterations for words not in cache
-            const uncachedWords = words.filter(w => !transliterationCache[w]);
+            const uncachedWords = allTextToTransliterate.filter(w => !transliterationCache[w]);
 
             if (uncachedWords.length > 0) {
                 // Fetch in batches to avoid overwhelming the API
@@ -186,6 +198,99 @@ const ReadingCard = ({
             }
         }
     }, [showTransliteration, activeData]);
+
+    // Initialize challenge words when challenge mode is activated
+    useEffect(() => {
+        if (isChallengeMode && activeData?.text) {
+            const cleanedText = activeData.text.replace(/\r?\n|\r/g, ' ').trim();
+            const wordArray = cleanedText.split(/\s+/).filter(word => word.length > 0);
+            setChallengeWords(wordArray);
+
+            // Initialize inputs for each word
+            const inputs = {};
+            wordArray.forEach((word, index) => {
+                inputs[index] = '';
+            });
+            setChallengeInputs(inputs);
+
+            // Start timer
+            setChallengeStartTime(Date.now());
+            setChallengeElapsedTime(0);
+            setChallengeCorrectCount(0);
+            setChallengeWrongCount(0);
+
+            // Pre-fetch transliterations for all words
+            wordArray.forEach(word => {
+                const clean = word.trim();
+                if (!transliterationCache[clean]) {
+                    fetchWordTransliteration(clean);
+                }
+            });
+        } else if (!isChallengeMode) {
+            // Clean up when challenge mode is deactivated
+            setChallengeWords([]);
+            setChallengeInputs({});
+            setChallengeStartTime(null);
+        }
+    }, [isChallengeMode, activeData]);
+
+    // Timer for Challenge mode
+    useEffect(() => {
+        if (isChallengeMode && challengeStartTime) {
+            const timer = setInterval(() => {
+                setChallengeElapsedTime(Math.floor((Date.now() - challengeStartTime) / 1000));
+            }, 1000);
+            return () => clearInterval(timer);
+        }
+    }, [isChallengeMode, challengeStartTime]);
+
+    // Count correct and wrong answers
+    useEffect(() => {
+        if (isChallengeMode && displayedText) {
+            const words = displayedText.split(' ');
+            let correct = 0;
+            let wrong = 0;
+
+            words.forEach((word, index) => {
+                const cleanWord = word.trim();
+                const userInput = challengeInputs[index] || '';
+                const cacheEntry = transliterationCache[cleanWord];
+
+                if (userInput && cacheEntry && cacheEntry.transliterations) {
+                    const cleanUserInput = userInput.replace(/[.,!?;:()"'\-|]/g, '').toLowerCase().trim();
+                    const isCorrect = cacheEntry.transliterations.some(t => {
+                        const cleanT = t.replace(/[.,!?;:()"'\-|]/g, '').toLowerCase();
+                        return cleanT === cleanUserInput;
+                    });
+
+                    if (isCorrect) {
+                        correct++;
+                    } else {
+                        wrong++;
+                    }
+                }
+            });
+
+            setChallengeCorrectCount(correct);
+            setChallengeWrongCount(wrong);
+        }
+    }, [isChallengeMode, challengeInputs, transliterationCache, displayedText]);
+
+    // Sync stats to parent
+    useEffect(() => {
+        if (onChallengeStatsUpdate && isChallengeMode) {
+            onChallengeStatsUpdate({
+                time: challengeElapsedTime,
+                correct: challengeCorrectCount,
+                wrong: challengeWrongCount,
+                accuracy: challengeCorrectCount + challengeWrongCount > 0
+                    ? Math.round((challengeCorrectCount / (challengeCorrectCount + challengeWrongCount)) * 100)
+                    : 0
+            });
+        } else if (onChallengeStatsUpdate && !isChallengeMode) {
+            onChallengeStatsUpdate(null);
+        }
+    }, [challengeElapsedTime, challengeCorrectCount, challengeWrongCount, isChallengeMode, onChallengeStatsUpdate]);
 
     // Fetch Hindi word transliteration using API
     const fetchWordTransliteration = async (word) => {
@@ -233,6 +338,22 @@ const ReadingCard = ({
             primary: cleanWord,
             source: 'fallback'
         };
+    };
+
+    // Challenge mode handlers
+    const handleChallengeInputChange = (index, value) => {
+        setChallengeInputs(prev => ({
+            ...prev,
+            [index]: value
+        }));
+    };
+
+    const handleResetChallenge = () => {
+        const inputs = {};
+        challengeWords.forEach((word, index) => {
+            inputs[index] = '';
+        });
+        setChallengeInputs(inputs);
     };
 
     const handleWordClick = async (word, event) => {
@@ -324,7 +445,7 @@ const ReadingCard = ({
 
     // Function to refresh voices (helps Chrome load voices after user interaction)
     const refreshVoices = () => {
-        const availableVoices = window.speechSynthesis.getVoices().filter(v => v.lang.startsWith('en'));
+        const availableVoices = window.speechSynthesis.getVoices().filter(v => v.lang.startsWith('hi'));
         setVoices(availableVoices);
 
         // If we have a selected voice, try to restore it
@@ -334,18 +455,18 @@ const ReadingCard = ({
                 setSelectedVoice(foundVoice);
             } else if (availableVoices.length > 0) {
                 // If selected voice not found, pick a default
-                const preferred = availableVoices.find(v => v.name.includes('Google US English')) ||
-                    availableVoices.find(v => v.name.includes('Zira')) ||
-                    availableVoices.find(v => v.name.includes('David')) ||
+                const preferred = availableVoices.find(v => v.name.includes('Google') && v.name.includes('Hindi')) ||
+                    availableVoices.find(v => v.name.includes('Microsoft') && v.name.includes('Hindi')) ||
+                    availableVoices.find(v => v.name.includes('Hindi')) ||
                     availableVoices[0];
                 setSelectedVoice(preferred);
                 selectedVoiceNameRef.current = preferred?.name || null;
             }
         } else if (availableVoices.length > 0) {
             // No voice selected yet, pick a default
-            const preferred = availableVoices.find(v => v.name.includes('Google US English')) ||
-                availableVoices.find(v => v.name.includes('Zira')) ||
-                availableVoices.find(v => v.name.includes('David')) ||
+            const preferred = availableVoices.find(v => v.name.includes('Google') && v.name.includes('Hindi')) ||
+                availableVoices.find(v => v.name.includes('Microsoft') && v.name.includes('Hindi')) ||
+                availableVoices.find(v => v.name.includes('Hindi')) ||
                 availableVoices[0];
             setSelectedVoice(preferred);
             selectedVoiceNameRef.current = preferred?.name || null;
@@ -730,7 +851,23 @@ ${shareLink}`;
                 {/* Row 2: Title and Listen UI */}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                     {/* Title */}
-                    <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-800 leading-tight flex-1">{activeData.title}</h2>
+                    <div className="flex-1">
+                        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-800 leading-tight">{activeData.title}</h2>
+                        {/* Show transliteration below title when toggle is on */}
+                        {showTransliteration && transliterationCache[activeData.title] && (
+                            <p className="text-sm md:text-base text-slate-500 mt-1 font-medium italic">
+                                {transliterationCache[activeData.title].primary}
+                            </p>
+                        )}
+
+                        {/* Challenge Mode Timer */}
+                        {isChallengeMode && (
+                            <div className="mt-2 inline-flex items-center gap-2 px-3 py-1.5 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold">
+                                <CheckCircle size={14} />
+                                <span>Challenge Time: {Math.floor(challengeElapsedTime / 60)}:{String(challengeElapsedTime % 60).padStart(2, '0')}</span>
+                            </div>
+                        )}
+                    </div>
 
                     {/* Listen UI */}
                     <div className="flex items-center gap-1 md:gap-1.5 bg-white p-1 md:p-1.5 rounded-lg border border-slate-200 shadow-sm w-full sm:w-auto sm:min-w-[200px]">
@@ -775,11 +912,27 @@ ${shareLink}`;
                         {/* Transliteration Toggle Button */}
                         <button
                             onClick={() => setShowTransliteration(!showTransliteration)}
-                            className={`flex items-center justify-center gap-1 md:gap-1.5 px-2 md:px-3 py-1 md:py-1.5 rounded-md font-semibold text-[10px] md:text-xs transition-all whitespace-nowrap flex-1 ${showTransliteration ? 'bg-[#880000]/10 text-[#880000]' : 'text-slate-700 hover:text-[#880000] hover:bg-slate-50'}`}
-                            title={showTransliteration ? "Hide transliteration" : "Show transliteration"}
+                            disabled={isChallengeMode}
+                            className={`flex items-center justify-center gap-1 md:gap-1.5 px-2 md:px-3 py-1 md:py-1.5 rounded-md font-semibold text-[10px] md:text-xs transition-all whitespace-nowrap flex-1 ${isChallengeMode
+                                ? 'bg-slate-100 text-slate-400 cursor-not-allowed'
+                                : showTransliteration
+                                    ? 'bg-[#880000]/10 text-[#880000]'
+                                    : 'text-slate-700 hover:text-[#880000] hover:bg-slate-50'
+                                }`}
+                            title={isChallengeMode ? "Disabled in Challenge mode" : showTransliteration ? "Hide transliteration" : "Show transliteration"}
                         >
                             {showTransliteration ? <EyeOff size={12} className="md:w-3.5 md:h-3.5" /> : <Eye size={12} className="md:w-3.5 md:h-3.5" />}
                             <span className="hidden sm:inline">{showTransliteration ? 'Hide' : 'Show'}</span>
+                        </button>
+
+                        {/* Challenge Mode Button */}
+                        <button
+                            onClick={() => setIsChallengeMode(!isChallengeMode)}
+                            className={`flex items-center justify-center gap-1 md:gap-1.5 px-2 md:px-3 py-1 md:py-1.5 rounded-md font-semibold text-[10px] md:text-xs transition-all whitespace-nowrap flex-1 ${isChallengeMode ? 'bg-purple-500/10 text-purple-600 border border-purple-500/30' : 'text-slate-700 hover:text-purple-600 hover:bg-purple-50'}`}
+                            title={isChallengeMode ? "Exit Challenge mode" : "Start Challenge mode"}
+                        >
+                            <CheckCircle size={12} className="md:w-3.5 md:h-3.5" />
+                            <span className="hidden sm:inline">{isChallengeMode ? 'Exit' : 'Challenge'}</span>
                         </button>
                     </div>
                 </div>
@@ -787,36 +940,73 @@ ${shareLink}`;
 
             {/* Reading Content */}
             <div className="p-6 md:p-10">
+
                 <div className="mb-4">
-                    <span className="block text-slate-400 text-xs font-bold uppercase tracking-widest mb-4">Read Aloud</span>
+                    <span className="block text-slate-400 text-xs font-bold uppercase tracking-widest mb-4">
+                        {isChallengeMode ? 'Type Challenge' : 'Read Aloud'}
+                    </span>
                     <p className="text-lg md:text-2xl leading-relaxed text-slate-700 font-medium">
                         {displayedText.split(' ').map((word, index) => {
                             const isHighlighted = index === highlightIndex && !isTyping;
                             const cleanWord = word.trim();
                             const isSelected = selectedWord === cleanWord;
+                            const userInput = challengeInputs[index] || '';
+                            const cacheEntry = transliterationCache[cleanWord];
+
+                            // Strip punctuation for validation (including | from Hindi danda ।)
+                            const cleanUserInput = userInput.replace(/[.,!?;:()"'\-|]/g, '').toLowerCase().trim();
+                            const isCorrect = isChallengeMode && cleanUserInput && cacheEntry &&
+                                cacheEntry.transliterations &&
+                                cacheEntry.transliterations.some(t => {
+                                    const cleanT = t.replace(/[.,!?;:()"'\-|]/g, '').toLowerCase();
+                                    return cleanT === cleanUserInput;
+                                });
+                            const isWrong = isChallengeMode && userInput && cacheEntry && !isCorrect;
 
                             return (
                                 <React.Fragment key={index}>
                                     <span className="inline-flex flex-col items-center group relative">
                                         <span
                                             onClick={(e) => {
-                                                e.preventDefault();
-                                                e.stopPropagation();
-                                                handleWordClick(word, e);
+                                                if (!isChallengeMode) {
+                                                    e.preventDefault();
+                                                    e.stopPropagation();
+                                                    handleWordClick(word, e);
+                                                }
                                             }}
-                                            className={`transition-all duration-200 rounded px-1 cursor-pointer ${isHighlighted ? 'bg-yellow-300 text-slate-900 shadow-sm' :
-                                                isSelected ? 'bg-blue-200 text-blue-900 shadow-sm' :
-                                                    'hover:bg-slate-100'
+                                            className={`transition-all duration-200 rounded px-1 ${isChallengeMode
+                                                ? 'cursor-default'
+                                                : `cursor-pointer ${isHighlighted ? 'bg-yellow-300 text-slate-900 shadow-sm' :
+                                                    isSelected ? 'bg-blue-200 text-blue-900 shadow-sm' :
+                                                        'hover:bg-slate-100'
+                                                }`
                                                 }`}
-                                            title="Click for transliteration"
+                                            title={isChallengeMode ? "" : "Click for transliteration"}
                                         >
                                             {word}
                                         </span>
-                                        {/* Show transliteration below word when toggle is on */}
-                                        {showTransliteration && transliterationCache[cleanWord] && (
+
+                                        {/* Show transliteration below word when toggle is on (not in challenge mode) */}
+                                        {showTransliteration && !isChallengeMode && transliterationCache[cleanWord] && (
                                             <span className="text-[10px] text-slate-400 mt-0.5 font-normal">
                                                 {transliterationCache[cleanWord].primary}
                                             </span>
+                                        )}
+
+                                        {/* Show input field below word when challenge mode is on */}
+                                        {isChallengeMode && (
+                                            <input
+                                                type="text"
+                                                value={userInput}
+                                                onChange={(e) => handleChallengeInputChange(index, e.target.value)}
+                                                placeholder="..."
+                                                className={`mt-1 px-2 py-0.5 text-xs border-2 rounded outline-none transition-all text-center w-24 ${isCorrect
+                                                    ? 'border-green-500 bg-green-50 text-green-700 font-semibold'
+                                                    : isWrong
+                                                        ? 'border-red-400 bg-red-50 text-red-700'
+                                                        : 'border-purple-200 focus:border-purple-500 text-slate-700'
+                                                    }`}
+                                            />
                                         )}
                                     </span>
                                     {' '}
@@ -824,121 +1014,120 @@ ${shareLink}`;
                             );
                         })}
                     </p>
+                </div>
+            </div>
 
-                    {/* Word Definition Tooltip */}
-                    {selectedWord && wordDefinition && (
-                        <div
-                            className={`fixed z-50 bg-white rounded-lg shadow-2xl border border-slate-200 p-4 max-w-sm ${isDefinitionClosing ? 'animate-modal-out' : 'animate-modal-in'}`}
-                            style={{
-                                top: wordPositionRef.current ? `${wordPositionRef.current.top}px` : '50%',
-                                left: wordPositionRef.current
-                                    ? wordPositionRef.current.align === 'center'
-                                        ? `${Math.max(16, Math.min(wordPositionRef.current.left - 175, window.innerWidth - 350))}px`
-                                        : `${Math.max(16, Math.min(wordPositionRef.current.left, window.innerWidth - 350))}px`
-                                    : '50%',
-                                transform: wordPositionRef.current
-                                    ? wordPositionRef.current.align === 'center'
-                                        ? 'translateX(-50%)'
-                                        : 'none'
-                                    : 'translate(-50%, -50%)'
-                            }}
-                        >
-                            <div className="flex items-start justify-between mb-2">
-                                <div className="flex-1">
-                                    <div className="flex items-center gap-2 mb-1">
-                                        <h3 className="font-bold text-lg text-slate-800">{wordDefinition.word}</h3>
-                                        <button
-                                            onClick={() => {
-                                                const textToSpeak = wordDefinition.word;
-                                                const utterance = new SpeechSynthesisUtterance(textToSpeak);
-
-                                                if (selectedVoice) {
-                                                    utterance.voice = selectedVoice;
-                                                }
-
-                                                utterance.rate = 0.9;
-                                                utterance.pitch = 1;
-
-                                                window.speechSynthesis.speak(utterance);
-                                            }}
-                                            className="p-1.5 text-slate-600 hover:text-[#880000] hover:bg-slate-50 rounded-lg transition-colors"
-                                            title="Listen to pronunciation"
-                                        >
-                                            <Volume2 size={16} />
-                                        </button>
-                                    </div>
-                                    {/* Show transliterations */}
-                                    {wordDefinition.transliterations && wordDefinition.transliterations.length > 0 && (
-                                        <div className="space-y-2 mt-2">
-                                            <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Transliteration:</p>
-                                            <div className="flex flex-wrap gap-1.5">
-                                                {wordDefinition.transliterations.map((trans, idx) => (
-                                                    <span
-                                                        key={idx}
-                                                        className={`px-2 py-1 rounded-md text-sm ${idx === 0
-                                                            ? 'bg-[#880000]/10 text-[#880000] font-semibold border border-[#880000]/20'
-                                                            : 'bg-slate-100 text-slate-700'
-                                                            }`}
-                                                    >
-                                                        {trans}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    )}
-                                </div>
+            {/* Word Definition Tooltip */}
+            {selectedWord && wordDefinition && (
+                <div
+                    className={`fixed z-50 bg-white rounded-lg shadow-2xl border border-slate-200 p-4 max-w-sm ${isDefinitionClosing ? 'animate-modal-out' : 'animate-modal-in'}`}
+                    style={{
+                        top: wordPositionRef.current ? `${wordPositionRef.current.top}px` : '50%',
+                        left: wordPositionRef.current
+                            ? wordPositionRef.current.align === 'center'
+                                ? `${Math.max(16, Math.min(wordPositionRef.current.left - 175, window.innerWidth - 350))}px`
+                                : `${Math.max(16, Math.min(wordPositionRef.current.left, window.innerWidth - 350))}px`
+                            : '50%',
+                        transform: wordPositionRef.current
+                            ? wordPositionRef.current.align === 'center'
+                                ? 'translateX(-50%)'
+                                : 'none'
+                            : 'translate(-50%, -50%)'
+                    }}
+                >
+                    <div className="flex items-start justify-between mb-2">
+                        <div className="flex-1">
+                            <div className="flex items-center gap-2 mb-1">
+                                <h3 className="font-bold text-lg text-slate-800">{wordDefinition.word}</h3>
                                 <button
                                     onClick={() => {
-                                        setIsDefinitionClosing(true);
-                                        setTimeout(() => {
-                                            setSelectedWord(null);
-                                            setWordDefinition(null);
-                                            setIsDefinitionClosing(false);
-                                        }, 300);
+                                        const textToSpeak = wordDefinition.word;
+                                        const utterance = new SpeechSynthesisUtterance(textToSpeak);
+
+                                        if (selectedVoice) {
+                                            utterance.voice = selectedVoice;
+                                        }
+
+                                        utterance.rate = 0.9;
+                                        utterance.pitch = 1;
+
+                                        window.speechSynthesis.speak(utterance);
                                     }}
-                                    className="text-slate-400 hover:text-slate-600 ml-2"
+                                    className="p-1.5 text-slate-600 hover:text-[#880000] hover:bg-slate-50 rounded-lg transition-colors"
+                                    title="Listen to pronunciation"
                                 >
-                                    <X size={18} />
+                                    <Volume2 size={16} />
                                 </button>
                             </div>
-
-                            {wordDefinition.meanings && wordDefinition.meanings.length > 0 && (
-                                <div className="mb-3">
-                                    {wordDefinition.meanings.slice(0, 2).map((meaning, idx) => (
-                                        <div key={idx} className="mb-2">
-                                            <span className="text-xs font-semibold text-[#880000] italic">{meaning.partOfSpeech}</span>
-                                            <p className="text-sm text-slate-700 mt-1">
-                                                {meaning.definitions[0]?.definition}
-                                            </p>
-                                        </div>
-                                    ))}
+                            {/* Show transliterations */}
+                            {wordDefinition.transliterations && wordDefinition.transliterations.length > 0 && (
+                                <div className="space-y-2 mt-2">
+                                    <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Transliteration:</p>
+                                    <div className="flex flex-wrap gap-1.5">
+                                        {wordDefinition.transliterations.map((trans, idx) => (
+                                            <span
+                                                key={idx}
+                                                className={`px-2 py-1 rounded-md text-sm ${idx === 0
+                                                    ? 'bg-[#880000]/10 text-[#880000] font-semibold border border-[#880000]/20'
+                                                    : 'bg-slate-100 text-slate-700'
+                                                    }`}
+                                            >
+                                                {trans}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                             )}
+                        </div>
+                        <button
+                            onClick={() => {
+                                setIsDefinitionClosing(true);
+                                setTimeout(() => {
+                                    setSelectedWord(null);
+                                    setWordDefinition(null);
+                                    setIsDefinitionClosing(false);
+                                }, 300);
+                            }}
+                            className="text-slate-400 hover:text-slate-600 ml-2"
+                        >
+                            <X size={18} />
+                        </button>
+                    </div>
 
-                            <div className="flex gap-2">
-                                {savedWords.find(w => w.word === selectedWord) ? (
-                                    <button
-                                        onClick={() => removeWordFromDictionary(selectedWord)}
-                                        className="flex items-center gap-1 px-3 py-1.5 bg-red-50 text-red-700 rounded-lg text-xs font-semibold hover:bg-red-100 transition-colors"
-                                    >
-                                        <X size={14} />
-                                        Remove from Dictionary
-                                    </button>
-                                ) : (
-                                    <button
-                                        onClick={() => saveWordToDictionary(selectedWord)}
-                                        className="flex items-center gap-1 px-3 py-1.5 bg-[#880000] text-white rounded-lg text-xs font-semibold hover:bg-[#770000] transition-colors"
-                                    >
-                                        <BookOpen size={14} />
-                                        Save to Dictionary
-                                    </button>
-                                )}
-                            </div>
+                    {wordDefinition.meanings && wordDefinition.meanings.length > 0 && (
+                        <div className="mb-3">
+                            {wordDefinition.meanings.slice(0, 2).map((meaning, idx) => (
+                                <div key={idx} className="mb-2">
+                                    <span className="text-xs font-semibold text-[#880000] italic">{meaning.partOfSpeech}</span>
+                                    <p className="text-sm text-slate-700 mt-1">
+                                        {meaning.definitions[0]?.definition}
+                                    </p>
+                                </div>
+                            ))}
                         </div>
                     )}
-                </div>
 
-            </div>
+                    <div className="flex gap-2">
+                        {savedWords.find(w => w.word === selectedWord) ? (
+                            <button
+                                onClick={() => removeWordFromDictionary(selectedWord)}
+                                className="flex items-center gap-1 px-3 py-1.5 bg-red-50 text-red-700 rounded-lg text-xs font-semibold hover:bg-red-100 transition-colors"
+                            >
+                                <X size={14} />
+                                Remove from Dictionary
+                            </button>
+                        ) : (
+                            <button
+                                onClick={() => saveWordToDictionary(selectedWord)}
+                                className="flex items-center gap-1 px-3 py-1.5 bg-[#880000] text-white rounded-lg text-xs font-semibold hover:bg-[#770000] transition-colors"
+                            >
+                                <BookOpen size={14} />
+                                Save to Dictionary
+                            </button>
+                        )}
+                    </div>
+                </div>
+            )}
 
             {/* Footer Navigation */}
             <div className="bg-slate-50 p-4 border-t border-slate-100 flex justify-between items-center">
@@ -962,29 +1151,105 @@ ${shareLink}`;
                 >
                     Next <ChevronRight size={20} />
                 </button>
-            </div>
+            </div >
 
             {/* Share Modal with WordPoster */}
-            {showShareModal && (
-                <>
-                    {/* Backdrop */}
-                    <div
-                        className={`fixed inset-0 bg-black z-50 ${isShareModalClosing ? 'animate-backdrop-out' : 'animate-backdrop-in'}`}
-                        onClick={() => {
-                            setIsShareModalClosing(true);
-                            setTimeout(() => {
-                                setShowShareModal(false);
-                                setIsShareModalClosing(false);
-                            }, 300);
-                        }}
-                    />
+            {
+                showShareModal && (
+                    <>
+                        {/* Backdrop */}
+                        <div
+                            className={`fixed inset-0 bg-black z-50 ${isShareModalClosing ? 'animate-backdrop-out' : 'animate-backdrop-in'}`}
+                            onClick={() => {
+                                setIsShareModalClosing(true);
+                                setTimeout(() => {
+                                    setShowShareModal(false);
+                                    setIsShareModalClosing(false);
+                                }, 300);
+                            }}
+                        />
 
-                    {/* Modal - perfectly centered within viewport */}
-                    <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
-                        <div className={`bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 pointer-events-auto ${isShareModalClosing ? 'animate-modal-out' : 'animate-modal-in'}`}>
-                            <div className="p-6">
-                                {/* Close Button */}
-                                <div className="flex justify-end mb-2">
+                        {/* Modal - perfectly centered within viewport */}
+                        <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
+                            <div className={`bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 pointer-events-auto ${isShareModalClosing ? 'animate-modal-out' : 'animate-modal-in'}`}>
+                                <div className="p-6">
+                                    {/* Close Button */}
+                                    <div className="flex justify-end mb-2">
+                                        <button
+                                            onClick={() => {
+                                                setIsShareModalClosing(true);
+                                                setTimeout(() => {
+                                                    setShowShareModal(false);
+                                                    setIsShareModalClosing(false);
+                                                }, 300);
+                                            }}
+                                            className="text-slate-400 hover:text-slate-600 transition-colors"
+                                        >
+                                            <X size={24} />
+                                        </button>
+                                    </div>
+
+                                    {/* Modal Content */}
+                                    <div className="text-center mb-6">
+                                        <div className="w-16 h-16 bg-[#880000]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                            <Share2 size={32} className="text-[#880000]" />
+                                        </div>
+                                        <h2 className="text-2xl font-bold text-slate-800 mb-2">
+                                            Share Your Progress?
+                                        </h2>
+                                        <p className="text-slate-600">
+                                            Do you want to share your learning progress with others?
+                                        </p>
+                                    </div>
+
+                                    {/* Download Button */}
+                                    <button
+                                        onClick={async () => {
+                                            if (!posterCanvasRef.current) return;
+
+                                            setIsDownloadingPoster(true);
+
+                                            try {
+                                                // Download the poster
+                                                const link = document.createElement('a');
+                                                link.download = `reading-progress-m${currentMonth}-d${currentDay}.jpg`;
+                                                link.href = posterCanvasRef.current.toDataURL('image/jpeg', 0.95);
+                                                link.click();
+
+                                                // Wait a moment for download to start
+                                                await new Promise(resolve => setTimeout(resolve, 500));
+
+                                                // Trigger Web Share API
+                                                await shareToSocial(currentMonth, currentDay, statistics, progress, activeData);
+
+                                                // Close modal
+                                                setIsShareModalClosing(true);
+                                                setTimeout(() => {
+                                                    setShowShareModal(false);
+                                                    setIsShareModalClosing(false);
+                                                    setIsDownloadingPoster(false);
+                                                }, 300);
+                                            } catch (error) {
+                                                console.error('Error sharing:', error);
+                                                setIsDownloadingPoster(false);
+                                            }
+                                        }}
+                                        disabled={isDownloadingPoster || !posterCanvasRef.current}
+                                        className="w-full bg-[#880000] hover:bg-[#770000] text-white font-bold py-3 px-6 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                                    >
+                                        {isDownloadingPoster ? (
+                                            <>
+                                                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                                <span>Downloading...</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Download size={20} />
+                                                <span>Download Poster</span>
+                                            </>
+                                        )}
+                                    </button>
+
                                     <button
                                         onClick={() => {
                                             setIsShareModalClosing(true);
@@ -993,110 +1258,44 @@ ${shareLink}`;
                                                 setIsShareModalClosing(false);
                                             }, 300);
                                         }}
-                                        className="text-slate-400 hover:text-slate-600 transition-colors"
+                                        className="w-full mt-3 text-slate-600 hover:text-slate-800 font-semibold py-2 px-6 rounded-lg transition-colors"
                                     >
-                                        <X size={24} />
+                                        Cancel
                                     </button>
                                 </div>
-
-                                {/* Modal Content */}
-                                <div className="text-center mb-6">
-                                    <div className="w-16 h-16 bg-[#880000]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                                        <Share2 size={32} className="text-[#880000]" />
-                                    </div>
-                                    <h2 className="text-2xl font-bold text-slate-800 mb-2">
-                                        Share Your Progress?
-                                    </h2>
-                                    <p className="text-slate-600">
-                                        Do you want to share your learning progress with others?
-                                    </p>
-                                </div>
-
-                                {/* Download Button */}
-                                <button
-                                    onClick={async () => {
-                                        if (!posterCanvasRef.current) return;
-
-                                        setIsDownloadingPoster(true);
-
-                                        try {
-                                            // Download the poster
-                                            const link = document.createElement('a');
-                                            link.download = `reading-progress-m${currentMonth}-d${currentDay}.jpg`;
-                                            link.href = posterCanvasRef.current.toDataURL('image/jpeg', 0.95);
-                                            link.click();
-
-                                            // Wait a moment for download to start
-                                            await new Promise(resolve => setTimeout(resolve, 500));
-
-                                            // Trigger Web Share API
-                                            await shareToSocial(currentMonth, currentDay, statistics, progress, activeData);
-
-                                            // Close modal
-                                            setIsShareModalClosing(true);
-                                            setTimeout(() => {
-                                                setShowShareModal(false);
-                                                setIsShareModalClosing(false);
-                                                setIsDownloadingPoster(false);
-                                            }, 300);
-                                        } catch (error) {
-                                            console.error('Error sharing:', error);
-                                            setIsDownloadingPoster(false);
-                                        }
-                                    }}
-                                    disabled={isDownloadingPoster || !posterCanvasRef.current}
-                                    className="w-full bg-[#880000] hover:bg-[#770000] text-white font-bold py-3 px-6 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                                >
-                                    {isDownloadingPoster ? (
-                                        <>
-                                            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                                            <span>Downloading...</span>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <Download size={20} />
-                                            <span>Download Poster</span>
-                                        </>
-                                    )}
-                                </button>
-
-                                <button
-                                    onClick={() => {
-                                        setIsShareModalClosing(true);
-                                        setTimeout(() => {
-                                            setShowShareModal(false);
-                                            setIsShareModalClosing(false);
-                                        }, 300);
-                                    }}
-                                    className="w-full mt-3 text-slate-600 hover:text-slate-800 font-semibold py-2 px-6 rounded-lg transition-colors"
-                                >
-                                    Cancel
-                                </button>
                             </div>
                         </div>
-                    </div>
 
-                    {/* Hidden WordPoster for canvas generation */}
-                    <div className="fixed -top-[9999px] left-0 pointer-events-none">
-                        <WordPoster
-                            width={1080}
-                            height={1350}
-                            title={activeData.title}
-                            subtitle={activeData.country}
-                            meta={`Month ${currentMonth} · Day ${currentDay}`}
-                            text={activeData.text}
-                            statistics={statistics}
-                            progress={progress}
-                            month={currentMonth}
-                            day={currentDay}
-                            onPosterReady={(canvas) => {
-                                posterCanvasRef.current = canvas;
-                            }}
-                        />
-                    </div>
-                </>
-            )}
-        </div>
+                        {/* Hidden WordPoster for canvas generation */}
+                        <div className="fixed -top-[9999px] left-0 pointer-events-none">
+                            <WordPoster
+                                width={1080}
+                                height={1350}
+                                title={activeData.title}
+                                subtitle={activeData.country}
+                                meta={`Month ${currentMonth} · Day ${currentDay}`}
+                                text={activeData.text}
+                                statistics={statistics}
+                                progress={progress}
+                                month={currentMonth}
+                                day={currentDay}
+                                challengeStats={isChallengeMode ? {
+                                    time: challengeElapsedTime,
+                                    correct: challengeCorrectCount,
+                                    wrong: challengeWrongCount,
+                                    accuracy: challengeCorrectCount + challengeWrongCount > 0
+                                        ? Math.round((challengeCorrectCount / (challengeCorrectCount + challengeWrongCount)) * 100)
+                                        : 0
+                                } : null}
+                                onPosterReady={(canvas) => {
+                                    posterCanvasRef.current = canvas;
+                                }}
+                            />
+                        </div>
+                    </>
+                )
+            }
+        </div >
     );
 };
 
