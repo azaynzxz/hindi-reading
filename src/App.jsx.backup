@@ -1,0 +1,399 @@
+import React, { useState, useEffect, useRef } from 'react';
+import ReadingCard from './components/ReadingCard';
+import month1Data from './data/month1.json';
+import month2Data from './data/month2.json';
+import { ChevronRight, ChevronLeft, BookOpen, Globe, Info, Square, Copy, Check, Play, Pause, X, Type, Settings, Minus, Plus, Monitor, ExternalLink, Calendar, Download } from 'lucide-react';
+
+const ReadingChallenge = () => {
+    const [currentMonth, setCurrentMonth] = useState(1);
+    const [currentDay, setCurrentDay] = useState(1);
+    const [copied, setCopied] = useState(false);
+    const [isGenerating, setIsGenerating] = useState(false);
+
+    // Teleprompter State
+    const [isTeleprompterActive, setIsTeleprompterActive] = useState(false);
+    const [isScrolling, setIsScrolling] = useState(false);
+    const [scrollSpeed, setScrollSpeed] = useState(1);
+    const [fontSize, setFontSize] = useState(48);
+    const [countdown, setCountdown] = useState(null);
+    const scrollContainerRef = useRef(null);
+    const animationFrameRef = useRef(null);
+
+    // Countdown Timer Logic
+    useEffect(() => {
+        let timer;
+        if (countdown !== null && countdown > 0) {
+            timer = setTimeout(() => {
+                setCountdown(prev => prev - 1);
+            }, 1000);
+        } else if (countdown === 0) {
+            setCountdown(null);
+            setIsScrolling(true);
+        }
+        return () => clearTimeout(timer);
+    }, [countdown]);
+
+    // Smooth Teleprompter Scrolling with requestAnimationFrame
+    useEffect(() => {
+        const smoothScroll = () => {
+            if (scrollContainerRef.current && isScrolling && isTeleprompterActive && countdown === null) {
+                scrollContainerRef.current.scrollTop += scrollSpeed * 0.5;
+
+                const { scrollTop, scrollHeight, clientHeight } = scrollContainerRef.current;
+                if (scrollTop + clientHeight >= scrollHeight - 1) {
+                    setIsScrolling(false);
+                } else {
+                    animationFrameRef.current = requestAnimationFrame(smoothScroll);
+                }
+            }
+        };
+
+        if (isScrolling && isTeleprompterActive && countdown === null) {
+            animationFrameRef.current = requestAnimationFrame(smoothScroll);
+        }
+
+        return () => {
+            if (animationFrameRef.current) {
+                cancelAnimationFrame(animationFrameRef.current);
+            }
+        };
+    }, [isScrolling, isTeleprompterActive, scrollSpeed, countdown]);
+
+    const allMonthsData = {
+        1: month1Data,
+        2: month2Data
+    };
+
+    const handleNext = () => {
+        if (currentDay < 30) setCurrentDay(currentDay + 1);
+    };
+
+    const handlePrev = () => {
+        if (currentDay > 1) setCurrentDay(currentDay - 1);
+    };
+
+    const changeMonth = (month) => {
+        setCurrentMonth(month);
+        setCurrentDay(1);
+        setCountdown(null);
+        setIsScrolling(false);
+    };
+
+    const activeData = allMonthsData[currentMonth].find(d => d.day === currentDay);
+
+    // Canvas Generation Logic
+    const downloadImage = () => {
+        setIsGenerating(true);
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = 1080;
+        canvas.height = 1920;
+
+        ctx.fillStyle = '#F2F2F2';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        const margin = 80;
+        const contentWidth = canvas.width - (margin * 2);
+        const accentColor = '#880000';
+
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(margin, margin, contentWidth, canvas.height - (margin * 2));
+
+        const innerMargin = margin + 60;
+        const innerWidth = canvas.width - (innerMargin * 2);
+
+        ctx.font = 'bold 24px Arial, sans-serif';
+        ctx.fillStyle = '#666666';
+        ctx.letterSpacing = '2px';
+        ctx.fillText(`30 DAY READING CHALLENGE`, innerMargin, innerMargin + 40);
+        ctx.fillText(`MONTH ${currentMonth}`, innerMargin, innerMargin + 80);
+
+        ctx.font = 'bold 200px Arial, sans-serif';
+        ctx.fillStyle = accentColor;
+        ctx.textAlign = 'right';
+        ctx.fillText(`${currentDay < 10 ? '0' : ''}${currentDay}`, canvas.width - innerMargin, innerMargin + 140);
+        ctx.textAlign = 'left';
+
+        let yPos = innerMargin + 250;
+
+        ctx.font = 'bold 30px Arial, sans-serif';
+        ctx.fillStyle = accentColor;
+        ctx.fillText(activeData.country.toUpperCase(), innerMargin, yPos);
+        yPos += 80;
+
+        ctx.font = 'bold 70px Arial, sans-serif';
+        ctx.fillStyle = '#000000';
+
+        const titleWords = activeData.title.split(' ');
+        let titleLine = '';
+
+        for (let i = 0; i < titleWords.length; i++) {
+            const testLine = titleLine + titleWords[i] + ' ';
+            const metrics = ctx.measureText(testLine);
+            if (metrics.width > innerWidth && i > 0) {
+                ctx.fillText(titleLine, innerMargin, yPos);
+                titleLine = titleWords[i] + ' ';
+                yPos += 80;
+            } else {
+                titleLine = testLine;
+            }
+        }
+        ctx.fillText(titleLine, innerMargin, yPos);
+        yPos += 60;
+
+        ctx.strokeStyle = '#333333';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(innerMargin, yPos);
+        ctx.lineTo(canvas.width - innerMargin, yPos);
+        ctx.stroke();
+        yPos += 80;
+
+        ctx.font = '36px Arial, sans-serif';
+        ctx.fillStyle = '#333333';
+        const lineHeight = 55;
+
+        const wrapText = (context, text, x, y, maxWidth, lineHeight) => {
+            const words = text.split(' ');
+            let line = '';
+
+            for (let n = 0; n < words.length; n++) {
+                const testLine = line + words[n] + ' ';
+                const metrics = context.measureText(testLine);
+                const testWidth = metrics.width;
+                if (testWidth > maxWidth && n > 0) {
+                    context.fillText(line, x, y);
+                    line = words[n] + ' ';
+                    y += lineHeight;
+                } else {
+                    line = testLine;
+                }
+            }
+            context.fillText(line, x, y);
+        }
+
+        wrapText(ctx, activeData.text, innerMargin, yPos, innerWidth, lineHeight);
+
+        const footerY = canvas.height - innerMargin - 20;
+
+        ctx.fillStyle = accentColor;
+        ctx.fillRect(innerMargin, footerY - 50, 60, 6);
+
+        ctx.font = 'bold 24px Arial, sans-serif';
+        ctx.fillStyle = '#000000';
+        ctx.fillText('ENGLISH FLUENCY JOURNEY', innerMargin, footerY);
+
+        ctx.font = 'normal 24px Arial, sans-serif';
+        ctx.fillStyle = '#666666';
+        ctx.textAlign = 'right';
+        ctx.fillText('By Zayn', canvas.width - innerMargin, footerY);
+
+        const link = document.createElement('a');
+        link.download = `Reading-Challenge-M${currentMonth}-D${currentDay}.jpg`;
+        link.href = canvas.toDataURL('image/jpeg', 0.9);
+        link.click();
+        setIsGenerating(false);
+    };
+
+    const handleCopy = () => {
+        const textToCopy = `Read and Record\n\n${activeData.title}\n\n${activeData.text}\n\n"This is my practice today about ${activeData.title}, cannot wait to improve my English with the next training."\n- By Zayn`;
+
+        const textArea = document.createElement("textarea");
+        textArea.value = textToCopy;
+
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+            document.execCommand('copy');
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        } catch (err) {
+            console.error('Failed to copy', err);
+        }
+        document.body.removeChild(textArea);
+    };
+
+    const toggleTeleprompter = () => {
+        setIsTeleprompterActive(!isTeleprompterActive);
+        setIsScrolling(false);
+        setCountdown(null);
+    };
+
+    const handlePlayPause = () => {
+        if (isScrolling) {
+            setIsScrolling(false);
+        } else {
+            setCountdown(4);
+        }
+                            </div >
+                        </div >
+                    )}
+
+{/* Teleprompter Toolbar */ }
+<div className="flex flex-col md:flex-row items-start md:items-center justify-between p-4 bg-zinc-900 border-b border-zinc-800 gap-4">
+    <div className="flex items-center gap-2">
+        <Monitor className="text-red-500" />
+        <span className="font-bold">Teleprompter Mode</span>
+    </div>
+
+    <div className="flex flex-col md:flex-row items-start md:items-center gap-4 w-full md:w-auto">
+        {/* Speed Slider */}
+        <div className="flex flex-col gap-1 w-full md:w-48">
+            <div className="flex items-center justify-between">
+                <span className="text-xs text-zinc-400 font-bold uppercase">Speed</span>
+                <span className="text-xs text-zinc-300 font-mono">{scrollSpeed.toFixed(1)}x</span>
+            </div>
+            <input
+                type="range"
+                min="0.5"
+                max="10"
+                step="0.5"
+                value={scrollSpeed}
+                onChange={(e) => setScrollSpeed(parseFloat(e.target.value))}
+                className="w-full h-2 bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-red-500"
+            />
+        </div>
+
+        {/* Font Size Slider */}
+        <div className="flex flex-col gap-1 w-full md:w-48">
+            <div className="flex items-center justify-between">
+                <span className="text-xs text-zinc-400 font-bold uppercase">Text Size</span>
+                <span className="text-xs text-zinc-300 font-mono">{fontSize}px</span>
+            </div>
+            <input
+                type="range"
+                min="16"
+                max="96"
+                step="4"
+                value={fontSize}
+                onChange={(e) => setFontSize(parseInt(e.target.value))}
+                className="w-full h-2 bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-red-500"
+            />
+        </div>
+    </div>
+
+    <button onClick={toggleTeleprompter} className="text-zinc-400 hover:text-white transition-colors">
+        <X size={28} />
+    </button>
+</div>
+
+{/* Scrolling Area */ }
+<div
+    ref={scrollContainerRef}
+    className="flex-1 overflow-y-auto relative no-scrollbar"
+    style={{ paddingBottom: '50vh', paddingTop: '50vh', scrollBehavior: 'auto' }}
+>
+    <div className="max-w-4xl mx-auto px-6 text-center leading-relaxed font-bold transition-all duration-300"
+        style={{ fontSize: `${fontSize}px` }}>
+        <h2 className="text-red-500 mb-16 uppercase tracking-widest opacity-80" style={{ fontSize: `${fontSize * 0.6}px` }}>{activeData.title}</h2>
+        {activeData.text}
+    </div>
+</div>
+
+{/* Bottom Play Control */ }
+<div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-50">
+    <button
+        onClick={handlePlayPause}
+        disabled={countdown !== null}
+        className={`p-6 rounded-full shadow-2xl transition-transform transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed ${isScrolling ? 'bg-zinc-800 text-red-400 border border-red-900/50' : 'bg-[#880000] text-white'}`}
+    >
+        {isScrolling ? <Pause size={32} fill="currentColor" /> : <Play size={32} fill="currentColor" className="ml-1" />}
+    </button>
+</div>
+                </div >
+            )}
+
+{/* Header */ }
+            <header className="w-full max-w-4xl flex flex-col items-center mb-4">
+                <div className="flex items-center gap-2 mb-2 text-[#880000]">
+                    <BookOpen size={24} />
+                    <span className="font-bold tracking-wider text-sm uppercase">English Fluency Journey</span>
+                </div>
+                <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 text-center mb-2">30 Day Reading Challenge</h1>
+                <p className="text-slate-500 text-center max-w-md">Improve your pronunciation and cultural knowledge, one story at a time.</p>
+            </header>
+
+            <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-4">
+
+                {/* Navigation Sidebar */}
+                <div className="lg:col-span-3 order-2 lg:order-1">
+                    <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
+                        <h3 className="font-bold text-slate-700 mb-3 flex items-center gap-2">
+                            <Calendar size={16} className="text-[#880000]" /> Month Selector
+                        </h3>
+
+                        {/* Month Tabs */}
+                        <div className="flex bg-slate-100 p-1 rounded-lg mb-4">
+                            <button
+                                onClick={() => changeMonth(1)}
+                                className={`flex-1 py-2 text-sm font-bold rounded-md transition-all ${currentMonth === 1 ? 'bg-white text-[#880000] shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                            >
+                                Month 1
+                            </button>
+                            <button
+                                onClick={() => changeMonth(2)}
+                                className={`flex-1 py-2 text-sm font-bold rounded-md transition-all ${currentMonth === 2 ? 'bg-white text-[#880000] shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                            >
+                                Month 2
+                            </button>
+                        </div>
+
+                        <h3 className="font-bold text-slate-700 mb-3 flex items-center gap-2">
+                            <Square size={16} className="text-[#880000]" /> Day Selector
+                        </h3>
+                        <div className="grid grid-cols-5 gap-2">
+                            {allMonthsData[currentMonth].map((d) => (
+                                <button
+                                    key={d.day}
+                                    onClick={() => setCurrentDay(d.day)}
+                                    className={`aspect-square rounded-lg text-sm font-semibold transition-all duration-200 ${currentDay === d.day ? 'bg-[#880000] text-white shadow-md transform scale-105' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
+                                >
+                                    {d.day}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
+                {/* Main Content Card */}
+                <div className="lg:col-span-9 order-1 lg:order-2">
+                    <ReadingCard
+                        activeData={activeData}
+                        currentMonth={currentMonth}
+                        currentDay={currentDay}
+                        isGenerating={isGenerating}
+                        onDownload={downloadImage}
+                        onToggleTeleprompter={toggleTeleprompter}
+                        onPrev={handlePrev}
+                        onNext={handleNext}
+                    />
+
+                    {/* Dynamic Motto with Copy Function */}
+                    <div className="mt-4 text-center flex flex-col items-center">
+                        <p className="text-slate-500 italic text-lg max-w-2xl">
+                            "This is my practice today about <span className="text-[#880000] font-semibold">{activeData.title}</span>, cannot wait to improve my English with the next training."
+                        </p>
+
+                        <button
+                            onClick={handleCopy}
+                            className={`mt-3 flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 border ${copied ? 'bg-green-100 text-green-700 border-green-200' : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50 hover:text-[#880000]'}`}
+                        >
+                            {copied ? <Check size={16} /> : <Copy size={16} />}
+                            {copied ? 'Copied to Clipboard!' : 'Copy for Sharing'}
+                        </button>
+
+                        <div className="mt-4 flex items-center justify-center gap-2">
+                            <div className="h-px w-8 bg-slate-300"></div>
+                            <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">By Zayn</span>
+                            <div className="h-px w-8 bg-slate-300"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div >
+    );
+};
+
+export default ReadingChallenge;

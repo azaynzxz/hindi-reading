@@ -1,0 +1,50 @@
+Type,Hindi,Transliteration,Sound
+Vowel,अ,a,uh (like 'a' in about)
+Vowel,आ,aa,aa (like 'a' in father)
+Vowel,इ,i,i (like 'i' in hit)
+Vowel,ई,ii,ee (like 'ee' in beet)
+Vowel,उ,u,u (like 'u' in put)
+Vowel,ऊ,uu,oo (like 'oo' in boot)
+Vowel,ऋ,ri,ri (like 'ri' in brick)
+Vowel,ए,e,ay (like 'a' in mate)
+Vowel,ऐ,ai,ai (like 'ai' in aisle)
+Vowel,ओ,o,o (like 'o' in go)
+Vowel,औ,au,au (like 'ow' in cow)
+Vowel,अं,ang,ang (Nasal sound like 'un' in uncle)
+Vowel,अः,ah,ah (Aspirated sound)
+Consonant (Guttural),क,ka,k
+Consonant (Guttural),ख,kha,kh (aspirated k)
+Consonant (Guttural),ग,ga,g
+Consonant (Guttural),घ,gha,gh (aspirated g)
+Consonant (Guttural),ङ,nga,ng
+Consonant (Palatal),च,cha,ch
+Consonant (Palatal),छ,chha,chh (aspirated ch)
+Consonant (Palatal),ज,ja,j
+Consonant (Palatal),झ,jha,jh (aspirated j)
+Consonant (Palatal),ञ,nya,nya
+Consonant (Retroflex),ट,ta,t (hard t)
+Consonant (Retroflex),ठ,tha,th (hard th)
+Consonant (Retroflex),ड,da,d (hard d)
+Consonant (Retroflex),ढ,dha,dh (hard dh)
+Consonant (Retroflex),ण,na,n (hard n)
+Consonant (Dental),त,ta,t (soft t, tongue on teeth)
+Consonant (Dental),थ,tha,th (soft th)
+Consonant (Dental),द,da,d (soft d)
+Consonant (Dental),ध,dha,dh (soft dh)
+Consonant (Dental),न,na,n
+Consonant (Labial),प,pa,p
+Consonant (Labial),फ,pha,ph/f
+Consonant (Labial),ब,ba,b
+Consonant (Labial),भ,bha,bh (aspirated b)
+Consonant (Labial),म,ma,m
+Consonant (Semivowel),य,ya,y
+Consonant (Semivowel),र,ra,r
+Consonant (Semivowel),ल,la,l
+Consonant (Semivowel),व,va,v/w
+Consonant (Sibilant),श,sha,sh (palatal)
+Consonant (Sibilant),ष,sha,sh (retroflex)
+Consonant (Sibilant),स,sa,s
+Consonant (Sibilant),ह,ha,h
+Conjunct/Extra,क्ष,ksha,ksha
+Conjunct/Extra,त्र,tra,tra
+Conjunct/Extra,ज्ञ,gya,gya
