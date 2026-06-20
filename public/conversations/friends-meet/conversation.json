@@ -47,7 +47,7 @@
     {
       "speaker_hi": "ऋतिक",
       "speaker_en": "Hritik",
-      "hindi": "चलो |  | क्लास के बाद      “After the class.” “After the class.”",
+      "hindi": "चलो |",
       "transliteration": "chalo",
       "meaning": "Let’s go"
     },
@@ -55,15 +55,15 @@
       "speaker_hi": "विद्या",
       "speaker_en": "Vidya",
       "hindi": "फिर मिलेंगे, नमस्ते",
-      "transliteration": ",  ! phir milenge, namaste",
+      "transliteration": "phir milenge, namaste",
       "meaning": "See you again, Bye"
     },
     {
       "speaker_hi": "ऋतिक",
       "speaker_en": "Hritik",
       "hindi": "ठीक है, नमस्ते",
-      "transliteration": ",",
-      "meaning": "Thiik hai, namaste! Okay, Bye"
+      "transliteration": "Thiik hai, namaste",
+      "meaning": "Okay, Bye"
     }
   ]
 }

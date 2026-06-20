@@ -5,63 +5,63 @@
     {
       "speaker_hi": "शिल्पा",
       "speaker_en": "Shilpa",
-      "hindi": "हेलो पीटर! क्या चल रहा है",
-      "transliteration": "Hello Peter! kyaa chal rahaa hai",
-      "meaning": "Hello Peter! What is going on"
+      "hindi": "हेलो पीटर! क्या चल रहा है?",
+      "transliteration": "Hello Peter! kyaa chal rahaa hai?",
+      "meaning": "Hello Peter! What is going on?"
     },
     {
       "speaker_hi": "पीटर",
       "speaker_en": "Peter",
-      "hindi": "नमस्ते शिल्पा, सब ठीक है| क्या हाल है?  ,   |   ? namaste Shilpaa, sab Thiik hai",
-      "transliteration": "kyaa haal hai",
-      "meaning": "Hellp Shilpa, All is well. How are  you"
+      "hindi": "नमस्ते शिल्पा, सब ठीक है| क्या हाल है?",
+      "transliteration": "namaste Shilpaa, sab Thiik hai| kyaa haal hai?",
+      "meaning": "Hello Shilpa, All is well. How are you?"
     },
     {
       "speaker_hi": "शिल्पा",
       "speaker_en": "Shilpa",
-      "hindi": "सब ठीक है| अच्छा, आपका ई.मेल एड्रेस क्या   | है",
-      "transliteration": ",  . ? sab Thiik hai| achchhaa, aapkaa e.mail address kyaa hai",
-      "meaning": "All is well. Okay, what is your e.mail address"
+      "hindi": "सब ठीक है| अच्छा, आपका ई.मेल एड्रेस क्या है?",
+      "transliteration": "sab Thiik hai| achchhaa, aapkaa e.mail address kyaa hai?",
+      "meaning": "All is well. Okay, what is your e.mail address?"
     },
     {
       "speaker_hi": "पीटर",
       "speaker_en": "Peter",
-      "hindi": "मेरा ई.मेल एड्रेस .   peter@gmail.com है| और | आपका",
-      "transliteration": "meraa e.mail address peter@gmail.com hai. aur aapkaa? My e.mail address is peter@gmail.com",
-      "meaning": "And yours"
+      "hindi": "मेरा ई.मेल एड्रेस peter@gmail.com है| और आपका?",
+      "transliteration": "meraa e.mail address peter@gmail.com hai. aur aapkaa?",
+      "meaning": "My e.mail address is peter@gmail.com. And yours?"
     },
     {
       "speaker_hi": "शिल्पा",
       "speaker_en": "Shilpa",
-      "hindi": "मेरा ई.मेल एड्रेस .   shilpaa@gmail.com है| | meraa e.mail address shilpaa@gmail.com",
-      "transliteration": "merA I.mela eDresa .   shilpaa@gmail.com hai| | meraa e.mail address shilpaa@gmail.com",
-      "meaning": "hai. My e.mail address is shilpaa@gmail.com"
+      "hindi": "मेरा ई.मेल एड्रेस shilpaa@gmail.com है|",
+      "transliteration": "meraa e.mail address shilpaa@gmail.com hai.",
+      "meaning": "My e.mail address is shilpaa@gmail.com."
     },
     {
       "speaker_hi": "पीटर",
       "speaker_en": "Peter",
-      "hindi": "आपका फ़ोन नंबर क्या है",
-      "transliteration": "aapkaa phone number kyaa hai",
-      "meaning": "What is your phone number"
+      "hindi": "आपका फ़ोन नंबर क्या है?",
+      "transliteration": "aapkaa phone number kyaa hai?",
+      "meaning": "What is your phone number?"
     },
     {
       "speaker_hi": "शिल्पा",
       "speaker_en": "Shilpa",
-      "hindi": "मेरा फ़ोन नंबर   555-xxx-xxxx है| और आपका",
-      "transliteration": "meraa phone number 555-xxx-xxxx hai. aur aapkaa",
-      "meaning": "My phone number is 555-xxx-xxx. And yours"
+      "hindi": "मेरा फ़ोन नंबर 555-xxx-xxxx है| और आपका?",
+      "transliteration": "meraa phone number 555-xxx-xxxx hai. aur aapkaa?",
+      "meaning": "My phone number is 555-xxx-xxx. And yours?"
     },
     {
       "speaker_hi": "पीटर",
       "speaker_en": "Peter",
-      "hindi": "मेरा फ़ोन नंबर   555-xxx-xxxx है",
-      "transliteration": "meraa phone number 555-xxx-xxx hai",
-      "meaning": "My phone number is 555-xxx-xxx"
+      "hindi": "मेरा फ़ोन नंबर 555-xxx-xxxx है|",
+      "transliteration": "meraa phone number 555-xxx-xxx hai.",
+      "meaning": "My phone number is 555-xxx-xxx."
     },
     {
       "speaker_hi": "शिल्पा",
       "speaker_en": "Shilpa",
-      "hindi": "धन्यवाद ! फिर मिलेंगे, नमस्ते |  !  ,",
+      "hindi": "धन्यवाद ! फिर मिलेंगे, नमस्ते",
       "transliteration": "dhanyawaad! phir milenge, namaste",
       "meaning": "Thanks! See you again, Bye"
     },
@@ -69,7 +69,7 @@
       "speaker_hi": "पीटर",
       "speaker_en": "Peter",
       "hindi": "अच्छा, बाय",
-      "transliteration": ", ! achchhaa, bye",
+      "transliteration": "achchhaa, bye",
       "meaning": "Okay, Bye"
     }
   ]

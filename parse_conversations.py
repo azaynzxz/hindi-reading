@@ -53,6 +53,62 @@ SPEAKER_MAP = {
     "अक्षय": "Akshay"
 }
 
+# Manual overrides for pages 61, 63, 65 due to complex multi-column layout extraction errors
+MANUAL_OVERLOADS = {
+    61: [
+        {"speaker_hi": "विद्या", "speaker_en": "Vidya", "hindi": "नमस्ते !", "transliteration": "namaste!", "meaning": "Hello!"},
+        {"speaker_hi": "शिल्पा", "speaker_en": "Shilpa", "hindi": "नमस्ते !", "transliteration": "namaste!", "meaning": "Hello!"},
+        {"speaker_hi": "विद्या", "speaker_en": "Vidya", "hindi": "आपका नाम क्या है?", "transliteration": "aapkaa naam kyaa hai?", "meaning": "What is your name?"},
+        {"speaker_hi": "शिल्पा", "speaker_en": "Shilpa", "hindi": "मेरा नाम शिल्पा है| और आपका?", "transliteration": "meraa naam shilpaa hai. aur aapkaa?", "meaning": "My name is Shilpa. And yours?"},
+        {"speaker_hi": "विद्या", "speaker_en": "Vidya", "hindi": "मेरा नाम विद्या है|", "transliteration": "meraa naam Vidya hai.", "meaning": "My name is Vidya."},
+        {"speaker_hi": "शिल्पा", "speaker_en": "Shilpa", "hindi": "आप कहाँ से हैं?", "transliteration": "aap kahaan se hain?", "meaning": "Where are you from?"},
+        {"speaker_hi": "विद्या", "speaker_en": "Vidya", "hindi": "मैं मिशिगन से हूँ | आप कहाँ से हैं ?", "transliteration": "main Michigan se hoon. aap kahaan se hain?", "meaning": "I am from Michigan. Where are you from?"},
+        {"speaker_hi": "शिल्पा", "speaker_en": "Shilpa", "hindi": "मैं शिकागो से हूँ |", "transliteration": "main Chicago se hoon.", "meaning": "I am from Chicago."},
+        {"speaker_hi": "विद्या", "speaker_en": "Vidya", "hindi": "आप कितने साल की हैं?", "transliteration": "aap kitane saal kii hain?", "meaning": "How old are you?"},
+        {"speaker_hi": "शिल्पा", "speaker_en": "Shilpa", "hindi": "मैं बीस साल की हूँ| आपकी उम्र कितनी है?", "transliteration": "main biis saal kii hoon. aapkii umr kitanii hai?", "meaning": "I am 20. What is your age?"},
+        {"speaker_hi": "विद्या", "speaker_en": "Vidya", "hindi": "मैं इक्कीस (साल) की हूँ |", "transliteration": "main ikkiis (saal) kii hoon.", "meaning": "I am 21."},
+        {"speaker_hi": "शिल्पा", "speaker_en": "Shilpa", "hindi": "आपका मेजर क्या है?", "transliteration": "aapkaa major kyaa hai?", "meaning": "What is your major?"},
+        {"speaker_hi": "विद्या", "speaker_en": "Vidya", "hindi": "मेरा मेजर अंग्रेज़ी है| और आपका ?", "transliteration": "meraa major angrezii hai. aur aapakaa?", "meaning": "My major is English. And yours?"},
+        {"speaker_hi": "शिल्पा", "speaker_en": "Shilpa", "hindi": "मेरा मेजर राजनीति शास्त्र है|", "transliteration": "meraa major raajaniiti shaastra hai.", "meaning": "My major is Political science."},
+        {"speaker_hi": "विद्या", "speaker_en": "Vidya", "hindi": "यह लड़का कौन है?", "transliteration": "ye laRakaa kaun hai?", "meaning": "Who is this boy?"},
+        {"speaker_hi": "शिल्पा", "speaker_en": "Shilpa", "hindi": "यह पीटर है|", "transliteration": "ye Peter hai.", "meaning": "He is Peter."},
+        {"speaker_hi": "विद्या", "speaker_en": "Vidya", "hindi": "नमस्ते पीटर !", "transliteration": "namaste Peter!", "meaning": "Hello Peter!"},
+        {"speaker_hi": "पीटर", "speaker_en": "Peter", "hindi": "नमस्ते ! आपका नाम क्या है ?", "transliteration": "namaste! aapkaa naam kyaa hai?", "meaning": "Hello! What is your name?"},
+        {"speaker_hi": "विद्या", "speaker_en": "Vidya", "hindi": "मैं विद्या हूँ| आप कैसे हैं?", "transliteration": "main vidyaa hoon. aap kaise hain?", "meaning": "I am Vidya. How are you?"},
+        {"speaker_hi": "पीटर", "speaker_en": "Peter", "hindi": "मैं अच्छा हूँ| और आप?", "transliteration": "main achchhaa hoon. aur aap?", "meaning": "I am well. and you?"},
+        {"speaker_hi": "विद्या", "speaker_en": "Vidya", "hindi": "मैं भी अच्छी हूँ, धन्यवाद ! आपकी उम्र कितनी है?", "transliteration": "main bhii achchhii hoon, dhanyavaad! aapkii umr kitanii hai?", "meaning": "I am well too. Thanks! What is your age?"},
+        {"speaker_hi": "पीटर", "speaker_en": "Peter", "hindi": "मैं उन्नीस साल का हूँ| आपका मेजर क्या है ?", "transliteration": "main unniis saal kaa hoon. aapakaa major kyaa hai?", "meaning": "I am 19 years old. What is your major?"},
+        {"speaker_hi": "विद्या", "speaker_en": "Vidya", "hindi": "मेरा मेजर अंग्रेज़ी है, और आपका?", "transliteration": "meraa major angrezii hai, aur aapakaa?", "meaning": "My major is English. And yours?"},
+        {"speaker_hi": "पीटर", "speaker_en": "Peter", "hindi": "मेरा भी |", "transliteration": "meraa bhii.", "meaning": "Mine too."},
+        {"speaker_hi": "विद्या", "speaker_en": "Vidya", "hindi": "आप से मिलकर ख़ुशी हुई |", "transliteration": "aap se milakar khushii huii.", "meaning": "Nice to meet you."},
+        {"speaker_hi": "पीटर", "speaker_en": "Peter", "hindi": "मुझे भी, नमस्ते !", "transliteration": "mujhe bhii, namaste!", "meaning": "Me too, Bye!"},
+        {"speaker_hi": "विद्या", "speaker_en": "Vidya", "hindi": "नमस्ते !", "transliteration": "namaste!", "meaning": "Bye!"}
+    ],
+    63: [
+        {"speaker_hi": "ऋतिक", "speaker_en": "Hritik", "hindi": "नमस्ते", "transliteration": "namaste", "meaning": "Hello"},
+        {"speaker_hi": "विद्या", "speaker_en": "Vidya", "hindi": "नमस्ते", "transliteration": "namaste", "meaning": "Hello"},
+        {"speaker_hi": "ऋतिक", "speaker_en": "Hritik", "hindi": "क्या हाल है", "transliteration": "kyaa haal hai", "meaning": "How are you"},
+        {"speaker_hi": "विद्या", "speaker_en": "Vidya", "hindi": "सब ठीक है | और तुम", "transliteration": "sab Thiik hai. aur tum", "meaning": "All is well. and you"},
+        {"speaker_hi": "ऋतिक", "speaker_en": "Hritik", "hindi": "मैं भी ठीक हूँ", "transliteration": "main bhii Thiik hoon", "meaning": "I am well too"},
+        {"speaker_hi": "विद्या", "speaker_en": "Vidya", "hindi": "क्लास चलें", "transliteration": "class chalen", "meaning": "Should we go to class"},
+        {"speaker_hi": "ऋतिक", "speaker_en": "Hritik", "hindi": "चलो |", "transliteration": "chalo", "meaning": "Let’s go"},
+        {"speaker_hi": "विद्या", "speaker_en": "Vidya", "hindi": "फिर मिलेंगे, नमस्ते", "transliteration": "phir milenge, namaste", "meaning": "See you again, Bye"},
+        {"speaker_hi": "ऋतिक", "speaker_en": "Hritik", "hindi": "ठीक है, नमस्ते", "transliteration": "Thiik hai, namaste", "meaning": "Okay, Bye"}
+    ],
+    65: [
+        {"speaker_hi": "शिल्पा", "speaker_en": "Shilpa", "hindi": "हेलो पीटर! क्या चल रहा है?", "transliteration": "Hello Peter! kyaa chal rahaa hai?", "meaning": "Hello Peter! What is going on?"},
+        {"speaker_hi": "पीटर", "speaker_en": "Peter", "hindi": "नमस्ते शिल्पा, सब ठीक है| क्या हाल है?", "transliteration": "namaste Shilpaa, sab Thiik hai| kyaa haal hai?", "meaning": "Hello Shilpa, All is well. How are you?"},
+        {"speaker_hi": "शिल्पा", "speaker_en": "Shilpa", "hindi": "सब ठीक है| अच्छा, आपका ई.मेल एड्रेस क्या है?", "transliteration": "sab Thiik hai| achchhaa, aapkaa e.mail address kyaa hai?", "meaning": "All is well. Okay, what is your e.mail address?"},
+        {"speaker_hi": "पीटर", "speaker_en": "Peter", "hindi": "मेरा ई.मेल एड्रेस peter@gmail.com है| और आपका?", "transliteration": "meraa e.mail address peter@gmail.com hai. aur aapkaa?", "meaning": "My e.mail address is peter@gmail.com. And yours?"},
+        {"speaker_hi": "शिल्पा", "speaker_en": "Shilpa", "hindi": "मेरा ई.मेल एड्रेस shilpaa@gmail.com है|", "transliteration": "meraa e.mail address shilpaa@gmail.com hai.", "meaning": "My e.mail address is shilpaa@gmail.com."},
+        {"speaker_hi": "पीटर", "speaker_en": "Peter", "hindi": "आपका फ़ोन नंबर क्या है?", "transliteration": "aapkaa phone number kyaa hai?", "meaning": "What is your phone number?"},
+        {"speaker_hi": "शिल्पा", "speaker_en": "Shilpa", "hindi": "मेरा फ़ोन नंबर 555-xxx-xxxx है| और आपका?", "transliteration": "meraa phone number 555-xxx-xxxx hai. aur aapkaa?", "meaning": "My phone number is 555-xxx-xxx. And yours?"},
+        {"speaker_hi": "पीटर", "speaker_en": "Peter", "hindi": "मेरा फ़ोन नंबर 555-xxx-xxxx है|", "transliteration": "meraa phone number 555-xxx-xxx hai.", "meaning": "My phone number is 555-xxx-xxx."},
+        {"speaker_hi": "शिल्पा", "speaker_en": "Shilpa", "hindi": "धन्यवाद ! फिर मिलेंगे, नमस्ते", "transliteration": "dhanyawaad! phir milenge, namaste", "meaning": "Thanks! See you again, Bye"},
+        {"speaker_hi": "पीटर", "speaker_en": "Peter", "hindi": "अच्छा, बाय", "transliteration": "achchhaa, bye", "meaning": "Okay, Bye"}
+    ]
+}
+
 # Regex to match speaker name at the start of a line
 speakers_pattern = "|".join(SPEAKER_MAP.keys())
 speaker_pattern = re.compile(
@@ -77,6 +133,15 @@ def clean_text(text):
     cleaned = text.strip()
     cleaned = re.sub(r'^[\s\.:|!?—\-\(\)]+', '', cleaned)
     cleaned = re.sub(r'[\s\.:|!?—\-\(\)]+$', '', cleaned)
+    return cleaned.strip()
+
+def clean_punctuation_noise(text):
+    """Deep cleanup of punctuation markers left by PDF column merges."""
+    cleaned = text.strip()
+    # Strip leading punctuation noise (commas, question marks, exclamations, pipes, and whitespace)
+    cleaned = re.sub(r'^[,\s\?!\.:|]+', '', cleaned)
+    # Strip trailing punctuation noise (commas, colons, pipes, and whitespace)
+    cleaned = re.sub(r'[,\s\.:|]+$', '', cleaned)
     return cleaned.strip()
 
 def is_devanagari(text):
@@ -146,8 +211,10 @@ def parse_page_dialogues(page_num, reader):
             speaker = m.group(1).strip()
             content = m.group(2).strip()
             
-            # Clean speaker name suffix from content
+            # Clean speaker name suffix from content (both Devanagari and English)
+            english_speaker = SPEAKER_MAP.get(speaker, speaker)
             content = re.sub(rf'\s*({speaker})$', '', content)
+            content = re.sub(rf'\s*({english_speaker})$', '', content, flags=re.IGNORECASE)
             
             # Separate Hindi and English parts
             hindi_part = ""
@@ -215,53 +282,54 @@ def process_conversations():
     for page_num, topic in TOPICS.items():
         slug = get_slug(topic)
         print(f"Parsing Page {page_num} ({topic}) -> slug: {slug}...")
-        turns = parse_page_dialogues(page_num, reader)
         
-        cleaned_turns = []
-        for turn in turns:
-            hindi_speaker = turn["Speaker"]
-            english_speaker = SPEAKER_MAP.get(hindi_speaker, hindi_speaker)
+        # Check manual overloads
+        if page_num in MANUAL_OVERLOADS:
+            print(f"  Using manual overload list ({len(MANUAL_OVERLOADS[page_num])} turns).")
+            cleaned_turns = MANUAL_OVERLOADS[page_num]
+        else:
+            turns = parse_page_dialogues(page_num, reader)
+            cleaned_turns = []
             
-            raw_hindi = clean_text(turn["Hindi"])
-            raw_english = clean_text(turn["English"])
-            
-            # Clean speaker name if it was left in English part
-            raw_english = re.sub(r'^[a-zA-Z\s]+:\s*', '', raw_english)
-            
-            # Heuristic split for inline transliteration (only on pages 61, 63, 65)
-            translit = ""
-            meaning = raw_english
-            
-            if page_num in (61, 63, 65):
-                split_match = re.search(r'([\.\?!,])\s+([A-Z][a-zA-Z0-9\s\.,\?!\'\’\-\(\)]*)$', raw_english)
-                if split_match:
-                    translit = raw_english[:split_match.start() + 1].strip()
-                    meaning = split_match.group(2).strip()
-            
-            # Clean values
-            raw_hindi = clean_text(raw_hindi)
-            translit = clean_text(translit)
-            meaning = clean_text(meaning)
-            
-            if not raw_hindi or not meaning:
-                continue
+            for turn in turns:
+                hindi_speaker = turn["Speaker"]
+                english_speaker = SPEAKER_MAP.get(hindi_speaker, hindi_speaker)
                 
-            # If no transliteration was extracted, call API
-            if not translit:
-                api_queries += 1
-                api_translit = query_transliteration_api(raw_hindi)
-                if api_translit:
-                    translit = clean_text(api_translit)
-                else:
-                    translit = raw_hindi
+                raw_hindi = clean_text(turn["Hindi"])
+                raw_english = clean_text(turn["English"])
+                
+                # Clean speaker name if it was left in English part
+                raw_english = re.sub(r'^[a-zA-Z\s]+:\s*', '', raw_english)
+                
+                # Strip trailing speaker name suffix from fields
+                raw_hindi = re.sub(rf'\s*({hindi_speaker})$', '', raw_hindi)
+                raw_hindi = re.sub(rf'\s*({english_speaker})$', '', raw_hindi, flags=re.IGNORECASE)
+                raw_english = re.sub(rf'\s*({english_speaker})$', '', raw_english, flags=re.IGNORECASE)
+                
+                # Clean values
+                raw_hindi = clean_punctuation_noise(clean_text(raw_hindi))
+                translit = ""
+                meaning = clean_punctuation_noise(clean_text(raw_english))
+                
+                if not raw_hindi or not meaning:
+                    continue
                     
-            cleaned_turns.append({
-                "speaker_hi": hindi_speaker,
-                "speaker_en": english_speaker,
-                "hindi": raw_hindi,
-                "transliteration": translit,
-                "meaning": meaning
-            })
+                # If no transliteration was extracted, call API
+                if not translit:
+                    api_queries += 1
+                    api_translit = query_transliteration_api(raw_hindi)
+                    if api_translit:
+                        translit = clean_punctuation_noise(clean_text(api_translit))
+                    else:
+                        translit = raw_hindi
+                        
+                cleaned_turns.append({
+                    "speaker_hi": hindi_speaker,
+                    "speaker_en": english_speaker,
+                    "hindi": raw_hindi,
+                    "transliteration": translit,
+                    "meaning": meaning
+                })
             
         print(f"  Extracted {len(cleaned_turns)} turns.")
         total_turns_count += len(cleaned_turns)
