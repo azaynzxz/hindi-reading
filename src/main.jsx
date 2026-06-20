@@ -5,6 +5,7 @@ import './index.css'
 import App from './App.jsx'
 import HindiPracticePage from './pages/HindiPracticePage.jsx'
 import TypeToRevealPage from './pages/TypeToRevealPage.jsx'
+import ConversationPage from './pages/ConversationPage.jsx'
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
@@ -14,6 +15,7 @@ createRoot(document.getElementById('root')).render(
                 <Route path="/:monthDay" element={<App />} />
                 <Route path="/hindi-practice" element={<HindiPracticePage />} />
                 <Route path="/type-to-reveal" element={<TypeToRevealPage />} />
+                <Route path="/hindi-conversation" element={<ConversationPage />} />
             </Routes>
         </BrowserRouter>
     </StrictMode>,

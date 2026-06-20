@@ -471,6 +471,13 @@ const TypeToRevealPage = () => {
                                 Hindi
                             </button>
                             <button
+                                onClick={() => navigate('/hindi-conversation')}
+                                className="hidden sm:block uppercase font-medium transition-opacity hover:opacity-60"
+                                style={{ fontSize: '11px', letterSpacing: '0.08em', color: 'var(--muted)' }}
+                            >
+                                Conversation
+                            </button>
+                            <button
                                 onClick={() => navigate('/')}
                                 className="flex items-center gap-1 uppercase font-medium transition-opacity hover:opacity-60"
                                 style={{ fontSize: '11px', letterSpacing: '0.08em', color: 'var(--muted)' }}

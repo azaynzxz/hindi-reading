@@ -6,7 +6,7 @@ import Flashcards from './components/Flashcards';
 import month1Data from './data/month1.json';
 import month2Data from './data/month2.json';
 import month3Data from './data/month3.json';
-import { ChevronRight, ChevronLeft, BookOpen, Globe, Square, Play, Pause, X, Type, Settings, Minus, Plus, Monitor, ExternalLink, Calendar, Download, Menu, ChevronDown, ChevronUp, Trophy, TrendingUp, Clock, MapPin, Share2, BarChart3, RotateCw, Languages, CheckCircle } from 'lucide-react';
+import { ChevronRight, ChevronLeft, BookOpen, Globe, Square, Play, Pause, X, Type, Settings, Minus, Plus, Monitor, ExternalLink, Calendar, Download, Menu, ChevronDown, ChevronUp, Trophy, TrendingUp, Clock, MapPin, Share2, BarChart3, RotateCw, Languages, CheckCircle, MessageSquare } from 'lucide-react';
 import { getStorage, setStorage, StorageKeys } from './utils/storage';
 import { APP_AUTHOR, APP_FOOTER_LABEL, CHALLENGE_TITLE } from './utils/constants';
 
@@ -698,6 +698,13 @@ const ReadingChallenge = () => {
                                 >
                                     Type
                                 </button>
+                                <button
+                                    onClick={() => navigate('/hindi-conversation')}
+                                    className="hidden sm:block uppercase font-medium transition-opacity hover:opacity-60"
+                                    style={{ fontSize: '11px', letterSpacing: '0.08em', color: 'var(--muted)' }}
+                                >
+                                    Conversation
+                                </button>
                                 {/* Mobile hamburger */}
                                 <button
                                     onClick={() => {
@@ -858,6 +865,21 @@ const ReadingChallenge = () => {
                                         >
                                             <Type size={14} />
                                             <span>Type to Reveal</span>
+                                        </button>
+                                        <button
+                                            onClick={() => {
+                                                navigate('/hindi-conversation');
+                                                setIsMobileMenuClosing(true);
+                                                setTimeout(() => {
+                                                    setIsMobileMenuOpen(false);
+                                                    setIsMobileMenuClosing(false);
+                                                }, 300);
+                                            }}
+                                            className="flex items-center justify-center gap-1.5 px-3 py-2 bg-[#880000] text-white font-semibold text-xs uppercase transition-all hover:bg-[#770000]"
+                                            style={{ borderRadius: 0, letterSpacing: '0.06em' }}
+                                        >
+                                            <MessageSquare size={14} />
+                                            <span>Conversation</span>
                                         </button>
                                     </div>
                                 </div>
@@ -1021,6 +1043,21 @@ const ReadingChallenge = () => {
                                             >
                                                 <Type size={14} />
                                                 <span>Type to Reveal</span>
+                                            </button>
+                                            <button
+                                                onClick={() => {
+                                                    navigate('/hindi-conversation');
+                                                    setIsMobileMenuClosing(true);
+                                                    setTimeout(() => {
+                                                        setIsMobileMenuOpen(false);
+                                                        setIsMobileMenuClosing(false);
+                                                    }, 300);
+                                                }}
+                                                className="flex items-center justify-center gap-1.5 px-3 py-2.5 bg-[#880000] text-white font-semibold text-xs uppercase transition-all hover:bg-[#770000]"
+                                                style={{ borderRadius: 0, letterSpacing: '0.06em' }}
+                                            >
+                                                <MessageSquare size={14} />
+                                                <span>Conversation</span>
                                             </button>
                                         </div>
                                     </div>
