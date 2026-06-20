@@ -57,7 +57,7 @@ Google Transliteration API
 ```
 
 ### Validation Flow
-1. **Local Database First** (38 words) - Instant validation
+1. **Local Database First** (800+ entries) - Instant validation
 2. **Backend API Fallback** - Validates any Hindi word via Google's API
 3. **Caching** - API results are cached for repeat queries
 
@@ -155,14 +155,14 @@ Google Transliteration API
 
 ## 💡 Tips
 
-1. **Local Database** = Fast, but limited to 38 words
+1. **Local Database** = Fast, but limited to 800+ entries
 2. **API Server** = Unlimited words, but requires server running
 3. **Caching** = First API call is slow (~500ms), subsequent calls are instant
 4. **Auto-detect** = Frontend automatically checks API status every 5 seconds
 
 ## 🎓 Next Steps
 
-- Add more words to `basic-practice.csv` for instant validation
+- Add more words to `hindi-practice.csv` or `conversations.csv` for instant validation
 - The API will handle any words not in the database
 - Consider deploying the backend API for production use
 

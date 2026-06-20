@@ -9,7 +9,7 @@ import os
 sys.stdout.reconfigure(encoding='utf-8')
 
 PDF_PATH = r"d:\Praktek\Hindi Daily Reading\Matrials Basic\Basic-Hindi-1723411713.pdf"
-CSV_PATH = r"d:\Praktek\Hindi Daily Reading\public\basic-practice.csv"
+CSV_PATH = r"d:\Praktek\Hindi Daily Reading\public\hindi-practice.csv"
 API_URL = "http://localhost:3001/api/transliterate"
 
 # The complete list of pages with dialogues
@@ -47,7 +47,7 @@ def split_dialogue_line(text):
     Tries to split English translation into translit + meaning.
     Returns (hindi, transliteration, meaning) or None.
     """
-    match = re.search(r'\s+([a-zA-Z0-9\s\.,\?!\'\’\-]*)$', text)
+    match = re.search(r'\s+([a-zA-Z0-9\s\.,\?!\'\’\-\(\)]*)$', text)
     if not match:
         return None
         
@@ -58,7 +58,7 @@ def split_dialogue_line(text):
     english = re.sub(r'^[a-zA-Z\s]+:\s*', '', english)
     
     # Apply punctuation heuristic: check if there's a punctuation followed by capital letter
-    split_match = re.search(r'([\.\?!,])\s+([A-Z][a-zA-Z\s\.,\?!\'\’\-]*)$', english)
+    split_match = re.search(r'([\.\?!,])\s+([A-Z][a-zA-Z0-9\s\.,\?!\'\’\-\(\)]*)$', english)
     if split_match:
         translit = english[:split_match.start() + 1].strip()
         meaning = split_match.group(2).strip()

@@ -53,7 +53,7 @@ const HindiPracticePage = () => {
     useEffect(() => {
         const loadCSV = async () => {
             try {
-                const response = await fetch('/basic-practice.csv');
+                const response = await fetch('/hindi-practice.csv');
                 const text = await response.text();
 
                 const lines = text.split('\n').filter(line => line.trim());

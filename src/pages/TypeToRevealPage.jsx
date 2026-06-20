@@ -129,27 +129,36 @@ const TypeToRevealPage = () => {
     useEffect(() => {
         const loadCSV = async () => {
             try {
-                const response = await fetch('/basic-practice.csv');
-                const text = await response.text();
+                const [vocabRes, convoRes] = await Promise.all([
+                    fetch('/hindi-practice.csv').then(res => res.text()),
+                    fetch('/conversations.csv').then(res => res.text()).catch(() => '')
+                ]);
 
-                const lines = text.split('\n').filter(line => line.trim());
                 const database = {};
+                
+                const processCSV = (text) => {
+                    const lines = text.split('\n').filter(line => line.trim());
+                    lines.slice(1).forEach(line => {
+                        const values = line.match(/(\".*?\"|[^,]+)(?=\s*,|\s*$)/g) || [];
+                        const cleanValues = values.map(v => v.replace(/^\"|\"$/g, '').trim());
 
-                lines.slice(1).forEach(line => {
-                    const values = line.match(/(\".*?\"|[^,]+)(?=\s*,|\s*$)/g) || [];
-                    const cleanValues = values.map(v => v.replace(/^\"|\"$/g, '').trim());
+                        const rawHindi = cleanValues[1];
+                        const rawTranslit = cleanValues[2];
+                        const rawMeaning = cleanValues[3];
 
-                    const hindi = cleanValues[1];
-                    const transliteration = cleanValues[2];
-                    const meaning = cleanValues[3];
+                        if (rawHindi && rawTranslit) {
+                            const clean = (val) => val.replace(/^[a-zA-Z\u0900-\u097F\s]+:\s*/, '').trim();
+                            const hindiKey = clean(rawHindi);
+                            database[hindiKey] = {
+                                transliteration: clean(rawTranslit),
+                                meaning: clean(rawMeaning || '')
+                            };
+                        }
+                    });
+                };
 
-                    if (hindi && transliteration) {
-                        database[hindi] = {
-                            transliteration: transliteration,
-                            meaning: meaning || ''
-                        };
-                    }
-                });
+                processCSV(vocabRes);
+                if (convoRes) processCSV(convoRes);
 
                 setHindiDatabase(database);
                 setIsLoadingDB(false);

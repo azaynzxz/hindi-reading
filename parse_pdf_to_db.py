@@ -10,7 +10,7 @@ import os
 sys.stdout.reconfigure(encoding='utf-8')
 
 PDF_PATH = r"d:\Praktek\Hindi Daily Reading\Matrials Basic\Basic-Hindi-1723411713.pdf"
-CSV_PATH = r"d:\Praktek\Hindi Daily Reading\public\basic-practice.csv"
+CSV_PATH = r"d:\Praktek\Hindi Daily Reading\public\hindi-practice.csv"
 API_URL = "http://localhost:3001/api/transliterate"
 
 # Regex to match: [Hindi text] [Grammar category] [Rest of row]

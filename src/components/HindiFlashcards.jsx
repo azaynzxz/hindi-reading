@@ -19,7 +19,7 @@ const HindiFlashcards = ({ onClose }) => {
         // Load and parse CSV file
         const loadCSV = async () => {
             try {
-                const response = await fetch('/basic-practice.csv');
+                const response = await fetch('/hindi-practice.csv');
                 const text = await response.text();
 
                 // Parse CSV
@@ -105,7 +105,7 @@ const HindiFlashcards = ({ onClose }) => {
                             <BookOpen className="mx-auto text-slate-300 mb-4" size={48} />
                             <p className="text-slate-600 mb-2">No flashcards found!</p>
                             <p className="text-sm text-slate-500">
-                                Make sure the basic-practice.csv file exists.
+                                Make sure the hindi-practice.csv file exists.
                             </p>
                         </div>
                     </div>

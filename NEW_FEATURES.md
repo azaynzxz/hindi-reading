@@ -8,7 +8,7 @@ Successfully implemented two new practice features for the Hindi Daily Reading a
 - **Location**: `src/pages/HindiPracticePage.jsx`
 - **Features**:
   - Full-page flashcard interface
-  - Loads data from `basic-practice.csv`
+  - Loads data from `hindi-practice.csv`
   - Shows Hindi word on front, transliteration and meaning on back
   - Click card to flip
   - Navigation buttons (Previous, Next, Shuffle)
@@ -59,7 +59,8 @@ All three pages have cross-navigation:
 2. `src/pages/HindiPracticePage.jsx` - Full page for Hindi flashcards
 3. `src/components/HindiFlashcards.jsx` - (kept for reference, not used)
 4. `src/components/TypeToReveal.jsx` - (kept for reference, not used)
-5. `public/basic-practice.csv` - Copied from Matrials Basic folder
+5. `public/hindi-practice.csv` - Contains vocabulary and phrases
+6. `public/conversations.csv` - Contains dialogue lines with speaker prefixes
 
 ### Files Modified
 1. `src/main.jsx` - Added React Router with route definitions

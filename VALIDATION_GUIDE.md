@@ -3,9 +3,9 @@
 ## How Validation Works
 
 ### Database Loading
-- On page load, the app fetches and parses `basic-practice.csv`
-- Creates a dictionary mapping Hindi words to their correct transliterations
-- Currently contains **38 words** from the CSV file
+- On page load, the app fetches and parses `hindi-practice.csv` and `conversations.csv` in parallel, merging them into a unified vocabulary/phrase database.
+- Creates a dictionary mapping Hindi words/phrases to their correct transliterations
+- Currently contains **800+ entries** from both CSV files combined
 - Loading status shown on empty state
 
 ### Validation Logic
@@ -96,10 +96,10 @@ const normalizeText = (text) => {
 - `incorrect` - Doesn't match database
 - `unknown` - Word not found in database
 
-### Database Words (38 total)
+### Database Words (800+ total)
 From CSV sources:
-- **Getting Started PDF**: Basic words (नमस्ते, हिंदी, सुनना, बोलना, समझना, etc.)
-- **Top 25 Cheatsheet**: Common questions and phrases
+- **hindi-practice.csv**: Contains vocabulary words and conversational phrases.
+- **conversations.csv**: Contains full dialogues with speaker turns.
 
 ### Future Enhancements
 - [ ] Add partial matching (show if you're close)

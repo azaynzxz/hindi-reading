@@ -9,7 +9,7 @@ import os
 sys.stdout.reconfigure(encoding='utf-8')
 
 PDF_PATH = r"d:\Praktek\Hindi Daily Reading\Matrials Basic\Basic-Hindi-1723411713.pdf"
-CSV_PATH = r"d:\Praktek\Hindi Daily Reading\public\basic-practice.csv"
+CSV_PATH = r"d:\Praktek\Hindi Daily Reading\public\conversations.csv"
 API_URL = "http://localhost:3001/api/transliterate"
 
 # Topics map
@@ -108,7 +108,7 @@ def parse_page_dialogues(page_num, reader):
             hindi_part = ""
             eng_part = ""
             
-            split_match = re.search(r'\s+([a-zA-Z0-9\s\.,\?!\'\’\-]*)$', content)
+            split_match = re.search(r'\s+([a-zA-Z0-9\s\.,\?!\'\’\-\(\)]*)$', content)
             if split_match:
                 eng_part = split_match.group(1).strip()
                 hindi_part = content[:split_match.start()].strip()
@@ -125,24 +125,27 @@ def parse_page_dialogues(page_num, reader):
             }
         else:
             if current_turn:
-                split_match = re.search(r'\s+([a-zA-Z0-9\s\.,\?!\'\’\-]*)$', line)
-                if split_match:
-                    e = split_match.group(1).strip()
-                    h = line[:split_match.start()].strip()
-                    if h:
-                        current_turn["Hindi"] += " " + h
-                    if e:
-                        current_turn["English"] += " " + e
+                if not is_devanagari(line):
+                    current_turn["English"] += " " + line
                 else:
-                    if is_devanagari(line) and not is_english(line):
-                        current_turn["Hindi"] += " " + line
-                    elif is_english(line) and not is_devanagari(line):
-                        current_turn["English"] += " " + line
+                    split_match = re.search(r'\s+([a-zA-Z0-9\s\.,\?!\'\’\-\(\)]*)$', line)
+                    if split_match:
+                        e = split_match.group(1).strip()
+                        h = line[:split_match.start()].strip()
+                        if h:
+                            current_turn["Hindi"] += " " + h
+                        if e:
+                            current_turn["English"] += " " + e
                     else:
-                        if is_devanagari(line):
+                        if is_devanagari(line) and not is_english(line):
                             current_turn["Hindi"] += " " + line
-                        else:
+                        elif is_english(line) and not is_devanagari(line):
                             current_turn["English"] += " " + line
+                        else:
+                            if is_devanagari(line):
+                                current_turn["Hindi"] += " " + line
+                            else:
+                                current_turn["English"] += " " + line
                             
     if current_turn:
         turns.append(current_turn)
@@ -180,7 +183,7 @@ def process_conversations():
             meaning = raw_english
             
             if page_num in (61, 63, 65):
-                split_match = re.search(r'([\.\?!,])\s+([A-Z][a-zA-Z\s\.,\?!\'\’\-]*)$', raw_english)
+                split_match = re.search(r'([\.\?!,])\s+([A-Z][a-zA-Z0-9\s\.,\?!\'\’\-\(\)]*)$', raw_english)
                 if split_match:
                     translit = raw_english[:split_match.start() + 1].strip()
                     meaning = split_match.group(2).strip()
@@ -216,29 +219,13 @@ def process_conversations():
             
     print(f"Extraction complete. Formatted {len(new_rows)} conversation turns.")
     
-    # Merge with existing CSV (remove old Daily Conversations)
-    existing_rows = []
-    if os.path.exists(CSV_PATH):
-        with open(CSV_PATH, mode='r', encoding='utf-8') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                # Keep anything that doesn't start with "Daily Conversation"
-                if not row["Source"].startswith("Daily Conversation"):
-                    existing_rows.append(row)
-                    
-    print(f"Retained {len(existing_rows)} vocabulary and cheatsheet rows from the old database.")
-    
-    # Merge
-    merged_rows = existing_rows + new_rows
-    print(f"Total rows after merging conversations: {len(merged_rows)}")
-    
     # Save back to CSV
-    print(f"Saving merged database to {CSV_PATH}...")
+    print(f"Saving database to {CSV_PATH}...")
     headers = ["Source", "Hindi", "Transliteration", "Meaning"]
     with open(CSV_PATH, mode='w', encoding='utf-8', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=headers)
         writer.writeheader()
-        for row in merged_rows:
+        for row in new_rows:
             writer.writerow({
                 "Source": row["Source"],
                 "Hindi": row["Hindi"],
