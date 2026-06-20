@@ -69,13 +69,13 @@ const HindiFlashcards = ({ onClose }) => {
         return (
             <>
                 <div
-                    className={`fixed inset-0 bg-black/50 z-50 ${isClosing ? 'animate-backdrop-out' : 'animate-backdrop-in'}`}
+                    className={`fixed inset-0 bg-black/25 z-50 ${isClosing ? 'animate-backdrop-out' : 'animate-backdrop-in'}`}
                     onClick={handleClose}
                 />
                 <div className={`fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none ${isClosing ? 'animate-modal-out' : 'animate-modal-in'}`}>
-                    <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-6 pointer-events-auto">
+                    <div className="bg-white border p-8 pointer-events-auto w-full max-w-md flex flex-col" style={{ borderColor: 'var(--rule)', borderRadius: 0 }}>
                         <div className="text-center py-8">
-                            <p className="text-slate-600">Loading flashcards...</p>
+                            <p style={{ fontSize: '13px', color: 'var(--muted)', fontWeight: '500' }}>Loading flashcards...</p>
                         </div>
                     </div>
                 </div>
@@ -87,24 +87,24 @@ const HindiFlashcards = ({ onClose }) => {
         return (
             <>
                 <div
-                    className={`fixed inset-0 bg-black/50 z-50 ${isClosing ? 'animate-backdrop-out' : 'animate-backdrop-in'}`}
+                    className={`fixed inset-0 bg-black/25 z-50 ${isClosing ? 'animate-backdrop-out' : 'animate-backdrop-in'}`}
                     onClick={handleClose}
                 />
                 <div className={`fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none ${isClosing ? 'animate-modal-out' : 'animate-modal-in'}`}>
-                    <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 pointer-events-auto overflow-hidden">
-                        <div className="flex items-center justify-between mb-4">
-                            <h2 className="text-xl font-bold text-slate-800">Hindi Flashcards</h2>
+                    <div className="bg-white border max-w-md w-full p-6 pointer-events-auto flex flex-col" style={{ borderColor: 'var(--rule)', borderRadius: 0 }}>
+                        <div className="flex items-center justify-between mb-4 border-b pb-2" style={{ borderColor: 'var(--rule)' }}>
+                            <h2 className="uppercase font-bold tracking-widest text-xs" style={{ color: 'var(--fg)' }}>Hindi Flashcards</h2>
                             <button
                                 onClick={handleClose}
-                                className="p-2 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-100"
+                                className="p-1 text-slate-400 hover:text-slate-600 transition-opacity"
                             >
-                                <X size={20} />
+                                <X size={18} />
                             </button>
                         </div>
                         <div className="text-center py-8">
-                            <BookOpen className="mx-auto text-slate-300 mb-4" size={48} />
-                            <p className="text-slate-600 mb-2">No flashcards found!</p>
-                            <p className="text-sm text-slate-500">
+                            <BookOpen className="mx-auto text-slate-300 mb-4" size={40} />
+                            <p className="font-bold mb-1" style={{ fontSize: '15px' }}>No flashcards found!</p>
+                            <p style={{ fontSize: '12px', color: 'var(--muted)' }}>
                                 Make sure the hindi-practice.csv file exists.
                             </p>
                         </div>
@@ -119,83 +119,114 @@ const HindiFlashcards = ({ onClose }) => {
     return (
         <>
             <div
-                className={`fixed inset-0 bg-black/50 z-50 ${isClosing ? 'animate-backdrop-out' : 'animate-backdrop-in'}`}
+                className={`fixed inset-0 bg-black/25 z-50 ${isClosing ? 'animate-backdrop-out' : 'animate-backdrop-in'}`}
                 onClick={handleClose}
             />
             <div className={`fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none ${isClosing ? 'animate-modal-out' : 'animate-modal-in'}`}>
-                <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full pointer-events-auto overflow-hidden">
-                    <div className="sticky top-0 bg-white border-b border-slate-200 p-4 flex items-center justify-between z-10 rounded-t-2xl">
+                <div className="bg-white border max-w-2xl w-full pointer-events-auto flex flex-col" style={{ borderColor: 'var(--rule)', borderRadius: 0 }}>
+                    <div className="sticky top-0 bg-white border-b p-4 flex items-center justify-between z-10" style={{ borderColor: 'var(--rule)' }}>
                         <div className="flex items-center gap-4">
-                            <h2 className="text-xl font-bold text-slate-800">Hindi Flashcards</h2>
-                            <span className="text-xs bg-[#880000]/10 text-[#880000] px-3 py-1 rounded-full font-semibold">
+                            <h2 className="uppercase font-bold tracking-widest text-xs" style={{ color: 'var(--fg)' }}>Hindi Flashcards</h2>
+                            <span 
+                                className="text-[10px] border px-2 py-0.5 font-bold uppercase tracking-wider" 
+                                style={{ borderColor: 'var(--accent)', color: 'var(--accent)', borderRadius: 0 }}
+                            >
                                 {currentWord.source}
                             </span>
                         </div>
                         <button
                             onClick={handleClose}
-                            className="p-2 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-100"
+                            className="p-1 text-slate-400 hover:text-slate-600 transition-opacity"
                         >
-                            <X size={20} />
+                            <X size={18} />
                         </button>
                     </div>
 
                     <div className="p-8">
                         <div className="mb-4 text-center">
-                            <span className="text-sm text-slate-500">
+                            <span className="font-mono text-xs uppercase tracking-wider text-slate-500">
                                 {currentIndex + 1} of {words.length}
                             </span>
                         </div>
 
+                        {/* Flat Swiss-design card panel */}
                         <div
-                            className="bg-gradient-to-br from-[#880000] to-[#660000] rounded-2xl p-12 min-h-[320px] flex flex-col items-center justify-center cursor-pointer transform transition-transform hover:scale-[1.02] shadow-2xl"
+                            className="border p-12 min-h-[300px] flex flex-col items-center justify-center cursor-pointer transition-colors"
+                            style={{
+                                borderColor: 'var(--rule)',
+                                background: 'var(--bg)',
+                                borderRadius: 0
+                            }}
                             onClick={() => setShowAnswer(!showAnswer)}
                         >
                             {!showAnswer ? (
                                 <div className="text-center">
-                                    <h3 className="text-6xl font-bold text-white mb-6">
+                                    <h3 className="text-5xl font-bold mb-4" style={{ color: 'var(--fg)' }}>
                                         {currentWord.hindi}
                                     </h3>
-                                    <p className="text-white/80 text-sm uppercase tracking-wider">Click to reveal answer</p>
+                                    <p className="uppercase tracking-wider font-bold" style={{ fontSize: '10px', color: 'var(--muted)' }}>Click to reveal answer</p>
                                 </div>
                             ) : (
                                 <div className="text-center space-y-4">
-                                    <h3 className="text-5xl font-bold text-white mb-2">
+                                    <h3 className="text-4xl font-bold mb-2" style={{ color: 'var(--accent)' }}>
                                         {currentWord.hindi}
                                     </h3>
-                                    <div className="w-20 h-1 bg-white/30 mx-auto rounded-full"></div>
-                                    <p className="text-white/90 text-3xl font-semibold italic">
+                                    <div className="w-12 h-0.5 mx-auto" style={{ background: 'var(--rule)' }}></div>
+                                    <p className="font-mono text-2xl font-bold italic" style={{ color: 'var(--fg)' }}>
                                         {currentWord.transliteration}
                                     </p>
-                                    <p className="text-white/80 text-xl mt-4">
+                                    <p className="text-lg" style={{ color: 'var(--muted)' }}>
                                         {currentWord.meaning}
                                     </p>
                                 </div>
                             )}
                         </div>
 
+                        {/* Flat Swiss-design controls */}
                         <div className="flex items-center justify-between mt-6">
                             <button
                                 onClick={handlePrev}
-                                className="flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors font-semibold text-slate-700"
+                                className="flex items-center gap-1.5 px-3 py-2 border font-bold uppercase transition-opacity hover:opacity-75"
+                                style={{ 
+                                    borderColor: 'var(--rule)', 
+                                    background: 'white', 
+                                    color: 'var(--fg)', 
+                                    borderRadius: 0, 
+                                    fontSize: '11px', 
+                                    letterSpacing: '0.06em' 
+                                }}
                             >
-                                <ChevronLeft size={20} />
+                                <ChevronLeft size={16} />
                                 Previous
                             </button>
 
                             <button
                                 onClick={handleShuffle}
-                                className="p-2 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors"
+                                className="p-2 border transition-opacity hover:opacity-75"
+                                style={{ 
+                                    borderColor: 'var(--rule)', 
+                                    background: 'white', 
+                                    color: 'var(--fg)', 
+                                    borderRadius: 0 
+                                }}
                                 title="Shuffle"
                             >
-                                <RotateCw size={20} />
+                                <RotateCw size={16} />
                             </button>
 
                             <button
                                 onClick={handleNext}
-                                className="flex items-center gap-2 px-4 py-2 bg-[#880000] hover:bg-[#770000] text-white rounded-lg transition-colors font-semibold"
+                                className="flex items-center gap-1.5 px-3 py-2 border font-bold uppercase transition-opacity hover:opacity-75 text-white"
+                                style={{ 
+                                    borderColor: 'var(--accent)', 
+                                    background: 'var(--accent)', 
+                                    borderRadius: 0, 
+                                    fontSize: '11px', 
+                                    letterSpacing: '0.06em' 
+                                }}
                             >
                                 Next
-                                <ChevronRight size={20} />
+                                <ChevronRight size={16} />
                             </button>
                         </div>
                     </div>
