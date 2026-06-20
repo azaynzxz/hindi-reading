@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ReadingCard from './components/ReadingCard';
 import Dashboard from './components/Dashboard';
-import Flashcards from './components/Flashcards';
 import month1Data from './data/month1.json';
 import month2Data from './data/month2.json';
 import month3Data from './data/month3.json';

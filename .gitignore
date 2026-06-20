@@ -35,3 +35,11 @@ Thumbs.db
 AppData/
 *.log
 
+# Local textbook materials (too large / copyrighted)
+/Matrials Basic/
+*.pdf
+
+# Backups and temporary files
+*.backup
+*.bak
+
