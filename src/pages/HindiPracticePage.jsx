@@ -317,7 +317,7 @@ const HindiPracticePage = () => {
 
                     {/* ── Sidebar — Swiss: flat panel, 1px right rule, no bg card ── */}
                     <aside className={`
-                        absolute lg:static inset-y-0 left-0 z-10 w-72 lg:w-full bg-white flex flex-col lg:col-span-3
+                        absolute lg:static inset-y-0 left-0 z-10 w-72 lg:w-full lg:h-full lg:min-h-0 bg-white flex flex-col lg:col-span-3
                         border transition-transform duration-300 ease-in-out
                         ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
                     `} style={{ borderColor: 'var(--rule)', borderRadius: 0 }}>
