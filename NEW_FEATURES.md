@@ -60,7 +60,7 @@ All three pages have cross-navigation:
 3. `src/components/HindiFlashcards.jsx` - (kept for reference, not used)
 4. `src/components/TypeToReveal.jsx` - (kept for reference, not used)
 5. `public/hindi-practice.csv` - Contains vocabulary and phrases
-6. `public/conversations.csv` - Contains dialogue lines with speaker prefixes
+6. `public/conversations.json` (and `public/conversations/` subfolders) - Contains cleaned JSON dialogue turns by theme
 
 ### Files Modified
 1. `src/main.jsx` - Added React Router with route definitions

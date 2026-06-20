@@ -1,0 +1,90 @@
+{
+  "theme": "Daily Conversation - Social Media",
+  "slug": "social-media",
+  "turns": [
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "पीटर, तुम अपने फ़ोन पर क्या करते रहते हो",
+      "transliteration": "pITara, tuma apane fona para kyA karate rahate ho",
+      "meaning": "Peter, what do you keep doing on your phone"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "मैं अपना फ़ेसबुक देखता रहता हूँ",
+      "transliteration": "maiM apanA fesabuka dekhatA rahatA hU.N",
+      "meaning": "I keep checking my facebook"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "यह फ़ेसबुक क्या है",
+      "transliteration": "yaha fesabuka kyA hai",
+      "meaning": "What is this facebook"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "फ़ेसबुक एक सोसल मीडिया है | फ़ेसबुक में तुम दोस्त बना सकती हो, अपनी तस्वीर लगा सकती हो और दूसरे शहरों और देशों के दोस्तों से बात कर सकती हो | क्या तुम्हारा फ़ेसबुक खाता नहीं है",
+      "transliteration": "fesabuka eka sosala mIDiyA hai | fesabuka meM tuma dosta banA sakatI ho, apanI tasvIra lagA sakatI ho aura dUsare shaharoM aura deshoM ke dostoM se bAta kara sakatI ho | kyA tumhArA fesabuka khAtA nahIM hai",
+      "meaning": "Facebook is a social media. On facebook, you can make friends, post your photo and make friends from other towns and countries. Do you have a facebook account"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "नहीं, आज मैं पहली बार इस फ़ेसबुक के बारे में सुन रही हूँ | क्या तुम मुझे फ़ेसबुक पर खाता खोलने में मदद करोगी",
+      "transliteration": "nahIM, Aja maiM pahalI bAra isa fesabuka ke bAre meM suna rahI hU.N | kyA tuma mujhe fesabuka para khAtA kholane meM madada karogI",
+      "meaning": "No, today, I am learning about the facebook first time. Will you help me to open a facebook account"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "हाँ, ज़रूर, क्या तुम्हारा कोई ई.मेल अड्रेस है",
+      "transliteration": "hA.N, zrUra, kyA tumhArA koI I.mela aDresa hai",
+      "meaning": "Yes, indeed, do you have any e.mail. address"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "हाँ, मेरा gmail पर एक खाता है",
+      "transliteration": "hA.N, merA gmail para eka khAtA hai",
+      "meaning": "Yes, I have an account on gmail"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "ठीक है | अब तुम अपने फ़ोन में facebook.com पर जाओ और create new account पर क्लिक करो | उसके बाद, अपना नाम, ई.मेल या फ़ोन नंबर, पासवर्ड, जन्म तिथि और लिंग दर्ज करो | उसके बाद साइन अप पर क्लिक करो | उसके बाद ई.मेल या फ़ोन नंबर की पुष्टि करो और तुम्हारा खाता खुल जाएगा",
+      "transliteration": "ThIka hai | aba tuma apane fona meM facebook.com para jAo aura create new account para klika karo | usake bAda, apanA nAma, I.mela yA fona naMbara, pAsavarDa, janma tithi aura liMga darja karo | usake bAda sAina apa para klika karo | usake bAda I.mela yA fona naMbara kI puShTi karo aura tumhArA khAtA khula jAegA",
+      "meaning": "Okay, Now you go to facebook.com on your phone and click on create new account. After that put your name, e.mail or phone number, password, date of birth and gender. After that click on sign up. After that confirm your e.mail or phone number and your account will open"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "अरे वाह ! यह तो बहुत आसान है | फिर क्या करना है",
+      "transliteration": "are vAha ! yaha to bahuta AsAna hai | phira kyA karanA hai",
+      "meaning": "Oh wao! This is so easy. Then what do I have to do"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "उसके बाद तुम अपने profile में अपना फ़ोटो और दूसरी सूचनाएं update कर सकती हो और दोस्तों को friend request भेज सकती हो",
+      "transliteration": "usake bAda tuma apane profile meM apanA foTo aura dUsarI sUchanAeM update kara sakatI ho aura dostoM ko friend request bheja sakatI ho",
+      "meaning": "After that you can update your profile photo and other information and can send friend requests to your friends"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "बहुत अच्छा ! मैं आज ही फ़ेसबुक पर खाता खोल कर तुम्हें request भेजूँगी",
+      "transliteration": "bahuta achChA ! maiM Aja hI fesabuka para khAtA khola kara tumheM request bhejU.NgI",
+      "meaning": "friend Very well! Today, I will open a facebook account and will send you a friend request"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "बहुत अच्छा, फिर हम फ़ेसबुक पर बात करेंगे",
+      "transliteration": "bahuta achChA, phira hama fesabuka para bAta kareMge",
+      "meaning": "Very well, then we will chat on facebook"
+    }
+  ]
+}

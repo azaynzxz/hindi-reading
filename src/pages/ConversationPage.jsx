@@ -37,69 +37,37 @@ const ConversationPage = () => {
         }
     }, [chatHistory, isTyping]);
 
-    // Load CSV data
+    // Load JSON data
     useEffect(() => {
-        const loadCSV = async () => {
+        const loadJSON = async () => {
             try {
-                const response = await fetch('/conversations.csv');
-                const text = await response.text();
+                const response = await fetch('/conversations.json');
+                const data = await response.json();
 
-                const lines = text.split('\n').filter(line => line.trim());
-                const parsedRows = lines.slice(1).map(line => {
-                    const values = line.match(/(\".*?\"|[^,]+)(?=\s*,|\s*$)/g) || [];
-                    const cleanValues = values.map(v => v.replace(/^\"|\"$/g, '').trim());
-
-                    return {
-                        source: cleanValues[0] || 'General',
-                        hindi: cleanValues[1] || '',
-                        transliteration: cleanValues[2] || '',
-                        meaning: cleanValues[3] || ''
-                    };
-                }).filter(r => r.source.startsWith('Daily Conversation -'));
-
-                // Group by Source/Topic
                 const grouped = {};
-                parsedRows.forEach(row => {
-                    const topicName = row.source.replace('Daily Conversation - ', '');
-                    if (!grouped[topicName]) {
-                        grouped[topicName] = [];
-                    }
+                Object.keys(data).forEach(slug => {
+                    const item = data[slug];
+                    const topicName = item.theme.replace('Daily Conversation - ', '');
                     
-                    // Parse: "Speaker: Text"
-                    const parseField = (field) => {
-                        const idx = field.indexOf(':');
-                        if (idx !== -1) {
-                            return {
-                                speaker: field.substring(0, idx).trim(),
-                                text: field.substring(idx + 1).trim()
-                            };
-                        }
-                        return { speaker: 'Speaker', text: field };
-                    };
-
-                    const hParsed = parseField(row.hindi);
-                    const tParsed = parseField(row.transliteration);
-                    const mParsed = parseField(row.meaning);
-
-                    grouped[topicName].push({
-                        hindiSpeaker: hParsed.speaker,
-                        hindiText: hParsed.text,
-                        englishSpeaker: mParsed.speaker,
-                        translitText: tParsed.text,
-                        meaningText: mParsed.text
-                    });
+                    grouped[topicName] = item.turns.map(turn => ({
+                        hindiSpeaker: turn.speaker_hi,
+                        hindiText: turn.hindi,
+                        englishSpeaker: turn.speaker_en,
+                        translitText: turn.transliteration,
+                        meaningText: turn.meaning
+                    }));
                 });
 
                 setAllConversations(grouped);
                 setTopics(Object.keys(grouped));
                 setIsLoading(false);
             } catch (error) {
-                console.error('Error loading CSV:', error);
+                console.error('Error loading JSON:', error);
                 setIsLoading(false);
             }
         };
 
-        loadCSV();
+        loadJSON();
     }, []);
 
     // Set up conversation once topic is selected

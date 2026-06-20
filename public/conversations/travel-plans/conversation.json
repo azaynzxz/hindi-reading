@@ -1,0 +1,118 @@
+{
+  "theme": "Daily Conversation - Travel Plans",
+  "slug": "travel-plans",
+  "turns": [
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "नमस्ते माँ, तुम कैसी हो और अभी क्या कर रही हो",
+      "transliteration": "namaste mA.N, tuma kaisI ho aura abhI kyA kara rahI ho",
+      "meaning": "Hello mother, how are you and what are you doing right now"
+    },
+    {
+      "speaker_hi": "केरेन",
+      "speaker_en": "Karen",
+      "hindi": "नमस्ते बेटी, मैं ठीक हूँ और अभी अपना सामान पैक कर रही हूँ | मैं कल सुबह के हवाई जहाज़ से भारत आ रही हूँ | तुम कैसी हो और क्या कर रही हो",
+      "transliteration": "namaste beTI, maiM ThIka hU.N aura abhI apanA sAmAna paika kara rahI hU.N | maiM kala subaha ke havAI jahAz se bhArata A rahI hU.N | tuma kaisI ho aura kyA kara rahI ho",
+      "meaning": "Hello daughter, I am fine and I am packing right now. I am coming to India by morning flight tomorrow. How are you and what are you doing"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "मैं भी अच्छी हूँ, माँ | मैं हमारी यात्रा की योजना बना रही हूँ",
+      "transliteration": "maiM bhI achChI hU.N, mA.N | maiM hamArI yAtrA kI yojanA banA rahI hU.N",
+      "meaning": "I am well too, mother. I am making our travel plan"
+    },
+    {
+      "speaker_hi": "केरेन",
+      "speaker_en": "Karen",
+      "hindi": "मैं भी भारत-यात्रा के लिए बहुत उत्साहित हूँ | मुझे यात्रा की योजना के बारे में बताओ",
+      "transliteration": "maiM bhI bhArata-yAtrA ke lie bahuta utsAhita hU.N | mujhe yAtrA kI yojanA ke bAre meM batAo",
+      "meaning": "I am also very excited about India tour. Tell me about the travel plan"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "ठीक है | मैं तुम से दिल्ली अन्तराष्ट्रीय हवाईअड्डे पर मिलूँगी | हम दिल्ली में दो दिन रुकेंगी और दिल्ली में लाल क़िला और कुतुबमीनार देखेंगी",
+      "transliteration": "ThIka hai | maiM tuma se dillI antarAShTrIya havAIaDDe para milU.NgI | hama dillI meM do dina rukeMgI aura dillI meM lAla qilA aura kutubamInAra dekheMgI",
+      "meaning": "Okay. I will meet you at the international airport in Delhi. We will stay in Delhi for two days and will visit Red fort and Qutub minar"
+    },
+    {
+      "speaker_hi": "केरेन",
+      "speaker_en": "Karen",
+      "hindi": "क्या हम जामा मस्जिद भी देखेंगी",
+      "transliteration": "kyA hama jAmA masjida bhI dekheMgI",
+      "meaning": "Will we visit Jama masjid too"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "जी हाँ, जामा मस्जिद, लाल क़िला के पास ही है",
+      "transliteration": "jI hA.N, jAmA masjida, lAla qilA ke pAsa hI hai",
+      "meaning": "Yes, Jama masjid is near by the red fort"
+    },
+    {
+      "speaker_hi": "केरेन",
+      "speaker_en": "Karen",
+      "hindi": "बहुत अच्छा | उसके बाद हम कहाँ जायेंगी",
+      "transliteration": "bahuta achChA | usake bAda hama kahA.N jAyeMgI",
+      "meaning": "Very well. Where will we go after that"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "दिल्ली के बाद हम जयपुर और उदयपुर जायेंगी | जयपुर और उदयपुर में, हम बहुत सारे क़िले देखेंगी, राजस्थानी खाना खायेंगी और ख़रीदारी भी करेंगी",
+      "transliteration": "dillI ke bAda hama jayapura aura udayapura jAyeMgI | jayapura aura udayapura meM, hama bahuta sAre qile dekheMgI, rAjasthAnI khAnA khAyeMgI aura khrIdArI bhI kareMgI",
+      "meaning": "After Delhi, we will go to Jaipur and Udaypur. In Jaipur and Udaypur, we will visit many forts, eat Rajasthani food, and do shopping too"
+    },
+    {
+      "speaker_hi": "केरेन",
+      "speaker_en": "Karen",
+      "hindi": "मैंने सुना है कि राजस्थानी हस्तशिल्प बहुत मशहूर है",
+      "transliteration": "maiMne sunA hai ki rAjasthAnI hastashilpa bahuta mashahUra hai",
+      "meaning": "I have heard that Rajasthani handicraft is very famous"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "हाँ माँ, हम राजस्थान से पंजाब जायेंगी और बाघा बॉडर पर हिन्दुस्तानी और पाकिस्तानी सैनिकों का परेड देखेंगी",
+      "transliteration": "hA.N mA.N, hama rAjasthAna se paMjAba jAyeMgI aura bAghA baॉDara para hindustAnI aura pAkistAnI sainikoM kA pareDa dekheMgI",
+      "meaning": "Yes mother, we will go to Punjab from Rajasthan and will see a parade by Indian and Pakistani soldiers"
+    },
+    {
+      "speaker_hi": "केरेन",
+      "speaker_en": "Karen",
+      "hindi": "अरे वाह ! मैंने सुना है कि वह परेड बहुत नाटकीय है",
+      "transliteration": "are vAha ! maiMne sunA hai ki vaha pareDa bahuta nATakIya hai",
+      "meaning": "Wao! I have heard that the parade is very dramatic"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "हाँ, हमें बहुत मज़ा आयेंगा | उसके बाद हम अमृतसर में गोल्डन टेम्पल देखेंगी और दिल्ली वापस आयेंगी",
+      "transliteration": "hA.N, hameM bahuta mazA AyeMgA | usake bAda hama amRRitasara meM golDana Tempala dekheMgI aura dillI vApasa AyeMgI",
+      "meaning": "Yes, we will have so much fun. After that we will go to visit golden temple in Amritsar and will return to Delhi"
+    },
+    {
+      "speaker_hi": "केरेन",
+      "speaker_en": "Karen",
+      "hindi": "यह तो बहुत अच्छी योजना है | तुम्हें अमेरिका से कुछ चाहिए",
+      "transliteration": "yaha to bahuta achChI yojanA hai | tumheM amerikA se kuCha chAhie",
+      "meaning": "This is such a good plan. Do you need anything from America"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "नहीं माँ, मुझे कुछ नहीं चाहिए | मगर हाँ, तुम गर्म कपड़े मत लाना | आजकल हिन्दुस्तान में गर्मी का मौसम है",
+      "transliteration": "nahIM mA.N, mujhe kuCha nahIM chAhie | magara hA.N, tuma garma kapare mata lAnA | Ajakala hindustAna meM garmI kA mausama hai",
+      "meaning": "No mother, I do not need anything. But, please do not bring warm clothes. It is summer season in India these days"
+    },
+    {
+      "speaker_hi": "केरेन",
+      "speaker_en": "Karen",
+      "hindi": "ठीक है बेटी, मैं तुमसे दिल्ली हवाईअड्डे पर मिलूँगी",
+      "transliteration": "ThIka hai beTI, maiM tumase dillI havAIaDDe para milU.NgI",
+      "meaning": "Okay daughter, I will see you at Delhi airport"
+    }
+  ]
+}

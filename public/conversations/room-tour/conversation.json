@@ -1,0 +1,90 @@
+{
+  "theme": "Daily Conversation - Room Tour",
+  "slug": "room-tour",
+  "turns": [
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "आओ विद्या, आज, मैं तुम्हें अपना कमरा दिखाता हूँ",
+      "transliteration": "Ao vidyA, Aja, maiM tumheM apanA kamarA dikhAtA hU.N",
+      "meaning": "Come Vidya, today, I show you my room"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "चलो",
+      "transliteration": "chalo",
+      "meaning": "Let’s go"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "यह मेरा कमरा है | मेरे कमरे में, एक बिस्तर है, एक मेज़, एक कुर्सी और एक छोटा सोफ़ा भी है| बिस्तर के बगल में एक छोटी मेज़ है | उस मेज़ पर, एक बिजली की बत्ती, एक फूलदान और एक घड़ी भी है",
+      "transliteration": "yaha merA kamarA hai | mere kamare meM, eka bistara hai, eka mez, eka kursI aura eka ChoTA sofA bhI hai| bistara ke bagala meM eka ChoTI mez hai | usa mez para, eka bijalI kI battI, eka phUladAna aura eka gharI bhI hai",
+      "meaning": "This is my room. In my room, there is one bed, one table, one chair, and one small sofa too. On that table, there is an electric bulb, a flower vase, and one clock too"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "पढ़ाई की मेज़ पर, क्या है",
+      "transliteration": "parhAI kI mez para, kyA hai",
+      "meaning": "What are on the study table"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "पढ़ाई की मेज़ पर, एक कंप्यूटर, कुछ किताबें और एक कॉफ़ी कप है",
+      "transliteration": "parhAI kI mez para, eka kaMpyUTara, kuCha kitAbeM aura eka kaॉfI kapa hai",
+      "meaning": "On the study table, there is a computer, a few books, and a coffee cup"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "इस अलमारी में क्या है",
+      "transliteration": "isa alamArI meM kyA hai",
+      "meaning": "What is in this almirah"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "इस अलमारी में, मेरे कपड़े और जूतें हैं | देखो, उस दीवार पर सुन्दर तस्वीरें हैं | दरवाज़े के पीछे एक आईना भी है",
+      "transliteration": "isa alamArI meM, mere kapare aura jUteM haiM | dekho, usa dIvAra para sundara tasvIreM haiM | daravAze ke pIChe eka AInA bhI hai",
+      "meaning": "In this almirah, there are my clothes and shoes. Look, there are beautiful pictures on that wall. There is a mirror behind the door too"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "तुम्हारे कमरे का परदा बहुत सुन्दर है | और लगता है कि पंखा नया है",
+      "transliteration": "tumhAre kamare kA paradA bahuta sundara hai | aura lagatA hai ki paMkhA nayA hai",
+      "meaning": "The curtain of your room is very beautiful. It seems that fan is new"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "जी हाँ, नया पंखा और नयी दरी भी",
+      "transliteration": "jI hA.N, nayA paMkhA aura nayI darI bhI",
+      "meaning": "Yes, New fan and new rug too"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "तुम्हारा कमरा बहुत बड़ा और हवादार भी है",
+      "transliteration": "tumhArA kamarA bahuta barA aura havAdAra bhI hai",
+      "meaning": "Your room is very bog and airy too"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "धन्यवाद ! क्या तुम भी मुझे अपना कमरा और घर दिखाओगी",
+      "transliteration": "dhanyavAda ! kyA tuma bhI mujhe apanA kamarA aura ghara dikhAogI",
+      "meaning": "Thanks ! Will you also show me your room and house"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "हाँ, ज़रूर, क्यों नहीं",
+      "transliteration": "hA.N, zrUra, kyoM nahIM",
+      "meaning": "Yes, indeed, why not"
+    }
+  ]
+}

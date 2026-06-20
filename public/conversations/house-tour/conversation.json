@@ -1,0 +1,118 @@
+{
+  "theme": "Daily Conversation - House Tour",
+  "slug": "house-tour",
+  "turns": [
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "ओ हो ! विद्या है | नमस्ते, क्या हाल है",
+      "transliteration": "o ho ! vidyA hai | namaste, kyA hAla hai",
+      "meaning": "Oho! It is Vidya. Hello, how are you"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "नमस्ते, सब ठीक है| तुम कैसे हो",
+      "transliteration": "namaste, saba ThIka hai| tuma kaise ho",
+      "meaning": "Hello, All is well. How are you"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "मैं भी ठीक हूँ | आओ, अन्दर आओ",
+      "transliteration": "maiM bhI ThIka hU.N | Ao, andara Ao",
+      "meaning": "I am okay too. come, come inside"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "धन्यवाद, तुम्हारा घर बहुत सुन्दर है",
+      "transliteration": "dhanyavAda, tumhArA ghara bahuta sundara hai",
+      "meaning": "Thanks, your home is very beautiful"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "शुक्रिया, चलो, मैं तुम्हें पूरा घर दिखाता हूँ",
+      "transliteration": "shukriyA, chalo, maiM tumheM pUrA ghara dikhAtA hU.N",
+      "meaning": "Thanks, Let’s go, I will show you my whole house"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "ठीक है, चलो",
+      "transliteration": "ThIka hai, chalo",
+      "meaning": "Okay, Let’s go"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "यह हमारे घर का दरवाज़ा है | उसके बाद एक गलियारा है | गलियारे के बाद एक और दरवाज़ा है | उस दरवाज़े के बाद, हमारी बैठक है | बैठक के बायीं तरफ़ हमारी रसोई, और खाने का कमरा है | बैठक के दायीं तरफ़, पढ़ने का कमरा, पूजा घर, और अतिथी का कमरा भी है| बैठक में ही, एक सीढ़ी है",
+      "transliteration": "yaha hamAre ghara kA daravAzA hai | usake bAda eka galiyArA hai | galiyAre ke bAda eka aura daravAzA hai | usa daravAze ke bAda, hamArI baiThaka hai | baiThaka ke bAyIM tarafa hamArI rasoI, aura khAne kA kamarA hai | baiThaka ke dAyIM tarafa, parhne kA kamarA, pUjA ghara, aura atithI kA kamarA bhI hai| baiThaka meM hI, eka sIrhI hai",
+      "meaning": "This is the door of our house. After that there is a corridor. After the corridor, there is another door. After that door, there is our living room. On the left side of the living room, there is our kitchen and dinning room. On the right side of the living room, there is a study room, worship room, and a guest room too. In the living room itself, there is a staircase"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "और ऊपर की मंज़िल पर क्या-क्या है",
+      "transliteration": "aura Upara kI maMzila para kyA-kyA hai",
+      "meaning": "And what are there on the top floor"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "ऊपर की मंज़िल पर, तीन सोने के कमरे हैं | हर कमरे में, एक-एक शौचालय और स्नानघर है | ऊपर की मंज़िल पर, एक छज्जा भी है",
+      "transliteration": "Upara kI maMzila para, tIna sone ke kamare haiM | hara kamare meM, eka-eka shauchAlaya aura snAnaghara hai | Upara kI maMzila para, eka ChajjA bhI hai",
+      "meaning": "On the top floor, there are three bedrooms. In each room, there is a toilet and shower. There is a balcony too on the top floor"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "क्या नीचे की मंज़िल पर कोई शौचालय नहीं है",
+      "transliteration": "kyA nIche kI maMzila para koI shauchAlaya nahIM hai",
+      "meaning": "Is there no toilet on the bottom floor"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "हाँ, एक शौचालय और स्नानघर नीचे की मंज़िल पर भी है",
+      "transliteration": "hA.N, eka shauchAlaya aura snAnaghara nIche kI maMzila para bhI hai",
+      "meaning": "Yes, There is one toilet and shower at the bottom floor too"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "ऋतिक, तुम्हारा घर बहुत अच्छा, साफ़ और हवादार भी है | क्या तुम्हारे घर में कोई बगीचा है",
+      "transliteration": "RRitika, tumhArA ghara bahuta achChA, sAf aura havAdAra bhI hai | kyA tumhAre ghara meM koI bagIchA hai",
+      "meaning": "Hritik, your house is very good, clean and airy too. Is there any garden in your house"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "घर के पीछे, एक छोटा सा बगीचा भी है | वह मेरी माँ की सबसे पसंदीदा जगह है",
+      "transliteration": "ghara ke pIChe, eka ChoTA sA bagIchA bhI hai | vaha merI mA.N kI sabase pasaMdIdA jagaha hai",
+      "meaning": "Behind the house, there is a small gardem. This is my mother’s favorite place"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "अरे वाह ! मुझे भी बगीचा बहुत पसंद है | और तुम्हारा कमरा कहाँ है",
+      "transliteration": "are vAha ! mujhe bhI bagIchA bahuta pasaMda hai | aura tumhArA kamarA kahA.N hai",
+      "meaning": "O wao! I, too, like garden a lot. And where is your room"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "मेरा कमरा ऊपर की मंज़िल पर है | मेरा कमरा अभी गंदा है | मैं तुम्हें अपना कमरा बाद में दिखाऊंगा",
+      "transliteration": "merA kamarA Upara kI maMzila para hai | merA kamarA abhI gaMdA hai | maiM tumheM apanA kamarA bAda meM dikhAUMgA",
+      "meaning": "My room is on the top floor. Right now, my room is dirty. I will show you my room later"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "ठीक है",
+      "transliteration": "ThIka hai",
+      "meaning": "Okay"
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "theme": "Daily Conversation - Cooking",
+  "slug": "cooking",
+  "turns": [
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "कैसे हो ऋतिक",
+      "transliteration": "kaise ho RRitika",
+      "meaning": "How are your Hritik"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "मैं ठीक हूँ | धन्यवाद | तुम कैसी हो",
+      "transliteration": "maiM ThIka hU.N | dhanyavAda | tuma kaisI ho",
+      "meaning": "I am fine. Thanks. How are you"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "मैं भी ठीक हूँ | धन्यवाद | आज तुम्हारे लंच बॉक्स में क्या है",
+      "transliteration": "maiM bhI ThIka hU.N | dhanyavAda | Aja tumhAre laMcha baॉksa meM kyA hai",
+      "meaning": "I am good as well. Thanks. What is in your lunch box today"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "आज मेरे लंच बॉक्स में रोटी और सब्ज़ी है",
+      "transliteration": "Aja mere laMcha baॉksa meM roTI aura sabzI hai",
+      "meaning": "I have break and vegetable in my lunch box today"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "क्या यह तुम्हारा पसंदीदा खाना है",
+      "transliteration": "kyA yaha tumhArA pasaMdIdA khAnA hai",
+      "meaning": "Is this your favorite food"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "नहीं, मुझे खिचड़ी बहुत पसंद है",
+      "transliteration": "nahIM, mujhe khicharI bahuta pasaMda hai",
+      "meaning": "No, I like khichadi a lot"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "अरे वाह! मुझे भी खिचड़ी पसंद है | लेकिन मुझे खिचड़ी बनानी नहीं आती",
+      "transliteration": "are vAha! mujhe bhI khicharI pasaMda hai | lekina mujhe khicharI banAnI nahIM AtI",
+      "meaning": "Wao! I too like khichadi. But I don’t know how to cook it"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "अरे यह तो बहुत आसान है",
+      "transliteration": "are yaha to bahuta AsAna hai",
+      "meaning": "This is very easy"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "क्या तुम मुझे इसे बनाने की विधि बता सकते हो",
+      "transliteration": "kyA tuma mujhe ise banAne kI vidhi batA sakate ho",
+      "meaning": "Can you tell me the recipe of it"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "बिल्कुल, खिचड़ी बनाने के लिए तुम्हें चावल, दाल, टमाटर, प्याज, मटर, घी, लाल मिर्च, हरी मिर्च, अदरक, लहसून, जीरा, हिंग, हल्दी, गर्म मसाला, धनिया और नमक चाहिए",
+      "transliteration": "bilkula, khicharI banAne ke lie tumheM chAvala, dAla, TamATara, pyAja, maTara, ghI, lAla mircha, harI mircha, adaraka, lahasUna, jIrA, hiMga, haldI, garma masAlA, dhaniyA aura namaka chAhie",
+      "meaning": "Sure, To cook khichadi, you need rice, lentils, tomato, onion, peas, ghee, red chilli, green chiili, ginger, garlic, cumin, asafoetida, turmeric, garam masala, coriander, and salt"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "मुझे लगता है कि ये सारी चीज़ें मेरे घर पर हैं | अब मुझे इसे बनाने की विधि बताओ",
+      "transliteration": "mujhe lagatA hai ki ye sArI chIzeM mere ghara para haiM | aba mujhe ise banAne kI vidhi batAo",
+      "meaning": "I think these all things are available at home. Now, tell me the recipe"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "सबसे पहले एक प्रेशर कुकर में, घी डालो, फिर उस में जीरा, दो लाल मिर्च और हिंग डालो | दो मिनट तलने के बाद उस में प्याज, टमाटर, मटर, अदरक, लहसून, और नमक डाल कर तीन से चार मिनट तक पकाओ | उसके बाद, उसमें हल्दी, और गर्म मसाला डालो| जब एक पेस्ट तैयार हो जाय तो उसमे दाल और चावल डालो | उसे अच्छे से मिलाओ | फिर प्रेशर कुकर में चार-पांच कप पानी डाल कर पांच सिटी लगने तक पकाओ | फिर प्रेशर कुकर खोलो और खिचड़ी को दही के साथ परोसो",
+      "transliteration": "sabase pahale eka preshara kukara meM, ghI DAlo, phira usa meM jIrA, do lAla mircha aura hiMga DAlo | do minaTa talane ke bAda usa meM pyAja, TamATara, maTara, adaraka, lahasUna, aura namaka DAla kara tIna se chAra minaTa taka pakAo | usake bAda, usameM haldI, aura garma masAlA DAlo| jaba eka pesTa taiyAra ho jAya to usame dAla aura chAvala DAlo | use achChe se milAo | phira preshara kukara meM chAra-pAMcha kapa pAnI DAla kara pAMcha siTI lagane taka pakAo | phira preshara kukara kholo aura khicharI ko dahI ke sAtha paroso",
+      "meaning": "First of all, Add ghee, cumin, two red chilli and asafoetida in a pressure cooker. After frying that for two minutes, add onion, tomato, peas, ginger, garlic, and salt in that and cook for three to four minutes. After that add turmeric and garam masala in it. When the pest is ready, add rice and lentils in it. Mix it well. Add four to five cups of water in it and cook it till five whistles. After that open the pressure cooker and serve the khichadi with yogurt"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "यह तो बहुत आसान है | मैं आज ही इसे बनाने की कोशिश करूँगी",
+      "transliteration": "yaha to bahuta AsAna hai | maiM Aja hI ise banAne kI koshisha karU.NgI",
+      "meaning": "This is very easy. I will try to cook it today"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "अच्छा विद्या, तुम्हारा पसंदीदा खाना क्या है",
+      "transliteration": "achChA vidyA, tumhArA pasaMdIdA khAnA kyA hai",
+      "meaning": "Okay Vidya, what is your favorite food"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "मुझे तो चिकेन करी बहुत पसंद है",
+      "transliteration": "mujhe to chikena karI bahuta pasaMda hai",
+      "meaning": "I like chicken curry a lot"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "क्या तुम मुझे चिकेन करी बनाने की विधि बता सकती हो",
+      "transliteration": "kyA tuma mujhe chikena karI banAne kI vidhi batA sakatI ho",
+      "meaning": "Can you tell me the recipe of the chicken curry"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "हाँ, क्यों नहीं ? लेकिन आज नहीं, कल",
+      "transliteration": "hA.N, kyoM nahIM ? lekina Aja nahIM, kala",
+      "meaning": "Yes, why not? But not today, tomorrow"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "ठीक है | फिर मिलेंगे",
+      "transliteration": "ThIka hai | phira mileMge",
+      "meaning": "Okay, see you again"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "नमस्ते",
+      "transliteration": "namaste",
+      "meaning": "Namaste"
+    }
+  ]
+}

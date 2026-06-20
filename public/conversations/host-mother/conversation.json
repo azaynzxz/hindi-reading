@@ -1,0 +1,132 @@
+{
+  "theme": "Daily Conversation - Host Mother",
+  "slug": "host-mother",
+  "turns": [
+    {
+      "speaker_hi": "कमला",
+      "speaker_en": "Kamala",
+      "hindi": "बेटी जेन, तुम्हारा हमारे घर में स्वागत है | यह तुम्हारा कमरा है",
+      "transliteration": "beTI jena, tumhArA hamAre ghara meM svAgata hai | yaha tumhArA kamarA hai",
+      "meaning": "Daughter Jen, you are most welcome in our home. This is your room"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "धन्यवाद कमला जी, यह कमरा तो बहुत बड़ा और सुन्दर है",
+      "transliteration": "dhanyavAda kamalA jI, yaha kamarA to bahuta barA aura sundara hai",
+      "meaning": "Thanks Kamala Ji, This room is very big and beautiful"
+    },
+    {
+      "speaker_hi": "कमला",
+      "speaker_en": "Kamala",
+      "hindi": "हाँ बेटी, हम यह कमरा हर साल अपने अमेरिकी अतिथी को देते हैं | तुम ठीक से कमरा देख लो और मुझे बताओ कि तुम्हें और कुछ चाहिए",
+      "transliteration": "hA.N beTI, hama yaha kamarA hara sAla apane amerikI atithI ko dete haiM | tuma ThIka se kamarA dekha lo aura mujhe batAo ki tumheM aura kuCha chAhie",
+      "meaning": "Yes daughter, We offer this room to our American guest every year. Please look at this room and let me know if you need anything"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "माता जी, कमरा बहुत अच्छा है| मुझे इन खिड़कियों पर पर्दे चाहिए",
+      "transliteration": "mAtA jI, kamarA bahuta achChA hai| mujhe ina khirkiyoM para parde chAhie",
+      "meaning": "Mother, the room is very good. I need curtains on these windows"
+    },
+    {
+      "speaker_hi": "कमला",
+      "speaker_en": "Kamala",
+      "hindi": "खिडकियों पर पर्दे हैं| मगर अभी धुलने के लिए उतारे गये हैं",
+      "transliteration": "khiDakiyoM para parde haiM| magara abhI dhulane ke lie utAre gaye haiM",
+      "meaning": "There are curtains on these windows. But right now they are taken down to be washed"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "अच्छा | मुझे एक टेबल लैंप भी चाहिए",
+      "transliteration": "achChA | mujhe eka Tebala laiMpa bhI chAhie",
+      "meaning": "Great! I also need a table lamp"
+    },
+    {
+      "speaker_hi": "कमला",
+      "speaker_en": "Kamala",
+      "hindi": "ठीक है | मैं आज ही एक टेबल लैंप तुम्हारे कमरे में लगा दूंगी | तुम्हें और कुछ चाहिए",
+      "transliteration": "ThIka hai | maiM Aja hI eka Tebala laiMpa tumhAre kamare meM lagA dUMgI | tumheM aura kuCha chAhie",
+      "meaning": "Very well. I will get you a table lamp in your room. What else do you need"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "नहीं और कुछ नहीं | धन्यवाद",
+      "transliteration": "nahIM aura kuCha nahIM | dhanyavAda",
+      "meaning": "Nothing at all. Thanks"
+    },
+    {
+      "speaker_hi": "कमला",
+      "speaker_en": "Kamala",
+      "hindi": "अच्छा बेटी, क्या तुम्हें हिन्दुस्तानी खाना पसंद है",
+      "transliteration": "achChA beTI, kyA tumheM hindustAnI khAnA pasaMda hai",
+      "meaning": "Okay daughter, do you like Indian food"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "जी हाँ, कमला जी, मुझे हिन्दुस्तानी खाना बहुत पसंद है",
+      "transliteration": "jI hA.N, kamalA jI, mujhe hindustAnI khAnA bahuta pasaMda hai",
+      "meaning": "Yes, Kamala ji, I like Indian food very much"
+    },
+    {
+      "speaker_hi": "कमला",
+      "speaker_en": "Kamala",
+      "hindi": "अच्छा | और तुम्हें सुबह-सुबह चाय चाहिए या कॉफ़ी",
+      "transliteration": "achChA | aura tumheM subaha-subaha chAya chAhie yA kaॉfI",
+      "meaning": "Okay. Do you like tea or coffee in the morning"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "आप लोग क्या पीते हैं",
+      "transliteration": "Apa loga kyA pIte haiM",
+      "meaning": "What do you all drink"
+    },
+    {
+      "speaker_hi": "कमला",
+      "speaker_en": "Kamala",
+      "hindi": "हम लोग तो चाय पीते हैं ? मगर घर में, कॉफ़ी मशीन भी है",
+      "transliteration": "hama loga to chAya pIte haiM ? magara ghara meM, kaॉfI mashIna bhI hai",
+      "meaning": "We drink tea. But we have coffee machine in the house too"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "बहुत अच्छा ! मैं आप लोगों के साथ सुबह सुबह चाय पीना चाहती हूँ",
+      "transliteration": "bahuta achChA ! maiM Apa logoM ke sAtha subaha subaha chAya pInA chAhatI hU.N",
+      "meaning": "Very well! I would like to drink tea in the morning with you all"
+    },
+    {
+      "speaker_hi": "कमला",
+      "speaker_en": "Kamala",
+      "hindi": "बहुत अच्छा ! अब तुम आराम करो और सात बजे तैयार हो कर रात के खाने के लिए बाहर आओ",
+      "transliteration": "bahuta achChA ! aba tuma ArAma karo aura sAta baje taiyAra ho kara rAta ke khAne ke lie bAhara Ao",
+      "meaning": "Very well! Now you rest and come out at 7 PM for dinner"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "ठीक है कमला जी, और आपके परिवार के और लोग कहाँ हैं",
+      "transliteration": "ThIka hai kamalA jI, aura Apake parivAra ke aura loga kahA.N haiM",
+      "meaning": "Okay Kamala ji. Where are the other members of your family"
+    },
+    {
+      "speaker_hi": "कमला",
+      "speaker_en": "Kamala",
+      "hindi": "अभी सब व्यस्त हैं, रात को खाने पर मैं तुम्हारा परिचय सब लोगों से करवा दूंगी",
+      "transliteration": "abhI saba vyasta haiM, rAta ko khAne para maiM tumhArA parichaya saba logoM se karavA dUMgI",
+      "meaning": "Right now, they are busy. I will introduce you to all others at the dinner"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "ठीक है, कमला जी | आपका बहुत बहुत  धन्यवाद",
+      "transliteration": "ThIka hai, kamalA jI | ApakA bahuta bahuta  dhanyavAda",
+      "meaning": "Okay Kamala ji. Thanks to you"
+    }
+  ]
+}

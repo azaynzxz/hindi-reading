@@ -1,0 +1,83 @@
+{
+  "theme": "Daily Conversation - Summer Vacation",
+  "slug": "summer-vacation",
+  "turns": [
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "नमस्ते शिल्पा, तुम कैसी हो",
+      "transliteration": "namaste shilpA, tuma kaisI ho",
+      "meaning": "Hello Shilpa, How are you"
+    },
+    {
+      "speaker_hi": "शिल्पा",
+      "speaker_en": "Shilpa",
+      "hindi": "मैं अच्छी हूँ | तुम कैसे हो",
+      "transliteration": "maiM achChI hU.N | tuma kaise ho",
+      "meaning": "I am well. How are you"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "मैं भी अच्छा हूँ| तुम्हारी गर्मी की छुट्टियाँ कैसी थीं",
+      "transliteration": "maiM bhI achChA hU.N| tumhArI garmI kI ChuTTiyA.N kaisI thIM",
+      "meaning": "I, too, am well. How was your summer vacation"
+    },
+    {
+      "speaker_hi": "शिल्पा",
+      "speaker_en": "Shilpa",
+      "hindi": "मेरी गर्मी की छुट्टियाँ बहुत अच्छी थीं | मैं अपने परिवार के साथ हैदराबाद गयी थी",
+      "transliteration": "merI garmI kI ChuTTiyA.N bahuta achChI thIM | maiM apane parivAra ke sAtha haidarAbAda gayI thI",
+      "meaning": "My summer vacation was very good. I went to Hyderabad with my family"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "अरे वाह ! हैदराबाद में तुम लोगों ने क्या – क्या किया",
+      "transliteration": "are vAha ! haidarAbAda meM tuma logoM ne kyA – kyA kiyA",
+      "meaning": "Oh wao! What did you do in Hyderabad"
+    },
+    {
+      "speaker_hi": "शिल्पा",
+      "speaker_en": "Shilpa",
+      "hindi": "हम लोग वहाँ एक सप्ताह रहे | हम ने शहर देखा | हम चार मीनार, गोलकुंडा फोर्ट, और रामू जी फ़िल्म सिटी गए | हम ने कई तरह की बिरयानियाँ खायीं | तुम गर्मी की छुटियों में कहाँ गए और क्या – क्या किया",
+      "transliteration": "hama loga vahA.N eka saptAha rahe | hama ne shahara dekhA | hama chAra mInAra, golakuMDA phorTa, aura rAmU jI filma siTI gae | hama ne kaI taraha kI birayAniyA.N khAyIM | tuma garmI kI ChuTiyoM meM kahA.N gae aura kyA – kyA kiyA",
+      "meaning": "We stayed there for a week. We saw the city. We wen to Char minar, Golkunda fort, and Ramu Ji film city. We ate different types of biryani. Where did you go in summer vacation and what did you do"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "मैं अपने माता – पिता के घर, गोवा गया था | मैंने उनके साथ कुछ समय बिताया | मैंने घर की मरम्मत करने में उनकी मदद की",
+      "transliteration": "maiM apane mAtA – pitA ke ghara, govA gayA thA | maiMne unake sAtha kuCha samaya bitAyA | maiMne ghara kI marammata karane meM unakI madada kI",
+      "meaning": "I went to my parent’s house in Goa. I spent some times with them. I help them fixing their house"
+    },
+    {
+      "speaker_hi": "शिल्पा",
+      "speaker_en": "Shilpa",
+      "hindi": "अरे वाह ! और ऋतिक तुम ने गर्मी की छुट्टियों में क्या किया",
+      "transliteration": "are vAha ! aura RRitika tuma ne garmI kI ChuTTiyoM meM kyA kiyA",
+      "meaning": "Oh wao! and Hritik, what did you do during the summer vacation"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "मैं घर पर ही था | मैंने  खाना पकाना सिखा",
+      "transliteration": "maiM ghara para hI thA | maiMne  khAnA pakAnA sikhA",
+      "meaning": "I was at home. I learnt how to cook"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "अरे वाह ! यह तो बहुत अच्छी बात है | अब तो ऋतिक हमारे लिए खाना बना सकता है",
+      "transliteration": "are vAha ! yaha to bahuta achChI bAta hai | aba to RRitika hamAre lie khAnA banA sakatA hai",
+      "meaning": "Oh wao! This is great. Now Hritik can cook food for us"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "हाँ, क्यों नहीं",
+      "transliteration": "hA.N, kyoM nahIM",
+      "meaning": "Yes, why not"
+    }
+  ]
+}

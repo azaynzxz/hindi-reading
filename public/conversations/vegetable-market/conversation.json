@@ -1,0 +1,160 @@
+{
+  "theme": "Daily Conversation - Vegetable Market",
+  "slug": "vegetable-market",
+  "turns": [
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "नमस्ते भइया",
+      "transliteration": "namaste bhaiyA",
+      "meaning": "Hello"
+    },
+    {
+      "speaker_hi": "दुकानदार",
+      "speaker_en": "Shopkeeper",
+      "hindi": "जी नमस्ते, आपको क्या चाहिए",
+      "transliteration": "jI namaste, Apako kyA chAhie",
+      "meaning": "Yes, What do you want"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "आपके पास कौन-कौन सी सब्ज़ियाँ हैं",
+      "transliteration": "Apake pAsa kauna-kauna sI sabziyA.N haiM",
+      "meaning": "What types of vegetables do you have"
+    },
+    {
+      "speaker_hi": "दुकानदार",
+      "speaker_en": "Shopkeeper",
+      "hindi": "मेरे पास आलू, टमाटर, प्याज, गोभी, मूली, पालक, और करेला आदि सब्ज़ियाँ हैं",
+      "transliteration": "mere pAsa AlU, TamATara, pyAja, gobhI, mUlI, pAlaka, aura karelA Adi sabziyA.N haiM",
+      "meaning": "I have potato, tomato, onion, cauliflower, radish, spinach, and bitter gourd, etc"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "मुझे करेला और मूली पसंद नहीं | क्या आपके पास बैंगन और मटर है | मुझे मटर बहुत पसंद है",
+      "transliteration": "mujhe karelA aura mUlI pasaMda nahIM | kyA Apake pAsa baiMgana aura maTara hai | mujhe maTara bahuta pasaMda hai",
+      "meaning": "I do not like bitter-gourd and radish. Do you have eggplant and peas. I like peas a lot"
+    },
+    {
+      "speaker_hi": "दुकानदार",
+      "speaker_en": "Shopkeeper",
+      "hindi": "जी हाँ, मेरे पास बैंगन है | माफ़ कीजिए, मगर, आजकल, मटर का मौसम नहीं है | इसलिए मेरे पास मटर नहीं है",
+      "transliteration": "jI hA.N, mere pAsa baiMgana hai | mAf kIjie, magara, Ajakala, maTara kA mausama nahIM hai | isalie mere pAsa maTara nahIM hai",
+      "meaning": "Yes, I have eggplant. Sorry, but, this is not the season for peas. This is why, I do not have peas"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "कोई बात नहीं, बैंगन कितने का है",
+      "transliteration": "koI bAta nahIM, baiMgana kitane kA hai",
+      "meaning": "No problem, What is the cost of eggplant"
+    },
+    {
+      "speaker_hi": "दुकानदार",
+      "speaker_en": "Shopkeeper",
+      "hindi": "बैंगन 50 रूपये किलो है",
+      "transliteration": "baiMgana 50 rUpaye kilo hai",
+      "meaning": "Eggplant is 50 rupees per kilo"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "मुझे लगता है कि यह बहुत महँगा है",
+      "transliteration": "mujhe lagatA hai ki yaha bahuta maha.NgA hai",
+      "meaning": "I think, it is quite expensive"
+    },
+    {
+      "speaker_hi": "दुकानदार",
+      "speaker_en": "Shopkeeper",
+      "hindi": "नहीं जी, दाम एक दम ठीक है | क्या आपको मालूम है कि यहाँ बैंगन का आयात हम दूसरे राज्यों से करते हैं",
+      "transliteration": "nahIM jI, dAma eka dama ThIka hai | kyA Apako mAlUma hai ki yahA.N baiMgana kA AyAta hama dUsare rAjyoM se karate haiM",
+      "meaning": "No, the price is absolutely right. Do you know that we import eggplants from other states"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "अच्छा भइया, मुझे मटर, इस बाज़ार में, कहाँ मिलेगा",
+      "transliteration": "achChA bhaiyA, mujhe maTara, isa bAzAra meM, kahA.N milegA",
+      "meaning": "Okay brother, where can I get peas in this market"
+    },
+    {
+      "speaker_hi": "दुकानदार",
+      "speaker_en": "Shopkeeper",
+      "hindi": "इस बाज़ार में तो आपको मटर कहीं नहीं मिलेगा",
+      "transliteration": "isa bAzAra meM to Apako maTara kahIM nahIM milegA",
+      "meaning": "You will not get peas in this market anywhere"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "अच्छा कोई बात नहीं | आधा किलो आलू और एक किलो टमाटर दीजिए",
+      "transliteration": "achChA koI bAta nahIM | AdhA kilo AlU aura eka kilo TamATara dIjie",
+      "meaning": "Okay, no problem. Please give me half kilo potato and one kilo tomato"
+    },
+    {
+      "speaker_hi": "दुकानदार",
+      "speaker_en": "Shopkeeper",
+      "hindi": "ठीक है | और कुछ",
+      "transliteration": "ThIka hai | aura kuCha",
+      "meaning": "Okay. Anything else"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "क्या आपके पास फल भी हैं",
+      "transliteration": "kyA Apake pAsa phala bhI haiM",
+      "meaning": "Do you have fruits too"
+    },
+    {
+      "speaker_hi": "दुकानदार",
+      "speaker_en": "Shopkeeper",
+      "hindi": "जी हाँ, मेरे पास सभी मौसमी फल हैं | आपको कौन से फल चाहिए",
+      "transliteration": "jI hA.N, mere pAsa sabhI mausamI phala haiM | Apako kauna se phala chAhie",
+      "meaning": "Yes, I have all seasonal fruits. What fruits do you want"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "एक दर्जन केले और एक किलो सेब दे दीजिए",
+      "transliteration": "eka darjana kele aura eka kilo seba de dIjie",
+      "meaning": "Please give me one dozen banana and one kilo apple"
+    },
+    {
+      "speaker_hi": "दुकानदार",
+      "speaker_en": "Shopkeeper",
+      "hindi": "ठीक है | यह लीजिये आधा किलो आलू, एक किलो टमाटर, एक दर्जन केले और एक किलो सेब",
+      "transliteration": "ThIka hai | yaha lIjiye AdhA kilo AlU, eka kilo TamATara, eka darjana kele aura eka kilo seba",
+      "meaning": "Okay, Please take half kilo potato, one kilo tomato, one dozen banana, and one kilo apple"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "कितना हुआ",
+      "transliteration": "kitanA huA",
+      "meaning": "How much"
+    },
+    {
+      "speaker_hi": "दुकानदार",
+      "speaker_en": "Shopkeeper",
+      "hindi": "एक सौ पंद्रह रूपये",
+      "transliteration": "eka sau paMdraha rUpaye",
+      "meaning": "115 rupees"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "ठीक है. यह लीजिए आपके पैसे, नमस्ते",
+      "transliteration": "ThIka hai. yaha lIjie Apake paise, namaste",
+      "meaning": "Okay, please take your money. Bye"
+    },
+    {
+      "speaker_hi": "दुकानदार",
+      "speaker_en": "Shopkeeper",
+      "hindi": "नमस्ते",
+      "transliteration": "namaste",
+      "meaning": "Bye"
+    }
+  ]
+}

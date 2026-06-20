@@ -1,0 +1,153 @@
+{
+  "theme": "Daily Conversation - Family",
+  "slug": "family",
+  "turns": [
+    {
+      "speaker_hi": "शिल्पा",
+      "speaker_en": "Shilpa",
+      "hindi": "नमस्ते पीटर ! आप कैसे हैं ? Shilpa",
+      "transliteration": "namaste pITara ! Apa kaise haiM ? Shilpa",
+      "meaning": "Hello Peter! How are you"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "नमस्ते शिल्पा, मैं अच्छा हूँ, धन्यवाद | और आप ? Peter",
+      "transliteration": "namaste shilpA, maiM achChA hU.N, dhanyavAda | aura Apa ? Peter",
+      "meaning": "Hello Shilpa, I am well, thanks. And you"
+    },
+    {
+      "speaker_hi": "शिल्पा",
+      "speaker_en": "Shilpa",
+      "hindi": "मैं भी ठीक हूँ | धन्यवाद | चलिये, काम शुरू करते  हैं | Shilpa",
+      "transliteration": "maiM bhI ThIka hU.N | dhanyavAda | chaliye, kAma shurU karate  haiM | Shilpa",
+      "meaning": "I am okay too. Thanks. Let’s start the work"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "ठीक है| बताइये, आपका परिवार कहाँ रहता है ? Peter",
+      "transliteration": "ThIka hai| batAiye, ApakA parivAra kahA.N rahatA hai ? Peter",
+      "meaning": "Okay. Please tell, where does your family live"
+    },
+    {
+      "speaker_hi": "शिल्पा",
+      "speaker_en": "Shilpa",
+      "hindi": "मेरा परिवार शिकागो में रहता है | और आपका ? Shilpa",
+      "transliteration": "merA parivAra shikAgo meM rahatA hai | aura ApakA ? Shilpa",
+      "meaning": "My family lives in Chicago. And yours"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "मेरा परिवार डेट्रॉइट में है | Peter",
+      "transliteration": "merA parivAra DeTraॉiTa meM hai | Peter",
+      "meaning": "My family lives in Detroit"
+    },
+    {
+      "speaker_hi": "शिल्पा",
+      "speaker_en": "Shilpa",
+      "hindi": "आपकी माता जी का नाम क्या है ? Shilpa",
+      "transliteration": "ApakI mAtA jI kA nAma kyA hai ? Shilpa",
+      "meaning": "What is your mother’s name"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "मेरी माँ का नाम लिज़ है | आपकी माँ का नाम क्या है? Peter:My",
+      "transliteration": "merI mA.N kA nAma liz hai | ApakI mA.N kA nAma kyA hai? Peter:My",
+      "meaning": "mother’s name is Liz. What is your mother’s name"
+    },
+    {
+      "speaker_hi": "शिल्पा",
+      "speaker_en": "Shilpa",
+      "hindi": "मेरी माँ का नाम देवकी पटेल है | आपकी माँ क्या करती हैं ? Shilpa",
+      "transliteration": "merI mA.N kA nAma devakI paTela hai | ApakI mA.N kyA karatI haiM ? Shilpa",
+      "meaning": "My mother’s name is Devaki Patel. What does your mother do"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "मेरी माँ एक विद्यालय में अध्यापिका हैं | और आपकी माँ ? Peter",
+      "transliteration": "merI mA.N eka vidyAlaya meM adhyApikA haiM | aura ApakI mA.N ? Peter",
+      "meaning": "My mother is a school teacher. and your mother"
+    },
+    {
+      "speaker_hi": "शिल्पा",
+      "speaker_en": "Shilpa",
+      "hindi": "मेरी माँ एक गृहिणी हैं | आपके पिता जी का नाम क्या है ? Shilpa",
+      "transliteration": "merI mA.N eka gRRihiNI haiM | Apake pitA jI kA nAma kyA hai ? Shilpa",
+      "meaning": "My mother is a house-wife. What is your father’s name"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "मेरे पिता जी का नाम एडम है, और 1वह/वे [In also find use of वे case, वह and वे both are pronounced वो] एक डॉक्टर हैं | और आपके पिता जी का नाम क्या है और वह/वे क्या करते हैं",
+      "transliteration": "mere pitA jI kA nAma eDama hai, aura 1vaha/ve [In also find use of ve case, vaha and ve both are pronounced vo] eka DaॉkTara haiM | aura Apake pitA jI kA nAma kyA hai aura vaha/ve kyA karate haiM",
+      "meaning": "some books, one can for 3rd person singular honorific subject. In any ? Peter:My father's name is Adam, he is a doctor. What is your father's name and what does he do"
+    },
+    {
+      "speaker_hi": "शिल्पा",
+      "speaker_en": "Shilpa",
+      "hindi": "मेरे पिता जी का नाम कृष्णचंद पटेल है, और वह/वे एक वैज्ञानिक हैं | Shilpa",
+      "transliteration": "mere pitA jI kA nAma kRRiShNachaMda paTela hai, aura vaha/ve eka vaij~nAnika haiM | Shilpa",
+      "meaning": "My father's name is Krishnachand Patel, and he is a scientist"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "आपके कितने  भाई बहन हैं ? Peter",
+      "transliteration": "Apake kitane  bhAI bahana haiM ? Peter",
+      "meaning": "How many brothers and sisters do you have"
+    },
+    {
+      "speaker_hi": "शिल्पा",
+      "speaker_en": "Shilpa",
+      "hindi": "मेरा एक भाई है, उसका नाम साहिल है| मेरी कोई बहन नहीं है| और आपके कितने भाई बहन हैं",
+      "transliteration": "merA eka bhAI hai, usakA nAma sAhila hai| merI koI bahana nahIM hai| aura Apake kitane bhAI bahana haiM",
+      "meaning": "I have a brother, his name is Sahil. I have no sisters. And how many brothers and sisters do you have"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "मैं इकलौता हूँ | मेरे कोई भाई बहन नहीं हैं | Peter",
+      "transliteration": "maiM ikalautA hU.N | mere koI bhAI bahana nahIM haiM | Peter",
+      "meaning": "I am only one. I have no brothers and sisters"
+    },
+    {
+      "speaker_hi": "शिल्पा",
+      "speaker_en": "Shilpa",
+      "hindi": "क्या आपके दादा-दादी भी आपके साथ डेट्रॉइट में रहते हैं ? Shilpa",
+      "transliteration": "kyA Apake dAdA-dAdI bhI Apake sAtha DeTraॉiTa meM rahate haiM ? Shilpa",
+      "meaning": "Do your grand-parents live with you in Detroit"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "नहीं मेरे दादा-दादी हमारे साथ नहीं रहते | उनका अपना अलग घर है| क्या आपके दादा-दादी आपके साथ रहते हैं",
+      "transliteration": "nahIM mere dAdA-dAdI hamAre sAtha nahIM rahate | unakA apanA alaga ghara hai| kyA Apake dAdA-dAdI Apake sAtha rahate haiM",
+      "meaning": "No, my grand-parents do not live with us. They have their own separate house. Do your grand-parents live with you"
+    },
+    {
+      "speaker_hi": "शिल्पा",
+      "speaker_en": "Shilpa",
+      "hindi": "जी हाँ | हिन्दुस्तानी परिवार में, माता-पिता, भाई-बहन, दादा-दादी, चाचा-चाची, सब एक साथ एक घर में रहते हैं",
+      "transliteration": "jI hA.N | hindustAnI parivAra meM, mAtA-pitA, bhAI-bahana, dAdA-dAdI, chAchA-chAchI, saba eka sAtha eka ghara meM rahate haiM",
+      "meaning": "Yes, In an Indian family, mother-father, brother-sister, grand-parents, uncle-aunt, all live together in the same house"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "अरे वाह ! यह तो बहुत अच्छी बात है | अच्छा, फिर मिलेंगे, नमस्ते | Peter",
+      "transliteration": "are vAha ! yaha to bahuta achChI bAta hai | achChA, phira mileMge, namaste | Peter",
+      "meaning": "Oh Wao! This is a very good thing. Okay, see you again, Namaste"
+    },
+    {
+      "speaker_hi": "शिल्पा",
+      "speaker_en": "Shilpa",
+      "hindi": "ठीक है, बाय Shilpa",
+      "transliteration": "ThIka hai, bAya Shilpa",
+      "meaning": "Okay, Bye 1"
+    }
+  ]
+}

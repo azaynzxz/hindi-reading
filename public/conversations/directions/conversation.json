@@ -1,0 +1,69 @@
+{
+  "theme": "Daily Conversation - Directions",
+  "slug": "directions",
+  "turns": [
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "हैलो शिल्पा",
+      "transliteration": "hailo shilpA",
+      "meaning": "Hello Shilpa"
+    },
+    {
+      "speaker_hi": "शिल्पा",
+      "speaker_en": "Shilpa",
+      "hindi": "हैलो पीटर, क्या बात है ? तुम कहाँ हो",
+      "transliteration": "hailo pITara, kyA bAta hai ? tuma kahA.N ho",
+      "meaning": "Hello Peter, What is the matter? Where are you"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "मैं एक भारतीय रेस्टोरेंट में हूँ | यह बहुत अच्छी जगह है | अगर तुम ख़ाली हो तो हम साथ में खाना खा सकते हैं",
+      "transliteration": "maiM eka bhAratIya resToreMTa meM hU.N | yaha bahuta achChI jagaha hai | agara tuma khAlI ho to hama sAtha meM khAnA khA sakate haiM",
+      "meaning": "I am at an Indian restaurant. This is a great place. If you are available we can eat lunch together"
+    },
+    {
+      "speaker_hi": "शिल्पा",
+      "speaker_en": "Shilpa",
+      "hindi": "हाँ, मैं ख़ाली हूँ | मगर मुझे वहाँ का रास्ता मालूम नहीं",
+      "transliteration": "hA.N, maiM khAlI hU.N | magara mujhe vahA.N kA rAstA mAlUma nahIM",
+      "meaning": "Yes, I am available. But I don’t know the direction to that place"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "अभी तुम कहाँ हो",
+      "transliteration": "abhI tuma kahA.N ho",
+      "meaning": "Where are you right now"
+    },
+    {
+      "speaker_hi": "शिल्पा",
+      "speaker_en": "Shilpa",
+      "hindi": "मैं अभी Wells Hall में हूँ",
+      "transliteration": "maiM abhI Wells Hall meM hU.N",
+      "meaning": "I am in  Wells Hall right now"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "अच्छा, वहाँ  से Red Cedar Road पर आओ और बाएँ मुड़कर सीधा चलो, और फिर Shaw Lane पर बाएँ मुड़ो | थोड़ी दूर चल कर Lane पर दाहिने मुड़ो और सीधा चलो | उसके बाद, पर बाएँ मुड़ो | उसके बाद, Haggadorn Road पर दाहिने मुड़ो | Haggadorn Road पर तीन मिल पर Jolly Road आयेगा | Road पर बाएँ मुड़ो | एक मिल पर, तुम्हें यह रेस्टोरेंट मिलेगा",
+      "transliteration": "achChA, vahA.N  se Red Cedar Road para Ao aura bAe.N murkara sIdhA chalo, aura phira Shaw Lane para bAe.N muro | thorI dUra chala kara Lane para dAhine muro aura sIdhA chalo | usake bAda, para bAe.N muro | usake bAda, Haggadorn Road para dAhine muro | Haggadorn Road para tIna mila para Jolly Road AyegA | Road para bAe.N muro | eka mila para, tumheM yaha resToreMTa milegA",
+      "meaning": "Farm Mt. Hope Road Jolly Okay, Come out of Wells hall, and turn left and walk straight on Red Cedar Road, and then take a left turn on Shaw Lane. After a little distance, take a right turn on Farm Lane and go straight. After that turn left of Mt. Hope Road. After that turn right on Haggadorn Road. After going on Haggadorn for three miles, Jolly Road would come. Turn left on Jolly Road. After a mile, you will find this restaurant"
+    },
+    {
+      "speaker_hi": "शिल्पा",
+      "speaker_en": "Shilpa",
+      "hindi": "बहुत अच्छा | मैं थोड़ी देर में वहाँ आती हूँ",
+      "transliteration": "bahuta achChA | maiM thorI dera meM vahA.N AtI hU.N",
+      "meaning": "Very well. I come there in a little bit"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "ठीक है, मैं तुम्हारा इंतज़ार कर रहा हूँ",
+      "transliteration": "ThIka hai, maiM tumhArA iMtazAra kara rahA hU.N",
+      "meaning": "Okay, I am waiting for you"
+    }
+  ]
+}

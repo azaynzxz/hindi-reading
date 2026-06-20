@@ -1,0 +1,132 @@
+{
+  "theme": "Daily Conversation - SIM Card Shop",
+  "slug": "sim-card-shop",
+  "turns": [
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "नमस्ते जी, क्या आपके पास airtel का सिम कार्ड है",
+      "transliteration": "namaste jI, kyA Apake pAsa airtel kA sima kArDa hai",
+      "meaning": "Namaste ji, do you have airtel sim card"
+    },
+    {
+      "speaker_hi": "दुकानदार",
+      "speaker_en": "Shopkeeper",
+      "hindi": "जी हाँ, यहाँ आपको सभी कम्पनीयों के सिम कार्ड मिलेंगे",
+      "transliteration": "jI hA.N, yahA.N Apako sabhI kampanIyoM ke sima kArDa mileMge",
+      "meaning": "Yes, here, you will sim card of all the companies"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "मुझे airtel का एक सिम कार्ड चाहिए",
+      "transliteration": "mujhe airtel kA eka sima kArDa chAhie",
+      "meaning": "I just need one airtel sim card"
+    },
+    {
+      "speaker_hi": "दुकानदार",
+      "speaker_en": "Shopkeeper",
+      "hindi": "ठीक है, क्या आपके पास कोई फ़ोटो वाली पहचान कार्ड है",
+      "transliteration": "ThIka hai, kyA Apake pAsa koI foTo vAlI pahachAna kArDa hai",
+      "meaning": "Okay, Do you have any photo identity card"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "जी हाँ, मेरे पास मेरा पासपोर्ट है",
+      "transliteration": "jI hA.N, mere pAsa merA pAsaporTa hai",
+      "meaning": "Yes, I have my passport"
+    },
+    {
+      "speaker_hi": "दुकानदार",
+      "speaker_en": "Shopkeeper",
+      "hindi": "बहुत अच्छा | क्या आपके पास आपका कोई फ़ोटो है",
+      "transliteration": "bahuta achChA | kyA Apake pAsa ApakA koI foTo hai",
+      "meaning": "Very good, do you have a photo"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "जी हाँ, मेरी मेज़बान माता जी ने कहा था कि मुझे फ़ोटो ले जाना चाहिए | यह रहा मेरा फ़ोटो",
+      "transliteration": "jI hA.N, merI mezbAna mAtA jI ne kahA thA ki mujhe foTo le jAnA chAhie | yaha rahA merA foTo",
+      "meaning": "Yes, my host mother had said that I should bring my photo. Here is my photo"
+    },
+    {
+      "speaker_hi": "दुकानदार",
+      "speaker_en": "Shopkeeper",
+      "hindi": "अरे वाह ! यह बहुत अच्छी बात है | आपको सिम कार्ड में कितने पैसे चाहिए",
+      "transliteration": "are vAha ! yaha bahuta achChI bAta hai | Apako sima kArDa meM kitane paise chAhie",
+      "meaning": "Wonderful! This is good. How much money do you need in your sim card"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "मुझे मालूम नहीं | क्या आप मुझे इसके बारे में बता सकते हैं",
+      "transliteration": "mujhe mAlUma nahIM | kyA Apa mujhe isake bAre meM batA sakate haiM",
+      "meaning": "I don’t know. Can you tell me more about it"
+    },
+    {
+      "speaker_hi": "दुकानदार",
+      "speaker_en": "Shopkeeper",
+      "hindi": "जी हाँ ज़रूर, आम तौर पर, लोग तीन सौ रूपये का रिचार्ज ख़रीदते हैं| इसके अलावा, दो सौ रूपये का इन्टरनेट पैक",
+      "transliteration": "jI hA.N zrUra, Ama taura para, loga tIna sau rUpaye kA richArja khrIdate haiM| isake alAvA, do sau rUpaye kA inTaraneTa paika",
+      "meaning": "Sure, generally, people get recharge of 300 rupees. Other than that, they also get internet pack of rupees 200"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "ठीक है| मुझे भी ये दोनों चाहिए",
+      "transliteration": "ThIka hai| mujhe bhI ye donoM chAhie",
+      "meaning": "Okay. I need both of these"
+    },
+    {
+      "speaker_hi": "दुकानदार",
+      "speaker_en": "Shopkeeper",
+      "hindi": "बहुत अच्छा | यह लीजिये आपका सिम कार्ड",
+      "transliteration": "bahuta achChA | yaha lIjiye ApakA sima kArDa",
+      "meaning": "Very well. Here is your sim card"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "कितने पैसे हुए",
+      "transliteration": "kitane paise hue",
+      "meaning": "How much money"
+    },
+    {
+      "speaker_hi": "दुकानदार",
+      "speaker_en": "Shopkeeper",
+      "hindi": "पांच सौ पचास रूपये",
+      "transliteration": "pAMcha sau pachAsa rUpaye",
+      "meaning": "550"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "अरे भाई, सिर्फ़ पांच सौ रूपये हुए ना",
+      "transliteration": "are bhAI, sirf pAMcha sau rUpaye hue nA",
+      "meaning": "Oh brother, is it not 500 rupees only"
+    },
+    {
+      "speaker_hi": "दुकानदार",
+      "speaker_en": "Shopkeeper",
+      "hindi": "नहीं मैडम, पचास रूपये सिम शुरू करने का चार्ज है",
+      "transliteration": "nahIM maiDama, pachAsa rUpaye sima shurU karane kA chArja hai",
+      "meaning": "No madam, 50 rupees is service charge to activate the sim card"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "अच्छा ठीक है| यह लीजिये आपके पांच सौ पचास रूपये",
+      "transliteration": "achChA ThIka hai| yaha lIjiye Apake pAMcha sau pachAsa rUpaye",
+      "meaning": "Okay, alright. Please take this 550 rupees"
+    },
+    {
+      "speaker_hi": "दुकानदार",
+      "speaker_en": "Shopkeeper",
+      "hindi": "बहुत अच्छा, धन्यवाद",
+      "transliteration": "bahuta achChA, dhanyavAda",
+      "meaning": "Very good, thanks"
+    }
+  ]
+}

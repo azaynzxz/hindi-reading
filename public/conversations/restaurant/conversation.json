@@ -1,0 +1,181 @@
+{
+  "theme": "Daily Conversation - Restaurant",
+  "slug": "restaurant",
+  "turns": [
+    {
+      "speaker_hi": "बैरा",
+      "speaker_en": "Waiter",
+      "hindi": "आइये साहब, इस भोजनालय में आपका स्वागत है,  यहाँ बैठिये",
+      "transliteration": "Aiye sAhaba, isa bhojanAlaya meM ApakA svAgata hai,  yahA.N baiThiye",
+      "meaning": "Please come sir, you are welcome in this restaurant, please sit here"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "धन्यवाद ! खिड़की के पास कोई टेबल ख़ाली है ? मुझे बाहर का दृश्य देखना पसंद है",
+      "transliteration": "dhanyavAda ! khirkI ke pAsa koI Tebala khAlI hai ? mujhe bAhara kA dRRishya dekhanA pasaMda hai",
+      "meaning": "Thanks! Is there any table available near a window? I like to see outside view"
+    },
+    {
+      "speaker_hi": "बैरा",
+      "speaker_en": "Waiter",
+      "hindi": "जी हाँ साहब ख़ाली है, आइये, वहाँ बैठिये",
+      "transliteration": "jI hA.N sAhaba khAlI hai, Aiye, vahA.N baiThiye",
+      "meaning": "Yes sir, it is available. Please come sit there"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "बहुत अच्छा भाई, धन्यवाद [बैठने के बाद] [   ] [After sitting] [After sitting]",
+      "transliteration": "bahuta achChA bhAI, dhanyavAda [baiThane ke bAda] [   ] [After sitting] [After sitting]",
+      "meaning": "Very well brother, thanks"
+    },
+    {
+      "speaker_hi": "बैरा",
+      "speaker_en": "Waiter",
+      "hindi": "यह लीजिये पानी और खाने का मेन्यु (menu) | पानी के अलावा, पीने के लिए आपको क्या चाहिए",
+      "transliteration": "yaha lIjiye pAnI aura khAne kA menyu (menu) | pAnI ke alAvA, pIne ke lie Apako kyA chAhie",
+      "meaning": "Here is water and food menu. What else do you want to drink other than water"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "मुझे आपके यहाँ की शरबत बहुत पसंद है | पूजा, तुम्हें क्या चाहिए ? I really like your “Sharabat.”",
+      "transliteration": "mujhe Apake yahA.N kI sharabata bahuta pasaMda hai | pUjA, tumheM kyA chAhie ? I really like your “Sharabat.”",
+      "meaning": "Puja, what do you want"
+    },
+    {
+      "speaker_hi": "पूजा",
+      "speaker_en": "Puja",
+      "hindi": "मुझे लस्सी चाहिए | मुझे आम की लस्सी बहुत पसंद है | [थोड़ी देर बाद] [   ] [After a while] [After a while]",
+      "transliteration": "mujhe lassI chAhie | mujhe Ama kI lassI bahuta pasaMda hai | [thorI dera bAda] [   ] [After a while] [After a while]",
+      "meaning": "I want lassii. I really like mango lassii"
+    },
+    {
+      "speaker_hi": "बैरा",
+      "speaker_en": "Waiter",
+      "hindi": "साहब, यह लीजिये आपकी शरबत, और मेम साहब, यह रही आपकी आम की लस्सी | आप लोग खाने में क्या-क्या लेंगे",
+      "transliteration": "sAhaba, yaha lIjiye ApakI sharabata, aura mema sAhaba, yaha rahI ApakI Ama kI lassI | Apa loga khAne meM kyA-kyA leMge",
+      "meaning": "Sir, there is your “sharabat,” and madam, here is your mango lassii. What do you like in food"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "मुझे चिकेन करी, दो रोटियाँ,और एक प्लेट चावल चाहिए",
+      "transliteration": "mujhe chikena karI, do roTiyA.N,aura eka pleTa chAvala chAhie",
+      "meaning": "I want chicken curry, two breads, and one plate rice"
+    },
+    {
+      "speaker_hi": "पूजा",
+      "speaker_en": "Puja",
+      "hindi": "मुझे पालक पनीर, और दो रोटियाँ चाहिए",
+      "transliteration": "mujhe pAlaka panIra, aura do roTiyA.N chAhie",
+      "meaning": "I want palak paneer, and two breads"
+    },
+    {
+      "speaker_hi": "बैरा",
+      "speaker_en": "Waiter",
+      "hindi": "और कुछ",
+      "transliteration": "aura kuCha",
+      "meaning": "Anything else"
+    },
+    {
+      "speaker_hi": "पूजा",
+      "speaker_en": "Puja",
+      "hindi": "जी हाँ, मुझे एक प्लेट हरी सब्ज़ियों का सलाद भी चाहिए",
+      "transliteration": "jI hA.N, mujhe eka pleTa harI sabziyoM kA salAda bhI chAhie",
+      "meaning": "Yes, I need one plate of green vegetables’ salad"
+    },
+    {
+      "speaker_hi": "बैरा",
+      "speaker_en": "Waiter",
+      "hindi": "बहुत अच्छा | [खाना खाने के बाद] [    ] [After eating the food] [After eating the food]",
+      "transliteration": "bahuta achChA | [khAnA khAne ke bAda] [    ] [After eating the food] [After eating the food]",
+      "meaning": "Very well"
+    },
+    {
+      "speaker_hi": "बैरा",
+      "speaker_en": "Waiter",
+      "hindi": "क्या आप को खाना पसंद आया",
+      "transliteration": "kyA Apa ko khAnA pasaMda AyA",
+      "meaning": "Did you like the food"
+    },
+    {
+      "speaker_hi": "पूजा",
+      "speaker_en": "Puja",
+      "hindi": "जी हाँ, खाना बहुत स्वादिष्ट था",
+      "transliteration": "jI hA.N, khAnA bahuta svAdiShTa thA",
+      "meaning": "Yes, it was delicious"
+    },
+    {
+      "speaker_hi": "बैरा",
+      "speaker_en": "Waiter",
+      "hindi": "धन्यवाद मेम साहब ! आपको मीठे में क्या चाहिए",
+      "transliteration": "dhanyavAda mema sAhaba ! Apako mIThe meM kyA chAhie",
+      "meaning": "Thanks madam! What do you like in dessert"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "मुझे एक कुल्फी चाहिए | और पूजा, तुम्हें क्या चाहिए",
+      "transliteration": "mujhe eka kulphI chAhie | aura pUjA, tumheM kyA chAhie",
+      "meaning": "I like kulfi. And Puja, what do you want"
+    },
+    {
+      "speaker_hi": "पूजा",
+      "speaker_en": "Puja",
+      "hindi": "मुझे भी कुल्फी पसंद है",
+      "transliteration": "mujhe bhI kulphI pasaMda hai",
+      "meaning": "I like kulfi too"
+    },
+    {
+      "speaker_hi": "बैरा",
+      "speaker_en": "Waiter",
+      "hindi": "बहुत अच्छा साहब | मैं अभी लाता हूँ",
+      "transliteration": "bahuta achChA sAhaba | maiM abhI lAtA hU.N",
+      "meaning": "Very well. I will bring that right away"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "और हाँ भाई, हमें खाने का बिल भी जल्दी चाहिए | हमें फ़िल्म के लिए देर हो रही है",
+      "transliteration": "aura hA.N bhAI, hameM khAne kA bila bhI jaldI chAhie | hameM filma ke lie dera ho rahI hai",
+      "meaning": "And yes brother, please bring the bill too. We are getting late for a movie"
+    },
+    {
+      "speaker_hi": "बैरा",
+      "speaker_en": "Waiter",
+      "hindi": "बिल्कुल साहब | [थोड़ी देर बाद] [   ] [After a while] [After a while]",
+      "transliteration": "bilkula sAhaba | [thorI dera bAda] [   ] [After a while] [After a while]",
+      "meaning": "Sure sir"
+    },
+    {
+      "speaker_hi": "बैरा",
+      "speaker_en": "Waiter",
+      "hindi": "ये लीजिये साहब आपकी कुल्फियां और खाने का बिल",
+      "transliteration": "ye lIjiye sAhaba ApakI kulphiyAM aura khAne kA bila",
+      "meaning": "Here is your kulfi and bill"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "कुल कितने रूपये का बिल है",
+      "transliteration": "kula kitane rUpaye kA bila hai",
+      "meaning": "What is the total amount"
+    },
+    {
+      "speaker_hi": "बैरा",
+      "speaker_en": "Waiter",
+      "hindi": "180 रूपये का साहब",
+      "transliteration": "180 rUpaye kA sAhaba",
+      "meaning": "180 rupees, sir"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "यह लो दो सौ रूपये | 20 रूपये तुम्हारे लिए",
+      "transliteration": "yaha lo do sau rUpaye | 20 rUpaye tumhAre lie",
+      "meaning": "Please take 200 rupees. 20 rupees for you"
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "theme": "Daily Conversation - Hometown",
+  "slug": "hometown",
+  "turns": [
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "ऋतिक भाई, आप कहाँ से हैं",
+      "transliteration": "RRitika bhAI, Apa kahA.N se haiM",
+      "meaning": "Brother Hritik, where are you from"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "मैं पटना, हिन्दुस्तान से हूँ | आप कहाँ से हैं",
+      "transliteration": "maiM paTanA, hindustAna se hU.N | Apa kahA.N se haiM",
+      "meaning": "I am from Patna, India. Where are you from"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "मैं आयोवा के एक छोटे शहर आयोवा सिटी से हूँ | पटना, बिहार की राजधानी है, न",
+      "transliteration": "maiM AyovA ke eka ChoTe shahara AyovA siTI se hU.N | paTanA, bihAra kI rAjadhAnI hai, na",
+      "meaning": "I am from a small town Iowa City, Iowa. Patna is the capital of Bihar, isn’t it"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "जी हाँ, मैं बिहारी हूँ | आयोवा सिटी की जनसंख्या कितनी है",
+      "transliteration": "jI hA.N, maiM bihArI hU.N | AyovA siTI kI janasaMkhyA kitanI hai",
+      "meaning": "Yes, I am a Bihari. What is the population of Iowa City"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "आयोवा सिटी में लगभग पचहतर हज़ार लोग रहते हैं | और पटना में",
+      "transliteration": "AyovA siTI meM lagabhaga pachahatara hazAra loga rahate haiM | aura paTanA meM",
+      "meaning": "Approx 75 thousand people live in Iowa City. And in Patna"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "पटना में लगभग, पच्चीस लाख लोग रहते हैं | शायद, आयोवा सिटी बहुत छोटा शहर है",
+      "transliteration": "paTanA meM lagabhaga, pachchIsa lAkha loga rahate haiM | shAyada, AyovA siTI bahuta ChoTA shahara hai",
+      "meaning": "Approx, 2.5 million people live in Patna. Perhaps, Iowa City is a very small town"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "हाँ, आयोवा सिटी बहुत छोटा, मगर बहुत प्यारा शहर है",
+      "transliteration": "hA.N, AyovA siTI bahuta ChoTA, magara bahuta pyArA shahara hai",
+      "meaning": "Yes, Iowa City is very small, but very lovely town"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "क्या वहाँ कोई हवाई अड्डा है",
+      "transliteration": "kyA vahA.N koI havAI aDDA hai",
+      "meaning": "Is there any airport there"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "नहीं, मगर पास के शहर सीडर रैपिड्स में एक हवाई अड्डा है | आयोवा सिटी में रेलवे स्टेशन भी नहीं है | हाँ, एक बस स्टेशन है",
+      "transliteration": "nahIM, magara pAsa ke shahara sIDara raipiDsa meM eka havAI aDDA hai | AyovA siTI meM relave sTeshana bhI nahIM hai | hA.N, eka basa sTeshana hai",
+      "meaning": "No, but there is an airport in near by town. Even railway station is not there in Iowa City. There is just one bus station"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "आयोवा सिटी में, कितने विद्यालय, महाविद्यालय, और विश्वविद्यालय हैं",
+      "transliteration": "AyovA siTI meM, kitane vidyAlaya, mahAvidyAlaya, aura vishvavidyAlaya haiM",
+      "meaning": "How many schools, colleges, and universities are there in Iowa CIty"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "मेरे शहर में, दो विद्यालय, एक महाविद्यालय, और एक विश्वविद्यालय है",
+      "transliteration": "mere shahara meM, do vidyAlaya, eka mahAvidyAlaya, aura eka vishvavidyAlaya hai",
+      "meaning": "In my town, there are two schools, one college, and one university"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "क्या आपके शहर में पुस्तकालय, संग्रहालय, सिनेमा घर, और चिड़ियाघर है",
+      "transliteration": "kyA Apake shahara meM pustakAlaya, saMgrahAlaya, sinemA ghara, aura chiriyAghara hai",
+      "meaning": "Is there any library, museum, cinema hall and zoo in your town"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "जी हाँ, मेरे शहर में, दो पुस्तकालय, एक संग्रहालय, एक सिनेमाघर भी है | मगर चिड़ियाघर नहीं है",
+      "transliteration": "jI hA.N, mere shahara meM, do pustakAlaya, eka saMgrahAlaya, eka sinemAghara bhI hai | magara chiriyAghara nahIM hai",
+      "meaning": "Yes, in my town, there are two libraries, one museum, one cinema hall. But, there is no zoo"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "अच्छा, क्या आयोवा सिटी में, कोई नदी, झील, तालाब और पहाड़ हैं",
+      "transliteration": "achChA, kyA AyovA siTI meM, koI nadI, jhIla, tAlAba aura pahAr haiM",
+      "meaning": "Okay, Is there any river, lake, pond and mountain in Iowa City"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "मेरे शहर में, एक नदी, और कुछ तालाब हैं| वहाँ पहाड़ नहीं है | आयोवा एक कृषि प्रधान राज्य है और वहाँ बहुत समतल ज़मीन और खेत हैं",
+      "transliteration": "mere shahara meM, eka nadI, aura kuCha tAlAba haiM| vahA.N pahAr nahIM hai | AyovA eka kRRiShi pradhAna rAjya hai aura vahA.N bahuta samatala zmIna aura kheta haiM",
+      "meaning": "In my town, there is a river and a few ponds. There is no mountain there. Iowa is an agriculture based state and there is a lot of even and farm land"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "क्या आपके शहर में, डाकघर, और पुलिस थाना आदि हैं",
+      "transliteration": "kyA Apake shahara meM, DAkaghara, aura pulisa thAnA Adi haiM",
+      "meaning": "In your town, is there a post office, and a police station, etc"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "जी हाँ, मेरे शहर में एक डाक घर, और एक पुलिस थाना भी है | पटना में क्या-क्या है",
+      "transliteration": "jI hA.N, mere shahara meM eka DAka ghara, aura eka pulisa thAnA bhI hai | paTanA meM kyA-kyA hai",
+      "meaning": "Yes, In my town, there is one post office, and one police station too. What are there in Patna"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "पटना के बारे में, हम बाद में बात करें | अब क्लास का समय है",
+      "transliteration": "paTanA ke bAre meM, hama bAda meM bAta kareM | aba klAsa kA samaya hai",
+      "meaning": "Let’s talk about Patna later. Now, it is time for class"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "ठीक है, कोई बात नहीं",
+      "transliteration": "ThIka hai, koI bAta nahIM",
+      "meaning": "Okay, No problem"
+    }
+  ]
+}

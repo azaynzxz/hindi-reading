@@ -1,0 +1,111 @@
+{
+  "theme": "Daily Conversation - Bank Account",
+  "slug": "bank-account",
+  "turns": [
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "पीटर भाई, नमस्ते, क्या हाल है",
+      "transliteration": "pITara bhAI, namaste, kyA hAla hai",
+      "meaning": "Brother Peter, namaste, how are you"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "नमस्ते ऋतिक भाई, सब ठीक है | मगर मुझे तुम्हारी मदद चाहिए",
+      "transliteration": "namaste RRitika bhAI, saba ThIka hai | magara mujhe tumhArI madada chAhie",
+      "meaning": "namaste, brother Hrithik, All is well. But, I need your help"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "कहो, मैं तुम्हारी क्या मदद कर सकता हूँ",
+      "transliteration": "kaho, maiM tumhArI kyA madada kara sakatA hU.N",
+      "meaning": "Tell, How can I help you"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "मुझे एक छात्रवृत्ति मिली है | मगर मेरा बैंक में खाता नहीं है",
+      "transliteration": "mujhe eka ChAtravRRitti milI hai | magara merA baiMka meM khAtA nahIM hai",
+      "meaning": "I have received a scholarship. But, I do not have my bank account"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "बधाई हो | बैंक में खाता खोलने में, मैं तुम्हारी मदद करूँगा",
+      "transliteration": "badhAI ho | baiMka meM khAtA kholane meM, maiM tumhArI madada karU.NgA",
+      "meaning": "Congratulations ! I will help you to open a bank account"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "ठीक है | धन्यवाद | मुझे क्या करना होगा",
+      "transliteration": "ThIka hai | dhanyavAda | mujhe kyA karanA hogA",
+      "meaning": "Okay. Thank you. What will I have to do"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "कल तुम एक बैंक से खाता खोलने वाला आवेदन पत्र लाओ",
+      "transliteration": "kala tuma eka baiMka se khAtA kholane vAlA Avedana patra lAo",
+      "meaning": "Bring an application form to open a bank account tomorrow"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "ठीक है| मुझे और किन चीजों की ज़रूरत होगी",
+      "transliteration": "ThIka hai| mujhe aura kina chIjoM kI zrUrata hogI",
+      "meaning": "Okay. What else will I need"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "तुम्हें दो फ़ोटो, आधार कार्ड, और एक ग्रान्टर चाहिए",
+      "transliteration": "tumheM do foTo, AdhAra kArDa, aura eka grAnTara chAhie",
+      "meaning": "You need two photos, aadhar card, and a guarantor"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "मेरे पास फ़ोटो हैं | मगर मैं विदेशी हूँ | मेरे पास आधार कार्ड नहीं है",
+      "transliteration": "mere pAsa foTo haiM | magara maiM videshI hU.N | mere pAsa AdhAra kArDa nahIM hai",
+      "meaning": "I have photos. But I am a foreigner. I do not have a aadhar card"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "कोई बात नहीं, अपना पासपोर्ट लाओ",
+      "transliteration": "koI bAta nahIM, apanA pAsaporTa lAo",
+      "meaning": "No worries. Bring your passport"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "ठीक है | मगर ग्रान्टर कौन होगा",
+      "transliteration": "ThIka hai | magara grAnTara kauna hogA",
+      "meaning": "Okay. But, who will be the guarantor"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "मेरा बैंक में खाता है | मैं तुम्हारा ग्रान्टर बन सकता हूँ",
+      "transliteration": "merA baiMka meM khAtA hai | maiM tumhArA grAnTara bana sakatA hU.N",
+      "meaning": "I have a bank account. I can be your guarantor"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "अरे वाह ! यह तो बहुत अच्छी बात है | मुझे आज ही आवेदन पत्र ले आना चाहिए",
+      "transliteration": "are vAha ! yaha to bahuta achChI bAta hai | mujhe Aja hI Avedana patra le AnA chAhie",
+      "meaning": "Wao! This is great. I should bring the application today itself"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "ठीक है, हम कल मिलेंगे",
+      "transliteration": "ThIka hai, hama kala mileMge",
+      "meaning": "Okay. We will meet tomorrow"
+    }
+  ]
+}

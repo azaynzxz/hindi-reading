@@ -1,0 +1,111 @@
+{
+  "theme": "Daily Conversation - Festivals",
+  "slug": "festivals",
+  "turns": [
+    {
+      "speaker_hi": "शिल्पा",
+      "speaker_en": "Shilpa",
+      "hindi": "पीटर, तुम्हें क्रिसमस की हार्दिक शुभकामनायें",
+      "transliteration": "pITara, tumheM krisamasa kI hArdika shubhakAmanAyeM",
+      "meaning": "Peter, Merry Christmas to you"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "धन्यवाद शिल्पा | तुम्हें भी क्रिसमस की हार्दिक शुभकामनायें | शिल्पा, क्या क्रिसमस तुम्हारा पसंदीदा त्योहार है",
+      "transliteration": "dhanyavAda shilpA | tumheM bhI krisamasa kI hArdika shubhakAmanAyeM | shilpA, kyA krisamasa tumhArA pasaMdIdA tyohAra hai",
+      "meaning": "Thanks Shilpa, Merry Christmas to you too. Is Christmas your favorite festival"
+    },
+    {
+      "speaker_hi": "शिल्पा",
+      "speaker_en": "Shilpa",
+      "hindi": "नहीं, मेरा पसंदीदा त्योहार दिवाली है",
+      "transliteration": "nahIM, merA pasaMdIdA tyohAra divAlI hai",
+      "meaning": "No, My favorite festival is Diwali"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "अच्छा, तुम दिवाली कैसे मनाती हो",
+      "transliteration": "achChA, tuma divAlI kaise manAtI ho",
+      "meaning": "Okay. How do you celebrate Diwali"
+    },
+    {
+      "speaker_hi": "शिल्पा",
+      "speaker_en": "Shilpa",
+      "hindi": "दिवाली के पहले, हम अपना घर साफ़ करते हैं | दिवाली की शाम, हम दीप जलाते हैं, लक्ष्मी और गणेश की पूजा करते हैं | मिठाइयाँ खाते हैं और आतिशबाज़ी करते हैं",
+      "transliteration": "divAlI ke pahale, hama apanA ghara sAf karate haiM | divAlI kI shAma, hama dIpa jalAte haiM, lakShmI aura gaNesha kI pUjA karate haiM | miThAiyA.N khAte haiM aura AtishabAzI karate haiM",
+      "meaning": "Before Diwali, we clean our homes. On the evening on Diwali, we lit clay lamp and worship Lakshami and Ganesha. We eat sweets, and do fireworks"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "मुझे भारतीय मिठाइयाँ बहुत पसंद हैं | शिल्पा, मेरा एक सवाल है | भारतीय दिवाली क्यों मनाते हैं",
+      "transliteration": "mujhe bhAratIya miThAiyA.N bahuta pasaMda haiM | shilpA, merA eka savAla hai | bhAratIya divAlI kyoM manAte haiM",
+      "meaning": "I like Indian sweets very much. Shilpa, I have a question. Why do Indian celebrate Diwali"
+    },
+    {
+      "speaker_hi": "शिल्पा",
+      "speaker_en": "Shilpa",
+      "hindi": "ऐसा माना जाता है कि, भगवान राम रावण को मार कर जब अयोध्या आये थे तब अयोध्या के लोगों ने उनका स्वागत दीप जलाकर किया था उसी दिन से हम दिवाली मनाते हैं | पीटर भाई, ईसाई लोग क्रिसमस क्यों मनाते हो",
+      "transliteration": "aisA mAnA jAtA hai ki, bhagavAna rAma rAvaNa ko mAra kara jaba ayodhyA Aye the taba ayodhyA ke logoM ne unakA svAgata dIpa jalAkara kiyA thA usI dina se hama divAlI manAte haiM | pITara bhAI, IsAI loga krisamasa kyoM manAte ho",
+      "meaning": "It is believed that when Lord Ram returned to Ayodhya after killing Rawan, people of Ayodhya welcomed him by lighting the clay lamps. Since that day, we celebrate Diwali. Brother Peter, why do Christians  celebrate Christmas"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "भाई, तुम्हारा पसंदीदा त्योहार कौन सा है",
+      "transliteration": "bhAI, tumhArA pasaMdIdA tyohAra kauna sA hai",
+      "meaning": "It is believed that Jesus Christ was born on this day. Brother Hrithik, Which is your favorite festival"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "मुझे तो छठ पूजा बहुत पसंद है",
+      "transliteration": "mujhe to ChaTha pUjA bahuta pasaMda hai",
+      "meaning": "I really like Chhath pooja"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "मैं छठ पूजा के बारे में कुछ नहीं जानता | इसके बारे में मुझे कुछ बताओ, न",
+      "transliteration": "maiM ChaTha pUjA ke bAre meM kuCha nahIM jAnatA | isake bAre meM mujhe kuCha batAo, na",
+      "meaning": "I do not know anything about Chhath pooja. Please tell me about it"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "छठ पूजा हिन्दुओं का एक बहुत ही पवित्र पर्व है | छठ पूजा में हम सूर्य भगवान की पूजा करते हैं",
+      "transliteration": "ChaTha pUjA hinduoM kA eka bahuta hI pavitra parva hai | ChaTha pUjA meM hama sUrya bhagavAna kI pUjA karate haiM",
+      "meaning": "Chhath pooja is a holy festival of Hindus. In Chhath pooja, we worship God sun"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "क्या तुम मुझे छठ पूजा में अपने घर बुलाओगे",
+      "transliteration": "kyA tuma mujhe ChaTha pUjA meM apane ghara bulAoge",
+      "meaning": "Will you invite me to your home on Chhath pooja"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "हाँ बिल्कुल, अगले छठ पूजा में तुम मेरे घर ज़रूर आना",
+      "transliteration": "hA.N bilkula, agale ChaTha pUjA meM tuma mere ghara zrUra AnA",
+      "meaning": "Yes, of course, you must come to my home on next Chhath pooja"
+    },
+    {
+      "speaker_hi": "शिल्पा",
+      "speaker_en": "Shilpa",
+      "hindi": "और मैं",
+      "transliteration": "aura maiM",
+      "meaning": "And me"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "तुम्हारा भी स्वागत है",
+      "transliteration": "tumhArA bhI svAgata hai",
+      "meaning": "You are also welcome"
+    }
+  ]
+}

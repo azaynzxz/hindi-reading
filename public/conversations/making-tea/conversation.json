@@ -1,0 +1,97 @@
+{
+  "theme": "Daily Conversation - Making Tea",
+  "slug": "making-tea",
+  "turns": [
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "शुभ प्रात:, माता जी, आप क्या बना रही हैं",
+      "transliteration": "shubha prAta:, mAtA jI, Apa kyA banA rahI haiM",
+      "meaning": "Good morning, mother, what are you making"
+    },
+    {
+      "speaker_hi": "कमला",
+      "speaker_en": "Kamala",
+      "hindi": "Good morning जेन, आज तुम जल्दी जाग गयी | मैं परिवार के लिए चाय बना रही हूँ",
+      "transliteration": "Good morning jena, Aja tuma jaldI jAga gayI | maiM parivAra ke lie chAya banA rahI hU.N",
+      "meaning": "Good morning Jen, You are awake so early today. I am making chai for the family"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "यह तो बहुत अच्छी बात है | मैं चाय बनाना सीखना चाहती हूँ",
+      "transliteration": "yaha to bahuta achChI bAta hai | maiM chAya banAnA sIkhanA chAhatI hU.N",
+      "meaning": "This is great. I want to learn how to make chai"
+    },
+    {
+      "speaker_hi": "कमला",
+      "speaker_en": "Kamala",
+      "hindi": "चाय बनाना बहुत आसान है | सबसे पहले, एक पैन में पानी, दूध, चाय पत्ती, और चाय का मसाला डाल के उबालिए | (थोड़ी देर बाद",
+      "transliteration": "chAya banAnA bahuta AsAna hai | sabase pahale, eka paina meM pAnI, dUdha, chAya pattI, aura chAya kA masAlA DAla ke ubAlie | (thorI dera bAda",
+      "meaning": "To make chai is very easy. First of all, please take water, milk, tea leaves, and tea spice in a aucepan and boil them. After a while"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "कमला जी, यह अब उबल रहा है",
+      "transliteration": "kamalA jI, yaha aba ubala rahA hai",
+      "meaning": "Kamala ji, this is boiling now"
+    },
+    {
+      "speaker_hi": "कमला",
+      "speaker_en": "Kamala",
+      "hindi": "अब आंच कम कीजिये और इसे थोड़ा ठंडा होने दीजिये | (थोड़ी देर बाद",
+      "transliteration": "aba AMcha kama kIjiye aura ise thorA ThaMDA hone dIjiye | (thorI dera bAda",
+      "meaning": "Now please lower the heat and let it cool down a little bit. After a while"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "कमला जी, यह अब थोड़ा ठंडा हो गया है",
+      "transliteration": "kamalA jI, yaha aba thorA ThaMDA ho gayA hai",
+      "meaning": "Kamala ji, it gets cooler a little"
+    },
+    {
+      "speaker_hi": "कमला",
+      "speaker_en": "Kamala",
+      "hindi": "ठीक है, अब चाय छन्नी से मसाले और चाय पत्ती को छान लीजिये",
+      "transliteration": "ThIka hai, aba chAya ChannI se masAle aura chAya pattI ko ChAna lIjiye",
+      "meaning": "Okay, now please strain the tea leaves and tea spices using a strainer"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "हो गया",
+      "transliteration": "ho gayA",
+      "meaning": "done"
+    },
+    {
+      "speaker_hi": "कमला",
+      "speaker_en": "Kamala",
+      "hindi": "अब इसमे अपने स्वाद के अनुसार चीनी मिलाइए | आपकी चाय तैयार",
+      "transliteration": "aba isame apane svAda ke anusAra chInI milAie | ApakI chAya taiyAra",
+      "meaning": "Now add sugar in this according to your taste. Your tea is ready"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "यह मेरी ज़िन्दगी का सबसे पहला चाय है जो मैंने ख़ुद बनाया है",
+      "transliteration": "Khud",
+      "meaning": "This is the first tea that I have made my own in my life"
+    },
+    {
+      "speaker_hi": "कमला",
+      "speaker_en": "Kamala",
+      "hindi": "वाह ! अगर आप चाहें तो परिवार के लिए हर रोज़ चाय बना सकती हैं",
+      "transliteration": "vAha ! agara Apa chAheM to parivAra ke lie hara roz chAya banA sakatI haiM",
+      "meaning": "Wao! If you want you can make tea for the family every day"
+    },
+    {
+      "speaker_hi": "जेन",
+      "speaker_en": "Jen",
+      "hindi": "अगर मैं हर दिन इस समय जाग पायी तो दोनों हँसती हैं और चाय का मजा लेती हैं",
+      "transliteration": "agara maiM hara dina isa samaya jAga pAyI to donoM ha.NsatI haiM aura chAya kA majA letI haiM",
+      "meaning": "If I get up this time everyday. Both laugh and enjoy their tea"
+    }
+  ]
+}

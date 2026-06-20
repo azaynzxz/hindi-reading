@@ -125,50 +125,60 @@ const TypeToRevealPage = () => {
         };
     }, []);
 
-    // Load CSV database on mount
+    // Load database on mount
     useEffect(() => {
-        const loadCSV = async () => {
+        const loadDatabases = async () => {
             try {
                 const [vocabRes, convoRes] = await Promise.all([
                     fetch('/hindi-practice.csv').then(res => res.text()),
-                    fetch('/conversations.csv').then(res => res.text()).catch(() => '')
+                    fetch('/conversations.json').then(res => res.json()).catch(() => ({}))
                 ]);
 
                 const database = {};
                 
-                const processCSV = (text) => {
-                    const lines = text.split('\n').filter(line => line.trim());
-                    lines.slice(1).forEach(line => {
-                        const values = line.match(/(\".*?\"|[^,]+)(?=\s*,|\s*$)/g) || [];
-                        const cleanValues = values.map(v => v.replace(/^\"|\"$/g, '').trim());
+                // Process vocab CSV
+                const lines = vocabRes.split('\n').filter(line => line.trim());
+                lines.slice(1).forEach(line => {
+                    const values = line.match(/(\".*?\"|[^,]+)(?=\s*,|\s*$)/g) || [];
+                    const cleanValues = values.map(v => v.replace(/^\"|\"$/g, '').trim());
 
-                        const rawHindi = cleanValues[1];
-                        const rawTranslit = cleanValues[2];
-                        const rawMeaning = cleanValues[3];
+                    const rawHindi = cleanValues[1];
+                    const rawTranslit = cleanValues[2];
+                    const rawMeaning = cleanValues[3];
 
-                        if (rawHindi && rawTranslit) {
-                            const clean = (val) => val.replace(/^[a-zA-Z\u0900-\u097F\s]+:\s*/, '').trim();
-                            const hindiKey = clean(rawHindi);
+                    if (rawHindi && rawTranslit) {
+                        const clean = (val) => val.replace(/^[a-zA-Z\u0900-\u097F\s]+:\s*/, '').trim();
+                        const hindiKey = clean(rawHindi);
+                        database[hindiKey] = {
+                            transliteration: clean(rawTranslit),
+                            meaning: clean(rawMeaning || '')
+                        };
+                    }
+                });
+
+                // Process conversations JSON
+                Object.keys(convoRes).forEach(slug => {
+                    const item = convoRes[slug];
+                    item.turns.forEach(turn => {
+                        const hindiKey = turn.hindi.trim();
+                        if (hindiKey && turn.transliteration) {
                             database[hindiKey] = {
-                                transliteration: clean(rawTranslit),
-                                meaning: clean(rawMeaning || '')
+                                transliteration: turn.transliteration.trim(),
+                                meaning: turn.meaning ? turn.meaning.trim() : ''
                             };
                         }
                     });
-                };
-
-                processCSV(vocabRes);
-                if (convoRes) processCSV(convoRes);
+                });
 
                 setHindiDatabase(database);
                 setIsLoadingDB(false);
             } catch (error) {
-                console.error('Error loading CSV:', error);
+                console.error('Error loading databases:', error);
                 setIsLoadingDB(false);
             }
         };
 
-        loadCSV();
+        loadDatabases();
     }, []);
 
     const savePracticeTime = () => {

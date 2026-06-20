@@ -1,0 +1,2400 @@
+{
+  "greetings": {
+    "theme": "Daily Conversation - Greetings",
+    "turns": [
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "नमस्ते",
+        "transliteration": "namaste",
+        "meaning": "Hello"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "नमस्ते",
+        "transliteration": "namaste",
+        "meaning": "Hello"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "आपका नाम क्या है",
+        "transliteration": "aapkaa naam kyaa hai",
+        "meaning": "What is your name"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "मेरा नाम शिल्पा है| और आपका",
+        "transliteration": "meraa naam shilpaa hai. aur aapkaa",
+        "meaning": "My name is Shilpa. And yours"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "मेरा नाम विद्या है",
+        "transliteration": "meraa naam Vidya hai",
+        "meaning": "My name is Vidya"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "आप कहाँ से हैं",
+        "transliteration": "aap kahaan se hain",
+        "meaning": "Where are you from"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "मैं मिशिगन से हूँ | आप कहाँ से हैं",
+        "transliteration": "main Michigan se hoon. aap kahaan se hain",
+        "meaning": "I am from Michigan. Where are you from"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "मैं शिकागो से हूँ",
+        "transliteration": "main Chicago se hoon",
+        "meaning": "I am from Chicago"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "आप कितने साल की हैं",
+        "transliteration": "aap kitane saal kii hain",
+        "meaning": "How old are you"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "मैं बीस साल की हूँ| आपकी उम्र कितनी है",
+        "transliteration": "main biis saal kii hoon. aapkii umr kitanii hai",
+        "meaning": "I am 20. What is your age"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "मैं इक्कीस (साल) की हूँ",
+        "transliteration": "main ikkiis (saal) kii hoon",
+        "meaning": "I am 21"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "आपका मेजर क्या है",
+        "transliteration": "aapkaa major kyaa hai",
+        "meaning": "What is your major"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "मेरा मेजर अंग्रेज़ी है| और आपका",
+        "transliteration": "meraa major angrezii hai. aur aapakaa",
+        "meaning": "My major is English. And yours"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "मेरा मेजर राजनीति शास्त्र है",
+        "transliteration": "meraa major raajaniiti shaastra hai",
+        "meaning": "My major is Political science"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "यह लड़का कौन है",
+        "transliteration": "ye laRakaa kaun hai",
+        "meaning": "Who is this boy"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "यह पीटर है",
+        "transliteration": "ye Peter hai",
+        "meaning": "He is Peter"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "नमस्ते पीटर",
+        "transliteration": "namaste Peter",
+        "meaning": "Hello Peter"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "नमस्ते ! आपका नाम क्या है",
+        "transliteration": "namaste! aapkaa naam kyaa hai",
+        "meaning": "Hello! What is your name"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "मैं विद्या हूँ| आप कैसे हैं",
+        "transliteration": "main vidyaa hoon. aap kaise hain",
+        "meaning": "I am Vidya. How are you"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "मैं अच्छा हूँ| और आप",
+        "transliteration": "main achchhaa hoon. aur aap",
+        "meaning": "I am well. and you"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "मैं भी अच्छी हूँ, धन्यवाद ! आपकी उम्र कितनी है",
+        "transliteration": ",  !    ? main bhii achchhii hoon,",
+        "meaning": "Thanks! aapkii umr kitanii hai. I am well too. Thanks! What is your age"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "मैं उन्नीस साल का हूँ| आपका मेजर क्या है",
+        "transliteration": "main unniis saal kaa hoon. aapakaa major kyaa hai",
+        "meaning": "I am 19 years old. What is your major"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "मेरा मेजर अंग्रेज़ी है, और आपका",
+        "transliteration": ",  ? meraa major angrezii hai, aur aapakaa",
+        "meaning": "My major is English. And yours"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "मेरा भी",
+        "transliteration": "meraa bhii",
+        "meaning": "Mine too"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "आप से मिलकर ख़ुशी हुई",
+        "transliteration": "aap se milakar khushii huii",
+        "meaning": "Nice to meet you"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "मुझे भी, नमस्ते",
+        "transliteration": ",  ! mujhe bhii, namaste",
+        "meaning": "Me too, Bye"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "नमस्ते",
+        "transliteration": "namaste",
+        "meaning": "Bye"
+      }
+    ]
+  },
+  "friends-meet": {
+    "theme": "Daily Conversation - Friends Meet",
+    "turns": [
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "नमस्ते",
+        "transliteration": "namaste",
+        "meaning": "Hello"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "नमस्ते",
+        "transliteration": "namaste",
+        "meaning": "Hello"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "क्या हाल है",
+        "transliteration": "kyaa haal hai",
+        "meaning": "How are you"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "सब ठीक है | और तुम",
+        "transliteration": "sab Thiik hai. aur tum",
+        "meaning": "All is well. and you"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "मैं भी ठीक हूँ",
+        "transliteration": "main bhii Thiik hoon",
+        "meaning": "I am well too"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "क्लास चलें",
+        "transliteration": "class chalen",
+        "meaning": "Should we go to class"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "चलो |  | क्लास के बाद      “After the class.” “After the class.”",
+        "transliteration": "chalo",
+        "meaning": "Let’s go"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "फिर मिलेंगे, नमस्ते",
+        "transliteration": ",  ! phir milenge, namaste",
+        "meaning": "See you again, Bye"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "ठीक है, नमस्ते",
+        "transliteration": ",",
+        "meaning": "Thiik hai, namaste! Okay, Bye"
+      }
+    ]
+  },
+  "contact-info": {
+    "theme": "Daily Conversation - Contact Info",
+    "turns": [
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "हेलो पीटर! क्या चल रहा है",
+        "transliteration": "Hello Peter! kyaa chal rahaa hai",
+        "meaning": "Hello Peter! What is going on"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "नमस्ते शिल्पा, सब ठीक है| क्या हाल है?  ,   |   ? namaste Shilpaa, sab Thiik hai",
+        "transliteration": "kyaa haal hai",
+        "meaning": "Hellp Shilpa, All is well. How are  you"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "सब ठीक है| अच्छा, आपका ई.मेल एड्रेस क्या   | है",
+        "transliteration": ",  . ? sab Thiik hai| achchhaa, aapkaa e.mail address kyaa hai",
+        "meaning": "All is well. Okay, what is your e.mail address"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "मेरा ई.मेल एड्रेस .   peter@gmail.com है| और | आपका",
+        "transliteration": "meraa e.mail address peter@gmail.com hai. aur aapkaa? My e.mail address is peter@gmail.com",
+        "meaning": "And yours"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "मेरा ई.मेल एड्रेस .   shilpaa@gmail.com है| | meraa e.mail address shilpaa@gmail.com",
+        "transliteration": "merA I.mela eDresa .   shilpaa@gmail.com hai| | meraa e.mail address shilpaa@gmail.com",
+        "meaning": "hai. My e.mail address is shilpaa@gmail.com"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "आपका फ़ोन नंबर क्या है",
+        "transliteration": "aapkaa phone number kyaa hai",
+        "meaning": "What is your phone number"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "मेरा फ़ोन नंबर   555-xxx-xxxx है| और आपका",
+        "transliteration": "meraa phone number 555-xxx-xxxx hai. aur aapkaa",
+        "meaning": "My phone number is 555-xxx-xxx. And yours"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "मेरा फ़ोन नंबर   555-xxx-xxxx है",
+        "transliteration": "meraa phone number 555-xxx-xxx hai",
+        "meaning": "My phone number is 555-xxx-xxx"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "धन्यवाद ! फिर मिलेंगे, नमस्ते |  !  ,",
+        "transliteration": "dhanyawaad! phir milenge, namaste",
+        "meaning": "Thanks! See you again, Bye"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "अच्छा, बाय",
+        "transliteration": ", ! achchhaa, bye",
+        "meaning": "Okay, Bye"
+      }
+    ]
+  },
+  "with-teacher": {
+    "theme": "Daily Conversation - With Teacher",
+    "turns": [
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "नमस्ते, अध्यापक जी,",
+        "transliteration": "namaste, adhyApaka jI,",
+        "meaning": "namaste, adhyaapak ji Hello Sir"
+      },
+      {
+        "speaker_hi": "अक्षय",
+        "speaker_en": "Akshay",
+        "hindi": "नमस्ते, विद्या जी| आप कैसी हैं ? ,",
+        "transliteration": "namaste, vidyA jI| Apa kaisI haiM ? ,",
+        "meaning": "namaste, Vidya ji. aap kaisii hain? Hello Vidya ji. How are you"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "मैं अच्छी हूँ| धन्यवाद | आप कैसे हैं",
+        "transliteration": "maiM achChI hU.N| dhanyavAda | Apa kaise haiM",
+        "meaning": "main achchhii hoon. Dhanyawaad. aap kaise hain? I am good. Thank you. How are you"
+      },
+      {
+        "speaker_hi": "अक्षय",
+        "speaker_en": "Akshay",
+        "hindi": "मैं भी ठीक हूँ | फिर मिलेंगे, नमस्ते |     |  ,",
+        "transliteration": "maiM bhI ThIka hU.N | phira mileMge, namaste |     |  ,",
+        "meaning": "main bhii Thiik hoon. phir milenge, namaste. I am good too. See you again, bye"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "फिर मिलेंगे, नमस्ते |  ,",
+        "transliteration": "phira mileMge, namaste |  ,",
+        "meaning": "phir milenge, namaste. See you again, bye. Video 3. Listening: Formal Conversation with a Hindi Teacher Video 3. Listening: Formal Conversation with a Hindi Teacher"
+      }
+    ]
+  },
+  "family": {
+    "theme": "Daily Conversation - Family",
+    "turns": [
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "नमस्ते पीटर ! आप कैसे हैं ? Shilpa",
+        "transliteration": "namaste pITara ! Apa kaise haiM ? Shilpa",
+        "meaning": "Hello Peter! How are you"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "नमस्ते शिल्पा, मैं अच्छा हूँ, धन्यवाद | और आप ? Peter",
+        "transliteration": "namaste shilpA, maiM achChA hU.N, dhanyavAda | aura Apa ? Peter",
+        "meaning": "Hello Shilpa, I am well, thanks. And you"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "मैं भी ठीक हूँ | धन्यवाद | चलिये, काम शुरू करते  हैं | Shilpa",
+        "transliteration": "maiM bhI ThIka hU.N | dhanyavAda | chaliye, kAma shurU karate  haiM | Shilpa",
+        "meaning": "I am okay too. Thanks. Let’s start the work"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "ठीक है| बताइये, आपका परिवार कहाँ रहता है ? Peter",
+        "transliteration": "ThIka hai| batAiye, ApakA parivAra kahA.N rahatA hai ? Peter",
+        "meaning": "Okay. Please tell, where does your family live"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "मेरा परिवार शिकागो में रहता है | और आपका ? Shilpa",
+        "transliteration": "merA parivAra shikAgo meM rahatA hai | aura ApakA ? Shilpa",
+        "meaning": "My family lives in Chicago. And yours"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "मेरा परिवार डेट्रॉइट में है | Peter",
+        "transliteration": "merA parivAra DeTraॉiTa meM hai | Peter",
+        "meaning": "My family lives in Detroit"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "आपकी माता जी का नाम क्या है ? Shilpa",
+        "transliteration": "ApakI mAtA jI kA nAma kyA hai ? Shilpa",
+        "meaning": "What is your mother’s name"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "मेरी माँ का नाम लिज़ है | आपकी माँ का नाम क्या है? Peter:My",
+        "transliteration": "merI mA.N kA nAma liz hai | ApakI mA.N kA nAma kyA hai? Peter:My",
+        "meaning": "mother’s name is Liz. What is your mother’s name"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "मेरी माँ का नाम देवकी पटेल है | आपकी माँ क्या करती हैं ? Shilpa",
+        "transliteration": "merI mA.N kA nAma devakI paTela hai | ApakI mA.N kyA karatI haiM ? Shilpa",
+        "meaning": "My mother’s name is Devaki Patel. What does your mother do"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "मेरी माँ एक विद्यालय में अध्यापिका हैं | और आपकी माँ ? Peter",
+        "transliteration": "merI mA.N eka vidyAlaya meM adhyApikA haiM | aura ApakI mA.N ? Peter",
+        "meaning": "My mother is a school teacher. and your mother"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "मेरी माँ एक गृहिणी हैं | आपके पिता जी का नाम क्या है ? Shilpa",
+        "transliteration": "merI mA.N eka gRRihiNI haiM | Apake pitA jI kA nAma kyA hai ? Shilpa",
+        "meaning": "My mother is a house-wife. What is your father’s name"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "मेरे पिता जी का नाम एडम है, और 1वह/वे [In also find use of वे case, वह and वे both are pronounced वो] एक डॉक्टर हैं | और आपके पिता जी का नाम क्या है और वह/वे क्या करते हैं",
+        "transliteration": "mere pitA jI kA nAma eDama hai, aura 1vaha/ve [In also find use of ve case, vaha and ve both are pronounced vo] eka DaॉkTara haiM | aura Apake pitA jI kA nAma kyA hai aura vaha/ve kyA karate haiM",
+        "meaning": "some books, one can for 3rd person singular honorific subject. In any ? Peter:My father's name is Adam, he is a doctor. What is your father's name and what does he do"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "मेरे पिता जी का नाम कृष्णचंद पटेल है, और वह/वे एक वैज्ञानिक हैं | Shilpa",
+        "transliteration": "mere pitA jI kA nAma kRRiShNachaMda paTela hai, aura vaha/ve eka vaij~nAnika haiM | Shilpa",
+        "meaning": "My father's name is Krishnachand Patel, and he is a scientist"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "आपके कितने  भाई बहन हैं ? Peter",
+        "transliteration": "Apake kitane  bhAI bahana haiM ? Peter",
+        "meaning": "How many brothers and sisters do you have"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "मेरा एक भाई है, उसका नाम साहिल है| मेरी कोई बहन नहीं है| और आपके कितने भाई बहन हैं",
+        "transliteration": "merA eka bhAI hai, usakA nAma sAhila hai| merI koI bahana nahIM hai| aura Apake kitane bhAI bahana haiM",
+        "meaning": "I have a brother, his name is Sahil. I have no sisters. And how many brothers and sisters do you have"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "मैं इकलौता हूँ | मेरे कोई भाई बहन नहीं हैं | Peter",
+        "transliteration": "maiM ikalautA hU.N | mere koI bhAI bahana nahIM haiM | Peter",
+        "meaning": "I am only one. I have no brothers and sisters"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "क्या आपके दादा-दादी भी आपके साथ डेट्रॉइट में रहते हैं ? Shilpa",
+        "transliteration": "kyA Apake dAdA-dAdI bhI Apake sAtha DeTraॉiTa meM rahate haiM ? Shilpa",
+        "meaning": "Do your grand-parents live with you in Detroit"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "नहीं मेरे दादा-दादी हमारे साथ नहीं रहते | उनका अपना अलग घर है| क्या आपके दादा-दादी आपके साथ रहते हैं",
+        "transliteration": "nahIM mere dAdA-dAdI hamAre sAtha nahIM rahate | unakA apanA alaga ghara hai| kyA Apake dAdA-dAdI Apake sAtha rahate haiM",
+        "meaning": "No, my grand-parents do not live with us. They have their own separate house. Do your grand-parents live with you"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "जी हाँ | हिन्दुस्तानी परिवार में, माता-पिता, भाई-बहन, दादा-दादी, चाचा-चाची, सब एक साथ एक घर में रहते हैं",
+        "transliteration": "jI hA.N | hindustAnI parivAra meM, mAtA-pitA, bhAI-bahana, dAdA-dAdI, chAchA-chAchI, saba eka sAtha eka ghara meM rahate haiM",
+        "meaning": "Yes, In an Indian family, mother-father, brother-sister, grand-parents, uncle-aunt, all live together in the same house"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "अरे वाह ! यह तो बहुत अच्छी बात है | अच्छा, फिर मिलेंगे, नमस्ते | Peter",
+        "transliteration": "are vAha ! yaha to bahuta achChI bAta hai | achChA, phira mileMge, namaste | Peter",
+        "meaning": "Oh Wao! This is a very good thing. Okay, see you again, Namaste"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "ठीक है, बाय Shilpa",
+        "transliteration": "ThIka hai, bAya Shilpa",
+        "meaning": "Okay, Bye 1"
+      }
+    ]
+  },
+  "house-tour": {
+    "theme": "Daily Conversation - House Tour",
+    "turns": [
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "ओ हो ! विद्या है | नमस्ते, क्या हाल है",
+        "transliteration": "o ho ! vidyA hai | namaste, kyA hAla hai",
+        "meaning": "Oho! It is Vidya. Hello, how are you"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "नमस्ते, सब ठीक है| तुम कैसे हो",
+        "transliteration": "namaste, saba ThIka hai| tuma kaise ho",
+        "meaning": "Hello, All is well. How are you"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "मैं भी ठीक हूँ | आओ, अन्दर आओ",
+        "transliteration": "maiM bhI ThIka hU.N | Ao, andara Ao",
+        "meaning": "I am okay too. come, come inside"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "धन्यवाद, तुम्हारा घर बहुत सुन्दर है",
+        "transliteration": "dhanyavAda, tumhArA ghara bahuta sundara hai",
+        "meaning": "Thanks, your home is very beautiful"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "शुक्रिया, चलो, मैं तुम्हें पूरा घर दिखाता हूँ",
+        "transliteration": "shukriyA, chalo, maiM tumheM pUrA ghara dikhAtA hU.N",
+        "meaning": "Thanks, Let’s go, I will show you my whole house"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "ठीक है, चलो",
+        "transliteration": "ThIka hai, chalo",
+        "meaning": "Okay, Let’s go"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "यह हमारे घर का दरवाज़ा है | उसके बाद एक गलियारा है | गलियारे के बाद एक और दरवाज़ा है | उस दरवाज़े के बाद, हमारी बैठक है | बैठक के बायीं तरफ़ हमारी रसोई, और खाने का कमरा है | बैठक के दायीं तरफ़, पढ़ने का कमरा, पूजा घर, और अतिथी का कमरा भी है| बैठक में ही, एक सीढ़ी है",
+        "transliteration": "yaha hamAre ghara kA daravAzA hai | usake bAda eka galiyArA hai | galiyAre ke bAda eka aura daravAzA hai | usa daravAze ke bAda, hamArI baiThaka hai | baiThaka ke bAyIM tarafa hamArI rasoI, aura khAne kA kamarA hai | baiThaka ke dAyIM tarafa, parhne kA kamarA, pUjA ghara, aura atithI kA kamarA bhI hai| baiThaka meM hI, eka sIrhI hai",
+        "meaning": "This is the door of our house. After that there is a corridor. After the corridor, there is another door. After that door, there is our living room. On the left side of the living room, there is our kitchen and dinning room. On the right side of the living room, there is a study room, worship room, and a guest room too. In the living room itself, there is a staircase"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "और ऊपर की मंज़िल पर क्या-क्या है",
+        "transliteration": "aura Upara kI maMzila para kyA-kyA hai",
+        "meaning": "And what are there on the top floor"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "ऊपर की मंज़िल पर, तीन सोने के कमरे हैं | हर कमरे में, एक-एक शौचालय और स्नानघर है | ऊपर की मंज़िल पर, एक छज्जा भी है",
+        "transliteration": "Upara kI maMzila para, tIna sone ke kamare haiM | hara kamare meM, eka-eka shauchAlaya aura snAnaghara hai | Upara kI maMzila para, eka ChajjA bhI hai",
+        "meaning": "On the top floor, there are three bedrooms. In each room, there is a toilet and shower. There is a balcony too on the top floor"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "क्या नीचे की मंज़िल पर कोई शौचालय नहीं है",
+        "transliteration": "kyA nIche kI maMzila para koI shauchAlaya nahIM hai",
+        "meaning": "Is there no toilet on the bottom floor"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "हाँ, एक शौचालय और स्नानघर नीचे की मंज़िल पर भी है",
+        "transliteration": "hA.N, eka shauchAlaya aura snAnaghara nIche kI maMzila para bhI hai",
+        "meaning": "Yes, There is one toilet and shower at the bottom floor too"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "ऋतिक, तुम्हारा घर बहुत अच्छा, साफ़ और हवादार भी है | क्या तुम्हारे घर में कोई बगीचा है",
+        "transliteration": "RRitika, tumhArA ghara bahuta achChA, sAf aura havAdAra bhI hai | kyA tumhAre ghara meM koI bagIchA hai",
+        "meaning": "Hritik, your house is very good, clean and airy too. Is there any garden in your house"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "घर के पीछे, एक छोटा सा बगीचा भी है | वह मेरी माँ की सबसे पसंदीदा जगह है",
+        "transliteration": "ghara ke pIChe, eka ChoTA sA bagIchA bhI hai | vaha merI mA.N kI sabase pasaMdIdA jagaha hai",
+        "meaning": "Behind the house, there is a small gardem. This is my mother’s favorite place"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "अरे वाह ! मुझे भी बगीचा बहुत पसंद है | और तुम्हारा कमरा कहाँ है",
+        "transliteration": "are vAha ! mujhe bhI bagIchA bahuta pasaMda hai | aura tumhArA kamarA kahA.N hai",
+        "meaning": "O wao! I, too, like garden a lot. And where is your room"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "मेरा कमरा ऊपर की मंज़िल पर है | मेरा कमरा अभी गंदा है | मैं तुम्हें अपना कमरा बाद में दिखाऊंगा",
+        "transliteration": "merA kamarA Upara kI maMzila para hai | merA kamarA abhI gaMdA hai | maiM tumheM apanA kamarA bAda meM dikhAUMgA",
+        "meaning": "My room is on the top floor. Right now, my room is dirty. I will show you my room later"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "ठीक है",
+        "transliteration": "ThIka hai",
+        "meaning": "Okay"
+      }
+    ]
+  },
+  "room-tour": {
+    "theme": "Daily Conversation - Room Tour",
+    "turns": [
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "आओ विद्या, आज, मैं तुम्हें अपना कमरा दिखाता हूँ",
+        "transliteration": "Ao vidyA, Aja, maiM tumheM apanA kamarA dikhAtA hU.N",
+        "meaning": "Come Vidya, today, I show you my room"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "चलो",
+        "transliteration": "chalo",
+        "meaning": "Let’s go"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "यह मेरा कमरा है | मेरे कमरे में, एक बिस्तर है, एक मेज़, एक कुर्सी और एक छोटा सोफ़ा भी है| बिस्तर के बगल में एक छोटी मेज़ है | उस मेज़ पर, एक बिजली की बत्ती, एक फूलदान और एक घड़ी भी है",
+        "transliteration": "yaha merA kamarA hai | mere kamare meM, eka bistara hai, eka mez, eka kursI aura eka ChoTA sofA bhI hai| bistara ke bagala meM eka ChoTI mez hai | usa mez para, eka bijalI kI battI, eka phUladAna aura eka gharI bhI hai",
+        "meaning": "This is my room. In my room, there is one bed, one table, one chair, and one small sofa too. On that table, there is an electric bulb, a flower vase, and one clock too"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "पढ़ाई की मेज़ पर, क्या है",
+        "transliteration": "parhAI kI mez para, kyA hai",
+        "meaning": "What are on the study table"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "पढ़ाई की मेज़ पर, एक कंप्यूटर, कुछ किताबें और एक कॉफ़ी कप है",
+        "transliteration": "parhAI kI mez para, eka kaMpyUTara, kuCha kitAbeM aura eka kaॉfI kapa hai",
+        "meaning": "On the study table, there is a computer, a few books, and a coffee cup"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "इस अलमारी में क्या है",
+        "transliteration": "isa alamArI meM kyA hai",
+        "meaning": "What is in this almirah"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "इस अलमारी में, मेरे कपड़े और जूतें हैं | देखो, उस दीवार पर सुन्दर तस्वीरें हैं | दरवाज़े के पीछे एक आईना भी है",
+        "transliteration": "isa alamArI meM, mere kapare aura jUteM haiM | dekho, usa dIvAra para sundara tasvIreM haiM | daravAze ke pIChe eka AInA bhI hai",
+        "meaning": "In this almirah, there are my clothes and shoes. Look, there are beautiful pictures on that wall. There is a mirror behind the door too"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "तुम्हारे कमरे का परदा बहुत सुन्दर है | और लगता है कि पंखा नया है",
+        "transliteration": "tumhAre kamare kA paradA bahuta sundara hai | aura lagatA hai ki paMkhA nayA hai",
+        "meaning": "The curtain of your room is very beautiful. It seems that fan is new"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "जी हाँ, नया पंखा और नयी दरी भी",
+        "transliteration": "jI hA.N, nayA paMkhA aura nayI darI bhI",
+        "meaning": "Yes, New fan and new rug too"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "तुम्हारा कमरा बहुत बड़ा और हवादार भी है",
+        "transliteration": "tumhArA kamarA bahuta barA aura havAdAra bhI hai",
+        "meaning": "Your room is very bog and airy too"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "धन्यवाद ! क्या तुम भी मुझे अपना कमरा और घर दिखाओगी",
+        "transliteration": "dhanyavAda ! kyA tuma bhI mujhe apanA kamarA aura ghara dikhAogI",
+        "meaning": "Thanks ! Will you also show me your room and house"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "हाँ, ज़रूर, क्यों नहीं",
+        "transliteration": "hA.N, zrUra, kyoM nahIM",
+        "meaning": "Yes, indeed, why not"
+      }
+    ]
+  },
+  "hometown": {
+    "theme": "Daily Conversation - Hometown",
+    "turns": [
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "ऋतिक भाई, आप कहाँ से हैं",
+        "transliteration": "RRitika bhAI, Apa kahA.N se haiM",
+        "meaning": "Brother Hritik, where are you from"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "मैं पटना, हिन्दुस्तान से हूँ | आप कहाँ से हैं",
+        "transliteration": "maiM paTanA, hindustAna se hU.N | Apa kahA.N se haiM",
+        "meaning": "I am from Patna, India. Where are you from"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "मैं आयोवा के एक छोटे शहर आयोवा सिटी से हूँ | पटना, बिहार की राजधानी है, न",
+        "transliteration": "maiM AyovA ke eka ChoTe shahara AyovA siTI se hU.N | paTanA, bihAra kI rAjadhAnI hai, na",
+        "meaning": "I am from a small town Iowa City, Iowa. Patna is the capital of Bihar, isn’t it"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "जी हाँ, मैं बिहारी हूँ | आयोवा सिटी की जनसंख्या कितनी है",
+        "transliteration": "jI hA.N, maiM bihArI hU.N | AyovA siTI kI janasaMkhyA kitanI hai",
+        "meaning": "Yes, I am a Bihari. What is the population of Iowa City"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "आयोवा सिटी में लगभग पचहतर हज़ार लोग रहते हैं | और पटना में",
+        "transliteration": "AyovA siTI meM lagabhaga pachahatara hazAra loga rahate haiM | aura paTanA meM",
+        "meaning": "Approx 75 thousand people live in Iowa City. And in Patna"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "पटना में लगभग, पच्चीस लाख लोग रहते हैं | शायद, आयोवा सिटी बहुत छोटा शहर है",
+        "transliteration": "paTanA meM lagabhaga, pachchIsa lAkha loga rahate haiM | shAyada, AyovA siTI bahuta ChoTA shahara hai",
+        "meaning": "Approx, 2.5 million people live in Patna. Perhaps, Iowa City is a very small town"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "हाँ, आयोवा सिटी बहुत छोटा, मगर बहुत प्यारा शहर है",
+        "transliteration": "hA.N, AyovA siTI bahuta ChoTA, magara bahuta pyArA shahara hai",
+        "meaning": "Yes, Iowa City is very small, but very lovely town"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "क्या वहाँ कोई हवाई अड्डा है",
+        "transliteration": "kyA vahA.N koI havAI aDDA hai",
+        "meaning": "Is there any airport there"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "नहीं, मगर पास के शहर सीडर रैपिड्स में एक हवाई अड्डा है | आयोवा सिटी में रेलवे स्टेशन भी नहीं है | हाँ, एक बस स्टेशन है",
+        "transliteration": "nahIM, magara pAsa ke shahara sIDara raipiDsa meM eka havAI aDDA hai | AyovA siTI meM relave sTeshana bhI nahIM hai | hA.N, eka basa sTeshana hai",
+        "meaning": "No, but there is an airport in near by town. Even railway station is not there in Iowa City. There is just one bus station"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "आयोवा सिटी में, कितने विद्यालय, महाविद्यालय, और विश्वविद्यालय हैं",
+        "transliteration": "AyovA siTI meM, kitane vidyAlaya, mahAvidyAlaya, aura vishvavidyAlaya haiM",
+        "meaning": "How many schools, colleges, and universities are there in Iowa CIty"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "मेरे शहर में, दो विद्यालय, एक महाविद्यालय, और एक विश्वविद्यालय है",
+        "transliteration": "mere shahara meM, do vidyAlaya, eka mahAvidyAlaya, aura eka vishvavidyAlaya hai",
+        "meaning": "In my town, there are two schools, one college, and one university"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "क्या आपके शहर में पुस्तकालय, संग्रहालय, सिनेमा घर, और चिड़ियाघर है",
+        "transliteration": "kyA Apake shahara meM pustakAlaya, saMgrahAlaya, sinemA ghara, aura chiriyAghara hai",
+        "meaning": "Is there any library, museum, cinema hall and zoo in your town"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "जी हाँ, मेरे शहर में, दो पुस्तकालय, एक संग्रहालय, एक सिनेमाघर भी है | मगर चिड़ियाघर नहीं है",
+        "transliteration": "jI hA.N, mere shahara meM, do pustakAlaya, eka saMgrahAlaya, eka sinemAghara bhI hai | magara chiriyAghara nahIM hai",
+        "meaning": "Yes, in my town, there are two libraries, one museum, one cinema hall. But, there is no zoo"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "अच्छा, क्या आयोवा सिटी में, कोई नदी, झील, तालाब और पहाड़ हैं",
+        "transliteration": "achChA, kyA AyovA siTI meM, koI nadI, jhIla, tAlAba aura pahAr haiM",
+        "meaning": "Okay, Is there any river, lake, pond and mountain in Iowa City"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "मेरे शहर में, एक नदी, और कुछ तालाब हैं| वहाँ पहाड़ नहीं है | आयोवा एक कृषि प्रधान राज्य है और वहाँ बहुत समतल ज़मीन और खेत हैं",
+        "transliteration": "mere shahara meM, eka nadI, aura kuCha tAlAba haiM| vahA.N pahAr nahIM hai | AyovA eka kRRiShi pradhAna rAjya hai aura vahA.N bahuta samatala zmIna aura kheta haiM",
+        "meaning": "In my town, there is a river and a few ponds. There is no mountain there. Iowa is an agriculture based state and there is a lot of even and farm land"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "क्या आपके शहर में, डाकघर, और पुलिस थाना आदि हैं",
+        "transliteration": "kyA Apake shahara meM, DAkaghara, aura pulisa thAnA Adi haiM",
+        "meaning": "In your town, is there a post office, and a police station, etc"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "जी हाँ, मेरे शहर में एक डाक घर, और एक पुलिस थाना भी है | पटना में क्या-क्या है",
+        "transliteration": "jI hA.N, mere shahara meM eka DAka ghara, aura eka pulisa thAnA bhI hai | paTanA meM kyA-kyA hai",
+        "meaning": "Yes, In my town, there is one post office, and one police station too. What are there in Patna"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "पटना के बारे में, हम बाद में बात करें | अब क्लास का समय है",
+        "transliteration": "paTanA ke bAre meM, hama bAda meM bAta kareM | aba klAsa kA samaya hai",
+        "meaning": "Let’s talk about Patna later. Now, it is time for class"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "ठीक है, कोई बात नहीं",
+        "transliteration": "ThIka hai, koI bAta nahIM",
+        "meaning": "Okay, No problem"
+      }
+    ]
+  },
+  "vegetable-market": {
+    "theme": "Daily Conversation - Vegetable Market",
+    "turns": [
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "नमस्ते भइया",
+        "transliteration": "namaste bhaiyA",
+        "meaning": "Hello"
+      },
+      {
+        "speaker_hi": "दुकानदार",
+        "speaker_en": "Shopkeeper",
+        "hindi": "जी नमस्ते, आपको क्या चाहिए",
+        "transliteration": "jI namaste, Apako kyA chAhie",
+        "meaning": "Yes, What do you want"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "आपके पास कौन-कौन सी सब्ज़ियाँ हैं",
+        "transliteration": "Apake pAsa kauna-kauna sI sabziyA.N haiM",
+        "meaning": "What types of vegetables do you have"
+      },
+      {
+        "speaker_hi": "दुकानदार",
+        "speaker_en": "Shopkeeper",
+        "hindi": "मेरे पास आलू, टमाटर, प्याज, गोभी, मूली, पालक, और करेला आदि सब्ज़ियाँ हैं",
+        "transliteration": "mere pAsa AlU, TamATara, pyAja, gobhI, mUlI, pAlaka, aura karelA Adi sabziyA.N haiM",
+        "meaning": "I have potato, tomato, onion, cauliflower, radish, spinach, and bitter gourd, etc"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "मुझे करेला और मूली पसंद नहीं | क्या आपके पास बैंगन और मटर है | मुझे मटर बहुत पसंद है",
+        "transliteration": "mujhe karelA aura mUlI pasaMda nahIM | kyA Apake pAsa baiMgana aura maTara hai | mujhe maTara bahuta pasaMda hai",
+        "meaning": "I do not like bitter-gourd and radish. Do you have eggplant and peas. I like peas a lot"
+      },
+      {
+        "speaker_hi": "दुकानदार",
+        "speaker_en": "Shopkeeper",
+        "hindi": "जी हाँ, मेरे पास बैंगन है | माफ़ कीजिए, मगर, आजकल, मटर का मौसम नहीं है | इसलिए मेरे पास मटर नहीं है",
+        "transliteration": "jI hA.N, mere pAsa baiMgana hai | mAf kIjie, magara, Ajakala, maTara kA mausama nahIM hai | isalie mere pAsa maTara nahIM hai",
+        "meaning": "Yes, I have eggplant. Sorry, but, this is not the season for peas. This is why, I do not have peas"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "कोई बात नहीं, बैंगन कितने का है",
+        "transliteration": "koI bAta nahIM, baiMgana kitane kA hai",
+        "meaning": "No problem, What is the cost of eggplant"
+      },
+      {
+        "speaker_hi": "दुकानदार",
+        "speaker_en": "Shopkeeper",
+        "hindi": "बैंगन 50 रूपये किलो है",
+        "transliteration": "baiMgana 50 rUpaye kilo hai",
+        "meaning": "Eggplant is 50 rupees per kilo"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "मुझे लगता है कि यह बहुत महँगा है",
+        "transliteration": "mujhe lagatA hai ki yaha bahuta maha.NgA hai",
+        "meaning": "I think, it is quite expensive"
+      },
+      {
+        "speaker_hi": "दुकानदार",
+        "speaker_en": "Shopkeeper",
+        "hindi": "नहीं जी, दाम एक दम ठीक है | क्या आपको मालूम है कि यहाँ बैंगन का आयात हम दूसरे राज्यों से करते हैं",
+        "transliteration": "nahIM jI, dAma eka dama ThIka hai | kyA Apako mAlUma hai ki yahA.N baiMgana kA AyAta hama dUsare rAjyoM se karate haiM",
+        "meaning": "No, the price is absolutely right. Do you know that we import eggplants from other states"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "अच्छा भइया, मुझे मटर, इस बाज़ार में, कहाँ मिलेगा",
+        "transliteration": "achChA bhaiyA, mujhe maTara, isa bAzAra meM, kahA.N milegA",
+        "meaning": "Okay brother, where can I get peas in this market"
+      },
+      {
+        "speaker_hi": "दुकानदार",
+        "speaker_en": "Shopkeeper",
+        "hindi": "इस बाज़ार में तो आपको मटर कहीं नहीं मिलेगा",
+        "transliteration": "isa bAzAra meM to Apako maTara kahIM nahIM milegA",
+        "meaning": "You will not get peas in this market anywhere"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "अच्छा कोई बात नहीं | आधा किलो आलू और एक किलो टमाटर दीजिए",
+        "transliteration": "achChA koI bAta nahIM | AdhA kilo AlU aura eka kilo TamATara dIjie",
+        "meaning": "Okay, no problem. Please give me half kilo potato and one kilo tomato"
+      },
+      {
+        "speaker_hi": "दुकानदार",
+        "speaker_en": "Shopkeeper",
+        "hindi": "ठीक है | और कुछ",
+        "transliteration": "ThIka hai | aura kuCha",
+        "meaning": "Okay. Anything else"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "क्या आपके पास फल भी हैं",
+        "transliteration": "kyA Apake pAsa phala bhI haiM",
+        "meaning": "Do you have fruits too"
+      },
+      {
+        "speaker_hi": "दुकानदार",
+        "speaker_en": "Shopkeeper",
+        "hindi": "जी हाँ, मेरे पास सभी मौसमी फल हैं | आपको कौन से फल चाहिए",
+        "transliteration": "jI hA.N, mere pAsa sabhI mausamI phala haiM | Apako kauna se phala chAhie",
+        "meaning": "Yes, I have all seasonal fruits. What fruits do you want"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "एक दर्जन केले और एक किलो सेब दे दीजिए",
+        "transliteration": "eka darjana kele aura eka kilo seba de dIjie",
+        "meaning": "Please give me one dozen banana and one kilo apple"
+      },
+      {
+        "speaker_hi": "दुकानदार",
+        "speaker_en": "Shopkeeper",
+        "hindi": "ठीक है | यह लीजिये आधा किलो आलू, एक किलो टमाटर, एक दर्जन केले और एक किलो सेब",
+        "transliteration": "ThIka hai | yaha lIjiye AdhA kilo AlU, eka kilo TamATara, eka darjana kele aura eka kilo seba",
+        "meaning": "Okay, Please take half kilo potato, one kilo tomato, one dozen banana, and one kilo apple"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "कितना हुआ",
+        "transliteration": "kitanA huA",
+        "meaning": "How much"
+      },
+      {
+        "speaker_hi": "दुकानदार",
+        "speaker_en": "Shopkeeper",
+        "hindi": "एक सौ पंद्रह रूपये",
+        "transliteration": "eka sau paMdraha rUpaye",
+        "meaning": "115 rupees"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "ठीक है. यह लीजिए आपके पैसे, नमस्ते",
+        "transliteration": "ThIka hai. yaha lIjie Apake paise, namaste",
+        "meaning": "Okay, please take your money. Bye"
+      },
+      {
+        "speaker_hi": "दुकानदार",
+        "speaker_en": "Shopkeeper",
+        "hindi": "नमस्ते",
+        "transliteration": "namaste",
+        "meaning": "Bye"
+      }
+    ]
+  },
+  "restaurant": {
+    "theme": "Daily Conversation - Restaurant",
+    "turns": [
+      {
+        "speaker_hi": "बैरा",
+        "speaker_en": "Waiter",
+        "hindi": "आइये साहब, इस भोजनालय में आपका स्वागत है,  यहाँ बैठिये",
+        "transliteration": "Aiye sAhaba, isa bhojanAlaya meM ApakA svAgata hai,  yahA.N baiThiye",
+        "meaning": "Please come sir, you are welcome in this restaurant, please sit here"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "धन्यवाद ! खिड़की के पास कोई टेबल ख़ाली है ? मुझे बाहर का दृश्य देखना पसंद है",
+        "transliteration": "dhanyavAda ! khirkI ke pAsa koI Tebala khAlI hai ? mujhe bAhara kA dRRishya dekhanA pasaMda hai",
+        "meaning": "Thanks! Is there any table available near a window? I like to see outside view"
+      },
+      {
+        "speaker_hi": "बैरा",
+        "speaker_en": "Waiter",
+        "hindi": "जी हाँ साहब ख़ाली है, आइये, वहाँ बैठिये",
+        "transliteration": "jI hA.N sAhaba khAlI hai, Aiye, vahA.N baiThiye",
+        "meaning": "Yes sir, it is available. Please come sit there"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "बहुत अच्छा भाई, धन्यवाद [बैठने के बाद] [   ] [After sitting] [After sitting]",
+        "transliteration": "bahuta achChA bhAI, dhanyavAda [baiThane ke bAda] [   ] [After sitting] [After sitting]",
+        "meaning": "Very well brother, thanks"
+      },
+      {
+        "speaker_hi": "बैरा",
+        "speaker_en": "Waiter",
+        "hindi": "यह लीजिये पानी और खाने का मेन्यु (menu) | पानी के अलावा, पीने के लिए आपको क्या चाहिए",
+        "transliteration": "yaha lIjiye pAnI aura khAne kA menyu (menu) | pAnI ke alAvA, pIne ke lie Apako kyA chAhie",
+        "meaning": "Here is water and food menu. What else do you want to drink other than water"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "मुझे आपके यहाँ की शरबत बहुत पसंद है | पूजा, तुम्हें क्या चाहिए ? I really like your “Sharabat.”",
+        "transliteration": "mujhe Apake yahA.N kI sharabata bahuta pasaMda hai | pUjA, tumheM kyA chAhie ? I really like your “Sharabat.”",
+        "meaning": "Puja, what do you want"
+      },
+      {
+        "speaker_hi": "पूजा",
+        "speaker_en": "Puja",
+        "hindi": "मुझे लस्सी चाहिए | मुझे आम की लस्सी बहुत पसंद है | [थोड़ी देर बाद] [   ] [After a while] [After a while]",
+        "transliteration": "mujhe lassI chAhie | mujhe Ama kI lassI bahuta pasaMda hai | [thorI dera bAda] [   ] [After a while] [After a while]",
+        "meaning": "I want lassii. I really like mango lassii"
+      },
+      {
+        "speaker_hi": "बैरा",
+        "speaker_en": "Waiter",
+        "hindi": "साहब, यह लीजिये आपकी शरबत, और मेम साहब, यह रही आपकी आम की लस्सी | आप लोग खाने में क्या-क्या लेंगे",
+        "transliteration": "sAhaba, yaha lIjiye ApakI sharabata, aura mema sAhaba, yaha rahI ApakI Ama kI lassI | Apa loga khAne meM kyA-kyA leMge",
+        "meaning": "Sir, there is your “sharabat,” and madam, here is your mango lassii. What do you like in food"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "मुझे चिकेन करी, दो रोटियाँ,और एक प्लेट चावल चाहिए",
+        "transliteration": "mujhe chikena karI, do roTiyA.N,aura eka pleTa chAvala chAhie",
+        "meaning": "I want chicken curry, two breads, and one plate rice"
+      },
+      {
+        "speaker_hi": "पूजा",
+        "speaker_en": "Puja",
+        "hindi": "मुझे पालक पनीर, और दो रोटियाँ चाहिए",
+        "transliteration": "mujhe pAlaka panIra, aura do roTiyA.N chAhie",
+        "meaning": "I want palak paneer, and two breads"
+      },
+      {
+        "speaker_hi": "बैरा",
+        "speaker_en": "Waiter",
+        "hindi": "और कुछ",
+        "transliteration": "aura kuCha",
+        "meaning": "Anything else"
+      },
+      {
+        "speaker_hi": "पूजा",
+        "speaker_en": "Puja",
+        "hindi": "जी हाँ, मुझे एक प्लेट हरी सब्ज़ियों का सलाद भी चाहिए",
+        "transliteration": "jI hA.N, mujhe eka pleTa harI sabziyoM kA salAda bhI chAhie",
+        "meaning": "Yes, I need one plate of green vegetables’ salad"
+      },
+      {
+        "speaker_hi": "बैरा",
+        "speaker_en": "Waiter",
+        "hindi": "बहुत अच्छा | [खाना खाने के बाद] [    ] [After eating the food] [After eating the food]",
+        "transliteration": "bahuta achChA | [khAnA khAne ke bAda] [    ] [After eating the food] [After eating the food]",
+        "meaning": "Very well"
+      },
+      {
+        "speaker_hi": "बैरा",
+        "speaker_en": "Waiter",
+        "hindi": "क्या आप को खाना पसंद आया",
+        "transliteration": "kyA Apa ko khAnA pasaMda AyA",
+        "meaning": "Did you like the food"
+      },
+      {
+        "speaker_hi": "पूजा",
+        "speaker_en": "Puja",
+        "hindi": "जी हाँ, खाना बहुत स्वादिष्ट था",
+        "transliteration": "jI hA.N, khAnA bahuta svAdiShTa thA",
+        "meaning": "Yes, it was delicious"
+      },
+      {
+        "speaker_hi": "बैरा",
+        "speaker_en": "Waiter",
+        "hindi": "धन्यवाद मेम साहब ! आपको मीठे में क्या चाहिए",
+        "transliteration": "dhanyavAda mema sAhaba ! Apako mIThe meM kyA chAhie",
+        "meaning": "Thanks madam! What do you like in dessert"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "मुझे एक कुल्फी चाहिए | और पूजा, तुम्हें क्या चाहिए",
+        "transliteration": "mujhe eka kulphI chAhie | aura pUjA, tumheM kyA chAhie",
+        "meaning": "I like kulfi. And Puja, what do you want"
+      },
+      {
+        "speaker_hi": "पूजा",
+        "speaker_en": "Puja",
+        "hindi": "मुझे भी कुल्फी पसंद है",
+        "transliteration": "mujhe bhI kulphI pasaMda hai",
+        "meaning": "I like kulfi too"
+      },
+      {
+        "speaker_hi": "बैरा",
+        "speaker_en": "Waiter",
+        "hindi": "बहुत अच्छा साहब | मैं अभी लाता हूँ",
+        "transliteration": "bahuta achChA sAhaba | maiM abhI lAtA hU.N",
+        "meaning": "Very well. I will bring that right away"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "और हाँ भाई, हमें खाने का बिल भी जल्दी चाहिए | हमें फ़िल्म के लिए देर हो रही है",
+        "transliteration": "aura hA.N bhAI, hameM khAne kA bila bhI jaldI chAhie | hameM filma ke lie dera ho rahI hai",
+        "meaning": "And yes brother, please bring the bill too. We are getting late for a movie"
+      },
+      {
+        "speaker_hi": "बैरा",
+        "speaker_en": "Waiter",
+        "hindi": "बिल्कुल साहब | [थोड़ी देर बाद] [   ] [After a while] [After a while]",
+        "transliteration": "bilkula sAhaba | [thorI dera bAda] [   ] [After a while] [After a while]",
+        "meaning": "Sure sir"
+      },
+      {
+        "speaker_hi": "बैरा",
+        "speaker_en": "Waiter",
+        "hindi": "ये लीजिये साहब आपकी कुल्फियां और खाने का बिल",
+        "transliteration": "ye lIjiye sAhaba ApakI kulphiyAM aura khAne kA bila",
+        "meaning": "Here is your kulfi and bill"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "कुल कितने रूपये का बिल है",
+        "transliteration": "kula kitane rUpaye kA bila hai",
+        "meaning": "What is the total amount"
+      },
+      {
+        "speaker_hi": "बैरा",
+        "speaker_en": "Waiter",
+        "hindi": "180 रूपये का साहब",
+        "transliteration": "180 rUpaye kA sAhaba",
+        "meaning": "180 rupees, sir"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "यह लो दो सौ रूपये | 20 रूपये तुम्हारे लिए",
+        "transliteration": "yaha lo do sau rUpaye | 20 rUpaye tumhAre lie",
+        "meaning": "Please take 200 rupees. 20 rupees for you"
+      }
+    ]
+  },
+  "host-mother": {
+    "theme": "Daily Conversation - Host Mother",
+    "turns": [
+      {
+        "speaker_hi": "कमला",
+        "speaker_en": "Kamala",
+        "hindi": "बेटी जेन, तुम्हारा हमारे घर में स्वागत है | यह तुम्हारा कमरा है",
+        "transliteration": "beTI jena, tumhArA hamAre ghara meM svAgata hai | yaha tumhArA kamarA hai",
+        "meaning": "Daughter Jen, you are most welcome in our home. This is your room"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "धन्यवाद कमला जी, यह कमरा तो बहुत बड़ा और सुन्दर है",
+        "transliteration": "dhanyavAda kamalA jI, yaha kamarA to bahuta barA aura sundara hai",
+        "meaning": "Thanks Kamala Ji, This room is very big and beautiful"
+      },
+      {
+        "speaker_hi": "कमला",
+        "speaker_en": "Kamala",
+        "hindi": "हाँ बेटी, हम यह कमरा हर साल अपने अमेरिकी अतिथी को देते हैं | तुम ठीक से कमरा देख लो और मुझे बताओ कि तुम्हें और कुछ चाहिए",
+        "transliteration": "hA.N beTI, hama yaha kamarA hara sAla apane amerikI atithI ko dete haiM | tuma ThIka se kamarA dekha lo aura mujhe batAo ki tumheM aura kuCha chAhie",
+        "meaning": "Yes daughter, We offer this room to our American guest every year. Please look at this room and let me know if you need anything"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "माता जी, कमरा बहुत अच्छा है| मुझे इन खिड़कियों पर पर्दे चाहिए",
+        "transliteration": "mAtA jI, kamarA bahuta achChA hai| mujhe ina khirkiyoM para parde chAhie",
+        "meaning": "Mother, the room is very good. I need curtains on these windows"
+      },
+      {
+        "speaker_hi": "कमला",
+        "speaker_en": "Kamala",
+        "hindi": "खिडकियों पर पर्दे हैं| मगर अभी धुलने के लिए उतारे गये हैं",
+        "transliteration": "khiDakiyoM para parde haiM| magara abhI dhulane ke lie utAre gaye haiM",
+        "meaning": "There are curtains on these windows. But right now they are taken down to be washed"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "अच्छा | मुझे एक टेबल लैंप भी चाहिए",
+        "transliteration": "achChA | mujhe eka Tebala laiMpa bhI chAhie",
+        "meaning": "Great! I also need a table lamp"
+      },
+      {
+        "speaker_hi": "कमला",
+        "speaker_en": "Kamala",
+        "hindi": "ठीक है | मैं आज ही एक टेबल लैंप तुम्हारे कमरे में लगा दूंगी | तुम्हें और कुछ चाहिए",
+        "transliteration": "ThIka hai | maiM Aja hI eka Tebala laiMpa tumhAre kamare meM lagA dUMgI | tumheM aura kuCha chAhie",
+        "meaning": "Very well. I will get you a table lamp in your room. What else do you need"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "नहीं और कुछ नहीं | धन्यवाद",
+        "transliteration": "nahIM aura kuCha nahIM | dhanyavAda",
+        "meaning": "Nothing at all. Thanks"
+      },
+      {
+        "speaker_hi": "कमला",
+        "speaker_en": "Kamala",
+        "hindi": "अच्छा बेटी, क्या तुम्हें हिन्दुस्तानी खाना पसंद है",
+        "transliteration": "achChA beTI, kyA tumheM hindustAnI khAnA pasaMda hai",
+        "meaning": "Okay daughter, do you like Indian food"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "जी हाँ, कमला जी, मुझे हिन्दुस्तानी खाना बहुत पसंद है",
+        "transliteration": "jI hA.N, kamalA jI, mujhe hindustAnI khAnA bahuta pasaMda hai",
+        "meaning": "Yes, Kamala ji, I like Indian food very much"
+      },
+      {
+        "speaker_hi": "कमला",
+        "speaker_en": "Kamala",
+        "hindi": "अच्छा | और तुम्हें सुबह-सुबह चाय चाहिए या कॉफ़ी",
+        "transliteration": "achChA | aura tumheM subaha-subaha chAya chAhie yA kaॉfI",
+        "meaning": "Okay. Do you like tea or coffee in the morning"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "आप लोग क्या पीते हैं",
+        "transliteration": "Apa loga kyA pIte haiM",
+        "meaning": "What do you all drink"
+      },
+      {
+        "speaker_hi": "कमला",
+        "speaker_en": "Kamala",
+        "hindi": "हम लोग तो चाय पीते हैं ? मगर घर में, कॉफ़ी मशीन भी है",
+        "transliteration": "hama loga to chAya pIte haiM ? magara ghara meM, kaॉfI mashIna bhI hai",
+        "meaning": "We drink tea. But we have coffee machine in the house too"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "बहुत अच्छा ! मैं आप लोगों के साथ सुबह सुबह चाय पीना चाहती हूँ",
+        "transliteration": "bahuta achChA ! maiM Apa logoM ke sAtha subaha subaha chAya pInA chAhatI hU.N",
+        "meaning": "Very well! I would like to drink tea in the morning with you all"
+      },
+      {
+        "speaker_hi": "कमला",
+        "speaker_en": "Kamala",
+        "hindi": "बहुत अच्छा ! अब तुम आराम करो और सात बजे तैयार हो कर रात के खाने के लिए बाहर आओ",
+        "transliteration": "bahuta achChA ! aba tuma ArAma karo aura sAta baje taiyAra ho kara rAta ke khAne ke lie bAhara Ao",
+        "meaning": "Very well! Now you rest and come out at 7 PM for dinner"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "ठीक है कमला जी, और आपके परिवार के और लोग कहाँ हैं",
+        "transliteration": "ThIka hai kamalA jI, aura Apake parivAra ke aura loga kahA.N haiM",
+        "meaning": "Okay Kamala ji. Where are the other members of your family"
+      },
+      {
+        "speaker_hi": "कमला",
+        "speaker_en": "Kamala",
+        "hindi": "अभी सब व्यस्त हैं, रात को खाने पर मैं तुम्हारा परिचय सब लोगों से करवा दूंगी",
+        "transliteration": "abhI saba vyasta haiM, rAta ko khAne para maiM tumhArA parichaya saba logoM se karavA dUMgI",
+        "meaning": "Right now, they are busy. I will introduce you to all others at the dinner"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "ठीक है, कमला जी | आपका बहुत बहुत  धन्यवाद",
+        "transliteration": "ThIka hai, kamalA jI | ApakA bahuta bahuta  dhanyavAda",
+        "meaning": "Okay Kamala ji. Thanks to you"
+      }
+    ]
+  },
+  "sim-card-shop": {
+    "theme": "Daily Conversation - SIM Card Shop",
+    "turns": [
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "नमस्ते जी, क्या आपके पास airtel का सिम कार्ड है",
+        "transliteration": "namaste jI, kyA Apake pAsa airtel kA sima kArDa hai",
+        "meaning": "Namaste ji, do you have airtel sim card"
+      },
+      {
+        "speaker_hi": "दुकानदार",
+        "speaker_en": "Shopkeeper",
+        "hindi": "जी हाँ, यहाँ आपको सभी कम्पनीयों के सिम कार्ड मिलेंगे",
+        "transliteration": "jI hA.N, yahA.N Apako sabhI kampanIyoM ke sima kArDa mileMge",
+        "meaning": "Yes, here, you will sim card of all the companies"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "मुझे airtel का एक सिम कार्ड चाहिए",
+        "transliteration": "mujhe airtel kA eka sima kArDa chAhie",
+        "meaning": "I just need one airtel sim card"
+      },
+      {
+        "speaker_hi": "दुकानदार",
+        "speaker_en": "Shopkeeper",
+        "hindi": "ठीक है, क्या आपके पास कोई फ़ोटो वाली पहचान कार्ड है",
+        "transliteration": "ThIka hai, kyA Apake pAsa koI foTo vAlI pahachAna kArDa hai",
+        "meaning": "Okay, Do you have any photo identity card"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "जी हाँ, मेरे पास मेरा पासपोर्ट है",
+        "transliteration": "jI hA.N, mere pAsa merA pAsaporTa hai",
+        "meaning": "Yes, I have my passport"
+      },
+      {
+        "speaker_hi": "दुकानदार",
+        "speaker_en": "Shopkeeper",
+        "hindi": "बहुत अच्छा | क्या आपके पास आपका कोई फ़ोटो है",
+        "transliteration": "bahuta achChA | kyA Apake pAsa ApakA koI foTo hai",
+        "meaning": "Very good, do you have a photo"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "जी हाँ, मेरी मेज़बान माता जी ने कहा था कि मुझे फ़ोटो ले जाना चाहिए | यह रहा मेरा फ़ोटो",
+        "transliteration": "jI hA.N, merI mezbAna mAtA jI ne kahA thA ki mujhe foTo le jAnA chAhie | yaha rahA merA foTo",
+        "meaning": "Yes, my host mother had said that I should bring my photo. Here is my photo"
+      },
+      {
+        "speaker_hi": "दुकानदार",
+        "speaker_en": "Shopkeeper",
+        "hindi": "अरे वाह ! यह बहुत अच्छी बात है | आपको सिम कार्ड में कितने पैसे चाहिए",
+        "transliteration": "are vAha ! yaha bahuta achChI bAta hai | Apako sima kArDa meM kitane paise chAhie",
+        "meaning": "Wonderful! This is good. How much money do you need in your sim card"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "मुझे मालूम नहीं | क्या आप मुझे इसके बारे में बता सकते हैं",
+        "transliteration": "mujhe mAlUma nahIM | kyA Apa mujhe isake bAre meM batA sakate haiM",
+        "meaning": "I don’t know. Can you tell me more about it"
+      },
+      {
+        "speaker_hi": "दुकानदार",
+        "speaker_en": "Shopkeeper",
+        "hindi": "जी हाँ ज़रूर, आम तौर पर, लोग तीन सौ रूपये का रिचार्ज ख़रीदते हैं| इसके अलावा, दो सौ रूपये का इन्टरनेट पैक",
+        "transliteration": "jI hA.N zrUra, Ama taura para, loga tIna sau rUpaye kA richArja khrIdate haiM| isake alAvA, do sau rUpaye kA inTaraneTa paika",
+        "meaning": "Sure, generally, people get recharge of 300 rupees. Other than that, they also get internet pack of rupees 200"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "ठीक है| मुझे भी ये दोनों चाहिए",
+        "transliteration": "ThIka hai| mujhe bhI ye donoM chAhie",
+        "meaning": "Okay. I need both of these"
+      },
+      {
+        "speaker_hi": "दुकानदार",
+        "speaker_en": "Shopkeeper",
+        "hindi": "बहुत अच्छा | यह लीजिये आपका सिम कार्ड",
+        "transliteration": "bahuta achChA | yaha lIjiye ApakA sima kArDa",
+        "meaning": "Very well. Here is your sim card"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "कितने पैसे हुए",
+        "transliteration": "kitane paise hue",
+        "meaning": "How much money"
+      },
+      {
+        "speaker_hi": "दुकानदार",
+        "speaker_en": "Shopkeeper",
+        "hindi": "पांच सौ पचास रूपये",
+        "transliteration": "pAMcha sau pachAsa rUpaye",
+        "meaning": "550"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "अरे भाई, सिर्फ़ पांच सौ रूपये हुए ना",
+        "transliteration": "are bhAI, sirf pAMcha sau rUpaye hue nA",
+        "meaning": "Oh brother, is it not 500 rupees only"
+      },
+      {
+        "speaker_hi": "दुकानदार",
+        "speaker_en": "Shopkeeper",
+        "hindi": "नहीं मैडम, पचास रूपये सिम शुरू करने का चार्ज है",
+        "transliteration": "nahIM maiDama, pachAsa rUpaye sima shurU karane kA chArja hai",
+        "meaning": "No madam, 50 rupees is service charge to activate the sim card"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "अच्छा ठीक है| यह लीजिये आपके पांच सौ पचास रूपये",
+        "transliteration": "achChA ThIka hai| yaha lIjiye Apake pAMcha sau pachAsa rUpaye",
+        "meaning": "Okay, alright. Please take this 550 rupees"
+      },
+      {
+        "speaker_hi": "दुकानदार",
+        "speaker_en": "Shopkeeper",
+        "hindi": "बहुत अच्छा, धन्यवाद",
+        "transliteration": "bahuta achChA, dhanyavAda",
+        "meaning": "Very good, thanks"
+      }
+    ]
+  },
+  "cooking": {
+    "theme": "Daily Conversation - Cooking",
+    "turns": [
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "कैसे हो ऋतिक",
+        "transliteration": "kaise ho RRitika",
+        "meaning": "How are your Hritik"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "मैं ठीक हूँ | धन्यवाद | तुम कैसी हो",
+        "transliteration": "maiM ThIka hU.N | dhanyavAda | tuma kaisI ho",
+        "meaning": "I am fine. Thanks. How are you"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "मैं भी ठीक हूँ | धन्यवाद | आज तुम्हारे लंच बॉक्स में क्या है",
+        "transliteration": "maiM bhI ThIka hU.N | dhanyavAda | Aja tumhAre laMcha baॉksa meM kyA hai",
+        "meaning": "I am good as well. Thanks. What is in your lunch box today"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "आज मेरे लंच बॉक्स में रोटी और सब्ज़ी है",
+        "transliteration": "Aja mere laMcha baॉksa meM roTI aura sabzI hai",
+        "meaning": "I have break and vegetable in my lunch box today"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "क्या यह तुम्हारा पसंदीदा खाना है",
+        "transliteration": "kyA yaha tumhArA pasaMdIdA khAnA hai",
+        "meaning": "Is this your favorite food"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "नहीं, मुझे खिचड़ी बहुत पसंद है",
+        "transliteration": "nahIM, mujhe khicharI bahuta pasaMda hai",
+        "meaning": "No, I like khichadi a lot"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "अरे वाह! मुझे भी खिचड़ी पसंद है | लेकिन मुझे खिचड़ी बनानी नहीं आती",
+        "transliteration": "are vAha! mujhe bhI khicharI pasaMda hai | lekina mujhe khicharI banAnI nahIM AtI",
+        "meaning": "Wao! I too like khichadi. But I don’t know how to cook it"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "अरे यह तो बहुत आसान है",
+        "transliteration": "are yaha to bahuta AsAna hai",
+        "meaning": "This is very easy"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "क्या तुम मुझे इसे बनाने की विधि बता सकते हो",
+        "transliteration": "kyA tuma mujhe ise banAne kI vidhi batA sakate ho",
+        "meaning": "Can you tell me the recipe of it"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "बिल्कुल, खिचड़ी बनाने के लिए तुम्हें चावल, दाल, टमाटर, प्याज, मटर, घी, लाल मिर्च, हरी मिर्च, अदरक, लहसून, जीरा, हिंग, हल्दी, गर्म मसाला, धनिया और नमक चाहिए",
+        "transliteration": "bilkula, khicharI banAne ke lie tumheM chAvala, dAla, TamATara, pyAja, maTara, ghI, lAla mircha, harI mircha, adaraka, lahasUna, jIrA, hiMga, haldI, garma masAlA, dhaniyA aura namaka chAhie",
+        "meaning": "Sure, To cook khichadi, you need rice, lentils, tomato, onion, peas, ghee, red chilli, green chiili, ginger, garlic, cumin, asafoetida, turmeric, garam masala, coriander, and salt"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "मुझे लगता है कि ये सारी चीज़ें मेरे घर पर हैं | अब मुझे इसे बनाने की विधि बताओ",
+        "transliteration": "mujhe lagatA hai ki ye sArI chIzeM mere ghara para haiM | aba mujhe ise banAne kI vidhi batAo",
+        "meaning": "I think these all things are available at home. Now, tell me the recipe"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "सबसे पहले एक प्रेशर कुकर में, घी डालो, फिर उस में जीरा, दो लाल मिर्च और हिंग डालो | दो मिनट तलने के बाद उस में प्याज, टमाटर, मटर, अदरक, लहसून, और नमक डाल कर तीन से चार मिनट तक पकाओ | उसके बाद, उसमें हल्दी, और गर्म मसाला डालो| जब एक पेस्ट तैयार हो जाय तो उसमे दाल और चावल डालो | उसे अच्छे से मिलाओ | फिर प्रेशर कुकर में चार-पांच कप पानी डाल कर पांच सिटी लगने तक पकाओ | फिर प्रेशर कुकर खोलो और खिचड़ी को दही के साथ परोसो",
+        "transliteration": "sabase pahale eka preshara kukara meM, ghI DAlo, phira usa meM jIrA, do lAla mircha aura hiMga DAlo | do minaTa talane ke bAda usa meM pyAja, TamATara, maTara, adaraka, lahasUna, aura namaka DAla kara tIna se chAra minaTa taka pakAo | usake bAda, usameM haldI, aura garma masAlA DAlo| jaba eka pesTa taiyAra ho jAya to usame dAla aura chAvala DAlo | use achChe se milAo | phira preshara kukara meM chAra-pAMcha kapa pAnI DAla kara pAMcha siTI lagane taka pakAo | phira preshara kukara kholo aura khicharI ko dahI ke sAtha paroso",
+        "meaning": "First of all, Add ghee, cumin, two red chilli and asafoetida in a pressure cooker. After frying that for two minutes, add onion, tomato, peas, ginger, garlic, and salt in that and cook for three to four minutes. After that add turmeric and garam masala in it. When the pest is ready, add rice and lentils in it. Mix it well. Add four to five cups of water in it and cook it till five whistles. After that open the pressure cooker and serve the khichadi with yogurt"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "यह तो बहुत आसान है | मैं आज ही इसे बनाने की कोशिश करूँगी",
+        "transliteration": "yaha to bahuta AsAna hai | maiM Aja hI ise banAne kI koshisha karU.NgI",
+        "meaning": "This is very easy. I will try to cook it today"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "अच्छा विद्या, तुम्हारा पसंदीदा खाना क्या है",
+        "transliteration": "achChA vidyA, tumhArA pasaMdIdA khAnA kyA hai",
+        "meaning": "Okay Vidya, what is your favorite food"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "मुझे तो चिकेन करी बहुत पसंद है",
+        "transliteration": "mujhe to chikena karI bahuta pasaMda hai",
+        "meaning": "I like chicken curry a lot"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "क्या तुम मुझे चिकेन करी बनाने की विधि बता सकती हो",
+        "transliteration": "kyA tuma mujhe chikena karI banAne kI vidhi batA sakatI ho",
+        "meaning": "Can you tell me the recipe of the chicken curry"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "हाँ, क्यों नहीं ? लेकिन आज नहीं, कल",
+        "transliteration": "hA.N, kyoM nahIM ? lekina Aja nahIM, kala",
+        "meaning": "Yes, why not? But not today, tomorrow"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "ठीक है | फिर मिलेंगे",
+        "transliteration": "ThIka hai | phira mileMge",
+        "meaning": "Okay, see you again"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "नमस्ते",
+        "transliteration": "namaste",
+        "meaning": "Namaste"
+      }
+    ]
+  },
+  "directions": {
+    "theme": "Daily Conversation - Directions",
+    "turns": [
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "हैलो शिल्पा",
+        "transliteration": "hailo shilpA",
+        "meaning": "Hello Shilpa"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "हैलो पीटर, क्या बात है ? तुम कहाँ हो",
+        "transliteration": "hailo pITara, kyA bAta hai ? tuma kahA.N ho",
+        "meaning": "Hello Peter, What is the matter? Where are you"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "मैं एक भारतीय रेस्टोरेंट में हूँ | यह बहुत अच्छी जगह है | अगर तुम ख़ाली हो तो हम साथ में खाना खा सकते हैं",
+        "transliteration": "maiM eka bhAratIya resToreMTa meM hU.N | yaha bahuta achChI jagaha hai | agara tuma khAlI ho to hama sAtha meM khAnA khA sakate haiM",
+        "meaning": "I am at an Indian restaurant. This is a great place. If you are available we can eat lunch together"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "हाँ, मैं ख़ाली हूँ | मगर मुझे वहाँ का रास्ता मालूम नहीं",
+        "transliteration": "hA.N, maiM khAlI hU.N | magara mujhe vahA.N kA rAstA mAlUma nahIM",
+        "meaning": "Yes, I am available. But I don’t know the direction to that place"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "अभी तुम कहाँ हो",
+        "transliteration": "abhI tuma kahA.N ho",
+        "meaning": "Where are you right now"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "मैं अभी Wells Hall में हूँ",
+        "transliteration": "maiM abhI Wells Hall meM hU.N",
+        "meaning": "I am in  Wells Hall right now"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "अच्छा, वहाँ  से Red Cedar Road पर आओ और बाएँ मुड़कर सीधा चलो, और फिर Shaw Lane पर बाएँ मुड़ो | थोड़ी दूर चल कर Lane पर दाहिने मुड़ो और सीधा चलो | उसके बाद, पर बाएँ मुड़ो | उसके बाद, Haggadorn Road पर दाहिने मुड़ो | Haggadorn Road पर तीन मिल पर Jolly Road आयेगा | Road पर बाएँ मुड़ो | एक मिल पर, तुम्हें यह रेस्टोरेंट मिलेगा",
+        "transliteration": "achChA, vahA.N  se Red Cedar Road para Ao aura bAe.N murkara sIdhA chalo, aura phira Shaw Lane para bAe.N muro | thorI dUra chala kara Lane para dAhine muro aura sIdhA chalo | usake bAda, para bAe.N muro | usake bAda, Haggadorn Road para dAhine muro | Haggadorn Road para tIna mila para Jolly Road AyegA | Road para bAe.N muro | eka mila para, tumheM yaha resToreMTa milegA",
+        "meaning": "Farm Mt. Hope Road Jolly Okay, Come out of Wells hall, and turn left and walk straight on Red Cedar Road, and then take a left turn on Shaw Lane. After a little distance, take a right turn on Farm Lane and go straight. After that turn left of Mt. Hope Road. After that turn right on Haggadorn Road. After going on Haggadorn for three miles, Jolly Road would come. Turn left on Jolly Road. After a mile, you will find this restaurant"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "बहुत अच्छा | मैं थोड़ी देर में वहाँ आती हूँ",
+        "transliteration": "bahuta achChA | maiM thorI dera meM vahA.N AtI hU.N",
+        "meaning": "Very well. I come there in a little bit"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "ठीक है, मैं तुम्हारा इंतज़ार कर रहा हूँ",
+        "transliteration": "ThIka hai, maiM tumhArA iMtazAra kara rahA hU.N",
+        "meaning": "Okay, I am waiting for you"
+      }
+    ]
+  },
+  "social-media": {
+    "theme": "Daily Conversation - Social Media",
+    "turns": [
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "पीटर, तुम अपने फ़ोन पर क्या करते रहते हो",
+        "transliteration": "pITara, tuma apane fona para kyA karate rahate ho",
+        "meaning": "Peter, what do you keep doing on your phone"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "मैं अपना फ़ेसबुक देखता रहता हूँ",
+        "transliteration": "maiM apanA fesabuka dekhatA rahatA hU.N",
+        "meaning": "I keep checking my facebook"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "यह फ़ेसबुक क्या है",
+        "transliteration": "yaha fesabuka kyA hai",
+        "meaning": "What is this facebook"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "फ़ेसबुक एक सोसल मीडिया है | फ़ेसबुक में तुम दोस्त बना सकती हो, अपनी तस्वीर लगा सकती हो और दूसरे शहरों और देशों के दोस्तों से बात कर सकती हो | क्या तुम्हारा फ़ेसबुक खाता नहीं है",
+        "transliteration": "fesabuka eka sosala mIDiyA hai | fesabuka meM tuma dosta banA sakatI ho, apanI tasvIra lagA sakatI ho aura dUsare shaharoM aura deshoM ke dostoM se bAta kara sakatI ho | kyA tumhArA fesabuka khAtA nahIM hai",
+        "meaning": "Facebook is a social media. On facebook, you can make friends, post your photo and make friends from other towns and countries. Do you have a facebook account"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "नहीं, आज मैं पहली बार इस फ़ेसबुक के बारे में सुन रही हूँ | क्या तुम मुझे फ़ेसबुक पर खाता खोलने में मदद करोगी",
+        "transliteration": "nahIM, Aja maiM pahalI bAra isa fesabuka ke bAre meM suna rahI hU.N | kyA tuma mujhe fesabuka para khAtA kholane meM madada karogI",
+        "meaning": "No, today, I am learning about the facebook first time. Will you help me to open a facebook account"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "हाँ, ज़रूर, क्या तुम्हारा कोई ई.मेल अड्रेस है",
+        "transliteration": "hA.N, zrUra, kyA tumhArA koI I.mela aDresa hai",
+        "meaning": "Yes, indeed, do you have any e.mail. address"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "हाँ, मेरा gmail पर एक खाता है",
+        "transliteration": "hA.N, merA gmail para eka khAtA hai",
+        "meaning": "Yes, I have an account on gmail"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "ठीक है | अब तुम अपने फ़ोन में facebook.com पर जाओ और create new account पर क्लिक करो | उसके बाद, अपना नाम, ई.मेल या फ़ोन नंबर, पासवर्ड, जन्म तिथि और लिंग दर्ज करो | उसके बाद साइन अप पर क्लिक करो | उसके बाद ई.मेल या फ़ोन नंबर की पुष्टि करो और तुम्हारा खाता खुल जाएगा",
+        "transliteration": "ThIka hai | aba tuma apane fona meM facebook.com para jAo aura create new account para klika karo | usake bAda, apanA nAma, I.mela yA fona naMbara, pAsavarDa, janma tithi aura liMga darja karo | usake bAda sAina apa para klika karo | usake bAda I.mela yA fona naMbara kI puShTi karo aura tumhArA khAtA khula jAegA",
+        "meaning": "Okay, Now you go to facebook.com on your phone and click on create new account. After that put your name, e.mail or phone number, password, date of birth and gender. After that click on sign up. After that confirm your e.mail or phone number and your account will open"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "अरे वाह ! यह तो बहुत आसान है | फिर क्या करना है",
+        "transliteration": "are vAha ! yaha to bahuta AsAna hai | phira kyA karanA hai",
+        "meaning": "Oh wao! This is so easy. Then what do I have to do"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "उसके बाद तुम अपने profile में अपना फ़ोटो और दूसरी सूचनाएं update कर सकती हो और दोस्तों को friend request भेज सकती हो",
+        "transliteration": "usake bAda tuma apane profile meM apanA foTo aura dUsarI sUchanAeM update kara sakatI ho aura dostoM ko friend request bheja sakatI ho",
+        "meaning": "After that you can update your profile photo and other information and can send friend requests to your friends"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "बहुत अच्छा ! मैं आज ही फ़ेसबुक पर खाता खोल कर तुम्हें request भेजूँगी",
+        "transliteration": "bahuta achChA ! maiM Aja hI fesabuka para khAtA khola kara tumheM request bhejU.NgI",
+        "meaning": "friend Very well! Today, I will open a facebook account and will send you a friend request"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "बहुत अच्छा, फिर हम फ़ेसबुक पर बात करेंगे",
+        "transliteration": "bahuta achChA, phira hama fesabuka para bAta kareMge",
+        "meaning": "Very well, then we will chat on facebook"
+      }
+    ]
+  },
+  "making-tea": {
+    "theme": "Daily Conversation - Making Tea",
+    "turns": [
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "शुभ प्रात:, माता जी, आप क्या बना रही हैं",
+        "transliteration": "shubha prAta:, mAtA jI, Apa kyA banA rahI haiM",
+        "meaning": "Good morning, mother, what are you making"
+      },
+      {
+        "speaker_hi": "कमला",
+        "speaker_en": "Kamala",
+        "hindi": "Good morning जेन, आज तुम जल्दी जाग गयी | मैं परिवार के लिए चाय बना रही हूँ",
+        "transliteration": "Good morning jena, Aja tuma jaldI jAga gayI | maiM parivAra ke lie chAya banA rahI hU.N",
+        "meaning": "Good morning Jen, You are awake so early today. I am making chai for the family"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "यह तो बहुत अच्छी बात है | मैं चाय बनाना सीखना चाहती हूँ",
+        "transliteration": "yaha to bahuta achChI bAta hai | maiM chAya banAnA sIkhanA chAhatI hU.N",
+        "meaning": "This is great. I want to learn how to make chai"
+      },
+      {
+        "speaker_hi": "कमला",
+        "speaker_en": "Kamala",
+        "hindi": "चाय बनाना बहुत आसान है | सबसे पहले, एक पैन में पानी, दूध, चाय पत्ती, और चाय का मसाला डाल के उबालिए | (थोड़ी देर बाद",
+        "transliteration": "chAya banAnA bahuta AsAna hai | sabase pahale, eka paina meM pAnI, dUdha, chAya pattI, aura chAya kA masAlA DAla ke ubAlie | (thorI dera bAda",
+        "meaning": "To make chai is very easy. First of all, please take water, milk, tea leaves, and tea spice in a aucepan and boil them. After a while"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "कमला जी, यह अब उबल रहा है",
+        "transliteration": "kamalA jI, yaha aba ubala rahA hai",
+        "meaning": "Kamala ji, this is boiling now"
+      },
+      {
+        "speaker_hi": "कमला",
+        "speaker_en": "Kamala",
+        "hindi": "अब आंच कम कीजिये और इसे थोड़ा ठंडा होने दीजिये | (थोड़ी देर बाद",
+        "transliteration": "aba AMcha kama kIjiye aura ise thorA ThaMDA hone dIjiye | (thorI dera bAda",
+        "meaning": "Now please lower the heat and let it cool down a little bit. After a while"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "कमला जी, यह अब थोड़ा ठंडा हो गया है",
+        "transliteration": "kamalA jI, yaha aba thorA ThaMDA ho gayA hai",
+        "meaning": "Kamala ji, it gets cooler a little"
+      },
+      {
+        "speaker_hi": "कमला",
+        "speaker_en": "Kamala",
+        "hindi": "ठीक है, अब चाय छन्नी से मसाले और चाय पत्ती को छान लीजिये",
+        "transliteration": "ThIka hai, aba chAya ChannI se masAle aura chAya pattI ko ChAna lIjiye",
+        "meaning": "Okay, now please strain the tea leaves and tea spices using a strainer"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "हो गया",
+        "transliteration": "ho gayA",
+        "meaning": "done"
+      },
+      {
+        "speaker_hi": "कमला",
+        "speaker_en": "Kamala",
+        "hindi": "अब इसमे अपने स्वाद के अनुसार चीनी मिलाइए | आपकी चाय तैयार",
+        "transliteration": "aba isame apane svAda ke anusAra chInI milAie | ApakI chAya taiyAra",
+        "meaning": "Now add sugar in this according to your taste. Your tea is ready"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "यह मेरी ज़िन्दगी का सबसे पहला चाय है जो मैंने ख़ुद बनाया है",
+        "transliteration": "Khud",
+        "meaning": "This is the first tea that I have made my own in my life"
+      },
+      {
+        "speaker_hi": "कमला",
+        "speaker_en": "Kamala",
+        "hindi": "वाह ! अगर आप चाहें तो परिवार के लिए हर रोज़ चाय बना सकती हैं",
+        "transliteration": "vAha ! agara Apa chAheM to parivAra ke lie hara roz chAya banA sakatI haiM",
+        "meaning": "Wao! If you want you can make tea for the family every day"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "अगर मैं हर दिन इस समय जाग पायी तो दोनों हँसती हैं और चाय का मजा लेती हैं",
+        "transliteration": "agara maiM hara dina isa samaya jAga pAyI to donoM ha.NsatI haiM aura chAya kA majA letI haiM",
+        "meaning": "If I get up this time everyday. Both laugh and enjoy their tea"
+      }
+    ]
+  },
+  "bank-account": {
+    "theme": "Daily Conversation - Bank Account",
+    "turns": [
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "पीटर भाई, नमस्ते, क्या हाल है",
+        "transliteration": "pITara bhAI, namaste, kyA hAla hai",
+        "meaning": "Brother Peter, namaste, how are you"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "नमस्ते ऋतिक भाई, सब ठीक है | मगर मुझे तुम्हारी मदद चाहिए",
+        "transliteration": "namaste RRitika bhAI, saba ThIka hai | magara mujhe tumhArI madada chAhie",
+        "meaning": "namaste, brother Hrithik, All is well. But, I need your help"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "कहो, मैं तुम्हारी क्या मदद कर सकता हूँ",
+        "transliteration": "kaho, maiM tumhArI kyA madada kara sakatA hU.N",
+        "meaning": "Tell, How can I help you"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "मुझे एक छात्रवृत्ति मिली है | मगर मेरा बैंक में खाता नहीं है",
+        "transliteration": "mujhe eka ChAtravRRitti milI hai | magara merA baiMka meM khAtA nahIM hai",
+        "meaning": "I have received a scholarship. But, I do not have my bank account"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "बधाई हो | बैंक में खाता खोलने में, मैं तुम्हारी मदद करूँगा",
+        "transliteration": "badhAI ho | baiMka meM khAtA kholane meM, maiM tumhArI madada karU.NgA",
+        "meaning": "Congratulations ! I will help you to open a bank account"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "ठीक है | धन्यवाद | मुझे क्या करना होगा",
+        "transliteration": "ThIka hai | dhanyavAda | mujhe kyA karanA hogA",
+        "meaning": "Okay. Thank you. What will I have to do"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "कल तुम एक बैंक से खाता खोलने वाला आवेदन पत्र लाओ",
+        "transliteration": "kala tuma eka baiMka se khAtA kholane vAlA Avedana patra lAo",
+        "meaning": "Bring an application form to open a bank account tomorrow"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "ठीक है| मुझे और किन चीजों की ज़रूरत होगी",
+        "transliteration": "ThIka hai| mujhe aura kina chIjoM kI zrUrata hogI",
+        "meaning": "Okay. What else will I need"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "तुम्हें दो फ़ोटो, आधार कार्ड, और एक ग्रान्टर चाहिए",
+        "transliteration": "tumheM do foTo, AdhAra kArDa, aura eka grAnTara chAhie",
+        "meaning": "You need two photos, aadhar card, and a guarantor"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "मेरे पास फ़ोटो हैं | मगर मैं विदेशी हूँ | मेरे पास आधार कार्ड नहीं है",
+        "transliteration": "mere pAsa foTo haiM | magara maiM videshI hU.N | mere pAsa AdhAra kArDa nahIM hai",
+        "meaning": "I have photos. But I am a foreigner. I do not have a aadhar card"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "कोई बात नहीं, अपना पासपोर्ट लाओ",
+        "transliteration": "koI bAta nahIM, apanA pAsaporTa lAo",
+        "meaning": "No worries. Bring your passport"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "ठीक है | मगर ग्रान्टर कौन होगा",
+        "transliteration": "ThIka hai | magara grAnTara kauna hogA",
+        "meaning": "Okay. But, who will be the guarantor"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "मेरा बैंक में खाता है | मैं तुम्हारा ग्रान्टर बन सकता हूँ",
+        "transliteration": "merA baiMka meM khAtA hai | maiM tumhArA grAnTara bana sakatA hU.N",
+        "meaning": "I have a bank account. I can be your guarantor"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "अरे वाह ! यह तो बहुत अच्छी बात है | मुझे आज ही आवेदन पत्र ले आना चाहिए",
+        "transliteration": "are vAha ! yaha to bahuta achChI bAta hai | mujhe Aja hI Avedana patra le AnA chAhie",
+        "meaning": "Wao! This is great. I should bring the application today itself"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "ठीक है, हम कल मिलेंगे",
+        "transliteration": "ThIka hai, hama kala mileMge",
+        "meaning": "Okay. We will meet tomorrow"
+      }
+    ]
+  },
+  "weekend-hobbies": {
+    "theme": "Daily Conversation - Weekend Hobbies",
+    "turns": []
+  },
+  "festivals": {
+    "theme": "Daily Conversation - Festivals",
+    "turns": [
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "पीटर, तुम्हें क्रिसमस की हार्दिक शुभकामनायें",
+        "transliteration": "pITara, tumheM krisamasa kI hArdika shubhakAmanAyeM",
+        "meaning": "Peter, Merry Christmas to you"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "धन्यवाद शिल्पा | तुम्हें भी क्रिसमस की हार्दिक शुभकामनायें | शिल्पा, क्या क्रिसमस तुम्हारा पसंदीदा त्योहार है",
+        "transliteration": "dhanyavAda shilpA | tumheM bhI krisamasa kI hArdika shubhakAmanAyeM | shilpA, kyA krisamasa tumhArA pasaMdIdA tyohAra hai",
+        "meaning": "Thanks Shilpa, Merry Christmas to you too. Is Christmas your favorite festival"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "नहीं, मेरा पसंदीदा त्योहार दिवाली है",
+        "transliteration": "nahIM, merA pasaMdIdA tyohAra divAlI hai",
+        "meaning": "No, My favorite festival is Diwali"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "अच्छा, तुम दिवाली कैसे मनाती हो",
+        "transliteration": "achChA, tuma divAlI kaise manAtI ho",
+        "meaning": "Okay. How do you celebrate Diwali"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "दिवाली के पहले, हम अपना घर साफ़ करते हैं | दिवाली की शाम, हम दीप जलाते हैं, लक्ष्मी और गणेश की पूजा करते हैं | मिठाइयाँ खाते हैं और आतिशबाज़ी करते हैं",
+        "transliteration": "divAlI ke pahale, hama apanA ghara sAf karate haiM | divAlI kI shAma, hama dIpa jalAte haiM, lakShmI aura gaNesha kI pUjA karate haiM | miThAiyA.N khAte haiM aura AtishabAzI karate haiM",
+        "meaning": "Before Diwali, we clean our homes. On the evening on Diwali, we lit clay lamp and worship Lakshami and Ganesha. We eat sweets, and do fireworks"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "मुझे भारतीय मिठाइयाँ बहुत पसंद हैं | शिल्पा, मेरा एक सवाल है | भारतीय दिवाली क्यों मनाते हैं",
+        "transliteration": "mujhe bhAratIya miThAiyA.N bahuta pasaMda haiM | shilpA, merA eka savAla hai | bhAratIya divAlI kyoM manAte haiM",
+        "meaning": "I like Indian sweets very much. Shilpa, I have a question. Why do Indian celebrate Diwali"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "ऐसा माना जाता है कि, भगवान राम रावण को मार कर जब अयोध्या आये थे तब अयोध्या के लोगों ने उनका स्वागत दीप जलाकर किया था उसी दिन से हम दिवाली मनाते हैं | पीटर भाई, ईसाई लोग क्रिसमस क्यों मनाते हो",
+        "transliteration": "aisA mAnA jAtA hai ki, bhagavAna rAma rAvaNa ko mAra kara jaba ayodhyA Aye the taba ayodhyA ke logoM ne unakA svAgata dIpa jalAkara kiyA thA usI dina se hama divAlI manAte haiM | pITara bhAI, IsAI loga krisamasa kyoM manAte ho",
+        "meaning": "It is believed that when Lord Ram returned to Ayodhya after killing Rawan, people of Ayodhya welcomed him by lighting the clay lamps. Since that day, we celebrate Diwali. Brother Peter, why do Christians  celebrate Christmas"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "भाई, तुम्हारा पसंदीदा त्योहार कौन सा है",
+        "transliteration": "bhAI, tumhArA pasaMdIdA tyohAra kauna sA hai",
+        "meaning": "It is believed that Jesus Christ was born on this day. Brother Hrithik, Which is your favorite festival"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "मुझे तो छठ पूजा बहुत पसंद है",
+        "transliteration": "mujhe to ChaTha pUjA bahuta pasaMda hai",
+        "meaning": "I really like Chhath pooja"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "मैं छठ पूजा के बारे में कुछ नहीं जानता | इसके बारे में मुझे कुछ बताओ, न",
+        "transliteration": "maiM ChaTha pUjA ke bAre meM kuCha nahIM jAnatA | isake bAre meM mujhe kuCha batAo, na",
+        "meaning": "I do not know anything about Chhath pooja. Please tell me about it"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "छठ पूजा हिन्दुओं का एक बहुत ही पवित्र पर्व है | छठ पूजा में हम सूर्य भगवान की पूजा करते हैं",
+        "transliteration": "ChaTha pUjA hinduoM kA eka bahuta hI pavitra parva hai | ChaTha pUjA meM hama sUrya bhagavAna kI pUjA karate haiM",
+        "meaning": "Chhath pooja is a holy festival of Hindus. In Chhath pooja, we worship God sun"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "क्या तुम मुझे छठ पूजा में अपने घर बुलाओगे",
+        "transliteration": "kyA tuma mujhe ChaTha pUjA meM apane ghara bulAoge",
+        "meaning": "Will you invite me to your home on Chhath pooja"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "हाँ बिल्कुल, अगले छठ पूजा में तुम मेरे घर ज़रूर आना",
+        "transliteration": "hA.N bilkula, agale ChaTha pUjA meM tuma mere ghara zrUra AnA",
+        "meaning": "Yes, of course, you must come to my home on next Chhath pooja"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "और मैं",
+        "transliteration": "aura maiM",
+        "meaning": "And me"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "तुम्हारा भी स्वागत है",
+        "transliteration": "tumhArA bhI svAgata hai",
+        "meaning": "You are also welcome"
+      }
+    ]
+  },
+  "travel-plans": {
+    "theme": "Daily Conversation - Travel Plans",
+    "turns": [
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "नमस्ते माँ, तुम कैसी हो और अभी क्या कर रही हो",
+        "transliteration": "namaste mA.N, tuma kaisI ho aura abhI kyA kara rahI ho",
+        "meaning": "Hello mother, how are you and what are you doing right now"
+      },
+      {
+        "speaker_hi": "केरेन",
+        "speaker_en": "Karen",
+        "hindi": "नमस्ते बेटी, मैं ठीक हूँ और अभी अपना सामान पैक कर रही हूँ | मैं कल सुबह के हवाई जहाज़ से भारत आ रही हूँ | तुम कैसी हो और क्या कर रही हो",
+        "transliteration": "namaste beTI, maiM ThIka hU.N aura abhI apanA sAmAna paika kara rahI hU.N | maiM kala subaha ke havAI jahAz se bhArata A rahI hU.N | tuma kaisI ho aura kyA kara rahI ho",
+        "meaning": "Hello daughter, I am fine and I am packing right now. I am coming to India by morning flight tomorrow. How are you and what are you doing"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "मैं भी अच्छी हूँ, माँ | मैं हमारी यात्रा की योजना बना रही हूँ",
+        "transliteration": "maiM bhI achChI hU.N, mA.N | maiM hamArI yAtrA kI yojanA banA rahI hU.N",
+        "meaning": "I am well too, mother. I am making our travel plan"
+      },
+      {
+        "speaker_hi": "केरेन",
+        "speaker_en": "Karen",
+        "hindi": "मैं भी भारत-यात्रा के लिए बहुत उत्साहित हूँ | मुझे यात्रा की योजना के बारे में बताओ",
+        "transliteration": "maiM bhI bhArata-yAtrA ke lie bahuta utsAhita hU.N | mujhe yAtrA kI yojanA ke bAre meM batAo",
+        "meaning": "I am also very excited about India tour. Tell me about the travel plan"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "ठीक है | मैं तुम से दिल्ली अन्तराष्ट्रीय हवाईअड्डे पर मिलूँगी | हम दिल्ली में दो दिन रुकेंगी और दिल्ली में लाल क़िला और कुतुबमीनार देखेंगी",
+        "transliteration": "ThIka hai | maiM tuma se dillI antarAShTrIya havAIaDDe para milU.NgI | hama dillI meM do dina rukeMgI aura dillI meM lAla qilA aura kutubamInAra dekheMgI",
+        "meaning": "Okay. I will meet you at the international airport in Delhi. We will stay in Delhi for two days and will visit Red fort and Qutub minar"
+      },
+      {
+        "speaker_hi": "केरेन",
+        "speaker_en": "Karen",
+        "hindi": "क्या हम जामा मस्जिद भी देखेंगी",
+        "transliteration": "kyA hama jAmA masjida bhI dekheMgI",
+        "meaning": "Will we visit Jama masjid too"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "जी हाँ, जामा मस्जिद, लाल क़िला के पास ही है",
+        "transliteration": "jI hA.N, jAmA masjida, lAla qilA ke pAsa hI hai",
+        "meaning": "Yes, Jama masjid is near by the red fort"
+      },
+      {
+        "speaker_hi": "केरेन",
+        "speaker_en": "Karen",
+        "hindi": "बहुत अच्छा | उसके बाद हम कहाँ जायेंगी",
+        "transliteration": "bahuta achChA | usake bAda hama kahA.N jAyeMgI",
+        "meaning": "Very well. Where will we go after that"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "दिल्ली के बाद हम जयपुर और उदयपुर जायेंगी | जयपुर और उदयपुर में, हम बहुत सारे क़िले देखेंगी, राजस्थानी खाना खायेंगी और ख़रीदारी भी करेंगी",
+        "transliteration": "dillI ke bAda hama jayapura aura udayapura jAyeMgI | jayapura aura udayapura meM, hama bahuta sAre qile dekheMgI, rAjasthAnI khAnA khAyeMgI aura khrIdArI bhI kareMgI",
+        "meaning": "After Delhi, we will go to Jaipur and Udaypur. In Jaipur and Udaypur, we will visit many forts, eat Rajasthani food, and do shopping too"
+      },
+      {
+        "speaker_hi": "केरेन",
+        "speaker_en": "Karen",
+        "hindi": "मैंने सुना है कि राजस्थानी हस्तशिल्प बहुत मशहूर है",
+        "transliteration": "maiMne sunA hai ki rAjasthAnI hastashilpa bahuta mashahUra hai",
+        "meaning": "I have heard that Rajasthani handicraft is very famous"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "हाँ माँ, हम राजस्थान से पंजाब जायेंगी और बाघा बॉडर पर हिन्दुस्तानी और पाकिस्तानी सैनिकों का परेड देखेंगी",
+        "transliteration": "hA.N mA.N, hama rAjasthAna se paMjAba jAyeMgI aura bAghA baॉDara para hindustAnI aura pAkistAnI sainikoM kA pareDa dekheMgI",
+        "meaning": "Yes mother, we will go to Punjab from Rajasthan and will see a parade by Indian and Pakistani soldiers"
+      },
+      {
+        "speaker_hi": "केरेन",
+        "speaker_en": "Karen",
+        "hindi": "अरे वाह ! मैंने सुना है कि वह परेड बहुत नाटकीय है",
+        "transliteration": "are vAha ! maiMne sunA hai ki vaha pareDa bahuta nATakIya hai",
+        "meaning": "Wao! I have heard that the parade is very dramatic"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "हाँ, हमें बहुत मज़ा आयेंगा | उसके बाद हम अमृतसर में गोल्डन टेम्पल देखेंगी और दिल्ली वापस आयेंगी",
+        "transliteration": "hA.N, hameM bahuta mazA AyeMgA | usake bAda hama amRRitasara meM golDana Tempala dekheMgI aura dillI vApasa AyeMgI",
+        "meaning": "Yes, we will have so much fun. After that we will go to visit golden temple in Amritsar and will return to Delhi"
+      },
+      {
+        "speaker_hi": "केरेन",
+        "speaker_en": "Karen",
+        "hindi": "यह तो बहुत अच्छी योजना है | तुम्हें अमेरिका से कुछ चाहिए",
+        "transliteration": "yaha to bahuta achChI yojanA hai | tumheM amerikA se kuCha chAhie",
+        "meaning": "This is such a good plan. Do you need anything from America"
+      },
+      {
+        "speaker_hi": "जेन",
+        "speaker_en": "Jen",
+        "hindi": "नहीं माँ, मुझे कुछ नहीं चाहिए | मगर हाँ, तुम गर्म कपड़े मत लाना | आजकल हिन्दुस्तान में गर्मी का मौसम है",
+        "transliteration": "nahIM mA.N, mujhe kuCha nahIM chAhie | magara hA.N, tuma garma kapare mata lAnA | Ajakala hindustAna meM garmI kA mausama hai",
+        "meaning": "No mother, I do not need anything. But, please do not bring warm clothes. It is summer season in India these days"
+      },
+      {
+        "speaker_hi": "केरेन",
+        "speaker_en": "Karen",
+        "hindi": "ठीक है बेटी, मैं तुमसे दिल्ली हवाईअड्डे पर मिलूँगी",
+        "transliteration": "ThIka hai beTI, maiM tumase dillI havAIaDDe para milU.NgI",
+        "meaning": "Okay daughter, I will see you at Delhi airport"
+      }
+    ]
+  },
+  "summer-vacation": {
+    "theme": "Daily Conversation - Summer Vacation",
+    "turns": [
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "नमस्ते शिल्पा, तुम कैसी हो",
+        "transliteration": "namaste shilpA, tuma kaisI ho",
+        "meaning": "Hello Shilpa, How are you"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "मैं अच्छी हूँ | तुम कैसे हो",
+        "transliteration": "maiM achChI hU.N | tuma kaise ho",
+        "meaning": "I am well. How are you"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "मैं भी अच्छा हूँ| तुम्हारी गर्मी की छुट्टियाँ कैसी थीं",
+        "transliteration": "maiM bhI achChA hU.N| tumhArI garmI kI ChuTTiyA.N kaisI thIM",
+        "meaning": "I, too, am well. How was your summer vacation"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "मेरी गर्मी की छुट्टियाँ बहुत अच्छी थीं | मैं अपने परिवार के साथ हैदराबाद गयी थी",
+        "transliteration": "merI garmI kI ChuTTiyA.N bahuta achChI thIM | maiM apane parivAra ke sAtha haidarAbAda gayI thI",
+        "meaning": "My summer vacation was very good. I went to Hyderabad with my family"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "अरे वाह ! हैदराबाद में तुम लोगों ने क्या – क्या किया",
+        "transliteration": "are vAha ! haidarAbAda meM tuma logoM ne kyA – kyA kiyA",
+        "meaning": "Oh wao! What did you do in Hyderabad"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "हम लोग वहाँ एक सप्ताह रहे | हम ने शहर देखा | हम चार मीनार, गोलकुंडा फोर्ट, और रामू जी फ़िल्म सिटी गए | हम ने कई तरह की बिरयानियाँ खायीं | तुम गर्मी की छुटियों में कहाँ गए और क्या – क्या किया",
+        "transliteration": "hama loga vahA.N eka saptAha rahe | hama ne shahara dekhA | hama chAra mInAra, golakuMDA phorTa, aura rAmU jI filma siTI gae | hama ne kaI taraha kI birayAniyA.N khAyIM | tuma garmI kI ChuTiyoM meM kahA.N gae aura kyA – kyA kiyA",
+        "meaning": "We stayed there for a week. We saw the city. We wen to Char minar, Golkunda fort, and Ramu Ji film city. We ate different types of biryani. Where did you go in summer vacation and what did you do"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "मैं अपने माता – पिता के घर, गोवा गया था | मैंने उनके साथ कुछ समय बिताया | मैंने घर की मरम्मत करने में उनकी मदद की",
+        "transliteration": "maiM apane mAtA – pitA ke ghara, govA gayA thA | maiMne unake sAtha kuCha samaya bitAyA | maiMne ghara kI marammata karane meM unakI madada kI",
+        "meaning": "I went to my parent’s house in Goa. I spent some times with them. I help them fixing their house"
+      },
+      {
+        "speaker_hi": "शिल्पा",
+        "speaker_en": "Shilpa",
+        "hindi": "अरे वाह ! और ऋतिक तुम ने गर्मी की छुट्टियों में क्या किया",
+        "transliteration": "are vAha ! aura RRitika tuma ne garmI kI ChuTTiyoM meM kyA kiyA",
+        "meaning": "Oh wao! and Hritik, what did you do during the summer vacation"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "मैं घर पर ही था | मैंने  खाना पकाना सिखा",
+        "transliteration": "maiM ghara para hI thA | maiMne  khAnA pakAnA sikhA",
+        "meaning": "I was at home. I learnt how to cook"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "अरे वाह ! यह तो बहुत अच्छी बात है | अब तो ऋतिक हमारे लिए खाना बना सकता है",
+        "transliteration": "are vAha ! yaha to bahuta achChI bAta hai | aba to RRitika hamAre lie khAnA banA sakatA hai",
+        "meaning": "Oh wao! This is great. Now Hritik can cook food for us"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "हाँ, क्यों नहीं",
+        "transliteration": "hA.N, kyoM nahIM",
+        "meaning": "Yes, why not"
+      }
+    ]
+  },
+  "independence-day": {
+    "theme": "Daily Conversation - Independence Day",
+    "turns": [
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "नमस्ते ऋतिक, स्वतंत्रता दिवस की हार्दिक शुभकामनाएँ",
+        "transliteration": "namaste RRitika, svataMtratA divasa kI hArdika shubhakAmanAe.N",
+        "meaning": "Hello Hritik, happy independence day"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "धन्यवाद पीटर भाई | तुम्हें भी स्वतंत्रता दिवस की हार्दिक शुभकामनाएँ ! तुम स्वतंत्रता दिवस कैसे मनाओगे",
+        "transliteration": "dhanyavAda pITara bhAI | tumheM bhI svataMtratA divasa kI hArdika shubhakAmanAe.N ! tuma svataMtratA divasa kaise manAoge",
+        "meaning": "Thanks brother Peter. Happy independence day to you too! How will you celebrate the independence day"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "मैं अभी इंडिया गेट से स्वतंत्रता दिवस का परेड देख कर आया हूँ | इसके बाद मैं और मेरे कुछ दोस्त दिल्ली के ऐतिहासिक स्थान देखने जायेंगे | उसके बाद हम शायद बाहर खाना खायें |तुम क्या करोगे",
+        "transliteration": "maiM abhI iMDiyA geTa se svataMtratA divasa kA pareDa dekha kara AyA hU.N | isake bAda maiM aura mere kuCha dosta dillI ke aitihAsika sthAna dekhane jAyeMge | usake bAda hama shAyada bAhara khAnA khAyeM |tuma kyA karoge",
+        "meaning": "I am just coming from India gate after watching independence day’s parade. After this, Me and a few of my friends will go to visit some historical places. After that, perhaps, we might eat out. What will you do"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "क्या बताऊँ? मेरी कोई योजना नहीं है | शायद, मैं घर जाके सोऊँ",
+        "transliteration": "kyA batAU.N? merI koI yojanA nahIM hai | shAyada, maiM ghara jAke soU.N",
+        "meaning": "What to tell? I have no plans. Perhaps, I might go home and sleep"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "अगर तुम चाहो तो हमारे साथ चल सकते हो",
+        "transliteration": "agara tuma chAho to hamAre sAtha chala sakate ho",
+        "meaning": "If you want you can come with us"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "नहीं दोस्त, मैं आज आराम करूँगा | मगर यह तो बताओ कि तुम लोग आज ऐतिहासिक स्थान देखने क्यों जा रहे हो",
+        "transliteration": "nahIM dosta, maiM Aja ArAma karU.NgA | magara yaha to batAo ki tuma loga Aja aitihAsika sthAna dekhane kyoM jA rahe ho",
+        "meaning": "No friend, I will rest today. But tell me why you all are going to visit historical places today"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "क्योंकि हर राष्ट्रीय त्योहार में इन जगहों पर प्रवेश नि:शुल्क होता है",
+        "transliteration": "kyoMki hara rAShTrIya tyohAra meM ina jagahoM para pravesha ni:shulka hotA hai",
+        "meaning": "Because entry is free at all these places on national festival/holidays"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "अरे वाह ! इंडिया में और कौन – कौन से राष्ट्रीय त्योहार हैं",
+        "transliteration": "are vAha ! iMDiyA meM aura kauna – kauna se rAShTrIya tyohAra haiM",
+        "meaning": "Oh Wao! What are the other national festivals in India"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "हिन्दुस्तान में कई क्षेत्रीय त्योहार हैं, मगर राष्ट्रीय त्योहार सिर्फ़ तीन हैं –  स्वतंत्रता दिवस (15 अगस्त), गणतंत्रता दिवस जनवरी), और गाँधी जयन्ती (2 अक्टूबर",
+        "transliteration": "hindustAna meM kaI kShetrIya tyohAra haiM, magara rAShTrIya tyohAra sirf tIna haiM –  svataMtratA divasa (15 agasta), gaNataMtratA divasa janavarI), aura gA.NdhI jayantI (2 akTUbara",
+        "meaning": "26 There are many regional festival/holiday, but there are only three national festivals/holidays – independence day (15 August), republic day (26 January), and Gandhi’s birthday (2nd October"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "बहुत अच्छा ! शायद, मैं भी २ अक्टूबर को इन जगहों पर जाऊँ",
+        "transliteration": "bahuta achChA ! shAyada, maiM bhI 2 akTUbara ko ina jagahoM para jAU.N",
+        "meaning": "Very well ! Perhaps, I too will go to these places on 2nd October"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "विद्या, आज तुम उदास क्यों लग रही हो ? क्या तुम्हें स्वतंत्रता दिवस की ख़ुशी नहीं है",
+        "transliteration": "vidyA, Aja tuma udAsa kyoM laga rahI ho ? kyA tumheM svataMtratA divasa kI khushI nahIM hai",
+        "meaning": "Vidya, why are you looking sad today? Are you not happy on independence day"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "नहीं नहीं, ऐसी कोई बात नहीं है | मगर आज मेरा जन्मदिन भी है और सब मुझे स्वतंत्रता दिवस की शुभकामनाएँ दे रहे हैं, जन्मदिन की नहीं",
+        "transliteration": "nahIM nahIM, aisI koI bAta nahIM hai | magara Aja merA janmadina bhI hai aura saba mujhe svataMtratA divasa kI shubhakAmanAe.N de rahe haiM, janmadina kI nahIM",
+        "meaning": "No No, it is not like that. But today is my birthday too, and every one is wishing me happy independence day, and not happy birthday"
+      },
+      {
+        "speaker_hi": "ऋतिक",
+        "speaker_en": "Hritik",
+        "hindi": "आज तुम्हारा जन्मदिन है? जन्मदिन की हार्दिक शुभकामनाएँ विद्या चलो आज हम सब तुम्हारा जन्मदिन मनायेंगे",
+        "transliteration": "Aja tumhArA janmadina hai? janmadina kI hArdika shubhakAmanAe.N vidyA chalo Aja hama saba tumhArA janmadina manAyeMge",
+        "meaning": "Today is your birthday? Happy birthday Vidya! Let’s celebrate your birthday together"
+      },
+      {
+        "speaker_hi": "पीटर",
+        "speaker_en": "Peter",
+        "hindi": "जन्मदिन मुबारक हो, विद्या",
+        "transliteration": "janmadina mubAraka ho, vidyA",
+        "meaning": "Happy birthday Vidya"
+      },
+      {
+        "speaker_hi": "विद्या",
+        "speaker_en": "Vidya",
+        "hindi": "धन्यवाद ! तुम लोगों को भी स्वतंत्रता दिवस की शुभकामनाएँ",
+        "transliteration": "dhanyavAda ! tuma logoM ko bhI svataMtratA divasa kI shubhakAmanAe.N",
+        "meaning": "Thanks! Happy independence day to you all"
+      }
+    ]
+  }
+}

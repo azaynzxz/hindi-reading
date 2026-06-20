@@ -3,7 +3,7 @@
 ## How Validation Works
 
 ### Database Loading
-- On page load, the app fetches and parses `hindi-practice.csv` and `conversations.csv` in parallel, merging them into a unified vocabulary/phrase database.
+- On page load, the app fetches and parses `hindi-practice.csv` and `conversations.json` in parallel, merging them into a unified vocabulary/phrase database.
 - Creates a dictionary mapping Hindi words/phrases to their correct transliterations
 - Currently contains **800+ entries** from both CSV files combined
 - Loading status shown on empty state
@@ -99,7 +99,7 @@ const normalizeText = (text) => {
 ### Database Words (800+ total)
 From CSV sources:
 - **hindi-practice.csv**: Contains vocabulary words and conversational phrases.
-- **conversations.csv**: Contains full dialogues with speaker turns.
+- **conversations.json**: Contains full dialogues with speaker turns.
 
 ### Future Enhancements
 - [ ] Add partial matching (show if you're close)

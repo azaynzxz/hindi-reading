@@ -162,7 +162,7 @@ Google Transliteration API
 
 ## 🎓 Next Steps
 
-- Add more words to `hindi-practice.csv` or `conversations.csv` for instant validation
+- Add more words to `hindi-practice.csv` or the JSON databases for instant validation
 - The API will handle any words not in the database
 - Consider deploying the backend API for production use
 

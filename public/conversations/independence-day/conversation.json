@@ -1,0 +1,111 @@
+{
+  "theme": "Daily Conversation - Independence Day",
+  "slug": "independence-day",
+  "turns": [
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "नमस्ते ऋतिक, स्वतंत्रता दिवस की हार्दिक शुभकामनाएँ",
+      "transliteration": "namaste RRitika, svataMtratA divasa kI hArdika shubhakAmanAe.N",
+      "meaning": "Hello Hritik, happy independence day"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "धन्यवाद पीटर भाई | तुम्हें भी स्वतंत्रता दिवस की हार्दिक शुभकामनाएँ ! तुम स्वतंत्रता दिवस कैसे मनाओगे",
+      "transliteration": "dhanyavAda pITara bhAI | tumheM bhI svataMtratA divasa kI hArdika shubhakAmanAe.N ! tuma svataMtratA divasa kaise manAoge",
+      "meaning": "Thanks brother Peter. Happy independence day to you too! How will you celebrate the independence day"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "मैं अभी इंडिया गेट से स्वतंत्रता दिवस का परेड देख कर आया हूँ | इसके बाद मैं और मेरे कुछ दोस्त दिल्ली के ऐतिहासिक स्थान देखने जायेंगे | उसके बाद हम शायद बाहर खाना खायें |तुम क्या करोगे",
+      "transliteration": "maiM abhI iMDiyA geTa se svataMtratA divasa kA pareDa dekha kara AyA hU.N | isake bAda maiM aura mere kuCha dosta dillI ke aitihAsika sthAna dekhane jAyeMge | usake bAda hama shAyada bAhara khAnA khAyeM |tuma kyA karoge",
+      "meaning": "I am just coming from India gate after watching independence day’s parade. After this, Me and a few of my friends will go to visit some historical places. After that, perhaps, we might eat out. What will you do"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "क्या बताऊँ? मेरी कोई योजना नहीं है | शायद, मैं घर जाके सोऊँ",
+      "transliteration": "kyA batAU.N? merI koI yojanA nahIM hai | shAyada, maiM ghara jAke soU.N",
+      "meaning": "What to tell? I have no plans. Perhaps, I might go home and sleep"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "अगर तुम चाहो तो हमारे साथ चल सकते हो",
+      "transliteration": "agara tuma chAho to hamAre sAtha chala sakate ho",
+      "meaning": "If you want you can come with us"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "नहीं दोस्त, मैं आज आराम करूँगा | मगर यह तो बताओ कि तुम लोग आज ऐतिहासिक स्थान देखने क्यों जा रहे हो",
+      "transliteration": "nahIM dosta, maiM Aja ArAma karU.NgA | magara yaha to batAo ki tuma loga Aja aitihAsika sthAna dekhane kyoM jA rahe ho",
+      "meaning": "No friend, I will rest today. But tell me why you all are going to visit historical places today"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "क्योंकि हर राष्ट्रीय त्योहार में इन जगहों पर प्रवेश नि:शुल्क होता है",
+      "transliteration": "kyoMki hara rAShTrIya tyohAra meM ina jagahoM para pravesha ni:shulka hotA hai",
+      "meaning": "Because entry is free at all these places on national festival/holidays"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "अरे वाह ! इंडिया में और कौन – कौन से राष्ट्रीय त्योहार हैं",
+      "transliteration": "are vAha ! iMDiyA meM aura kauna – kauna se rAShTrIya tyohAra haiM",
+      "meaning": "Oh Wao! What are the other national festivals in India"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "हिन्दुस्तान में कई क्षेत्रीय त्योहार हैं, मगर राष्ट्रीय त्योहार सिर्फ़ तीन हैं –  स्वतंत्रता दिवस (15 अगस्त), गणतंत्रता दिवस जनवरी), और गाँधी जयन्ती (2 अक्टूबर",
+      "transliteration": "hindustAna meM kaI kShetrIya tyohAra haiM, magara rAShTrIya tyohAra sirf tIna haiM –  svataMtratA divasa (15 agasta), gaNataMtratA divasa janavarI), aura gA.NdhI jayantI (2 akTUbara",
+      "meaning": "26 There are many regional festival/holiday, but there are only three national festivals/holidays – independence day (15 August), republic day (26 January), and Gandhi’s birthday (2nd October"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "बहुत अच्छा ! शायद, मैं भी २ अक्टूबर को इन जगहों पर जाऊँ",
+      "transliteration": "bahuta achChA ! shAyada, maiM bhI 2 akTUbara ko ina jagahoM para jAU.N",
+      "meaning": "Very well ! Perhaps, I too will go to these places on 2nd October"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "विद्या, आज तुम उदास क्यों लग रही हो ? क्या तुम्हें स्वतंत्रता दिवस की ख़ुशी नहीं है",
+      "transliteration": "vidyA, Aja tuma udAsa kyoM laga rahI ho ? kyA tumheM svataMtratA divasa kI khushI nahIM hai",
+      "meaning": "Vidya, why are you looking sad today? Are you not happy on independence day"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "नहीं नहीं, ऐसी कोई बात नहीं है | मगर आज मेरा जन्मदिन भी है और सब मुझे स्वतंत्रता दिवस की शुभकामनाएँ दे रहे हैं, जन्मदिन की नहीं",
+      "transliteration": "nahIM nahIM, aisI koI bAta nahIM hai | magara Aja merA janmadina bhI hai aura saba mujhe svataMtratA divasa kI shubhakAmanAe.N de rahe haiM, janmadina kI nahIM",
+      "meaning": "No No, it is not like that. But today is my birthday too, and every one is wishing me happy independence day, and not happy birthday"
+    },
+    {
+      "speaker_hi": "ऋतिक",
+      "speaker_en": "Hritik",
+      "hindi": "आज तुम्हारा जन्मदिन है? जन्मदिन की हार्दिक शुभकामनाएँ विद्या चलो आज हम सब तुम्हारा जन्मदिन मनायेंगे",
+      "transliteration": "Aja tumhArA janmadina hai? janmadina kI hArdika shubhakAmanAe.N vidyA chalo Aja hama saba tumhArA janmadina manAyeMge",
+      "meaning": "Today is your birthday? Happy birthday Vidya! Let’s celebrate your birthday together"
+    },
+    {
+      "speaker_hi": "पीटर",
+      "speaker_en": "Peter",
+      "hindi": "जन्मदिन मुबारक हो, विद्या",
+      "transliteration": "janmadina mubAraka ho, vidyA",
+      "meaning": "Happy birthday Vidya"
+    },
+    {
+      "speaker_hi": "विद्या",
+      "speaker_en": "Vidya",
+      "hindi": "धन्यवाद ! तुम लोगों को भी स्वतंत्रता दिवस की शुभकामनाएँ",
+      "transliteration": "dhanyavAda ! tuma logoM ko bhI svataMtratA divasa kI shubhakAmanAe.N",
+      "meaning": "Thanks! Happy independence day to you all"
+    }
+  ]
+}

@@ -1,7 +1,6 @@
 import pypdf
 import sys
 import re
-import csv
 import json
 import urllib.request
 import os
@@ -9,7 +8,8 @@ import os
 sys.stdout.reconfigure(encoding='utf-8')
 
 PDF_PATH = r"d:\Praktek\Hindi Daily Reading\Matrials Basic\Basic-Hindi-1723411713.pdf"
-CSV_PATH = r"d:\Praktek\Hindi Daily Reading\public\conversations.csv"
+CONVO_DIR = r"d:\Praktek\Hindi Daily Reading\public\conversations"
+UNIFIED_JSON_PATH = r"d:\Praktek\Hindi Daily Reading\public\conversations.json"
 API_URL = "http://localhost:3001/api/transliterate"
 
 # Topics map
@@ -53,6 +53,12 @@ SPEAKER_MAP = {
     "अक्षय": "Akshay"
 }
 
+# Regex to match speaker name at the start of a line
+speakers_pattern = "|".join(SPEAKER_MAP.keys())
+speaker_pattern = re.compile(
+    rf'^({speakers_pattern})(?:\s*::?|\s+(?!का\b|की\b|के\b|ने\b|को\b|से\b|में\b|पर\b|जी\b))(.*)$'
+)
+
 def query_transliteration_api(hindi_text):
     """Calls local API to transliterate Hindi sentence."""
     data = json.dumps({"text": hindi_text}).encode("utf-8")
@@ -79,6 +85,39 @@ def is_devanagari(text):
 def is_english(text):
     return any(ord('a') <= ord(char.lower()) <= ord('z') for char in text)
 
+def should_terminate_page(line):
+    line_lower = line.lower()
+    if "pre-reading" in line_lower:
+        return False
+    termination_keywords = [
+        "please watch the following video",
+        "instructor video",
+        "test yourself",
+        "an interactive h5p element",
+        "activities",
+        "in your classroom",
+        "listening activity",
+        "please make a list",
+        "rajiv ranjan",
+        "basichindi",
+        "basic hindi",
+        "bbasic hindi",
+        "listening listening",
+        "activity activity",
+        "h5p"
+    ]
+    for kw in termination_keywords:
+        if kw in line_lower:
+            return True
+    return False
+
+def get_slug(topic_name):
+    name = topic_name.replace("Daily Conversation - ", "")
+    name = name.lower().strip()
+    name = re.sub(r'[^a-z0-9\s-]', '', name)
+    name = re.sub(r'[\s-]+', '-', name)
+    return name
+
 def parse_page_dialogues(page_num, reader):
     page = reader.pages[page_num - 1]
     text = page.extract_text()
@@ -87,22 +126,28 @@ def parse_page_dialogues(page_num, reader):
         
     lines = text.split('\n')
     turns = []
-    
-    speaker_pattern = re.compile(r'^([^\da-zA-Z\.:\s\(]+)\s*::?\s*(.*)$')
     current_turn = None
+    seeking_dialogue = True
     
     for line in lines:
         line = line.strip()
         if not line:
             continue
             
+        if should_terminate_page(line):
+            break
+            
         m = speaker_pattern.match(line)
         if m:
+            seeking_dialogue = False
             if current_turn:
                 turns.append(current_turn)
             
             speaker = m.group(1).strip()
             content = m.group(2).strip()
+            
+            # Clean speaker name suffix from content
+            content = re.sub(rf'\s*({speaker})$', '', content)
             
             # Separate Hindi and English parts
             hindi_part = ""
@@ -124,7 +169,7 @@ def parse_page_dialogues(page_num, reader):
                 "English": eng_part
             }
         else:
-            if current_turn:
+            if not seeking_dialogue and current_turn:
                 if not is_devanagari(line):
                     current_turn["English"] += " " + line
                 else:
@@ -160,13 +205,19 @@ def process_conversations():
     print(f"Opening PDF: {PDF_PATH}")
     reader = pypdf.PdfReader(PDF_PATH)
     
-    new_rows = []
+    index_data = []
+    unified_data = {}
+    
+    os.makedirs(CONVO_DIR, exist_ok=True)
     api_queries = 0
+    total_turns_count = 0
     
     for page_num, topic in TOPICS.items():
-        print(f"Parsing Page {page_num} ({topic})...")
+        slug = get_slug(topic)
+        print(f"Parsing Page {page_num} ({topic}) -> slug: {slug}...")
         turns = parse_page_dialogues(page_num, reader)
         
+        cleaned_turns = []
         for turn in turns:
             hindi_speaker = turn["Speaker"]
             english_speaker = SPEAKER_MAP.get(hindi_speaker, hindi_speaker)
@@ -175,7 +226,6 @@ def process_conversations():
             raw_english = clean_text(turn["English"])
             
             # Clean speaker name if it was left in English part
-            # E.g. "Shilpa: Hello" -> "Hello"
             raw_english = re.sub(r'^[a-zA-Z\s]+:\s*', '', raw_english)
             
             # Heuristic split for inline transliteration (only on pages 61, 63, 65)
@@ -204,36 +254,57 @@ def process_conversations():
                     translit = clean_text(api_translit)
                 else:
                     translit = raw_hindi
-            
-            # Construct prefix form: "Speaker: Text"
-            full_hindi = f"{hindi_speaker}: {raw_hindi}"
-            full_translit = f"{english_speaker}: {translit}"
-            full_meaning = f"{english_speaker}: {meaning}"
-            
-            new_rows.append({
-                "Source": topic,
-                "Hindi": full_hindi,
-                "Transliteration": full_translit,
-                "Meaning": full_meaning
+                    
+            cleaned_turns.append({
+                "speaker_hi": hindi_speaker,
+                "speaker_en": english_speaker,
+                "hindi": raw_hindi,
+                "transliteration": translit,
+                "meaning": meaning
             })
             
-    print(f"Extraction complete. Formatted {len(new_rows)} conversation turns.")
-    
-    # Save back to CSV
-    print(f"Saving database to {CSV_PATH}...")
-    headers = ["Source", "Hindi", "Transliteration", "Meaning"]
-    with open(CSV_PATH, mode='w', encoding='utf-8', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=headers)
-        writer.writeheader()
-        for row in new_rows:
-            writer.writerow({
-                "Source": row["Source"],
-                "Hindi": row["Hindi"],
-                "Transliteration": row["Transliteration"],
-                "Meaning": row["Meaning"]
-            })
+        print(f"  Extracted {len(cleaned_turns)} turns.")
+        total_turns_count += len(cleaned_turns)
+        
+        # Save individual topic JSON
+        topic_dir = os.path.join(CONVO_DIR, slug)
+        os.makedirs(topic_dir, exist_ok=True)
+        topic_json_path = os.path.join(topic_dir, "conversation.json")
+        
+        topic_data = {
+            "theme": topic,
+            "slug": slug,
+            "turns": cleaned_turns
+        }
+        with open(topic_json_path, 'w', encoding='utf-8') as f:
+            json.dump(topic_data, f, ensure_ascii=False, indent=2)
             
-    print(f"Done! API Queries: {api_queries}")
+        # Append to index
+        index_data.append({
+            "slug": slug,
+            "theme": topic.replace("Daily Conversation - ", ""),
+            "path": f"/conversations/{slug}/conversation.json"
+        })
+        
+        # Add to unified data
+        unified_data[slug] = {
+            "theme": topic,
+            "turns": cleaned_turns
+        }
+        
+    # Save central index JSON
+    index_path = os.path.join(CONVO_DIR, "index.json")
+    with open(index_path, 'w', encoding='utf-8') as f:
+        json.dump(index_data, f, ensure_ascii=False, indent=2)
+        
+    # Save unified JSON
+    with open(UNIFIED_JSON_PATH, 'w', encoding='utf-8') as f:
+        json.dump(unified_data, f, ensure_ascii=False, indent=2)
+        
+    print(f"\nExtraction complete! Total turns: {total_turns_count}")
+    print(f"API Queries made: {api_queries}")
+    print(f"Created index at: {index_path}")
+    print(f"Created unified database at: {UNIFIED_JSON_PATH}")
 
 if __name__ == "__main__":
     process_conversations()

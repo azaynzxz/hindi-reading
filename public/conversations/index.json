@@ -1,0 +1,112 @@
+[
+  {
+    "slug": "greetings",
+    "theme": "Greetings",
+    "path": "/conversations/greetings/conversation.json"
+  },
+  {
+    "slug": "friends-meet",
+    "theme": "Friends Meet",
+    "path": "/conversations/friends-meet/conversation.json"
+  },
+  {
+    "slug": "contact-info",
+    "theme": "Contact Info",
+    "path": "/conversations/contact-info/conversation.json"
+  },
+  {
+    "slug": "with-teacher",
+    "theme": "With Teacher",
+    "path": "/conversations/with-teacher/conversation.json"
+  },
+  {
+    "slug": "family",
+    "theme": "Family",
+    "path": "/conversations/family/conversation.json"
+  },
+  {
+    "slug": "house-tour",
+    "theme": "House Tour",
+    "path": "/conversations/house-tour/conversation.json"
+  },
+  {
+    "slug": "room-tour",
+    "theme": "Room Tour",
+    "path": "/conversations/room-tour/conversation.json"
+  },
+  {
+    "slug": "hometown",
+    "theme": "Hometown",
+    "path": "/conversations/hometown/conversation.json"
+  },
+  {
+    "slug": "vegetable-market",
+    "theme": "Vegetable Market",
+    "path": "/conversations/vegetable-market/conversation.json"
+  },
+  {
+    "slug": "restaurant",
+    "theme": "Restaurant",
+    "path": "/conversations/restaurant/conversation.json"
+  },
+  {
+    "slug": "host-mother",
+    "theme": "Host Mother",
+    "path": "/conversations/host-mother/conversation.json"
+  },
+  {
+    "slug": "sim-card-shop",
+    "theme": "SIM Card Shop",
+    "path": "/conversations/sim-card-shop/conversation.json"
+  },
+  {
+    "slug": "cooking",
+    "theme": "Cooking",
+    "path": "/conversations/cooking/conversation.json"
+  },
+  {
+    "slug": "directions",
+    "theme": "Directions",
+    "path": "/conversations/directions/conversation.json"
+  },
+  {
+    "slug": "social-media",
+    "theme": "Social Media",
+    "path": "/conversations/social-media/conversation.json"
+  },
+  {
+    "slug": "making-tea",
+    "theme": "Making Tea",
+    "path": "/conversations/making-tea/conversation.json"
+  },
+  {
+    "slug": "bank-account",
+    "theme": "Bank Account",
+    "path": "/conversations/bank-account/conversation.json"
+  },
+  {
+    "slug": "weekend-hobbies",
+    "theme": "Weekend Hobbies",
+    "path": "/conversations/weekend-hobbies/conversation.json"
+  },
+  {
+    "slug": "festivals",
+    "theme": "Festivals",
+    "path": "/conversations/festivals/conversation.json"
+  },
+  {
+    "slug": "travel-plans",
+    "theme": "Travel Plans",
+    "path": "/conversations/travel-plans/conversation.json"
+  },
+  {
+    "slug": "summer-vacation",
+    "theme": "Summer Vacation",
+    "path": "/conversations/summer-vacation/conversation.json"
+  },
+  {
+    "slug": "independence-day",
+    "theme": "Independence Day",
+    "path": "/conversations/independence-day/conversation.json"
+  }
+]
