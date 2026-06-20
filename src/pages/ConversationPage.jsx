@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronLeft, MessageSquare, User, HelpCircle, Check, AlertTriangle, ArrowRight, RefreshCw, Send, Play, Volume2 } from 'lucide-react';
+import { ChevronLeft, MessageSquare, User, HelpCircle, Check, AlertTriangle, ArrowRight, RefreshCw, Send, Play, Volume2, Menu, X } from 'lucide-react';
+import Navbar from '../components/Navbar';
 import { API_BASE_URL } from '../utils/api';
 
 const normalizeText = (text) => text.toLowerCase().trim().replace(/[^a-z0-9]/g, '');
@@ -244,45 +245,24 @@ const ConversationPage = () => {
         <div className="h-screen w-screen flex flex-col overflow-hidden bg-[#F9F8F6]" style={{ color: 'var(--fg)', fontFamily: "'DM Sans', sans-serif" }}>
             
             {/* Navbar */}
-            <nav className="w-full bg-white border-b flex-shrink-0 z-20" style={{ borderColor: 'var(--rule)' }}>
-                <div className="w-full max-w-6xl mx-auto px-6">
-                    <div className="h-12 flex items-center justify-between">
-                        <div className="flex items-center gap-4">
-                            <button
-                                onClick={() => {
-                                    if (activeTopic) {
-                                        setActiveTopic(null);
-                                    } else {
-                                        navigate('/hindi-practice');
-                                    }
-                                }}
-                                className="flex items-center gap-1 transition-opacity hover:opacity-60"
-                                style={{ color: 'var(--muted)', fontSize: '12px', letterSpacing: '0.05em' }}
-                            >
-                                <ChevronLeft size={14} />
-                                <span className="uppercase font-medium">Back</span>
-                            </button>
-                            <div className="w-px h-4" style={{ background: 'var(--rule)' }} />
-                            <span className="font-bold uppercase tracking-widest" style={{ fontSize: '12px', color: 'var(--fg)' }}>
-                                {activeTopic ? `Dialogue: ${activeTopic}` : 'Conversation Practice'}
-                            </span>
-                        </div>
-                        
-                        <div className="flex items-center gap-4">
-                            <button
-                                onClick={() => navigate('/hindi-practice')}
-                                className="uppercase font-medium transition-opacity hover:opacity-60"
-                                style={{ fontSize: '11px', letterSpacing: '0.08em', color: 'var(--muted)' }}
-                            >
-                                Vocabulary
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+            <Navbar
+                customMobileToggle={
+                    activeTopic ? (
+                        <button
+                            onClick={() => setActiveTopic(null)}
+                            className="transition-opacity hover:opacity-60 flex items-center justify-center p-1.5 bg-stone-100 hover:bg-stone-200 border"
+                            style={{ color: 'var(--fg)', borderRadius: 0, borderColor: 'var(--rule)' }}
+                            title="Back to Topics"
+                        >
+                            <ChevronLeft size={18} />
+                            <span className="text-[10px] font-bold uppercase tracking-wider ml-1">Topics</span>
+                        </button>
+                    ) : null
+                }
+            />
 
             {/* Main Area */}
-            <div className="w-full flex-1 flex flex-col items-center justify-center pt-4 pb-4 px-4 md:px-6 lg:px-8 min-h-0 overflow-hidden">
+            <div className="w-full flex-1 flex flex-col items-center justify-center pt-16 md:pt-20 pb-4 px-4 md:px-6 lg:px-8 min-h-0 overflow-hidden">
                 <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6 flex-1 min-h-0 max-h-full relative">
                     
                     {/* Left Panel: Topics selection */}

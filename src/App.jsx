@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import ReadingCard from './components/ReadingCard';
 import Dashboard from './components/Dashboard';
+import Flashcards from './components/HindiFlashcards';
+import Navbar from './components/Navbar';
 import month1Data from './data/month1.json';
 import month2Data from './data/month2.json';
 import month3Data from './data/month3.json';
@@ -11,6 +13,7 @@ import { APP_AUTHOR, APP_FOOTER_LABEL, CHALLENGE_TITLE } from './utils/constants
 
 const ReadingChallenge = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const [currentMonth, setCurrentMonth] = useState(1);
     const [currentDay, setCurrentDay] = useState(1);
     const [isGenerating, setIsGenerating] = useState(false);
@@ -155,6 +158,19 @@ const ReadingChallenge = () => {
             if (dayParam) setCurrentDay(parseInt(dayParam));
         }
     }, []);
+
+    // Listen to query parameters to open Dashboard or Flashcards modal
+    useEffect(() => {
+        const urlParams = new URLSearchParams(location.search);
+        const showParam = urlParams.get('show');
+        if (showParam === 'dashboard') {
+            setShowDashboard(true);
+            window.history.replaceState({}, '', window.location.pathname);
+        } else if (showParam === 'flashcards') {
+            setShowFlashcards(true);
+            window.history.replaceState({}, '', window.location.pathname);
+        }
+    }, [location.search]);
 
     // Track teleprompter completion and update statistics
     useEffect(() => {
@@ -658,445 +674,75 @@ const ReadingChallenge = () => {
             )}
             <div className="h-screen w-screen bg-stone-50 text-slate-800 font-sans selection:bg-[#880000]/20 flex flex-col items-center justify-center overflow-hidden">
                 {/* Navbar */}
-            {/* Navbar — Swiss: no shadow, 1px bottom rule */}
-                <nav className="w-full bg-white border-b flex-shrink-0 z-20 fixed top-0" style={{ borderColor: 'var(--rule)' }}>
-                    <div className="w-full max-w-6xl mx-auto px-6">
-                        <div className="h-12 flex items-center justify-between">
-                            {/* Wordmark */}
-                            <div className="flex items-center gap-2" style={{ color: 'var(--accent)' }}>
-                                <BookOpen size={18} />
-                                <span className="font-bold uppercase tracking-widest" style={{ fontSize: '12px', color: 'var(--fg)' }}>ENGLISH READING PRACTICE</span>
-                            </div>
-                            {/* Nav links */}
-                            <div className="flex items-center gap-6">
-                                <button
-                                    onClick={() => setShowDashboard(true)}
-                                    className="hidden sm:block uppercase font-medium transition-opacity hover:opacity-60"
-                                    style={{ fontSize: '11px', letterSpacing: '0.08em', color: 'var(--muted)' }}
-                                >
-                                    Dashboard
-                                </button>
-                                <button
-                                    onClick={() => setShowFlashcards(true)}
-                                    className="hidden sm:block uppercase font-medium transition-opacity hover:opacity-60"
-                                    style={{ fontSize: '11px', letterSpacing: '0.08em', color: 'var(--muted)' }}
-                                >
-                                    Flashcards
-                                </button>
-                                <button
-                                    onClick={() => navigate('/hindi-practice')}
-                                    className="hidden sm:block uppercase font-medium transition-opacity hover:opacity-60"
-                                    style={{ fontSize: '11px', letterSpacing: '0.08em', color: 'var(--muted)' }}
-                                >
-                                    Hindi
-                                </button>
-                                <button
-                                    onClick={() => navigate('/type-to-reveal')}
-                                    className="hidden sm:block uppercase font-medium transition-opacity hover:opacity-60"
-                                    style={{ fontSize: '11px', letterSpacing: '0.08em', color: 'var(--muted)' }}
-                                >
-                                    Type
-                                </button>
-                                <button
-                                    onClick={() => navigate('/hindi-conversation')}
-                                    className="hidden sm:block uppercase font-medium transition-opacity hover:opacity-60"
-                                    style={{ fontSize: '11px', letterSpacing: '0.08em', color: 'var(--muted)' }}
-                                >
-                                    Conversation
-                                </button>
-                                {/* Mobile hamburger */}
-                                <button
-                                    onClick={() => {
-                                        if (isMobileMenuOpen) {
-                                            setIsMobileMenuClosing(true);
-                                            setTimeout(() => {
-                                                setIsMobileMenuOpen(false);
-                                                setIsMobileMenuClosing(false);
-                                            }, 300);
-                                        } else {
-                                            setIsMobileMenuOpen(true);
-                                        }
-                                    }}
-                                    className="lg:hidden transition-opacity hover:opacity-60"
-                                    style={{ color: 'var(--fg)' }}
-                                    aria-label="Toggle menu"
-                                >
-                                    {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-
-                {/* Mobile Bottom Sheet & Tablet Modal */}
-                {isMobileMenuOpen && (
-                    <>
-                        {/* Backdrop */}
-                        <div
-                            className={`fixed inset-0 bg-black z-30 lg:hidden ${isMobileMenuClosing ? 'animate-backdrop-out' : 'animate-backdrop-in'}`}
-                            onClick={() => {
-                                setIsMobileMenuClosing(true);
-                                setTimeout(() => {
-                                    setIsMobileMenuOpen(false);
-                                    setIsMobileMenuClosing(false);
-                                }, 300);
-                            }}
-                        />
-
-                        {/* Mobile Bottom Sheet */}
-                        <div className={`fixed bottom-0 left-0 right-0 bg-white border-t z-40 md:hidden max-h-[85vh] overflow-y-auto ${isMobileMenuClosing ? 'animate-bottom-sheet-out' : 'animate-bottom-sheet-in'}`} style={{ borderColor: 'var(--rule)', borderRadius: 0 }}>
-                            <div className="px-6 py-6">
-                                {/* Close Button */}
-                                <div className="flex justify-between items-center mb-6">
-                                    <h2 className="uppercase font-bold tracking-widest" style={{ fontSize: '13px', color: 'var(--fg)' }}>Navigation Menu</h2>
+                <Navbar
+                    onShowDashboard={() => setShowDashboard(true)}
+                    onShowFlashcards={() => setShowFlashcards(true)}
+                    extraMobileContent={
+                        <>
+                            {/* Month Selector */}
+                            <div className="mb-6 text-left">
+                                <h3 className="uppercase font-bold tracking-wider mb-3 flex items-center gap-2 text-xs" style={{ color: 'var(--muted)' }}>
+                                    <Calendar size={14} className="text-[#880000]" /> Month Selector
+                                </h3>
+                                <div className="flex border" style={{ borderColor: 'var(--rule)' }}>
                                     <button
-                                        onClick={() => {
-                                            setIsMobileMenuClosing(true);
-                                            setTimeout(() => {
-                                                setIsMobileMenuOpen(false);
-                                                setIsMobileMenuClosing(false);
-                                            }, 300);
-                                        }}
-                                        className="p-1 text-slate-400 hover:text-slate-600 transition-opacity hover:opacity-70"
+                                        onClick={() => changeMonth(1)}
+                                        className="flex-1 py-2 text-xs font-bold uppercase transition-all"
+                                        style={{ letterSpacing: '0.06em', background: currentMonth === 1 ? 'var(--accent)' : 'transparent', color: currentMonth === 1 ? 'white' : 'var(--muted)', borderRight: '1px solid var(--rule)', borderRadius: 0 }}
                                     >
-                                        <X size={20} />
+                                        M1
+                                    </button>
+                                    <button
+                                        onClick={() => changeMonth(2)}
+                                        className="flex-1 py-2 text-xs font-bold uppercase transition-all"
+                                        style={{ letterSpacing: '0.06em', background: currentMonth === 2 ? 'var(--accent)' : 'transparent', color: currentMonth === 2 ? 'white' : 'var(--muted)', borderRight: '1px solid var(--rule)', borderRadius: 0 }}
+                                    >
+                                        M2
+                                    </button>
+                                    <button
+                                        onClick={() => changeMonth(3)}
+                                        className="flex-1 py-2 text-xs font-bold uppercase transition-all"
+                                        style={{ letterSpacing: '0.06em', background: currentMonth === 3 ? 'var(--accent)' : 'transparent', color: currentMonth === 3 ? 'white' : 'var(--muted)', borderRadius: 0 }}
+                                    >
+                                        M3
                                     </button>
                                 </div>
+                            </div>
 
-                                {/* Month Selector */}
-                                <div className="mb-6">
-                                    <h3 className="uppercase font-bold tracking-wider mb-3 flex items-center gap-2 text-xs" style={{ color: 'var(--muted)' }}>
-                                        <Calendar size={14} className="text-[#880000]" /> Month Selector
-                                    </h3>
-                                    <div className="flex border" style={{ borderColor: 'var(--rule)' }}>
-                                        <button
-                                            onClick={() => {
-                                                changeMonth(1);
-                                            }}
-                                            className="flex-1 py-2 text-xs font-bold uppercase transition-all"
-                                            style={{ letterSpacing: '0.06em', background: currentMonth === 1 ? 'var(--accent)' : 'transparent', color: currentMonth === 1 ? 'white' : 'var(--muted)', borderRight: '1px solid var(--rule)', borderRadius: 0 }}
-                                        >
-                                            M1
-                                        </button>
-                                        <button
-                                            onClick={() => {
-                                                changeMonth(2);
-                                            }}
-                                            className="flex-1 py-2 text-xs font-bold uppercase transition-all"
-                                            style={{ letterSpacing: '0.06em', background: currentMonth === 2 ? 'var(--accent)' : 'transparent', color: currentMonth === 2 ? 'white' : 'var(--muted)', borderRight: '1px solid var(--rule)', borderRadius: 0 }}
-                                        >
-                                            M2
-                                        </button>
-                                        <button
-                                            onClick={() => {
-                                                changeMonth(3);
-                                            }}
-                                            className="flex-1 py-2 text-xs font-bold uppercase transition-all"
-                                            style={{ letterSpacing: '0.06em', background: currentMonth === 3 ? 'var(--accent)' : 'transparent', color: currentMonth === 3 ? 'white' : 'var(--muted)', borderRadius: 0 }}
-                                        >
-                                            M3
-                                        </button>
-                                    </div>
-                                </div>
-
-                                {/* Dashboard & Flashcards Buttons */}
-                                <div className="mb-6">
-                                    <h3 className="uppercase font-bold tracking-wider mb-3 flex items-center gap-2 text-xs" style={{ color: 'var(--muted)' }}>
-                                        <Trophy size={14} className="text-[#880000]" /> Quick Actions
-                                    </h3>
-                                    <div className="grid grid-cols-2 gap-2">
-                                        <button
-                                            onClick={() => {
-                                                setShowDashboard(true);
-                                                setIsMobileMenuClosing(true);
-                                                setTimeout(() => {
-                                                    setIsMobileMenuOpen(false);
-                                                    setIsMobileMenuClosing(false);
-                                                }, 300);
-                                            }}
-                                            className="flex items-center justify-center gap-1.5 px-3 py-2 bg-[#880000] text-white font-semibold text-xs uppercase transition-all hover:bg-[#770000]"
-                                            style={{ borderRadius: 0, letterSpacing: '0.06em' }}
-                                        >
-                                            <BarChart3 size={14} />
-                                            <span>Dashboard</span>
-                                        </button>
-                                        <button
-                                            onClick={() => {
-                                                setShowFlashcards(true);
-                                                setIsMobileMenuClosing(true);
-                                                setTimeout(() => {
-                                                    setIsMobileMenuOpen(false);
-                                                    setIsMobileMenuClosing(false);
-                                                }, 300);
-                                            }}
-                                            className="flex items-center justify-center gap-1.5 px-3 py-2 bg-[#880000] text-white font-semibold text-xs uppercase transition-all hover:bg-[#770000]"
-                                            style={{ borderRadius: 0, letterSpacing: '0.06em' }}
-                                        >
-                                            <RotateCw size={14} />
-                                            <span>Flashcards</span>
-                                        </button>
-                                        <button
-                                            onClick={() => {
-                                                navigate('/hindi-practice');
-                                                setIsMobileMenuClosing(true);
-                                                setTimeout(() => {
-                                                    setIsMobileMenuOpen(false);
-                                                    setIsMobileMenuClosing(false);
-                                                }, 300);
-                                            }}
-                                            className="flex items-center justify-center gap-1.5 px-3 py-2 bg-[#880000] text-white font-semibold text-xs uppercase transition-all hover:bg-[#770000]"
-                                            style={{ borderRadius: 0, letterSpacing: '0.06em' }}
-                                        >
-                                            <Languages size={14} />
-                                            <span>Hindi Practice</span>
-                                        </button>
-                                        <button
-                                            onClick={() => {
-                                                navigate('/type-to-reveal');
-                                                setIsMobileMenuClosing(true);
-                                                setTimeout(() => {
-                                                    setIsMobileMenuOpen(false);
-                                                    setIsMobileMenuClosing(false);
-                                                }, 300);
-                                            }}
-                                            className="flex items-center justify-center gap-1.5 px-3 py-2 bg-[#880000] text-white font-semibold text-xs uppercase transition-all hover:bg-[#770000]"
-                                            style={{ borderRadius: 0, letterSpacing: '0.06em' }}
-                                        >
-                                            <Type size={14} />
-                                            <span>Type to Reveal</span>
-                                        </button>
-                                        <button
-                                            onClick={() => {
-                                                navigate('/hindi-conversation');
-                                                setIsMobileMenuClosing(true);
-                                                setTimeout(() => {
-                                                    setIsMobileMenuOpen(false);
-                                                    setIsMobileMenuClosing(false);
-                                                }, 300);
-                                            }}
-                                            className="flex items-center justify-center gap-1.5 px-3 py-2 bg-[#880000] text-white font-semibold text-xs uppercase transition-all hover:bg-[#770000]"
-                                            style={{ borderRadius: 0, letterSpacing: '0.06em' }}
-                                        >
-                                            <MessageSquare size={14} />
-                                            <span>Conversation</span>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                {/* Day Selector */}
-                                <div>
-                                    <h3 className="uppercase font-bold tracking-wider mb-3 flex items-center gap-2 text-xs" style={{ color: 'var(--muted)' }}>
-                                        <Square size={14} className="text-[#880000]" /> Day Selector
-                                    </h3>
-                                    <div className="grid grid-cols-5 gap-1">
-                                        {allMonthsData[currentMonth].map((d) => {
-                                            const isPracticed = isDayPracticed(currentMonth, d.day);
-                                            const isLocked = d.day > 1 && !isDayPracticed(currentMonth, d.day - 1);
-                                            return (
-                                                <button
-                                                    key={d.day}
-                                                    onClick={() => handleDayClick(d.day)}
-                                                    className="aspect-square text-xs font-bold transition-all"
-                                                    style={{
-                                                        borderRadius: 0,
-                                                        border: '1px solid',
-                                                        borderColor: currentDay === d.day ? 'var(--accent)' : isPracticed ? '#4A7C59' : 'var(--rule)',
-                                                        background: currentDay === d.day ? 'var(--accent)' : isPracticed ? '#F0FAF3' : 'transparent',
-                                                        color: currentDay === d.day ? 'white' : isPracticed ? '#2D5E40' : isLocked ? 'var(--rule)' : 'var(--fg)',
-                                                        cursor: isLocked ? 'default' : 'pointer',
-                                                        fontSize: '11px',
-                                                    }}
-                                                    title={isLocked ? 'Complete previous day first' : isPracticed ? 'Practiced' : ''}
-                                                >
-                                                    {d.day}
-                                                </button>
-                                            );
-                                        })}
-                                    </div>
+                            {/* Day Selector */}
+                            <div className="text-left">
+                                <h3 className="uppercase font-bold tracking-wider mb-3 flex items-center gap-2 text-xs" style={{ color: 'var(--muted)' }}>
+                                    <Square size={14} className="text-[#880000]" /> Day Selector
+                                </h3>
+                                <div className="grid grid-cols-5 gap-1">
+                                    {allMonthsData[currentMonth].map((d) => {
+                                        const isPracticed = isDayPracticed(currentMonth, d.day);
+                                        const isLocked = d.day > 1 && !isDayPracticed(currentMonth, d.day - 1);
+                                        return (
+                                            <button
+                                                key={d.day}
+                                                onClick={() => handleDayClick(d.day)}
+                                                className="aspect-square text-xs font-bold transition-all"
+                                                style={{
+                                                    borderRadius: 0,
+                                                    border: '1px solid',
+                                                    borderColor: currentDay === d.day ? 'var(--accent)' : isPracticed ? '#4A7C59' : 'var(--rule)',
+                                                    background: currentDay === d.day ? 'var(--accent)' : isPracticed ? '#F0FAF3' : 'transparent',
+                                                    color: currentDay === d.day ? 'white' : isPracticed ? '#2D5E40' : isLocked ? 'var(--rule)' : 'var(--fg)',
+                                                    cursor: isLocked ? 'default' : 'pointer',
+                                                    fontSize: '11px',
+                                                }}
+                                                title={isLocked ? 'Complete previous day first' : isPracticed ? 'Practiced' : ''}
+                                            >
+                                                {d.day}
+                                            </button>
+                                        );
+                                    })}
                                 </div>
                             </div>
-                        </div>
-
-                        {/* Tablet Modal Popup */}
-                        <div className={`hidden md:flex lg:hidden fixed inset-0 z-40 items-center justify-center p-4 ${isMobileMenuClosing ? 'animate-modal-out' : 'animate-modal-in'}`}>
-                            <div className="bg-white border w-full max-w-md overflow-hidden flex flex-col" style={{ borderColor: 'var(--rule)', borderRadius: 0 }}>
-                                {/* Header */}
-                                <div className="flex items-center justify-between p-4 border-b" style={{ borderColor: 'var(--rule)' }}>
-                                    <h2 className="uppercase font-bold tracking-widest flex items-center gap-2" style={{ fontSize: '13px', color: 'var(--fg)' }}>
-                                        <Calendar className="text-[#880000]" size={16} />
-                                        Select Month & Day
-                                    </h2>
-                                    <button
-                                        onClick={() => {
-                                            setIsMobileMenuClosing(true);
-                                            setTimeout(() => {
-                                                setIsMobileMenuOpen(false);
-                                                setIsMobileMenuClosing(false);
-                                            }, 300);
-                                        }}
-                                        className="p-1 text-slate-400 hover:text-slate-600 transition-opacity hover:opacity-70"
-                                    >
-                                        <X size={20} />
-                                    </button>
-                                </div>
-
-                                <div className="p-6 space-y-6">
-                                    {/* Month Selector */}
-                                    <div>
-                                        <h3 className="uppercase font-bold tracking-wider mb-3 flex items-center gap-2 text-xs" style={{ color: 'var(--muted)' }}>
-                                            <Calendar size={14} className="text-[#880000]" /> Month Selector
-                                        </h3>
-                                        <div className="flex border" style={{ borderColor: 'var(--rule)' }}>
-                                            <button
-                                                onClick={() => {
-                                                    changeMonth(1);
-                                                }}
-                                                className="flex-1 py-2 text-xs font-bold uppercase transition-all"
-                                                style={{ letterSpacing: '0.06em', background: currentMonth === 1 ? 'var(--accent)' : 'transparent', color: currentMonth === 1 ? 'white' : 'var(--muted)', borderRight: '1px solid var(--rule)', borderRadius: 0 }}
-                                            >
-                                                M1
-                                            </button>
-                                            <button
-                                                onClick={() => {
-                                                    changeMonth(2);
-                                                }}
-                                                className="flex-1 py-2 text-xs font-bold uppercase transition-all"
-                                                style={{ letterSpacing: '0.06em', background: currentMonth === 2 ? 'var(--accent)' : 'transparent', color: currentMonth === 2 ? 'white' : 'var(--muted)', borderRight: '1px solid var(--rule)', borderRadius: 0 }}
-                                            >
-                                                M2
-                                            </button>
-                                            <button
-                                                onClick={() => {
-                                                    changeMonth(3);
-                                                }}
-                                                className="flex-1 py-2 text-xs font-bold uppercase transition-all"
-                                                style={{ letterSpacing: '0.06em', background: currentMonth === 3 ? 'var(--accent)' : 'transparent', color: currentMonth === 3 ? 'white' : 'var(--muted)', borderRadius: 0 }}
-                                            >
-                                                M3
-                                            </button>
-                                        </div>
-                                    </div>
-
-                                    {/* Dashboard & Flashcards Buttons */}
-                                    <div>
-                                        <h3 className="uppercase font-bold tracking-wider mb-3 flex items-center gap-2 text-xs" style={{ color: 'var(--muted)' }}>
-                                            <Trophy size={14} className="text-[#880000]" /> Quick Actions
-                                        </h3>
-                                        <div className="grid grid-cols-2 gap-2">
-                                            <button
-                                                onClick={() => {
-                                                    setShowDashboard(true);
-                                                    setIsMobileMenuClosing(true);
-                                                    setTimeout(() => {
-                                                        setIsMobileMenuOpen(false);
-                                                        setIsMobileMenuClosing(false);
-                                                    }, 300);
-                                                }}
-                                                className="flex items-center justify-center gap-1.5 px-3 py-2.5 bg-[#880000] text-white font-semibold text-xs uppercase transition-all hover:bg-[#770000]"
-                                                style={{ borderRadius: 0, letterSpacing: '0.06em' }}
-                                            >
-                                                <BarChart3 size={14} />
-                                                <span>Dashboard</span>
-                                            </button>
-                                            <button
-                                                onClick={() => {
-                                                    setShowFlashcards(true);
-                                                    setIsMobileMenuClosing(true);
-                                                    setTimeout(() => {
-                                                        setIsMobileMenuOpen(false);
-                                                        setIsMobileMenuClosing(false);
-                                                    }, 300);
-                                                }}
-                                                className="flex items-center justify-center gap-1.5 px-3 py-2.5 bg-[#880000] text-white font-semibold text-xs uppercase transition-all hover:bg-[#770000]"
-                                                style={{ borderRadius: 0, letterSpacing: '0.06em' }}
-                                            >
-                                                <RotateCw size={14} />
-                                                <span>Flashcards</span>
-                                            </button>
-                                            <button
-                                                onClick={() => {
-                                                    navigate('/hindi-practice');
-                                                    setIsMobileMenuClosing(true);
-                                                    setTimeout(() => {
-                                                        setIsMobileMenuOpen(false);
-                                                        setIsMobileMenuClosing(false);
-                                                    }, 300);
-                                                }}
-                                                className="flex items-center justify-center gap-1.5 px-3 py-2.5 bg-[#880000] text-white font-semibold text-xs uppercase transition-all hover:bg-[#770000]"
-                                                style={{ borderRadius: 0, letterSpacing: '0.06em' }}
-                                            >
-                                                <Languages size={14} />
-                                                <span>Hindi Practice</span>
-                                            </button>
-                                            <button
-                                                onClick={() => {
-                                                    navigate('/type-to-reveal');
-                                                    setIsMobileMenuClosing(true);
-                                                    setTimeout(() => {
-                                                        setIsMobileMenuOpen(false);
-                                                        setIsMobileMenuClosing(false);
-                                                    }, 300);
-                                                }}
-                                                className="flex items-center justify-center gap-1.5 px-3 py-2.5 bg-[#880000] text-white font-semibold text-xs uppercase transition-all hover:bg-[#770000]"
-                                                style={{ borderRadius: 0, letterSpacing: '0.06em' }}
-                                            >
-                                                <Type size={14} />
-                                                <span>Type to Reveal</span>
-                                            </button>
-                                            <button
-                                                onClick={() => {
-                                                    navigate('/hindi-conversation');
-                                                    setIsMobileMenuClosing(true);
-                                                    setTimeout(() => {
-                                                        setIsMobileMenuOpen(false);
-                                                        setIsMobileMenuClosing(false);
-                                                    }, 300);
-                                                }}
-                                                className="flex items-center justify-center gap-1.5 px-3 py-2.5 bg-[#880000] text-white font-semibold text-xs uppercase transition-all hover:bg-[#770000]"
-                                                style={{ borderRadius: 0, letterSpacing: '0.06em' }}
-                                            >
-                                                <MessageSquare size={14} />
-                                                <span>Conversation</span>
-                                            </button>
-                                        </div>
-                                    </div>
-
-                                    {/* Day Selector */}
-                                    <div>
-                                        <h3 className="uppercase font-bold tracking-wider mb-3 flex items-center gap-2 text-xs" style={{ color: 'var(--muted)' }}>
-                                            <Square size={14} className="text-[#880000]" /> Day Selector
-                                        </h3>
-                                        <div className="grid grid-cols-5 gap-1">
-                                            {allMonthsData[currentMonth].map((d) => {
-                                                const isPracticed = isDayPracticed(currentMonth, d.day);
-                                                const isLocked = d.day > 1 && !isDayPracticed(currentMonth, d.day - 1);
-                                                return (
-                                                    <button
-                                                        key={d.day}
-                                                        onClick={() => handleDayClick(d.day)}
-                                                        className="aspect-square text-xs font-bold transition-all"
-                                                        style={{
-                                                            borderRadius: 0,
-                                                            border: '1px solid',
-                                                            borderColor: currentDay === d.day ? 'var(--accent)' : isPracticed ? '#4A7C59' : 'var(--rule)',
-                                                            background: currentDay === d.day ? 'var(--accent)' : isPracticed ? '#F0FAF3' : 'transparent',
-                                                            color: currentDay === d.day ? 'white' : isPracticed ? '#2D5E40' : isLocked ? 'var(--rule)' : 'var(--fg)',
-                                                            cursor: isLocked ? 'default' : 'pointer',
-                                                            fontSize: '11px',
-                                                        }}
-                                                        title={isLocked ? 'Complete previous day first' : isPracticed ? 'Practiced' : ''}
-                                                    >
-                                                        {d.day}
-                                                    </button>
-                                                );
-                                            })}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </>
-                )}
+                        </>
+                    }
+                />
 
                 {/* Main Content */}
                 <div className="w-full flex-1 flex flex-col items-center justify-center pt-20 md:pt-24 pb-4 px-4 md:px-6 lg:px-8 min-h-0 overflow-hidden">

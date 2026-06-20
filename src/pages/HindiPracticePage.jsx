@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { RotateCw, ChevronLeft, ChevronRight, BookOpen, Languages, Type, CheckCircle, XCircle, RefreshCw, Menu, X, Globe, Loader2 } from 'lucide-react';
-
+import Navbar from '../components/Navbar';
 import { API_BASE_URL } from '../utils/api';
 
 const normalizeText = (text) => text.toLowerCase().trim().replace(/[^a-z0-9]/g, '');
@@ -252,72 +252,20 @@ const HindiPracticePage = () => {
     return (
         <div className="h-screen w-screen flex flex-col overflow-hidden bg-stone-50" style={{ background: 'var(--bg)', color: 'var(--fg)', fontFamily: "'DM Sans', sans-serif" }}>
 
-            {/* ── Navbar — Swiss: no shadow, 1px bottom rule only ── */}
-            <nav className="w-full bg-white border-b flex-shrink-0 z-20 fixed top-0" style={{ borderColor: 'var(--rule)' }}>
-                <div className="w-full max-w-6xl mx-auto px-6">
-                    <div className="h-12 flex items-center justify-between">
-                        {/* Left: back + title */}
-                        <div className="flex items-center gap-4">
-                            <button
-                                onClick={() => navigate('/')}
-                                className="flex items-center gap-1 transition-opacity hover:opacity-60"
-                                style={{ color: 'var(--muted)', fontSize: '12px', letterSpacing: '0.05em' }}
-                                title="Back"
-                            >
-                                <ChevronLeft size={14} />
-                                <span className="uppercase font-medium hidden sm:inline">Reading</span>
-                            </button>
-                            <div className="w-px h-4" style={{ background: 'var(--rule)' }} />
-                            <span className="font-bold uppercase tracking-widest" style={{ fontSize: '12px', color: 'var(--fg)' }}>
-                                Hindi Practice
-                            </span>
-                        </div>
-
-                        {/* Right: nav links + API status */}
-                        <div className="flex items-center gap-6">
-                            {/* API status — minimal badge */}
-                            <span className="hidden sm:flex items-center gap-1.5" style={{ fontSize: '11px', letterSpacing: '0.08em', color: apiServerRunning ? '#4A7C59' : 'var(--muted)' }}>
-                                <Globe size={11} />
-                                <span className="uppercase font-medium">{apiServerRunning ? 'API' : 'DB'}</span>
-                            </span>
-
-                            <button
-                                onClick={() => navigate('/type-to-reveal')}
-                                className="hidden sm:block uppercase font-medium transition-opacity hover:opacity-60"
-                                style={{ fontSize: '11px', letterSpacing: '0.08em', color: 'var(--muted)' }}
-                            >
-                                Type Practice
-                            </button>
-
-                            <button
-                                onClick={() => navigate('/hindi-conversation')}
-                                className="hidden sm:block uppercase font-medium transition-opacity hover:opacity-60"
-                                style={{ fontSize: '11px', letterSpacing: '0.08em', color: 'var(--muted)' }}
-                            >
-                                Conversation
-                            </button>
-
-                            <button
-                                onClick={() => navigate('/')}
-                                className="hidden sm:flex items-center gap-1 uppercase font-medium transition-opacity hover:opacity-60"
-                                style={{ fontSize: '11px', letterSpacing: '0.08em', color: 'var(--muted)' }}
-                            >
-                                <BookOpen size={12} />
-                                <span>Reading</span>
-                            </button>
-
-                            {/* Mobile sidebar toggle */}
-                            <button
-                                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                                className="lg:hidden transition-opacity hover:opacity-60"
-                                style={{ color: 'var(--fg)' }}
-                            >
-                                {isSidebarOpen ? <X size={20} /> : <Menu size={20} />}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+            {/* Navbar */}
+            <Navbar
+                customMobileToggle={
+                    <button
+                        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                        className="transition-opacity hover:opacity-60 flex items-center justify-center p-1.5 bg-stone-100 hover:bg-stone-200 border"
+                        style={{ color: 'var(--fg)', borderRadius: 0, borderColor: 'var(--rule)' }}
+                        title="Toggle Words List"
+                    >
+                        {isSidebarOpen ? <X size={18} /> : <Menu size={18} />}
+                        <span className="text-[10px] font-bold uppercase tracking-wider ml-1 hidden sm:inline">Words</span>
+                    </button>
+                }
+            />
 
             {/* ── Main Layout ── */}
             <div className="w-full flex-1 flex flex-col items-center justify-center pt-16 md:pt-20 pb-4 px-4 md:px-6 lg:px-8 min-h-0 overflow-hidden">

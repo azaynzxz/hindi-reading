@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BookOpen, Type, ChevronLeft, RefreshCw, CheckCircle, Languages, XCircle, Loader2, Globe, Eye, Share2, X, ChevronDown, ChevronUp } from 'lucide-react';
 import WordPoster from '../components/WordPoster';
+import Navbar from '../components/Navbar';
 import { getStorage, setStorage, StorageKeys } from '../utils/storage';
 import { APP_AUTHOR, HINDI_FOOTER_TEXT } from '../utils/constants';
 import { API_BASE_URL } from '../utils/api';
@@ -460,54 +461,8 @@ const TypeToRevealPage = () => {
 
     return (
         <div className="h-screen w-screen flex flex-col overflow-hidden bg-stone-50" style={{ background: 'var(--bg)', color: 'var(--fg)', fontFamily: "'DM Sans', sans-serif" }}>
-            {/* Navbar — Swiss: no shadow, 1px bottom rule */}
-            <nav className="w-full bg-white border-b flex-shrink-0 z-20 fixed top-0" style={{ borderColor: 'var(--rule)' }}>
-                <div className="w-full max-w-6xl mx-auto px-6">
-                    <div className="h-12 flex items-center justify-between">
-                        <div className="flex items-center gap-4">
-                            <button
-                                onClick={() => navigate('/')}
-                                className="flex items-center gap-1 transition-opacity hover:opacity-60"
-                                style={{ color: 'var(--muted)', fontSize: '12px', letterSpacing: '0.05em' }}
-                                title="Back"
-                            >
-                                <ChevronLeft size={14} />
-                                <span className="uppercase font-medium hidden sm:inline">Reading</span>
-                            </button>
-                            <div className="w-px h-4" style={{ background: 'var(--rule)' }} />
-                            <span className="font-bold uppercase tracking-widest" style={{ fontSize: '12px', color: 'var(--fg)' }}>Type to Reveal</span>
-                        </div>
-                        <div className="flex items-center gap-6">
-                            <span className="hidden sm:flex items-center gap-1.5" style={{ fontSize: '11px', letterSpacing: '0.08em', color: apiServerRunning ? '#4A7C59' : 'var(--muted)' }}>
-                                <Globe size={11} />
-                                <span className="uppercase font-medium">{apiServerRunning ? 'API' : 'DB'}</span>
-                            </span>
-                            <button
-                                onClick={() => navigate('/hindi-practice')}
-                                className="hidden sm:block uppercase font-medium transition-opacity hover:opacity-60"
-                                style={{ fontSize: '11px', letterSpacing: '0.08em', color: 'var(--muted)' }}
-                            >
-                                Hindi
-                            </button>
-                            <button
-                                onClick={() => navigate('/hindi-conversation')}
-                                className="hidden sm:block uppercase font-medium transition-opacity hover:opacity-60"
-                                style={{ fontSize: '11px', letterSpacing: '0.08em', color: 'var(--muted)' }}
-                            >
-                                Conversation
-                            </button>
-                            <button
-                                onClick={() => navigate('/')}
-                                className="flex items-center gap-1 uppercase font-medium transition-opacity hover:opacity-60"
-                                style={{ fontSize: '11px', letterSpacing: '0.08em', color: 'var(--muted)' }}
-                            >
-                                <BookOpen size={12} />
-                                <span className="hidden sm:inline">Reading</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+            {/* Navbar */}
+            <Navbar />
 
 
             {/* Mobile input panel — collapsible */}
