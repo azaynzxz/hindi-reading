@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Swiss Design System ─────────────────────────────────────────── */
+:root {
+    --bg:         #F9F8F6;
+    --fg:         #0D0D0D;
+    --muted:      #8C8C8C;
+    --rule:       #D8D5D0;
+    --accent:     #880000;
+    --accent-dk:  #660000;
+    --surface:    #FFFFFF;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -13,6 +24,11 @@ html, body {
     padding: 0;
     height: 100%;
     overflow: hidden;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    background-color: var(--bg);
+    color: var(--fg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
@@ -209,5 +225,22 @@ html, body {
             opacity: 0;
             transform: scale(0.95) translateY(-10px);
         }
+    }
+
+    /* 3D Flashcard flip — used in HindiPracticePage */
+    .perspective-1000 {
+        perspective: 1000px;
+    }
+
+    .transform-style-3d {
+        transform-style: preserve-3d;
+    }
+
+    .backface-hidden {
+        backface-visibility: hidden;
+    }
+
+    .rotate-y-180 {
+        transform: rotateY(180deg);
     }
 }

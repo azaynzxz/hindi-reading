@@ -681,7 +681,7 @@ ${activeData.title}
 
 ${activeData.text}
 
-This is my practice today about ${activeData.title}, cannot wait to improve my English with the next training.
+This is my practice today about ${activeData.title}, cannot wait to improve my Hindi with the next training.
 
 _By Zayn_
 

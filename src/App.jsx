@@ -8,6 +8,7 @@ import month2Data from './data/month2.json';
 import month3Data from './data/month3.json';
 import { ChevronRight, ChevronLeft, BookOpen, Globe, Square, Play, Pause, X, Type, Settings, Minus, Plus, Monitor, ExternalLink, Calendar, Download, Menu, ChevronDown, ChevronUp, Trophy, TrendingUp, Clock, MapPin, Share2, BarChart3, RotateCw, Languages, CheckCircle } from 'lucide-react';
 import { getStorage, setStorage, StorageKeys } from './utils/storage';
+import { APP_AUTHOR, APP_FOOTER_LABEL, CHALLENGE_TITLE } from './utils/constants';
 
 const ReadingChallenge = () => {
     const navigate = useNavigate();
@@ -313,7 +314,7 @@ const ReadingChallenge = () => {
         const innerWidth = canvas.width - innerMargin * 2;
         ctx.font = 'bold 24px Arial, sans-serif';
         ctx.fillStyle = '#666666';
-        ctx.fillText(`30 DAY READING CHALLENGE`, innerMargin, innerMargin + 40);
+        ctx.fillText(CHALLENGE_TITLE, innerMargin, innerMargin + 40);
         ctx.fillText(`MONTH ${currentMonth}`, innerMargin, innerMargin + 80);
         ctx.font = 'bold 200px Arial, sans-serif';
         ctx.fillStyle = accentColor;
@@ -373,7 +374,7 @@ const ReadingChallenge = () => {
 
         // Add practice note text with auto-resize so it always fits
         yPos += 40; // spacing after main text
-        const practiceNote = `This is my practice today about ${activeData.title}, cannot wait to improve my English with the next training.`;
+        const practiceNote = `This is my practice today about ${activeData.title}, cannot wait to improve my Hindi with the next training.`;
         const finalFooterY = canvas.height - innerMargin - 20;
         const noteAreaTop = yPos;
         const noteAreaMaxHeight = Math.max(80, finalFooterY - 120 - noteAreaTop); // leave room for footer
@@ -440,11 +441,11 @@ const ReadingChallenge = () => {
         ctx.fillRect(innerMargin, finalFooterY - 50, 60, 6);
         ctx.font = 'bold 24px Arial, sans-serif';
         ctx.fillStyle = '#000000';
-        ctx.fillText('ENGLISH FLUENCY JOURNEY', innerMargin, finalFooterY);
+        ctx.fillText(APP_FOOTER_LABEL, innerMargin, finalFooterY);
         ctx.font = 'normal 24px Arial, sans-serif';
         ctx.fillStyle = '#666666';
         ctx.textAlign = 'right';
-        ctx.fillText('By Zayn', canvas.width - innerMargin, finalFooterY);
+        ctx.fillText(APP_AUTHOR, canvas.width - innerMargin, finalFooterY);
         const link = document.createElement('a');
         link.download = `Reading-Challenge-M${currentMonth}-D${currentDay}.jpg`;
         link.href = canvas.toDataURL('image/jpeg', 0.9);
@@ -658,55 +659,46 @@ const ReadingChallenge = () => {
             )}
             <div className="h-screen w-screen bg-stone-50 text-slate-800 font-sans selection:bg-[#880000]/20 flex flex-col items-center justify-center overflow-hidden">
                 {/* Navbar */}
-                <nav className="w-full bg-white border-b border-slate-200 shadow-sm flex-shrink-0 z-20 fixed top-0">
-                    <div className="w-full max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4">
-                        <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-2 text-[#880000]">
-                                <BookOpen size={24} />
-                                <span className="font-bold tracking-wider text-sm md:text-base uppercase">ENGLISH READING PRACTICE</span>
+            {/* Navbar — Swiss: no shadow, 1px bottom rule */}
+                <nav className="w-full bg-white border-b flex-shrink-0 z-20 fixed top-0" style={{ borderColor: 'var(--rule)' }}>
+                    <div className="w-full max-w-6xl mx-auto px-6">
+                        <div className="h-12 flex items-center justify-between">
+                            {/* Wordmark */}
+                            <div className="flex items-center gap-2" style={{ color: 'var(--accent)' }}>
+                                <BookOpen size={18} />
+                                <span className="font-bold uppercase tracking-widest" style={{ fontSize: '12px', color: 'var(--fg)' }}>ENGLISH READING PRACTICE</span>
                             </div>
-                            <div className="flex items-center gap-2">
-                                {/* Dashboard Button */}
+                            {/* Nav links */}
+                            <div className="flex items-center gap-6">
                                 <button
                                     onClick={() => setShowDashboard(true)}
-                                    className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-[#880000] hover:bg-[#880000]/10 rounded-lg transition-colors text-sm font-semibold"
-                                    title="View Dashboard"
+                                    className="hidden sm:block uppercase font-medium transition-opacity hover:opacity-60"
+                                    style={{ fontSize: '11px', letterSpacing: '0.08em', color: 'var(--muted)' }}
                                 >
-                                    <BarChart3 size={18} />
-                                    <span className="hidden md:inline">Dashboard</span>
+                                    Dashboard
                                 </button>
-
-                                {/* Flashcards Button */}
                                 <button
                                     onClick={() => setShowFlashcards(true)}
-                                    className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-[#880000] hover:bg-[#880000]/10 rounded-lg transition-colors text-sm font-semibold"
-                                    title="Study Flashcards"
+                                    className="hidden sm:block uppercase font-medium transition-opacity hover:opacity-60"
+                                    style={{ fontSize: '11px', letterSpacing: '0.08em', color: 'var(--muted)' }}
                                 >
-                                    <RotateCw size={18} />
-                                    <span className="hidden md:inline">Flashcards</span>
+                                    Flashcards
                                 </button>
-
-                                {/* Hindi Flashcards Button */}
                                 <button
                                     onClick={() => navigate('/hindi-practice')}
-                                    className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-[#880000] hover:bg-[#880000]/10 rounded-lg transition-colors text-sm font-semibold"
-                                    title="Hindi Flashcards Practice"
+                                    className="hidden sm:block uppercase font-medium transition-opacity hover:opacity-60"
+                                    style={{ fontSize: '11px', letterSpacing: '0.08em', color: 'var(--muted)' }}
                                 >
-                                    <Languages size={18} />
-                                    <span className="hidden md:inline">Hindi</span>
+                                    Hindi
                                 </button>
-
-                                {/* Type to Reveal Button */}
                                 <button
                                     onClick={() => navigate('/type-to-reveal')}
-                                    className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-[#880000] hover:bg-[#880000]/10 rounded-lg transition-colors text-sm font-semibold"
-                                    title="Type to Reveal Practice"
+                                    className="hidden sm:block uppercase font-medium transition-opacity hover:opacity-60"
+                                    style={{ fontSize: '11px', letterSpacing: '0.08em', color: 'var(--muted)' }}
                                 >
-                                    <Type size={18} />
-                                    <span className="hidden md:inline">Type</span>
+                                    Type
                                 </button>
-
-                                {/* Mobile Hamburger Menu */}
+                                {/* Mobile hamburger */}
                                 <button
                                     onClick={() => {
                                         if (isMobileMenuOpen) {
@@ -719,10 +711,11 @@ const ReadingChallenge = () => {
                                             setIsMobileMenuOpen(true);
                                         }
                                     }}
-                                    className="lg:hidden p-2 text-[#880000] hover:bg-[#880000]/10 rounded-lg transition-colors"
+                                    className="lg:hidden transition-opacity hover:opacity-60"
+                                    style={{ color: 'var(--fg)' }}
                                     aria-label="Toggle menu"
                                 >
-                                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                                    {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
                                 </button>
                             </div>
                         </div>
@@ -745,15 +738,11 @@ const ReadingChallenge = () => {
                         />
 
                         {/* Mobile Bottom Sheet */}
-                        <div className={`fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl shadow-2xl z-40 md:hidden max-h-[85vh] overflow-y-auto ${isMobileMenuClosing ? 'animate-bottom-sheet-out' : 'animate-bottom-sheet-in'}`}>
-                            {/* Drag Handle */}
-                            <div className="flex justify-center pt-3 pb-2">
-                                <div className="w-12 h-1.5 bg-slate-300 rounded-full"></div>
-                            </div>
-
-                            <div className="px-6 pb-8">
+                        <div className={`fixed bottom-0 left-0 right-0 bg-white border-t z-40 md:hidden max-h-[85vh] overflow-y-auto ${isMobileMenuClosing ? 'animate-bottom-sheet-out' : 'animate-bottom-sheet-in'}`} style={{ borderColor: 'var(--rule)', borderRadius: 0 }}>
+                            <div className="px-6 py-6">
                                 {/* Close Button */}
-                                <div className="flex justify-end mb-4">
+                                <div className="flex justify-between items-center mb-6">
+                                    <h2 className="uppercase font-bold tracking-widest" style={{ fontSize: '13px', color: 'var(--fg)' }}>Navigation Menu</h2>
                                     <button
                                         onClick={() => {
                                             setIsMobileMenuClosing(true);
@@ -762,7 +751,7 @@ const ReadingChallenge = () => {
                                                 setIsMobileMenuClosing(false);
                                             }, 300);
                                         }}
-                                        className="p-2 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-100 transition-colors"
+                                        className="p-1 text-slate-400 hover:text-slate-600 transition-opacity hover:opacity-70"
                                     >
                                         <X size={20} />
                                     </button>
@@ -770,41 +759,44 @@ const ReadingChallenge = () => {
 
                                 {/* Month Selector */}
                                 <div className="mb-6">
-                                    <h3 className="font-bold text-slate-700 mb-3 flex items-center gap-2 text-sm">
-                                        <Calendar size={16} className="text-[#880000]" /> Month Selector
+                                    <h3 className="uppercase font-bold tracking-wider mb-3 flex items-center gap-2 text-xs" style={{ color: 'var(--muted)' }}>
+                                        <Calendar size={14} className="text-[#880000]" /> Month Selector
                                     </h3>
-                                    <div className="flex bg-slate-100 p-1 rounded-lg">
+                                    <div className="flex border" style={{ borderColor: 'var(--rule)' }}>
                                         <button
                                             onClick={() => {
                                                 changeMonth(1);
                                             }}
-                                            className={`flex-1 py-3 text-sm font-bold rounded-md transition-all ${currentMonth === 1 ? 'bg-white text-[#880000] shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                                            className="flex-1 py-2 text-xs font-bold uppercase transition-all"
+                                            style={{ letterSpacing: '0.06em', background: currentMonth === 1 ? 'var(--accent)' : 'transparent', color: currentMonth === 1 ? 'white' : 'var(--muted)', borderRight: '1px solid var(--rule)', borderRadius: 0 }}
                                         >
-                                            Month 1
+                                            M1
                                         </button>
                                         <button
                                             onClick={() => {
                                                 changeMonth(2);
                                             }}
-                                            className={`flex-1 py-3 text-sm font-bold rounded-md transition-all ${currentMonth === 2 ? 'bg-white text-[#880000] shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                                            className="flex-1 py-2 text-xs font-bold uppercase transition-all"
+                                            style={{ letterSpacing: '0.06em', background: currentMonth === 2 ? 'var(--accent)' : 'transparent', color: currentMonth === 2 ? 'white' : 'var(--muted)', borderRight: '1px solid var(--rule)', borderRadius: 0 }}
                                         >
-                                            Month 2
+                                            M2
                                         </button>
                                         <button
                                             onClick={() => {
                                                 changeMonth(3);
                                             }}
-                                            className={`flex-1 py-3 text-sm font-bold rounded-md transition-all ${currentMonth === 3 ? 'bg-white text-[#880000] shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                                            className="flex-1 py-2 text-xs font-bold uppercase transition-all"
+                                            style={{ letterSpacing: '0.06em', background: currentMonth === 3 ? 'var(--accent)' : 'transparent', color: currentMonth === 3 ? 'white' : 'var(--muted)', borderRadius: 0 }}
                                         >
-                                            Month 3
+                                            M3
                                         </button>
                                     </div>
                                 </div>
 
                                 {/* Dashboard & Flashcards Buttons */}
                                 <div className="mb-6">
-                                    <h3 className="font-bold text-slate-700 mb-3 flex items-center gap-2 text-sm">
-                                        <Trophy size={16} className="text-[#880000]" /> Quick Actions
+                                    <h3 className="uppercase font-bold tracking-wider mb-3 flex items-center gap-2 text-xs" style={{ color: 'var(--muted)' }}>
+                                        <Trophy size={14} className="text-[#880000]" /> Quick Actions
                                     </h3>
                                     <div className="grid grid-cols-2 gap-2">
                                         <button
@@ -816,9 +808,10 @@ const ReadingChallenge = () => {
                                                     setIsMobileMenuClosing(false);
                                                 }, 300);
                                             }}
-                                            className="flex items-center justify-center gap-1.5 px-3 py-2 bg-[#880000] text-white rounded-lg font-semibold text-sm transition-all hover:bg-[#770000] active:scale-[0.98] shadow-sm"
+                                            className="flex items-center justify-center gap-1.5 px-3 py-2 bg-[#880000] text-white font-semibold text-xs uppercase transition-all hover:bg-[#770000]"
+                                            style={{ borderRadius: 0, letterSpacing: '0.06em' }}
                                         >
-                                            <BarChart3 size={16} />
+                                            <BarChart3 size={14} />
                                             <span>Dashboard</span>
                                         </button>
                                         <button
@@ -830,9 +823,10 @@ const ReadingChallenge = () => {
                                                     setIsMobileMenuClosing(false);
                                                 }, 300);
                                             }}
-                                            className="flex items-center justify-center gap-1.5 px-3 py-2 bg-[#880000] text-white rounded-lg font-semibold text-sm transition-all hover:bg-[#770000] active:scale-[0.98] shadow-sm"
+                                            className="flex items-center justify-center gap-1.5 px-3 py-2 bg-[#880000] text-white font-semibold text-xs uppercase transition-all hover:bg-[#770000]"
+                                            style={{ borderRadius: 0, letterSpacing: '0.06em' }}
                                         >
-                                            <RotateCw size={16} />
+                                            <RotateCw size={14} />
                                             <span>Flashcards</span>
                                         </button>
                                         <button
@@ -844,9 +838,10 @@ const ReadingChallenge = () => {
                                                     setIsMobileMenuClosing(false);
                                                 }, 300);
                                             }}
-                                            className="flex items-center justify-center gap-1.5 px-3 py-2 bg-[#880000] text-white rounded-lg font-semibold text-sm transition-all hover:bg-[#770000] active:scale-[0.98] shadow-sm"
+                                            className="flex items-center justify-center gap-1.5 px-3 py-2 bg-[#880000] text-white font-semibold text-xs uppercase transition-all hover:bg-[#770000]"
+                                            style={{ borderRadius: 0, letterSpacing: '0.06em' }}
                                         >
-                                            <Languages size={16} />
+                                            <Languages size={14} />
                                             <span>Hindi Practice</span>
                                         </button>
                                         <button
@@ -858,9 +853,10 @@ const ReadingChallenge = () => {
                                                     setIsMobileMenuClosing(false);
                                                 }, 300);
                                             }}
-                                            className="flex items-center justify-center gap-1.5 px-3 py-2 bg-[#880000] text-white rounded-lg font-semibold text-sm transition-all hover:bg-[#770000] active:scale-[0.98] shadow-sm"
+                                            className="flex items-center justify-center gap-1.5 px-3 py-2 bg-[#880000] text-white font-semibold text-xs uppercase transition-all hover:bg-[#770000]"
+                                            style={{ borderRadius: 0, letterSpacing: '0.06em' }}
                                         >
-                                            <Type size={16} />
+                                            <Type size={14} />
                                             <span>Type to Reveal</span>
                                         </button>
                                     </div>
@@ -868,10 +864,10 @@ const ReadingChallenge = () => {
 
                                 {/* Day Selector */}
                                 <div>
-                                    <h3 className="font-bold text-slate-700 mb-3 flex items-center gap-2 text-sm">
-                                        <Square size={16} className="text-[#880000]" /> Day Selector
+                                    <h3 className="uppercase font-bold tracking-wider mb-3 flex items-center gap-2 text-xs" style={{ color: 'var(--muted)' }}>
+                                        <Square size={14} className="text-[#880000]" /> Day Selector
                                     </h3>
-                                    <div className="grid grid-cols-5 gap-2">
+                                    <div className="grid grid-cols-5 gap-1">
                                         {allMonthsData[currentMonth].map((d) => {
                                             const isPracticed = isDayPracticed(currentMonth, d.day);
                                             const isLocked = d.day > 1 && !isDayPracticed(currentMonth, d.day - 1);
@@ -879,14 +875,16 @@ const ReadingChallenge = () => {
                                                 <button
                                                     key={d.day}
                                                     onClick={() => handleDayClick(d.day)}
-                                                    className={`aspect-square rounded-lg text-sm font-semibold transition-all duration-200 ${currentDay === d.day
-                                                        ? 'bg-[#880000] text-white shadow-md transform scale-105'
-                                                        : isPracticed
-                                                            ? 'bg-green-100 text-green-700 hover:bg-green-200 border border-green-300'
-                                                            : isLocked
-                                                                ? 'bg-slate-50 text-slate-400 cursor-pointer opacity-50'
-                                                                : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                                                        }`}
+                                                    className="aspect-square text-xs font-bold transition-all"
+                                                    style={{
+                                                        borderRadius: 0,
+                                                        border: '1px solid',
+                                                        borderColor: currentDay === d.day ? 'var(--accent)' : isPracticed ? '#4A7C59' : 'var(--rule)',
+                                                        background: currentDay === d.day ? 'var(--accent)' : isPracticed ? '#F0FAF3' : 'transparent',
+                                                        color: currentDay === d.day ? 'white' : isPracticed ? '#2D5E40' : isLocked ? 'var(--rule)' : 'var(--fg)',
+                                                        cursor: isLocked ? 'default' : 'pointer',
+                                                        fontSize: '11px',
+                                                    }}
                                                     title={isLocked ? 'Complete previous day first' : isPracticed ? 'Practiced' : ''}
                                                 >
                                                     {d.day}
@@ -900,11 +898,11 @@ const ReadingChallenge = () => {
 
                         {/* Tablet Modal Popup */}
                         <div className={`hidden md:flex lg:hidden fixed inset-0 z-40 items-center justify-center p-4 ${isMobileMenuClosing ? 'animate-modal-out' : 'animate-modal-in'}`}>
-                            <div className="bg-white rounded-2xl shadow-2xl border border-slate-200 w-full max-w-md overflow-hidden">
+                            <div className="bg-white border w-full max-w-md overflow-hidden flex flex-col" style={{ borderColor: 'var(--rule)', borderRadius: 0 }}>
                                 {/* Header */}
-                                <div className="flex items-center justify-between p-4 border-b border-slate-200">
-                                    <h2 className="text-lg font-bold text-slate-800 flex items-center gap-2">
-                                        <Calendar className="text-[#880000]" size={20} />
+                                <div className="flex items-center justify-between p-4 border-b" style={{ borderColor: 'var(--rule)' }}>
+                                    <h2 className="uppercase font-bold tracking-widest flex items-center gap-2" style={{ fontSize: '13px', color: 'var(--fg)' }}>
+                                        <Calendar className="text-[#880000]" size={16} />
                                         Select Month & Day
                                     </h2>
                                     <button
@@ -915,50 +913,53 @@ const ReadingChallenge = () => {
                                                 setIsMobileMenuClosing(false);
                                             }, 300);
                                         }}
-                                        className="p-2 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-100 transition-colors"
+                                        className="p-1 text-slate-400 hover:text-slate-600 transition-opacity hover:opacity-70"
                                     >
                                         <X size={20} />
                                     </button>
                                 </div>
 
-                                <div className="p-6">
+                                <div className="p-6 space-y-6">
                                     {/* Month Selector */}
-                                    <div className="mb-6">
-                                        <h3 className="font-bold text-slate-700 mb-3 flex items-center gap-2 text-sm">
-                                            <Calendar size={16} className="text-[#880000]" /> Month Selector
+                                    <div>
+                                        <h3 className="uppercase font-bold tracking-wider mb-3 flex items-center gap-2 text-xs" style={{ color: 'var(--muted)' }}>
+                                            <Calendar size={14} className="text-[#880000]" /> Month Selector
                                         </h3>
-                                        <div className="flex bg-slate-100 p-1 rounded-lg">
+                                        <div className="flex border" style={{ borderColor: 'var(--rule)' }}>
                                             <button
                                                 onClick={() => {
                                                     changeMonth(1);
                                                 }}
-                                                className={`flex-1 py-2.5 text-sm font-bold rounded-md transition-all ${currentMonth === 1 ? 'bg-white text-[#880000] shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                                                className="flex-1 py-2 text-xs font-bold uppercase transition-all"
+                                                style={{ letterSpacing: '0.06em', background: currentMonth === 1 ? 'var(--accent)' : 'transparent', color: currentMonth === 1 ? 'white' : 'var(--muted)', borderRight: '1px solid var(--rule)', borderRadius: 0 }}
                                             >
-                                                Month 1
+                                                M1
                                             </button>
                                             <button
                                                 onClick={() => {
                                                     changeMonth(2);
                                                 }}
-                                                className={`flex-1 py-2.5 text-sm font-bold rounded-md transition-all ${currentMonth === 2 ? 'bg-white text-[#880000] shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                                                className="flex-1 py-2 text-xs font-bold uppercase transition-all"
+                                                style={{ letterSpacing: '0.06em', background: currentMonth === 2 ? 'var(--accent)' : 'transparent', color: currentMonth === 2 ? 'white' : 'var(--muted)', borderRight: '1px solid var(--rule)', borderRadius: 0 }}
                                             >
-                                                Month 2
+                                                M2
                                             </button>
                                             <button
                                                 onClick={() => {
                                                     changeMonth(3);
                                                 }}
-                                                className={`flex-1 py-2.5 text-sm font-bold rounded-md transition-all ${currentMonth === 3 ? 'bg-white text-[#880000] shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                                                className="flex-1 py-2 text-xs font-bold uppercase transition-all"
+                                                style={{ letterSpacing: '0.06em', background: currentMonth === 3 ? 'var(--accent)' : 'transparent', color: currentMonth === 3 ? 'white' : 'var(--muted)', borderRadius: 0 }}
                                             >
-                                                Month 3
+                                                M3
                                             </button>
                                         </div>
                                     </div>
 
                                     {/* Dashboard & Flashcards Buttons */}
-                                    <div className="mb-6">
-                                        <h3 className="font-bold text-slate-700 mb-3 flex items-center gap-2 text-sm">
-                                            <Trophy size={16} className="text-[#880000]" /> Quick Actions
+                                    <div>
+                                        <h3 className="uppercase font-bold tracking-wider mb-3 flex items-center gap-2 text-xs" style={{ color: 'var(--muted)' }}>
+                                            <Trophy size={14} className="text-[#880000]" /> Quick Actions
                                         </h3>
                                         <div className="grid grid-cols-2 gap-2">
                                             <button
@@ -970,9 +971,10 @@ const ReadingChallenge = () => {
                                                         setIsMobileMenuClosing(false);
                                                     }, 300);
                                                 }}
-                                                className="flex items-center justify-center gap-1.5 px-3 py-2 bg-[#880000] text-white rounded-lg font-semibold text-sm transition-all hover:bg-[#770000] active:scale-[0.98] shadow-sm"
+                                                className="flex items-center justify-center gap-1.5 px-3 py-2.5 bg-[#880000] text-white font-semibold text-xs uppercase transition-all hover:bg-[#770000]"
+                                                style={{ borderRadius: 0, letterSpacing: '0.06em' }}
                                             >
-                                                <BarChart3 size={16} />
+                                                <BarChart3 size={14} />
                                                 <span>Dashboard</span>
                                             </button>
                                             <button
@@ -984,9 +986,10 @@ const ReadingChallenge = () => {
                                                         setIsMobileMenuClosing(false);
                                                     }, 300);
                                                 }}
-                                                className="flex items-center justify-center gap-1.5 px-3 py-2 bg-[#880000] text-white rounded-lg font-semibold text-sm transition-all hover:bg-[#770000] active:scale-[0.98] shadow-sm"
+                                                className="flex items-center justify-center gap-1.5 px-3 py-2.5 bg-[#880000] text-white font-semibold text-xs uppercase transition-all hover:bg-[#770000]"
+                                                style={{ borderRadius: 0, letterSpacing: '0.06em' }}
                                             >
-                                                <RotateCw size={16} />
+                                                <RotateCw size={14} />
                                                 <span>Flashcards</span>
                                             </button>
                                             <button
@@ -998,9 +1001,10 @@ const ReadingChallenge = () => {
                                                         setIsMobileMenuClosing(false);
                                                     }, 300);
                                                 }}
-                                                className="flex items-center justify-center gap-1.5 px-3 py-2 bg-[#880000] text-white rounded-lg font-semibold text-sm transition-all hover:bg-[#770000] active:scale-[0.98] shadow-sm"
+                                                className="flex items-center justify-center gap-1.5 px-3 py-2.5 bg-[#880000] text-white font-semibold text-xs uppercase transition-all hover:bg-[#770000]"
+                                                style={{ borderRadius: 0, letterSpacing: '0.06em' }}
                                             >
-                                                <Languages size={16} />
+                                                <Languages size={14} />
                                                 <span>Hindi Practice</span>
                                             </button>
                                             <button
@@ -1012,9 +1016,10 @@ const ReadingChallenge = () => {
                                                         setIsMobileMenuClosing(false);
                                                     }, 300);
                                                 }}
-                                                className="flex items-center justify-center gap-1.5 px-3 py-2 bg-[#880000] text-white rounded-lg font-semibold text-sm transition-all hover:bg-[#770000] active:scale-[0.98] shadow-sm"
+                                                className="flex items-center justify-center gap-1.5 px-3 py-2.5 bg-[#880000] text-white font-semibold text-xs uppercase transition-all hover:bg-[#770000]"
+                                                style={{ borderRadius: 0, letterSpacing: '0.06em' }}
                                             >
-                                                <Type size={16} />
+                                                <Type size={14} />
                                                 <span>Type to Reveal</span>
                                             </button>
                                         </div>
@@ -1022,10 +1027,10 @@ const ReadingChallenge = () => {
 
                                     {/* Day Selector */}
                                     <div>
-                                        <h3 className="font-bold text-slate-700 mb-3 flex items-center gap-2 text-sm">
-                                            <Square size={16} className="text-[#880000]" /> Day Selector
+                                        <h3 className="uppercase font-bold tracking-wider mb-3 flex items-center gap-2 text-xs" style={{ color: 'var(--muted)' }}>
+                                            <Square size={14} className="text-[#880000]" /> Day Selector
                                         </h3>
-                                        <div className="grid grid-cols-5 gap-2">
+                                        <div className="grid grid-cols-5 gap-1">
                                             {allMonthsData[currentMonth].map((d) => {
                                                 const isPracticed = isDayPracticed(currentMonth, d.day);
                                                 const isLocked = d.day > 1 && !isDayPracticed(currentMonth, d.day - 1);
@@ -1033,14 +1038,16 @@ const ReadingChallenge = () => {
                                                     <button
                                                         key={d.day}
                                                         onClick={() => handleDayClick(d.day)}
-                                                        className={`aspect-square rounded-lg text-sm font-semibold transition-all duration-200 ${currentDay === d.day
-                                                            ? 'bg-[#880000] text-white shadow-md transform scale-105'
-                                                            : isPracticed
-                                                                ? 'bg-green-100 text-green-700 hover:bg-green-200 border border-green-300'
-                                                                : isLocked
-                                                                    ? 'bg-slate-50 text-slate-400 cursor-pointer opacity-50'
-                                                                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                                                            }`}
+                                                        className="aspect-square text-xs font-bold transition-all"
+                                                        style={{
+                                                            borderRadius: 0,
+                                                            border: '1px solid',
+                                                            borderColor: currentDay === d.day ? 'var(--accent)' : isPracticed ? '#4A7C59' : 'var(--rule)',
+                                                            background: currentDay === d.day ? 'var(--accent)' : isPracticed ? '#F0FAF3' : 'transparent',
+                                                            color: currentDay === d.day ? 'white' : isPracticed ? '#2D5E40' : isLocked ? 'var(--rule)' : 'var(--fg)',
+                                                            cursor: isLocked ? 'default' : 'pointer',
+                                                            fontSize: '11px',
+                                                        }}
                                                         title={isLocked ? 'Complete previous day first' : isPracticed ? 'Practiced' : ''}
                                                     >
                                                         {d.day}
@@ -1058,16 +1065,14 @@ const ReadingChallenge = () => {
                 {/* Main Content */}
                 <div className="w-full flex-1 flex flex-col items-center justify-center pt-20 md:pt-24 pb-4 px-4 md:px-6 lg:px-8 min-h-0 overflow-hidden">
                     <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6 flex-1 min-h-0 max-h-full">
-                        {/* Desktop Sidebar - Hidden on Mobile */}
+                        {/* Desktop Sidebar — Swiss: flat panel, 1px rule border */}
                         <div className="hidden lg:block lg:col-span-3 flex flex-col min-h-0">
-                            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 flex-1 flex flex-col">
-                                <h3 className="font-bold text-slate-700 mb-3 flex items-center gap-2 text-sm">
-                                    <Calendar size={16} className="text-[#880000]" /> Month Selector
-                                </h3>
-                                <div className="flex bg-slate-100 p-1 rounded-lg mb-4">
-                                    <button onClick={() => changeMonth(1)} className={`flex-1 py-2 text-sm font-bold rounded-md transition-all ${currentMonth === 1 ? 'bg-white text-[#880000] shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>Month 1</button>
-                                    <button onClick={() => changeMonth(2)} className={`flex-1 py-2 text-sm font-bold rounded-md transition-all ${currentMonth === 2 ? 'bg-white text-[#880000] shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>Month 2</button>
-                                    <button onClick={() => changeMonth(3)} className={`flex-1 py-2 text-sm font-bold rounded-md transition-all ${currentMonth === 3 ? 'bg-white text-[#880000] shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>Month 3</button>
+                            <div className="border flex-1 flex flex-col p-4" style={{ borderColor: 'var(--rule)', background: 'white' }}>
+                                <p className="uppercase font-medium mb-3" style={{ fontSize: '10px', letterSpacing: '0.12em', color: 'var(--muted)' }}>Month</p>
+                                <div className="flex border mb-4" style={{ borderColor: 'var(--rule)' }}>
+                                    <button onClick={() => changeMonth(1)} className="flex-1 py-2 text-xs font-bold uppercase transition-all" style={{ letterSpacing: '0.06em', background: currentMonth === 1 ? 'var(--accent)' : 'transparent', color: currentMonth === 1 ? 'white' : 'var(--muted)', borderRight: '1px solid var(--rule)' }}>M1</button>
+                                    <button onClick={() => changeMonth(2)} className="flex-1 py-2 text-xs font-bold uppercase transition-all" style={{ letterSpacing: '0.06em', background: currentMonth === 2 ? 'var(--accent)' : 'transparent', color: currentMonth === 2 ? 'white' : 'var(--muted)', borderRight: '1px solid var(--rule)' }}>M2</button>
+                                    <button onClick={() => changeMonth(3)} className="flex-1 py-2 text-xs font-bold uppercase transition-all" style={{ letterSpacing: '0.06em', background: currentMonth === 3 ? 'var(--accent)' : 'transparent', color: currentMonth === 3 ? 'white' : 'var(--muted)' }}>M3</button>
                                 </div>
 
                                 {/* Challenge Stats Display */}
@@ -1098,10 +1103,8 @@ const ReadingChallenge = () => {
                                         </div>
                                     </div>
                                 )}
-                                <h3 className="font-bold text-slate-700 mb-3 flex items-center gap-2 text-sm">
-                                    <Square size={16} className="text-[#880000]" /> Day Selector
-                                </h3>
-                                <div className="grid grid-cols-5 gap-2">
+                                <p className="uppercase font-medium mb-3 mt-3" style={{ fontSize: '10px', letterSpacing: '0.12em', color: 'var(--muted)' }}>Day</p>
+                                <div className="grid grid-cols-5 gap-1">
                                     {allMonthsData[currentMonth].map((d) => {
                                         const isPracticed = isDayPracticed(currentMonth, d.day);
                                         const isLocked = d.day > 1 && !isDayPracticed(currentMonth, d.day - 1);
@@ -1109,14 +1112,16 @@ const ReadingChallenge = () => {
                                             <button
                                                 key={d.day}
                                                 onClick={() => handleDayClick(d.day)}
-                                                className={`aspect-square rounded-lg text-sm font-semibold transition-all duration-200 ${currentDay === d.day
-                                                    ? 'bg-[#880000] text-white shadow-md transform scale-105'
-                                                    : isPracticed
-                                                        ? 'bg-green-100 text-green-700 hover:bg-green-200 border border-green-300'
-                                                        : isLocked
-                                                            ? 'bg-slate-50 text-slate-400 cursor-pointer opacity-50'
-                                                            : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                                                    }`}
+                                                className="aspect-square text-xs font-bold transition-all"
+                                                style={{
+                                                    borderRadius: 0,
+                                                    border: '1px solid',
+                                                    borderColor: currentDay === d.day ? 'var(--accent)' : isPracticed ? '#4A7C59' : 'var(--rule)',
+                                                    background: currentDay === d.day ? 'var(--accent)' : isPracticed ? '#F0FAF3' : 'transparent',
+                                                    color: currentDay === d.day ? 'white' : isPracticed ? '#2D5E40' : isLocked ? 'var(--rule)' : 'var(--fg)',
+                                                    cursor: isLocked ? 'default' : 'pointer',
+                                                    fontSize: '11px',
+                                                }}
                                                 title={isLocked ? 'Complete previous day first' : isPracticed ? 'Practiced' : ''}
                                             >
                                                 {d.day}
@@ -1146,13 +1151,13 @@ const ReadingChallenge = () => {
                                     triggerPracticeTooltip={triggerPracticeTooltip}
                                     onChallengeStatsUpdate={setChallengeStats}
                                 />
-                                <div className="mt-4 md:mt-6 text-center flex flex-col items-center pb-4">
-                                    <p className="text-sm md:text-base lg:text-lg text-slate-500 italic max-w-2xl">"This is my practice today about <span className="text-[#880000] font-semibold">{activeData.title}</span>, cannot wait to improve my English with the next training."</p>
-                                    <div className="mt-4 md:mt-6 flex items-center justify-center gap-2">
-                                        <div className="h-px w-8 bg-slate-300"></div>
-                                        <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">By Zayn</span>
-                                        <div className="h-px w-8 bg-slate-300"></div>
-                                    </div>
+                                <div className="mt-6 pb-6 border-t pt-4" style={{ borderColor: 'var(--rule)' }}>
+                                    <p className="italic max-w-2xl" style={{ fontSize: '14px', color: 'var(--muted)', lineHeight: '1.6' }}>
+                                        "This is my practice today about <span style={{ color: 'var(--accent)', fontWeight: '600', fontStyle: 'normal' }}>{activeData.title}</span>, cannot wait to improve my Hindi with the next training."
+                                    </p>
+                                    <p className="mt-3 uppercase font-bold" style={{ fontSize: '10px', letterSpacing: '0.12em', color: 'var(--muted)' }}>
+                                        — {APP_AUTHOR}
+                                    </p>
                                 </div>
                             </div>
                         </div>

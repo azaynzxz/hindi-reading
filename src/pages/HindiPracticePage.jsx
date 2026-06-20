@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { RotateCw, ChevronLeft, ChevronRight, BookOpen, Languages, Type, CheckCircle, XCircle, Filter, RefreshCw, Menu, X, Globe, Loader2 } from 'lucide-react';
+import { RotateCw, ChevronLeft, ChevronRight, BookOpen, Languages, Type, CheckCircle, XCircle, RefreshCw, Menu, X, Globe, Loader2 } from 'lucide-react';
 
 import { API_BASE_URL } from '../utils/api';
 
@@ -18,17 +18,18 @@ const HindiPracticePage = () => {
     const [mode, setMode] = useState('flashcard'); // 'flashcard' | 'read' | 'translate'
     const [userInput, setUserInput] = useState('');
     const [wordInputs, setWordInputs] = useState([]);
-    const [isCorrect, setIsCorrect] = useState(null); // true | false | null
+    const [isCorrect, setIsCorrect] = useState(null);
     const [showAnswer, setShowAnswer] = useState(false);
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Mobile sidebar toggle
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [apiServerRunning, setApiServerRunning] = useState(false);
     const [apiCache, setApiCache] = useState({});
     const [isValidating, setIsValidating] = useState(false);
     const inputRefs = useRef([]);
 
-    // Check if API server is running
+    // Check if API server is running — only poll when tab is visible
     useEffect(() => {
         const checkAPIServer = async () => {
+            if (document.visibilityState !== 'visible') return;
             try {
                 const response = await fetch(`${API_BASE_URL}/health`);
                 const data = await response.json();
@@ -42,7 +43,11 @@ const HindiPracticePage = () => {
 
         checkAPIServer();
         const interval = setInterval(checkAPIServer, 5000);
-        return () => clearInterval(interval);
+        document.addEventListener('visibilitychange', checkAPIServer);
+        return () => {
+            clearInterval(interval);
+            document.removeEventListener('visibilitychange', checkAPIServer);
+        };
     }, []);
 
     useEffect(() => {
@@ -54,8 +59,8 @@ const HindiPracticePage = () => {
                 const lines = text.split('\n').filter(line => line.trim());
                 const parsedWords = lines.slice(1).map(line => {
                     // Handle CSV parsing with potential quoted values
-                    const values = line.match(/(".*?"|[^,]+)(?=\s*,|\s*$)/g) || [];
-                    const cleanValues = values.map(v => v.replace(/^"|"$/g, '').trim());
+                    const values = line.match(/(\".*?\"|[^,]+)(?=\s*,|\s*$)/g) || [];
+                    const cleanValues = values.map(v => v.replace(/^\"|\"$/g, '').trim());
 
                     return {
                         source: cleanValues[0] || 'General',
@@ -68,7 +73,6 @@ const HindiPracticePage = () => {
                 setAllWords(parsedWords);
                 setWords(parsedWords);
 
-                // Extract unique categories
                 const uniqueCategories = ['All', ...new Set(parsedWords.map(w => w.source))];
                 setCategories(uniqueCategories);
 
@@ -116,7 +120,6 @@ const HindiPracticePage = () => {
     const handleShuffle = () => {
         if (!words.length) return;
         resetStateForNewCard();
-        // Fisher-Yates shuffle for the current filtered list
         const shuffled = [...words];
         for (let i = shuffled.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -129,7 +132,6 @@ const HindiPracticePage = () => {
     const handleWordSelect = (index) => {
         resetStateForNewCard();
         setCurrentIndex(index);
-        // On mobile, close sidebar after selection
         if (window.innerWidth < 1024) {
             setIsSidebarOpen(false);
         }
@@ -142,7 +144,6 @@ const HindiPracticePage = () => {
         if (currentWord && mode === 'read') {
             const hindiWords = currentWord.hindi.split(/\s+/);
             setWordInputs(new Array(hindiWords.length).fill(''));
-            // Focus first input
             setTimeout(() => {
                 if (inputRefs.current[0]) inputRefs.current[0].focus();
             }, 100);
@@ -169,21 +170,9 @@ const HindiPracticePage = () => {
                 return data.transliterations;
             }
         } catch (error) {
-            console.error('API validation error:', error);
+            // silently fail
         }
         return null;
-    };
-
-    const fuzzyNormalize = (text) => {
-        return text.toLowerCase().trim()
-            // Handle vowel length variations (common beginner mistake)
-            .replace(/aa/g, 'a')
-            .replace(/ii/g, 'i')
-            .replace(/uu/g, 'u')
-            .replace(/ee/g, 'e')
-            .replace(/oo/g, 'o')
-            // Remove non-alphanumeric
-            .replace(/[^a-z0-9]/g, '');
     };
 
     const handleCheckAnswer = async () => {
@@ -193,47 +182,36 @@ const HindiPracticePage = () => {
         let correct = false;
 
         if (mode === 'read') {
-            // Check each word individually
             const targetWords = currentWord.transliteration.split(/\s+/);
             const hindiWords = currentWord.hindi.split(/\s+/);
 
-            // We need to check all words asynchronously using API ONLY
             const results = await Promise.all(wordInputs.map(async (input, idx) => {
                 if (!targetWords[idx]) return false;
 
                 const normalizedInput = normalizeText(input || '');
 
-                // Use API for validation if available
                 if (apiServerRunning && hindiWords[idx]) {
                     const transliterations = await validateWordWithApi(hindiWords[idx]);
                     if (transliterations && transliterations.length > 0) {
-                        // Check if user's input matches any API transliteration
-                        const matched = transliterations.some(t => {
-                            const normalizedApi = normalizeText(t);
-                            return normalizedApi === normalizedInput;
-                        });
-
-                        console.log('API Validation:', {
-                            hindi: hindiWords[idx],
-                            input,
-                            apiTransliterations: transliterations,
-                            matched
-                        });
-
-                        return matched;
+                        return transliterations.some(t => normalizeText(t) === normalizedInput);
                     }
                 }
 
-                // If API is not running or failed, validation fails
-                console.warn('⚠ API not available for validation. Please start the API server with: npm run server');
-                return false;
+                return null;
             }));
+
+            const apiUnavailable = results.some(r => r === null);
+            if (apiUnavailable) {
+                setIsCorrect('api_unavailable');
+                setShowAnswer(true);
+                setIsValidating(false);
+                return;
+            }
 
             const allCorrect = results.every(r => r === true);
             correct = allCorrect && wordInputs.length === targetWords.length;
 
         } else if (mode === 'translate') {
-            // User types English meaning
             if (!userInput.trim()) {
                 setIsValidating(false);
                 return;
@@ -261,318 +239,403 @@ const HindiPracticePage = () => {
             handleNext();
         } else if (e.key === ' ' && !showAnswer) {
             e.preventDefault();
-            // Move to next input if available
             if (index < wordInputs.length - 1) {
                 inputRefs.current[index + 1].focus();
             }
         } else if (e.key === 'Backspace' && !wordInputs[index] && index > 0) {
-            // Move to previous input if current is empty and backspace is pressed
             e.preventDefault();
             inputRefs.current[index - 1].focus();
         }
     };
 
+    // ─── RENDER ────────────────────────────────────────────────────────────
     return (
-        <div className="h-screen w-screen bg-stone-50 text-slate-800 font-sans selection:bg-[#880000]/20 flex flex-col overflow-hidden">
-            {/* Navbar */}
-            <nav className="w-full bg-white border-b border-slate-200 shadow-sm flex-shrink-0 z-20">
-                <div className="w-full max-w-7xl mx-auto px-4 md:px-6 py-3">
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
+        <div className="h-screen w-screen flex flex-col overflow-hidden bg-stone-50" style={{ background: 'var(--bg)', color: 'var(--fg)', fontFamily: "'DM Sans', sans-serif" }}>
+
+            {/* ── Navbar — Swiss: no shadow, 1px bottom rule only ── */}
+            <nav className="w-full bg-white border-b flex-shrink-0 z-20 fixed top-0" style={{ borderColor: 'var(--rule)' }}>
+                <div className="w-full max-w-6xl mx-auto px-6">
+                    <div className="h-12 flex items-center justify-between">
+                        {/* Left: back + title */}
+                        <div className="flex items-center gap-4">
                             <button
                                 onClick={() => navigate('/')}
-                                className="p-2 text-slate-400 hover:text-[#880000] hover:bg-[#880000]/10 rounded-lg transition-colors"
-                                title="Back to Home"
+                                className="flex items-center gap-1 transition-opacity hover:opacity-60"
+                                style={{ color: 'var(--muted)', fontSize: '12px', letterSpacing: '0.05em' }}
+                                title="Back"
                             >
-                                <ChevronLeft size={20} />
+                                <ChevronLeft size={14} />
+                                <span className="uppercase font-medium hidden sm:inline">Reading</span>
                             </button>
-                            <div className="flex items-center gap-2 text-[#880000]">
-                                <Languages size={24} />
-                                <span className="font-bold tracking-wider text-sm md:text-base uppercase">Hindi Practice</span>
-                            </div>
+                            <div className="w-px h-4" style={{ background: 'var(--rule)' }} />
+                            <span className="font-bold uppercase tracking-widest" style={{ fontSize: '12px', color: 'var(--fg)' }}>
+                                Hindi Practice
+                            </span>
                         </div>
 
-                        <div className="flex items-center gap-2">
+                        {/* Right: nav links + API status */}
+                        <div className="flex items-center gap-6">
+                            {/* API status — minimal badge */}
+                            <span className="hidden sm:flex items-center gap-1.5" style={{ fontSize: '11px', letterSpacing: '0.08em', color: apiServerRunning ? '#4A7C59' : 'var(--muted)' }}>
+                                <Globe size={11} />
+                                <span className="uppercase font-medium">{apiServerRunning ? 'API' : 'DB'}</span>
+                            </span>
+
                             <button
                                 onClick={() => navigate('/type-to-reveal')}
-                                className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-[#880000] hover:bg-[#880000]/10 rounded-lg transition-colors text-sm font-semibold"
+                                className="hidden sm:block uppercase font-medium transition-opacity hover:opacity-60"
+                                style={{ fontSize: '11px', letterSpacing: '0.08em', color: 'var(--muted)' }}
                             >
-                                <Type size={18} />
-                                <span className="hidden md:inline">Type Practice</span>
+                                Type Practice
                             </button>
-                            {/* Mobile Sidebar Toggle */}
+
+                            <button
+                                onClick={() => navigate('/')}
+                                className="hidden sm:flex items-center gap-1 uppercase font-medium transition-opacity hover:opacity-60"
+                                style={{ fontSize: '11px', letterSpacing: '0.08em', color: 'var(--muted)' }}
+                            >
+                                <BookOpen size={12} />
+                                <span>Reading</span>
+                            </button>
+
+                            {/* Mobile sidebar toggle */}
                             <button
                                 onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                                className="lg:hidden p-2 text-slate-600 hover:bg-slate-100 rounded-lg"
+                                className="lg:hidden transition-opacity hover:opacity-60"
+                                style={{ color: 'var(--fg)' }}
                             >
-                                {isSidebarOpen ? <X size={24} /> : <Menu size={24} />}
+                                {isSidebarOpen ? <X size={20} /> : <Menu size={20} />}
                             </button>
                         </div>
                     </div>
                 </div>
             </nav>
 
-            {/* Main Layout */}
-            <div className="flex-1 flex overflow-hidden relative">
+            {/* ── Main Layout ── */}
+            <div className="w-full flex-1 flex flex-col items-center justify-center pt-16 md:pt-20 pb-4 px-4 md:px-6 lg:px-8 min-h-0 overflow-hidden">
+                <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6 flex-1 min-h-0 max-h-full relative">
 
-                {/* Sidebar (Word List) */}
-                <div id="sidebar-container" className={`
-                    absolute lg:static inset-y-0 left-0 z-10 w-72 bg-white border-r border-slate-200 transform transition-transform duration-300 ease-in-out flex flex-col
-                    ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
-                `}>
-                    <div className="p-4 border-b border-slate-100 bg-slate-50">
-                        <h3 className="font-bold text-slate-700 text-sm uppercase tracking-wider mb-3">Word List</h3>
-                        {/* Category Filter in Sidebar */}
-                        <div id="category-filter-container" className="flex gap-2 overflow-x-auto pb-2">
-                            {categories.map(cat => (
+                    {/* ── Sidebar — Swiss: flat panel, 1px right rule, no bg card ── */}
+                    <aside className={`
+                        absolute lg:static inset-y-0 left-0 z-10 w-72 lg:w-full bg-white flex flex-col lg:col-span-3
+                        border transition-transform duration-300 ease-in-out
+                        ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+                    `} style={{ borderColor: 'var(--rule)', borderRadius: 0 }}>
+
+                        {/* Category filter */}
+                        <div className="px-5 pt-5 pb-3 border-b" style={{ borderColor: 'var(--rule)' }}>
+                            <p className="uppercase font-medium mb-3" style={{ fontSize: '10px', letterSpacing: '0.12em', color: 'var(--muted)' }}>
+                                Category
+                            </p>
+                            <div className="flex flex-wrap gap-1.5">
+                                {categories.map(cat => (
+                                    <button
+                                        key={cat}
+                                        onClick={() => setSelectedCategory(cat)}
+                                        className="transition-all"
+                                        style={{
+                                            fontSize: '11px',
+                                            letterSpacing: '0.06em',
+                                            padding: '3px 8px',
+                                            border: '1px solid',
+                                            borderColor: selectedCategory === cat ? 'var(--accent)' : 'var(--rule)',
+                                            color: selectedCategory === cat ? 'var(--accent)' : 'var(--muted)',
+                                            background: selectedCategory === cat ? 'rgba(136,0,0,0.05)' : 'transparent',
+                                            fontWeight: selectedCategory === cat ? '600' : '400',
+                                            borderRadius: 0,
+                                        }}
+                                    >
+                                        {cat}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Word list — rows with 1px rules */}
+                        <div className="flex-1 overflow-y-auto">
+                            {words.map((word, idx) => (
                                 <button
-                                    key={cat}
-                                    onClick={() => setSelectedCategory(cat)}
-                                    className={`px-2 py-1 text-xs font-semibold rounded-md transition-all whitespace-nowrap ${selectedCategory === cat
-                                        ? 'bg-[#880000] text-white'
-                                        : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-100'
-                                        }`}
+                                    key={idx}
+                                    onClick={() => handleWordSelect(idx)}
+                                    className="w-full text-left flex flex-col px-5 py-3 transition-colors border-b"
+                                    style={{
+                                        borderColor: 'var(--rule)',
+                                        background: currentIndex === idx ? 'rgba(136,0,0,0.04)' : 'transparent',
+                                        borderLeft: currentIndex === idx ? '2px solid var(--accent)' : '2px solid transparent',
+                                    }}
                                 >
-                                    {cat}
+                                    <span className="font-bold" style={{
+                                        fontSize: '15px',
+                                        color: currentIndex === idx ? 'var(--accent)' : 'var(--fg)'
+                                    }}>
+                                        {word.hindi}
+                                    </span>
+                                    <span className="truncate" style={{ fontSize: '11px', color: 'var(--muted)', marginTop: '1px' }}>
+                                        {word.meaning}
+                                    </span>
                                 </button>
                             ))}
-                        </div>
-                    </div>
-
-                    <div id="word-list-container" className="flex-1 overflow-y-auto p-2 space-y-1">
-                        {words.map((word, idx) => (
-                            <button
-                                key={idx}
-                                id={`word-item-${idx}`}
-                                onClick={() => handleWordSelect(idx)}
-                                className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors flex flex-col ${currentIndex === idx
-                                    ? 'bg-[#880000]/10 border border-[#880000]/20'
-                                    : 'hover:bg-slate-50 border border-transparent'
-                                    }`}
-                            >
-                                <span className={`font-bold ${currentIndex === idx ? 'text-[#880000]' : 'text-slate-800'}`}>
-                                    {word.hindi}
-                                </span>
-                                <span className="text-slate-500 text-xs truncate">
-                                    {word.meaning}
-                                </span>
-                            </button>
-                        ))}
-                        {words.length === 0 && (
-                            <div className="text-center py-8 text-slate-400 text-sm">
-                                No words found
-                            </div>
-                        )}
-                    </div>
-                </div>
-
-                {/* Overlay for mobile sidebar */}
-                {isSidebarOpen && (
-                    <div
-                        className="absolute inset-0 bg-black/20 z-0 lg:hidden"
-                        onClick={() => setIsSidebarOpen(false)}
-                    />
-                )}
-
-                {/* Content Area */}
-                <div id="main-content-area" className="flex-1 flex flex-col items-center justify-center py-2 px-4 md:px-6 overflow-hidden w-full">
-                    {isLoading ? (
-                        <div className="flex flex-col items-center justify-center h-64">
-                            <RefreshCw className="animate-spin text-[#880000] mb-4" size={32} />
-                            <p className="text-slate-600">Loading practice data...</p>
-                        </div>
-                    ) : words.length === 0 ? (
-                        <div className="text-center py-16 max-w-md">
-                            <BookOpen className="mx-auto text-slate-300 mb-4" size={64} />
-                            <h3 className="text-2xl font-bold text-slate-800 mb-2">No Data Found</h3>
-                            <p className="text-slate-600">
-                                No words found for the selected category.
-                            </p>
-                            <button
-                                onClick={() => setSelectedCategory('All')}
-                                className="mt-4 text-[#880000] font-semibold hover:underline"
-                            >
-                                Reset Filters
-                            </button>
-                        </div>
-                    ) : (
-                        <div className="w-full max-w-3xl flex flex-col items-center gap-3 h-full justify-center">
-
-                            {/* Controls Bar */}
-                            <div id="controls-bar" className="w-full flex flex-col sm:flex-row items-center justify-between gap-2 bg-white p-2 rounded-xl shadow-sm border border-slate-100 shrink-0">
-                                <div className="flex items-center gap-2">
-                                    <span className="text-sm font-bold text-slate-700">Mode:</span>
-                                    {apiServerRunning ? (
-                                        <div className="flex items-center gap-1 px-1.5 py-0.5 bg-green-50 text-green-700 rounded text-[10px] font-bold border border-green-200" title="API Validation Active">
-                                            <Globe size={10} /> API
-                                        </div>
-                                    ) : (
-                                        <div className="flex items-center gap-1 px-1.5 py-0.5 bg-orange-50 text-orange-700 rounded text-[10px] font-bold border border-orange-200" title="Local Validation Only">
-                                            <Globe size={10} /> DB
-                                        </div>
-                                    )}
-                                </div>
-
-                                {/* Mode Switcher */}
-                                <div id="mode-switcher" className="flex bg-slate-100 p-1 rounded-lg flex-shrink-0 w-full sm:w-auto overflow-x-auto">
-                                    <button
-                                        onClick={() => setMode('flashcard')}
-                                        className={`flex-1 sm:flex-none px-3 py-1.5 text-xs font-semibold rounded-md transition-all whitespace-nowrap ${mode === 'flashcard' ? 'bg-white text-[#880000] shadow-sm' : 'text-slate-500 hover:text-slate-700'
-                                            }`}
-                                    >
-                                        Flashcards
-                                    </button>
-                                    <button
-                                        onClick={() => setMode('read')}
-                                        className={`flex-1 sm:flex-none px-3 py-1.5 text-xs font-semibold rounded-md transition-all whitespace-nowrap ${mode === 'read' ? 'bg-white text-[#880000] shadow-sm' : 'text-slate-500 hover:text-slate-700'
-                                            }`}
-                                    >
-                                        Reading
-                                    </button>
-                                    <button
-                                        onClick={() => setMode('translate')}
-                                        className={`flex-1 sm:flex-none px-3 py-1.5 text-xs font-semibold rounded-md transition-all whitespace-nowrap ${mode === 'translate' ? 'bg-white text-[#880000] shadow-sm' : 'text-slate-500 hover:text-slate-700'
-                                            }`}
-                                    >
-                                        Meaning
-                                    </button>
-                                </div>
-                            </div>
-
-                            {/* Progress Indicator */}
-                            <div id="progress-indicator" className="w-full flex items-center justify-between px-2 text-sm text-slate-500 font-medium">
-                                <span>Card {currentIndex + 1} of {words.length}</span>
-                                <span className="bg-slate-100 px-2 py-1 rounded text-xs uppercase tracking-wider">{currentWord?.source}</span>
-                            </div>
-
-                            {/* Flashcard Mode */}
-                            {mode === 'flashcard' && (
-                                <div id="flashcard-container" className="perspective-1000 w-full flex-1 min-h-0 cursor-pointer group" onClick={() => setIsFlipped(!isFlipped)}>
-                                    <div className={`relative w-full h-full transition-all duration-500 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
-                                        {/* Front */}
-                                        <div className="absolute inset-0 backface-hidden bg-white rounded-3xl shadow-xl border border-slate-200 flex flex-col items-center justify-center p-8 hover:shadow-2xl transition-shadow">
-                                            <span className="absolute top-6 left-6 text-xs font-bold text-slate-300 uppercase tracking-widest">Hindi</span>
-                                            <h3 className="text-5xl md:text-7xl font-bold text-slate-800 mb-6 text-center leading-tight">
-                                                {currentWord?.hindi}
-                                            </h3>
-                                            <p className="text-slate-400 text-sm font-medium uppercase tracking-wider flex items-center gap-2">
-                                                <RotateCw size={14} /> Click to flip
-                                            </p>
-                                        </div>
-
-                                        {/* Back */}
-                                        <div className="absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-[#880000] to-[#660000] rounded-3xl shadow-xl flex flex-col items-center justify-center p-8 text-white">
-                                            <span className="absolute top-6 left-6 text-xs font-bold text-white/40 uppercase tracking-widest">Answer</span>
-                                            <div className="text-center space-y-6">
-                                                <div>
-                                                    <p className="text-white/60 text-sm uppercase tracking-wider mb-1">Transliteration</p>
-                                                    <p className="text-3xl md:text-4xl font-mono font-bold text-white">{currentWord?.transliteration}</p>
-                                                </div>
-                                                <div className="w-16 h-1 bg-white/20 mx-auto rounded-full"></div>
-                                                <div>
-                                                    <p className="text-white/60 text-sm uppercase tracking-wider mb-1">Meaning</p>
-                                                    <p className="text-2xl md:text-3xl font-medium text-white">{currentWord?.meaning}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                            {words.length === 0 && (
+                                <div className="px-5 py-8 text-center" style={{ fontSize: '13px', color: 'var(--muted)' }}>
+                                    No words found
                                 </div>
                             )}
+                        </div>
+                    </aside>
 
-                            {/* Reading Mode (Word Chunking) */}
-                            {mode === 'read' && (
-                                <div id="reading-mode-container" className="w-full bg-white rounded-3xl p-6 shadow-xl border border-slate-200 flex flex-col gap-4 flex-1 min-h-0 justify-center">
-                                    <div className="text-center space-y-4">
-                                        <p className="text-xs uppercase tracking-[0.2em] text-slate-400 font-bold">
-                                            Type the Transliteration (Word by Word)
-                                        </p>
-                                    </div>
+                    {/* Mobile sidebar overlay */}
+                    {isSidebarOpen && (
+                        <div
+                            className="absolute inset-0 bg-black/20 z-[5] lg:hidden"
+                            onClick={() => setIsSidebarOpen(false)}
+                        />
+                    )}
 
-                                    <div className="w-full max-w-4xl mx-auto flex flex-wrap justify-center gap-4 md:gap-6">
-                                        {currentWord?.hindi.split(/\s+/).map((word, idx) => {
-                                            const targetWords = currentWord.transliteration.split(/\s+/);
-                                            const targetWord = targetWords[idx] || '';
-                                            const isWordCorrect = showAnswer && normalizeText(wordInputs[idx] || '') === normalizeText(targetWord);
+                    {/* ── Main content area ── */}
+                    <main className="lg:col-span-9 flex flex-col min-h-0 bg-white border" style={{ borderColor: 'var(--rule)', borderRadius: 0 }}>
+                        <div className="flex-1 min-h-0 overflow-y-auto p-6 md:p-8 flex flex-col items-center justify-start">
+                            <div className="w-full max-w-2xl flex flex-col gap-5">
 
-                                            return (
-                                                <div key={idx} className="flex flex-col items-center gap-2">
-                                                    <h3 className="text-4xl md:text-5xl font-bold text-slate-900 mb-2">
-                                                        {word}
-                                                    </h3>
-                                                    <input
-                                                        id={`reading-input-${idx}`}
-                                                        ref={el => inputRefs.current[idx] = el}
-                                                        type="text"
-                                                        value={wordInputs[idx] || ''}
-                                                        onChange={(e) => {
-                                                            const newInputs = [...wordInputs];
-                                                            newInputs[idx] = e.target.value;
-                                                            setWordInputs(newInputs);
-                                                            if (showAnswer) {
-                                                                setShowAnswer(false);
-                                                                setIsCorrect(null);
-                                                            }
-                                                        }}
-                                                        onKeyDown={(e) => handleWordInputKeyDown(e, idx)}
-                                                        placeholder={idx === 0 ? "Type..." : ""}
-                                                        className={`w-32 md:w-40 px-3 py-2 text-center rounded-lg border-2 text-lg outline-none transition-all ${showAnswer
-                                                            ? isWordCorrect
-                                                                ? 'border-green-500 bg-green-50 text-green-900'
-                                                                : 'border-red-500 bg-red-50 text-red-900'
-                                                            : 'border-slate-200 focus:border-[#880000] focus:ring-2 focus:ring-[#880000]/10'
-                                                            }`}
-                                                        disabled={showAnswer}
-                                                    />
-                                                    {showAnswer && !isWordCorrect && (
-                                                        <span className="text-xs font-mono text-red-600 font-bold">{targetWord}</span>
-                                                    )}
-                                                </div>
-                                            );
-                                        })}
-                                    </div>
+                        {isLoading ? (
+                            <div className="flex flex-col items-center justify-center h-64 gap-3">
+                                <RefreshCw className="animate-spin" size={24} style={{ color: 'var(--accent)' }} />
+                                <p style={{ fontSize: '13px', color: 'var(--muted)' }}>Loading practice data...</p>
+                            </div>
+                        ) : words.length === 0 ? (
+                            <div className="text-center py-16">
+                                <BookOpen className="mx-auto mb-4" size={40} style={{ color: 'var(--rule)' }} />
+                                <p className="font-bold mb-1" style={{ fontSize: '18px' }}>No words found</p>
+                                <button
+                                    onClick={() => setSelectedCategory('All')}
+                                    className="underline transition-opacity hover:opacity-60"
+                                    style={{ fontSize: '13px', color: 'var(--accent)' }}
+                                >
+                                    Reset filters
+                                </button>
+                            </div>
+                        ) : (
+                            <>
+                                {/* ── Controls bar — flat, no card ── */}
+                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b" style={{ borderColor: 'var(--rule)' }}>
 
-                                    <div className="w-full max-w-xl mx-auto mt-4 space-y-3">
-                                        {!showAnswer ? (
+                                    {/* Mode switcher — plain text underline tabs */}
+                                    <div className="flex items-center gap-6">
+                                        {[
+                                            { id: 'flashcard', label: 'Flashcard' },
+                                            { id: 'read', label: 'Reading' },
+                                            { id: 'translate', label: 'Meaning' },
+                                        ].map(m => (
                                             <button
-                                                id="read-check-answer-btn"
-                                                onClick={handleCheckAnswer}
-                                                disabled={isValidating}
-                                                className="w-full py-4 bg-[#880000] hover:bg-[#770000] disabled:bg-slate-400 text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all transform active:scale-[0.98] flex items-center justify-center gap-2"
+                                                key={m.id}
+                                                onClick={() => { setMode(m.id); resetStateForNewCard(); }}
+                                                className="transition-all"
+                                                style={{
+                                                    fontSize: '13px',
+                                                    fontWeight: mode === m.id ? '700' : '400',
+                                                    color: mode === m.id ? 'var(--accent)' : 'var(--muted)',
+                                                    borderBottom: mode === m.id ? '2px solid var(--accent)' : '2px solid transparent',
+                                                    paddingBottom: '2px',
+                                                    letterSpacing: '0.02em',
+                                                }}
                                             >
-                                                {isValidating ? <Loader2 className="animate-spin" /> : 'Check Answer'}
+                                                {m.label}
                                             </button>
-                                        ) : (
-                                            <div className="animate-in fade-in slide-in-from-top-4 space-y-4">
-                                                <div className="bg-slate-50 rounded-xl p-4 border border-slate-200 text-center">
-                                                    <p className="text-xs text-slate-500 uppercase font-bold mb-1">Full Meaning</p>
-                                                    <p className="text-lg text-slate-800">{currentWord?.meaning}</p>
-                                                </div>
-                                                <button
-                                                    id="read-next-word-btn"
-                                                    onClick={handleNext}
-                                                    className="w-full py-4 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-bold text-lg shadow-lg transition-all flex items-center justify-center gap-2"
-                                                >
-                                                    Next Word <ChevronRight size={20} />
-                                                </button>
-                                            </div>
-                                        )}
+                                        ))}
+                                    </div>
+
+                                    {/* Counter + shuffle */}
+                                    <div className="flex items-center gap-4">
+                                        <span style={{ fontSize: '12px', color: 'var(--muted)', letterSpacing: '0.04em' }}>
+                                            {currentIndex + 1} <span style={{ color: 'var(--rule)' }}>/</span> {words.length}
+                                        </span>
+                                        <button
+                                            onClick={handleShuffle}
+                                            className="flex items-center gap-1.5 transition-opacity hover:opacity-60"
+                                            style={{ fontSize: '11px', color: 'var(--muted)', letterSpacing: '0.08em' }}
+                                        >
+                                            <RotateCw size={12} />
+                                            <span className="uppercase">Shuffle</span>
+                                        </button>
+                                        <span className="text-xs px-1.5 py-0.5 border uppercase" style={{
+                                            fontSize: '10px',
+                                            letterSpacing: '0.08em',
+                                            borderColor: 'var(--rule)',
+                                            color: 'var(--muted)',
+                                            background: 'transparent',
+                                        }}>
+                                            {currentWord?.source}
+                                        </span>
                                     </div>
                                 </div>
-                            )}
 
-                            {/* Translation Mode (Full Sentence) */}
-                            {mode === 'translate' && (
-                                <div id="translation-mode-container" className="w-full bg-white rounded-3xl p-6 shadow-xl border border-slate-200 flex flex-col gap-4 flex-1 min-h-0 justify-center">
-                                    <div className="text-center space-y-4">
-                                        <p className="text-xs uppercase tracking-[0.2em] text-slate-400 font-bold">
+                                {/* ── Flashcard Mode ── */}
+                                {mode === 'flashcard' && (
+                                    <div
+                                        id="flashcard-container"
+                                        className="perspective-1000 w-full cursor-pointer"
+                                        style={{ height: '340px' }}
+                                        onClick={() => setIsFlipped(!isFlipped)}
+                                    >
+                                        <div className={`relative w-full h-full transform-style-3d transition-all duration-500 ${isFlipped ? 'rotate-y-180' : ''}`}>
+                                            {/* Front */}
+                                            <div className="absolute inset-0 backface-hidden bg-white border flex flex-col items-center justify-center p-8"
+                                                style={{ borderColor: 'var(--rule)' }}>
+                                                <span className="absolute top-5 left-6 uppercase font-medium" style={{ fontSize: '10px', letterSpacing: '0.12em', color: 'var(--muted)' }}>
+                                                    Hindi
+                                                </span>
+                                                <h3 className="font-bold text-center leading-tight mb-6" style={{ fontSize: 'clamp(3rem, 10vw, 5rem)', color: 'var(--fg)' }}>
+                                                    {currentWord?.hindi}
+                                                </h3>
+                                                <p className="flex items-center gap-2 uppercase" style={{ fontSize: '11px', letterSpacing: '0.1em', color: 'var(--muted)' }}>
+                                                    <RotateCw size={12} /> Tap to flip
+                                                </p>
+                                            </div>
+
+                                            {/* Back */}
+                                            <div className="absolute inset-0 backface-hidden rotate-y-180 flex flex-col items-center justify-center p-8"
+                                                style={{ background: 'var(--fg)' }}>
+                                                <span className="absolute top-5 left-6 uppercase font-medium" style={{ fontSize: '10px', letterSpacing: '0.12em', color: 'rgba(255,255,255,0.35)' }}>
+                                                    Answer
+                                                </span>
+                                                <div className="text-center space-y-6">
+                                                    <div>
+                                                        <p className="uppercase mb-2" style={{ fontSize: '10px', letterSpacing: '0.12em', color: 'rgba(255,255,255,0.4)' }}>
+                                                            Transliteration
+                                                        </p>
+                                                        <p className="font-bold font-mono" style={{ fontSize: 'clamp(1.5rem, 5vw, 2.5rem)', color: 'white' }}>
+                                                            {currentWord?.transliteration}
+                                                        </p>
+                                                    </div>
+                                                    <div className="w-12 h-px mx-auto" style={{ background: 'rgba(255,255,255,0.2)' }} />
+                                                    <div>
+                                                        <p className="uppercase mb-2" style={{ fontSize: '10px', letterSpacing: '0.12em', color: 'rgba(255,255,255,0.4)' }}>
+                                                            Meaning
+                                                        </p>
+                                                        <p className="font-medium" style={{ fontSize: 'clamp(1.2rem, 4vw, 1.8rem)', color: 'rgba(255,255,255,0.9)' }}>
+                                                            {currentWord?.meaning}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* ── Reading Mode ── */}
+                                {mode === 'read' && (
+                                    <div id="reading-mode-container" className="w-full flex flex-col gap-6">
+                                        <p className="uppercase font-medium" style={{ fontSize: '10px', letterSpacing: '0.12em', color: 'var(--muted)' }}>
+                                            Type the transliteration — word by word
+                                        </p>
+
+                                        <div className="flex flex-wrap justify-center gap-6 py-4">
+                                            {currentWord?.hindi.split(/\s+/).map((word, idx) => {
+                                                const targetWords = currentWord.transliteration.split(/\s+/);
+                                                const targetWord = targetWords[idx] || '';
+                                                const isWordCorrect = showAnswer && isCorrect !== 'api_unavailable' &&
+                                                    normalizeText(wordInputs[idx] || '') === normalizeText(targetWord);
+                                                const isWordWrong = showAnswer && isCorrect !== 'api_unavailable' && !isWordCorrect;
+
+                                                return (
+                                                    <div key={idx} className="flex flex-col items-center gap-3">
+                                                        <h3 className="font-bold text-center" style={{ fontSize: 'clamp(2.5rem, 8vw, 4rem)', color: 'var(--fg)' }}>
+                                                            {word}
+                                                        </h3>
+                                                        <input
+                                                            id={`reading-input-${idx}`}
+                                                            ref={el => inputRefs.current[idx] = el}
+                                                            type="text"
+                                                            value={wordInputs[idx] || ''}
+                                                            onChange={(e) => {
+                                                                const newInputs = [...wordInputs];
+                                                                newInputs[idx] = e.target.value;
+                                                                setWordInputs(newInputs);
+                                                                if (showAnswer) { setShowAnswer(false); setIsCorrect(null); }
+                                                            }}
+                                                            onKeyDown={(e) => handleWordInputKeyDown(e, idx)}
+                                                            placeholder={idx === 0 ? 'Type...' : ''}
+                                                            disabled={showAnswer && isCorrect !== 'api_unavailable'}
+                                                            className="text-center outline-none transition-colors"
+                                                            style={{
+                                                                width: '120px',
+                                                                padding: '8px 12px',
+                                                                fontSize: '14px',
+                                                                fontFamily: "'DM Sans', sans-serif",
+                                                                border: '1px solid',
+                                                                borderRadius: 0,
+                                                                borderColor: isWordCorrect ? '#4A7C59' : isWordWrong ? 'var(--accent)' : 'var(--rule)',
+                                                                background: isWordCorrect ? '#F0FAF3' : isWordWrong ? 'rgba(136,0,0,0.04)' : 'white',
+                                                                color: isWordCorrect ? '#2D5E40' : isWordWrong ? 'var(--accent)' : 'var(--fg)',
+                                                            }}
+                                                        />
+                                                        {showAnswer && isCorrect !== 'api_unavailable' && isWordWrong && (
+                                                            <span className="font-mono font-bold" style={{ fontSize: '12px', color: 'var(--accent)' }}>
+                                                                {targetWord}
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+
+                                        {/* Action */}
+                                        <div className="flex flex-col gap-3">
+                                            {!showAnswer ? (
+                                                <button
+                                                    id="read-check-answer-btn"
+                                                    onClick={handleCheckAnswer}
+                                                    disabled={isValidating}
+                                                    className="w-full py-3 font-bold uppercase tracking-widest transition-opacity hover:opacity-80 disabled:opacity-40 flex items-center justify-center gap-2"
+                                                    style={{ fontSize: '12px', letterSpacing: '0.12em', background: 'var(--fg)', color: 'white', border: 'none', borderRadius: 0 }}
+                                                >
+                                                    {isValidating ? <Loader2 className="animate-spin" size={16} /> : 'Check Answer'}
+                                                </button>
+                                            ) : isCorrect === 'api_unavailable' ? (
+                                                <div className="border-l-2 pl-4 py-3" style={{ borderColor: '#D97706' }}>
+                                                    <p className="font-bold mb-1" style={{ fontSize: '13px', color: '#B45309' }}>API Server Required</p>
+                                                    <p style={{ fontSize: '12px', color: 'var(--muted)' }}>
+                                                        Reading mode needs the API server. Run{' '}
+                                                        <code style={{ fontFamily: 'monospace', background: '#FEF3C7', padding: '1px 5px', color: '#92400E' }}>npm run server</code>
+                                                    </p>
+                                                    <button id="read-next-word-btn" onClick={handleNext} className="mt-3 uppercase font-bold underline transition-opacity hover:opacity-60" style={{ fontSize: '12px', letterSpacing: '0.08em', color: 'var(--fg)' }}>
+                                                        Next →
+                                                    </button>
+                                                </div>
+                                            ) : (
+                                                <div className="flex flex-col gap-3">
+                                                    <div className="border-l-2 pl-4 py-2" style={{ borderColor: isCorrect ? '#4A7C59' : 'var(--accent)' }}>
+                                                        <p className="font-bold" style={{ fontSize: '13px', color: isCorrect ? '#2D5E40' : 'var(--accent)' }}>
+                                                            {isCorrect ? '✓ Correct' : '✗ Incorrect'}
+                                                        </p>
+                                                        <p style={{ fontSize: '13px', color: 'var(--muted)', marginTop: '2px' }}>
+                                                            {currentWord?.meaning}
+                                                        </p>
+                                                    </div>
+                                                    <button
+                                                        id="read-next-word-btn"
+                                                        onClick={handleNext}
+                                                        className="w-full py-3 font-bold uppercase tracking-widest transition-opacity hover:opacity-80"
+                                                        style={{ fontSize: '12px', letterSpacing: '0.12em', background: 'var(--fg)', color: 'white', border: 'none', borderRadius: 0 }}
+                                                    >
+                                                        Next →
+                                                    </button>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* ── Translation Mode ── */}
+                                {mode === 'translate' && (
+                                    <div id="translation-mode-container" className="w-full flex flex-col gap-6">
+                                        <p className="uppercase font-medium" style={{ fontSize: '10px', letterSpacing: '0.12em', color: 'var(--muted)' }}>
                                             Translate to English
                                         </p>
-                                        <h3 className="text-5xl md:text-6xl font-bold text-slate-900">
+
+                                        <h3 className="font-bold text-center" style={{ fontSize: 'clamp(3rem, 10vw, 5rem)', color: 'var(--fg)' }}>
                                             {currentWord?.hindi}
                                         </h3>
-                                    </div>
 
-                                    <div className="w-full max-w-xl mx-auto space-y-4">
                                         <div className="relative">
                                             <input
                                                 id="translation-input"
@@ -580,25 +643,33 @@ const HindiPracticePage = () => {
                                                 value={userInput}
                                                 onChange={(e) => {
                                                     setUserInput(e.target.value);
-                                                    if (showAnswer) {
-                                                        setShowAnswer(false);
-                                                        setIsCorrect(null);
-                                                    }
+                                                    if (showAnswer) { setShowAnswer(false); setIsCorrect(null); }
                                                 }}
                                                 onKeyDown={handleKeyDown}
-                                                placeholder="e.g. hello"
-                                                className={`w-full px-6 py-4 rounded-xl border-2 text-xl outline-none transition-all ${showAnswer
-                                                    ? isCorrect
-                                                        ? 'border-green-500 bg-green-50 text-green-900'
-                                                        : 'border-red-500 bg-red-50 text-red-900'
-                                                    : 'border-slate-200 focus:border-[#880000] focus:ring-4 focus:ring-[#880000]/10'
-                                                    }`}
+                                                placeholder="English meaning..."
                                                 autoFocus
+                                                className="w-full outline-none transition-colors"
+                                                style={{
+                                                    padding: '12px 16px',
+                                                    fontSize: '16px',
+                                                    fontFamily: "'DM Sans', sans-serif",
+                                                    border: '1px solid',
+                                                    borderRadius: 0,
+                                                    borderColor: showAnswer
+                                                        ? isCorrect ? '#4A7C59' : 'var(--accent)'
+                                                        : 'var(--rule)',
+                                                    background: showAnswer
+                                                        ? isCorrect ? '#F0FAF3' : 'rgba(136,0,0,0.04)'
+                                                        : 'white',
+                                                    color: 'var(--fg)',
+                                                }}
                                             />
                                             {showAnswer && (
-                                                <div className="absolute right-4 top-1/2 -translate-y-1/2">
-                                                    {isCorrect ? <CheckCircle className="text-green-600" /> : <XCircle className="text-red-600" />}
-                                                </div>
+                                                <span className="absolute right-4 top-1/2 -translate-y-1/2">
+                                                    {isCorrect
+                                                        ? <CheckCircle size={18} style={{ color: '#4A7C59' }} />
+                                                        : <XCircle size={18} style={{ color: 'var(--accent)' }} />}
+                                                </span>
                                             )}
                                         </div>
 
@@ -606,80 +677,79 @@ const HindiPracticePage = () => {
                                             <button
                                                 id="translate-check-answer-btn"
                                                 onClick={handleCheckAnswer}
-                                                className="w-full py-4 bg-[#880000] hover:bg-[#770000] text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all transform active:scale-[0.98]"
+                                                className="w-full py-3 font-bold uppercase tracking-widest transition-opacity hover:opacity-80"
+                                                style={{ fontSize: '12px', letterSpacing: '0.12em', background: 'var(--fg)', color: 'white', border: 'none', borderRadius: 0 }}
                                             >
                                                 Check Answer
                                             </button>
                                         ) : (
-                                            <div className="animate-in fade-in slide-in-from-top-4 space-y-4">
+                                            <div className="flex flex-col gap-3">
                                                 {!isCorrect && (
-                                                    <div className="bg-slate-50 rounded-xl p-4 border border-slate-200">
-                                                        <div className="grid grid-cols-2 gap-4">
-                                                            <div>
-                                                                <p className="text-xs text-slate-500 uppercase font-bold">Transliteration</p>
-                                                                <p className="text-lg font-mono text-slate-800">{currentWord?.transliteration}</p>
-                                                            </div>
-                                                            <div>
-                                                                <p className="text-xs text-slate-500 uppercase font-bold">Meaning</p>
-                                                                <p className="text-lg text-slate-800">{currentWord?.meaning}</p>
-                                                            </div>
-                                                        </div>
+                                                    <div className="border-l-2 pl-4 py-2" style={{ borderColor: 'var(--rule)' }}>
+                                                        <p className="uppercase font-medium mb-0.5" style={{ fontSize: '10px', letterSpacing: '0.1em', color: 'var(--muted)' }}>Correct answer</p>
+                                                        <p className="font-mono font-bold" style={{ fontSize: '14px', color: 'var(--fg)' }}>{currentWord?.transliteration}</p>
+                                                        <p style={{ fontSize: '14px', color: 'var(--fg)', marginTop: '4px' }}>{currentWord?.meaning}</p>
                                                     </div>
                                                 )}
                                                 <button
                                                     id="translate-next-word-btn"
                                                     onClick={handleNext}
-                                                    className="w-full py-4 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-bold text-lg shadow-lg transition-all flex items-center justify-center gap-2"
+                                                    className="w-full py-3 font-bold uppercase tracking-widest transition-opacity hover:opacity-80"
+                                                    style={{ fontSize: '12px', letterSpacing: '0.12em', background: 'var(--fg)', color: 'white', border: 'none', borderRadius: 0 }}
                                                 >
-                                                    Next Word <ChevronRight size={20} />
+                                                    Next →
                                                 </button>
                                             </div>
                                         )}
                                     </div>
+                                )}
+
+                                {/* ── Navigation — Swiss: flat arrow buttons ── */}
+                                <div className="flex items-center justify-between pt-4 border-t" style={{ borderColor: 'var(--rule)' }}>
+                                    <button
+                                        id="prev-btn"
+                                        onClick={handlePrev}
+                                        className="flex items-center gap-2 transition-opacity hover:opacity-60"
+                                        style={{ fontSize: '12px', letterSpacing: '0.08em', color: 'var(--muted)', padding: '8px 0' }}
+                                    >
+                                        <ChevronLeft size={16} />
+                                        <span className="uppercase">Prev</span>
+                                    </button>
+
+                                    {/* Progress ticks */}
+                                    <div className="hidden sm:flex items-center gap-1">
+                                        {Array.from({ length: Math.min(words.length, 30) }).map((_, i) => (
+                                            <div key={i} style={{
+                                                width: '6px', height: '6px',
+                                                background: i === currentIndex % 30 ? 'var(--accent)' : 'var(--rule)',
+                                                transition: 'background 0.2s',
+                                            }} />
+                                        ))}
+                                        {words.length > 30 && (
+                                            <span style={{ fontSize: '10px', color: 'var(--muted)', marginLeft: '4px' }}>+{words.length - 30}</span>
+                                        )}
+                                    </div>
+
+                                    <button
+                                        id="next-btn"
+                                        onClick={handleNext}
+                                        className="flex items-center gap-2 transition-opacity hover:opacity-60"
+                                        style={{ fontSize: '12px', letterSpacing: '0.08em', color: 'var(--muted)', padding: '8px 0' }}
+                                    >
+                                        <span className="uppercase">Next</span>
+                                        <ChevronRight size={16} />
+                                    </button>
                                 </div>
-                            )}
 
-                            {/* Navigation Footer */}
-                            <div className="flex items-center gap-4 mt-1 shrink-0">
-                                <button
-                                    id="prev-btn"
-                                    onClick={handlePrev}
-                                    className="p-4 bg-white border border-slate-200 rounded-full hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm text-slate-600"
-                                    title="Previous"
-                                >
-                                    <ChevronLeft size={24} />
-                                </button>
-
-                                <button
-                                    id="shuffle-btn"
-                                    onClick={handleShuffle}
-                                    className="flex items-center gap-2 px-6 py-4 bg-white border border-slate-200 rounded-full hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm text-slate-600 font-semibold"
-                                >
-                                    <RotateCw size={20} />
-                                    <span>Shuffle</span>
-                                </button>
-
-                                <button
-                                    id="next-btn"
-                                    onClick={handleNext}
-                                    className="p-4 bg-white border border-slate-200 rounded-full hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm text-slate-600"
-                                    title="Next"
-                                >
-                                    <ChevronRight size={24} />
-                                </button>
+                            </>
+                        )}
                             </div>
-
                         </div>
-                    )}
+                    </main>
                 </div>
-
-                <style>{`
-                    .perspective-1000 { perspective: 1000px; }
-                    .transform-style-3d { transform-style: preserve-3d; }
-                    .backface-hidden { backface-visibility: hidden; }
-                    .rotate-y-180 { transform: rotateY(180deg); }
-                `}</style>
             </div>
+
+            {/* 3D flip card styles are in index.css */}
         </div>
     );
 };
